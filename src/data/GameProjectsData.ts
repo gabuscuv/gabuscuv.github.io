@@ -1,10 +1,12 @@
-import {ProjectDataWithImages} from '@/src/data/ProjectDataTypes';
+import {GameProjects} from '@/src/data/ProjectDataTypes';
 
 const gameProjects = [
-  new ProjectDataWithImages(
+  new GameProjects(
     'project-1',
     'VRProject',
+    ['unreal', 'fmod'],
     'img/projects/project-1-icon.png',
+    '',
     `
     <div class="paragraph">
      <strong>VRProject</strong> is my latest project. You can check the real game page <a href="https://cutt.ly/LHTkwEH"><strong>here</strong></a> <br/>
@@ -30,10 +32,12 @@ const gameProjects = [
     '#23bd69',
     true
   ),
-  new ProjectDataWithImages(
+  new GameProjects(
     'project-2',
     'Kübler',
+    [],
     'img/projects/project-2-icon.png',
+    '',
     `
     <div class="paragraph">
         <strong>Kübler</strong> is a "unfinished" project leaded by Juanjo Salvador for Spain GameDev II, Written in Love2D. <br />
@@ -68,10 +72,12 @@ const gameProjects = [
     [],
     '#5a78af'
   ),
-  new ProjectDataWithImages(
+  new GameProjects(
     'project-3',
     'TestingGround++',
+    ['unreal'],
     'img/projects/project-3-icon.png',
+    '',
     `
     <div class="paragraph">
         <strong>TestingGround++</strong> is an improvement of the last exercise from the UE4 course made by <a href="https://www.udemy.com/user/bentristem/">Ben Tristem</a><br/>
@@ -113,10 +119,12 @@ const gameProjects = [
     ],
     '#383838'
   ),
-  new ProjectDataWithImages(
+  new GameProjects(
     'project-4',
     '_4thof4th',
+    [],
     'img/projects/project-4-icon.png',
+    'A Prototype 2D Game Engine (Based on MonoGame)',
     `
     <div class="paragraph">
     <strong>_4thof4th (2017)</strong> was my end of degree project (note: 9) using my game engine (Usagi Engine) based on MonoGame Game Framework. (C#). <br />

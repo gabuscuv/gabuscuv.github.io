@@ -13,20 +13,14 @@ export function NavBar() {
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
-        <Navbar.Link href="#" active>
+        <Navbar.Link as={Link} href="/">
           Home
         </Navbar.Link>
         <Navbar.Link as={Link} href="/">
           About Me
         </Navbar.Link>
-        <Navbar.Link as={Link} href="/GameProjects">
-          Game Projects
-        </Navbar.Link>
-        <Navbar.Link as={Link} href="/GameToolsProjects">
-          Game Tools Projects
-        </Navbar.Link>
-        <Navbar.Link as={Link} href="/OtherProjects">
-          Other Projects
+        <Navbar.Link as={Link} href="/Projects">
+          (Game(Tools)) Projects
         </Navbar.Link>
         <Navbar.Link as={Link} href="/Resume">
           Resume

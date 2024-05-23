@@ -1,10 +1,12 @@
-import {ProjectData} from '@/src/data/ProjectDataTypes';
+import {ProjectData, ToolsProjects} from '@/src/data/ProjectDataTypes';
 
 export default [
-  new ProjectData(
+  new ToolsProjects(
     'project-7',
     'Beaten Games',
+    [],
     'img/projects/BeatenGames-icon.png',
+    '',
     `
   <div class="paragraph">
     <strong>BeatenGames</strong> is a SPA (single-page application) written in JS/React.JS<br />
@@ -31,10 +33,12 @@ export default [
     false,
     true
   ),
-  new ProjectData(
+  new ToolsProjects(
     'project-6',
     'BacklogDatabase-Utils',
+    [],
     'img/projects/HLTB2GameList-icon.png',
+    '',
     `
     <div class="paragraph">
       <strong>BacklogDatabase-Utils</strong> is a autofiller database & other utils CLI program for my personal Game Database written in C#. <br />
@@ -60,10 +64,12 @@ export default [
     false,
     true
   ),
-  new ProjectData(
+  new ToolsProjects(
     'project-8',
     'HLTB2GameList',
+    [],
     'img/projects/toolkit/cmd.jpg',
+    '',
     `
     <div class="paragraph">
                 <strong>HLTB2GameList</strong> is a workaround script written in Python for a malfunction feature of BacklogDatabase-Utils (because a deprected third-party library, It's planned fix the library by myself)           

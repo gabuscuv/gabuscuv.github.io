@@ -1,10 +1,12 @@
-import {ProjectData} from '@/src/data/ProjectDataTypes';
+import {GameToolProjects, ProjectData} from '@/src/data/ProjectDataTypes';
 
 export default [
-  new ProjectData(
+  new GameToolProjects(
     'project-6',
     'ArrowDialogueParse',
+    [''],
     'img/projects/project-6-icon.png',
+    '',
     `
     <div class="paragraph">
       <strong>ArrowDialogueParse</strong> is a simple & quick format converter program/script written in golang. <br />
@@ -26,14 +28,17 @@ export default [
         </div>
 
     `,
+    [],
     '#c10606',
     false,
     false
   ),
-  new ProjectData(
+  new GameToolProjects(
     'project-7',
     'DialogueToTTS',
+    [],
     'img/projects/DialogueToTTS-icon.png',
+    '',
     `
     <div class="paragraph">
       <strong>DialogueToTTS</strong> is a program written in C#/.NETCore<br />
@@ -57,14 +62,17 @@ export default [
         </div>
 
     `,
+    [],
     '#c10606',
     false,
     false
   ),
-  new ProjectData(
+  new GameToolProjects(
     'project-8',
     'UE4 Toolkit',
+    [],
     'img/projects/toolkit/cmd.jpg',
+    '',
     `
     <div class="paragraph">
                 <strong>UE4 Toolkit</strong> is a set of scripts written in Powershell & Bash that helps about automatization compiling and cooking UE4 Games since CLI. <br />
@@ -87,6 +95,7 @@ export default [
           </div>
 
 `,
+    [],
     '#1ca1e2',
     false,
     true

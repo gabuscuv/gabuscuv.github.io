@@ -5,11 +5,11 @@ import {ReactNode} from 'react';
 export function ProjectCards(props: {projectdata: ProjectData[]}): ReactNode {
   return (
     <>
-      <div className="flex">
+      <div className="m-40 flex-wrap flex flex-row m-100">
         {props.projectdata.map(project => (
           <Card
             id={project.id}
-            className="max-w-sm"
+            className="w-60"
             imgAlt={'Screenshot of' + project.name}
             imgSrc={project.iconUrl}
           >
@@ -17,7 +17,7 @@ export function ProjectCards(props: {projectdata: ProjectData[]}): ReactNode {
               {project.name}
             </h5>
             <p className="font-small text-gray-700 dark:text-gray-400">
-              Small Description
+              {project.summary}
             </p>
           </Card>
         ))}
