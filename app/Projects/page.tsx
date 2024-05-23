@@ -4,7 +4,7 @@ import {ReactNode, useState} from 'react';
 import gameProjects from '@/src/data/GameProjectsData';
 import gameToolsProjectsData from '@/src/data/GameToolsProjectsData';
 import otherProjectsData from '@/src/data/OtherProjectsData';
-import {ProjectCards} from '../_components/ProjectCards';
+import {ProjectCards} from './components/ProjectCards';
 import {ProjectData} from '@/src/data/ProjectDataTypes';
 import {Button} from 'flowbite-react';
 
@@ -45,28 +45,18 @@ export default function ProjectBrowser(): ReactNode {
       projectTypeFilter['otherProjects'].activated = false;
     }
 
-    switch (gameType) {
-      case projectTypeEnum.Game:
-        projectTypeFilter['game'].activated =
-          !projectTypeFilter['game'].activated;
-        projectTypeFilter['gametools'].activated = false;
-        projectTypeFilter['otherProjects'].activated = false;
-        break;
-      case projectTypeEnum.GameTool:
-        projectTypeFilter['game'].activated = false;
-        projectTypeFilter['gametools'].activated =
-          !projectTypeFilter['gametools'].activated;
-        projectTypeFilter['otherProjects'].activated = false;
-
-        break;
-      case projectTypeEnum.Tool:
-        projectTypeFilter['game'].activated = false;
-        projectTypeFilter['gametools'].activated = false;
-        projectTypeFilter['otherProjects'].activated =
-          !projectTypeFilter['otherProjects'].activated;
-
-        break;
-    }
+    projectTypeFilter['game'].activated =
+      gameType === projectTypeEnum.Game
+        ? !projectTypeFilter['game'].activated
+        : false;
+    projectTypeFilter['gametools'].activated =
+      gameType === projectTypeEnum.GameTool
+        ? !projectTypeFilter['gametools'].activated
+        : false;
+    projectTypeFilter['otherProjects'].activated =
+      gameType === projectTypeEnum.Tool
+        ? !projectTypeFilter['otherProjects'].activated
+        : false;
 
     if (
       !projectTypeFilter['game'].activated &&
