@@ -1,3 +1,5 @@
+'use client';
+
 import {ProjectData} from '@/src/data/ProjectDataTypes';
 import {Card} from 'flowbite-react';
 import {ReactNode} from 'react';
@@ -5,7 +7,7 @@ import {ReactNode} from 'react';
 export function ProjectCards(props: {projectdata: ProjectData[]}): ReactNode {
   return (
     <>
-      <div className="m-40 flex-wrap flex flex-row m-100">
+      <div id="projectcardsid" className="m-40 flex-wrap flex flex-row m-100">
         {props.projectdata.map(project => (
           <Card
             id={project.id}

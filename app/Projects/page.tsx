@@ -32,9 +32,7 @@ export default function ProjectBrowser(): ReactNode {
     otherProjects: {activated: true},
   };
 
-  const [refresh, setRefresh] = useState<{
-    [id: string]: projectType;
-  }>(projectTypeFilter);
+  const [projectData, setProjectData] = useState<Array<ProjectData>>(output);
 
   function ProjectChecker(gameType: projectTypeEnum) {
     if (
@@ -80,26 +78,28 @@ export default function ProjectBrowser(): ReactNode {
       projectTypeFilter['otherProjects'].activated = true;
     }
 
-    setRefresh(projectTypeFilter);
+    ProjectCardBuilder();
   }
 
-  function ProjectCardBuilder(): ProjectData[] {
-    return output.filter(
-      e =>
-        (e.type === 'tool' && refresh['otherProjects'].activated) ||
-        (e.type === 'game' && refresh['game'].activated) ||
-        (e.type === 'gametool' && refresh['gametools'].activated)
+  function ProjectCardBuilder(): void {
+    setProjectData(
+      output.filter(
+        e =>
+          (e.type === 'tool' && projectTypeFilter['otherProjects'].activated) ||
+          (e.type === 'game' && projectTypeFilter['game'].activated) ||
+          (e.type === 'gametool' && projectTypeFilter['gametools'].activated)
+      )
     );
   }
 
   function getStatusValue(gameType: projectTypeEnum): boolean {
     switch (gameType) {
       case projectTypeEnum.Game:
-        return refresh['game'].activated;
+        return projectTypeFilter['game'].activated;
       case projectTypeEnum.GameTool:
-        return refresh['gametools'].activated;
+        return projectTypeFilter['gametools'].activated;
       case projectTypeEnum.Tool:
-        return refresh['otherProjects'].activated;
+        return projectTypeFilter['otherProjects'].activated;
     }
   }
 
@@ -126,7 +126,6 @@ export default function ProjectBrowser(): ReactNode {
             Tools
           </Button>
         </Button.Group>
-        ;
       </>
     );
   }
@@ -134,7 +133,7 @@ export default function ProjectBrowser(): ReactNode {
   return (
     <>
       <ButtonGroup />
-      <ProjectCards projectdata={ProjectCardBuilder()} />
+      <ProjectCards projectdata={projectData} />
     </>
   );
 }
