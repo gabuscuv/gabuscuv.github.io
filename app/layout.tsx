@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 import {NavBar} from './_components/NavBar';
 import {Inter} from 'next/font/google';
 import './globals.css';
+import Layout from './_components/FreezeRouter';
 
 const inter = Inter({subsets: ['latin']});
 
@@ -17,10 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      ``
       <body className={inter.className}>
         <NavBar />
-        {children}
+        <Layout>{children}</Layout>
       </body>
     </html>
   );
