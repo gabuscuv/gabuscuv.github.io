@@ -10,7 +10,7 @@ export function ProjectCards(props: {projectdata: ProjectData[]}): ReactNode {
       <div id="projectcardsid" className="m-40 flex-wrap flex flex-row m-100">
         {props.projectdata.map(project => (
           <Card
-            id={project.id}
+            key={project.id}
             className="w-60"
             imgAlt={'Screenshot of' + project.name}
             imgSrc={project.iconUrl}

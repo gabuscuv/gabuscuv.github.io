@@ -5,6 +5,7 @@ export default [
     'project-6',
     'ArrowDialogueParse',
     [''],
+    2021,
     'img/projects/project-6-icon.png',
     '',
     `
@@ -37,6 +38,7 @@ export default [
     'project-7',
     'DialogueToTTS',
     [],
+    2021,
     'img/projects/DialogueToTTS-icon.png',
     '',
     `
@@ -63,6 +65,7 @@ export default [
 
     `,
     [],
+    
     '#c10606',
     false,
     false
@@ -71,6 +74,7 @@ export default [
     'project-8',
     'UE4 Toolkit',
     [],
+    2020,
     'img/projects/toolkit/cmd.jpg',
     '',
     `

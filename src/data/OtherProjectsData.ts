@@ -2,9 +2,10 @@ import {ProjectData, ToolsProjects} from '@/src/data/ProjectDataTypes';
 
 export default [
   new ToolsProjects(
-    'project-7',
+    'project-9',
     'Beaten Games',
     [],
+    2023,
     'img/projects/BeatenGames-icon.png',
     '',
     `
@@ -34,9 +35,10 @@ export default [
     true
   ),
   new ToolsProjects(
-    'project-6',
+    'project-10',
     'BacklogDatabase-Utils',
     [],
+    2023,
     'img/projects/HLTB2GameList-icon.png',
     '',
     `
@@ -65,9 +67,10 @@ export default [
     true
   ),
   new ToolsProjects(
-    'project-8',
+    'project-11',
     'HLTB2GameList',
     [],
+    2023,
     'img/projects/toolkit/cmd.jpg',
     '',
     `

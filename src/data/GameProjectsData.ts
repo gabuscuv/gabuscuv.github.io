@@ -3,8 +3,9 @@ import {GameProjects} from '@/src/data/ProjectDataTypes';
 const gameProjects = [
   new GameProjects(
     'project-1',
-    'VRProject',
+    't!TNr+7YAA+vZ8EgbSKgLUSKeDdHZjk1EJ',
     ['unreal', 'fmod'],
+    2022,
     'img/projects/project-1-icon.png',
     '',
     `
@@ -36,6 +37,7 @@ const gameProjects = [
     'project-2',
     'Kübler',
     [],
+    2021,
     'img/projects/project-2-icon.png',
     '',
     `
@@ -76,6 +78,7 @@ const gameProjects = [
     'project-3',
     'TestingGround++',
     ['unreal'],
+    2019,
     'img/projects/project-3-icon.png',
     '',
     `
@@ -123,6 +126,7 @@ const gameProjects = [
     'project-4',
     '_4thof4th',
     [],
+    2017,
     'img/projects/project-4-icon.png',
     'A Prototype 2D Game Engine (Based on MonoGame)',
     `

@@ -1,28 +1,46 @@
 'use client';
 
-import {ReactNode, useState} from 'react';
+
+import {ReactNode, useEffect, useState} from 'react';
 import gameProjects from '@/src/data/GameProjectsData';
 import gameToolsProjectsData from '@/src/data/GameToolsProjectsData';
 import otherProjectsData from '@/src/data/OtherProjectsData';
 import {ProjectCards} from './components/ProjectCards';
 import {ProjectData} from '@/src/data/ProjectDataTypes';
-import {Button} from 'flowbite-react';
+import { ProjectDataArrayEncrypted } from "@/src/data/ProjectDataArrayEncrypted";
+import { Button } from 'flowbite-react';
+import { projectTypeEnum } from './projectTypeEnum';
 
-enum projectTypeEnum {
-  Game,
-  GameTool,
-  Tool,
-}
 
 interface projectType {
   activated: boolean;
 }
+let output: Array<ProjectData> = [];
 
 export default function ProjectBrowser(): ReactNode {
-  let output: Array<ProjectData> = [];
-  output = output.concat(gameProjects);
-  output = output.concat(gameToolsProjectsData);
-  output = output.concat(otherProjectsData);
+  const cipherstring: Uint8Array = Uint8Array.from([140, 27, 0, 173, 96, 5, 158, 202, 36, 231, 212, 24, 62, 84, 117, 167]);
+  const [projectData, setProjectData] = useState<Array<ProjectData>>([]);
+
+  useEffect(() => {
+    if (output.length == 0) {
+      crypto.subtle.importKey(
+        "raw",
+        cipherstring.buffer,
+        "AES-CTR",
+        false,
+        ["decrypt"],
+      ).then(e =>
+        new ProjectDataArrayEncrypted(gameProjects, e).Getter((projectData: Array<ProjectData>) => {
+          if (output.length != 0) { return; }
+          output = output.concat(projectData);
+          output = output.concat(gameToolsProjectsData);
+          output = output.concat(otherProjectsData);
+          setProjectData(output.toSorted(e=>e.year).toSorted(e=>e.type));
+        }
+        ),);
+    }
+  },[projectData]);
+
 
   const projectTypeFilter: {
     [id: string]: projectType;
@@ -32,9 +50,9 @@ export default function ProjectBrowser(): ReactNode {
     otherProjects: {activated: true},
   };
 
-  const [projectData, setProjectData] = useState<Array<ProjectData>>(output);
 
   function ProjectChecker(gameType: projectTypeEnum) {
+    console.log("hi!")
     if (
       projectTypeFilter['game'].activated &&
       projectTypeFilter['gametools'].activated &&
@@ -49,10 +67,12 @@ export default function ProjectBrowser(): ReactNode {
       gameType === projectTypeEnum.Game
         ? !projectTypeFilter['game'].activated
         : false;
+    
     projectTypeFilter['gametools'].activated =
       gameType === projectTypeEnum.GameTool
         ? !projectTypeFilter['gametools'].activated
         : false;
+    
     projectTypeFilter['otherProjects'].activated =
       gameType === projectTypeEnum.Tool
         ? !projectTypeFilter['otherProjects'].activated
@@ -74,11 +94,12 @@ export default function ProjectBrowser(): ReactNode {
   function ProjectCardBuilder(): void {
     setProjectData(
       output.filter(
-        e =>
-          (e.type === 'tool' && projectTypeFilter['otherProjects'].activated) ||
-          (e.type === 'game' && projectTypeFilter['game'].activated) ||
-          (e.type === 'gametool' && projectTypeFilter['gametools'].activated)
-      )
+        e => {
+          return (e.type === projectTypeEnum.Tool && projectTypeFilter['otherProjects'].activated) ||
+          (e.type === projectTypeEnum.Game && projectTypeFilter['game'].activated) ||
+          (e.type === projectTypeEnum.GameTool && projectTypeFilter['gametools'].activated)
+          }
+      ).toSorted(e=>e.year)
     );
   }
 
