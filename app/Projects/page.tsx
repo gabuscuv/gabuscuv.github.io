@@ -1,25 +1,64 @@
 'use client';
 
 
-import {ReactNode, useEffect, useState} from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import gameProjects from '@/src/data/GameProjectsData';
 import gameToolsProjectsData from '@/src/data/GameToolsProjectsData';
 import otherProjectsData from '@/src/data/OtherProjectsData';
-import {ProjectCards} from './components/ProjectCards';
-import {ProjectData} from '@/src/data/ProjectDataTypes';
+import { ProjectCards } from './components/ProjectCards';
+import { ProjectData } from '@/src/data/ProjectDataTypes';
 import { ProjectDataArrayEncrypted } from "@/src/data/ProjectDataArrayEncrypted";
-import { Button } from 'flowbite-react';
+import { Button, Checkbox, Label } from 'flowbite-react';
 import { projectTypeEnum } from './projectTypeEnum';
 
+const type: { [id: string]: { FullName: string, type: string } } =
+{
+  "c": { FullName: "C", type: "language" },
+  "cpp": { FullName: "C++", type: "language" },
+  "csharp": { FullName: "C#", type: "language" },
+  "react": { FullName: "React", type: "webFramework" },
+  "golang": { FullName: "Golang", type: "language" },
+  "unreal": { FullName: "Unreal Engine", type: "gameEngine" },
+  "monogame": { FullName: "Monogame", type: "gameLib" },
+  "love2d": { FullName: "Love2D", type: "gameLib" },
+  "raylib": { FullName: "Raylib", type: "gameLib" },
+  "unity": { FullName: "Unity", type: "gameEngine" },
+  "js": { FullName: "JavaScript", type: "language" },
+  "fmod": { "FullName": "FMOD", type: "middleware" },
+  "python": { "FullName": "Python", type: "language" },
+  "wwise": { "FullName": "Wwise", type: "middleware" },
+  "bash": { "FullName": "Bash", type: "language" },
+  "powershell": { "FullName": "PowerShell", type: "language" }
+}
+
+const categories: Array<{ FullName: string, type: string }> =
+  [
+    { FullName: "Language", type: "language" },
+    { FullName: "Game Engine", type: "gameEngine" },
+    { FullName: "Game Lib", type: "gameLib" },
+    { FullName: "Middleware", type: "middleware" },
+    { FullName: "Web Framework", type: "webFramework" },
+  ]
 
 interface projectType {
   activated: boolean;
 }
 let output: Array<ProjectData> = [];
+let filterStack: Set<string> = new Set<string>();
+
 
 export default function ProjectBrowser(): ReactNode {
   const cipherstring: Uint8Array = Uint8Array.from([140, 27, 0, 173, 96, 5, 158, 202, 36, 231, 212, 24, 62, 84, 117, 167]);
   const [projectData, setProjectData] = useState<Array<ProjectData>>([]);
+  const [_filterStack, setFilterStack] = useState<Set<string>>(new Set<string>());
+
+  const projectTypeFilter: {
+    [id: string]: projectType;
+  } = {
+    game: { activated: true },
+    gametools: { activated: true },
+    otherProjects: { activated: true },
+  };
 
   useEffect(() => {
     if (output.length == 0) {
@@ -32,27 +71,21 @@ export default function ProjectBrowser(): ReactNode {
       ).then(e =>
         new ProjectDataArrayEncrypted(gameProjects, e).Getter((projectData: Array<ProjectData>) => {
           if (output.length != 0) { return; }
-          output = output.concat(projectData);
+          output = output.concat(projectData.toSorted((a, b) => b.year - a.year));
           output = output.concat(gameToolsProjectsData);
           output = output.concat(otherProjectsData);
-          setProjectData(output.toSorted(e=>e.year).toSorted(e=>e.type));
+          setProjectData(output);
         }
         ),);
     }
-  },[projectData]);
+  }, [projectData]);
 
 
-  const projectTypeFilter: {
-    [id: string]: projectType;
-  } = {
-    game: {activated: true},
-    gametools: {activated: true},
-    otherProjects: {activated: true},
-  };
+
 
 
   function ProjectChecker(gameType: projectTypeEnum) {
-    console.log("hi!")
+
     if (
       projectTypeFilter['game'].activated &&
       projectTypeFilter['gametools'].activated &&
@@ -67,12 +100,12 @@ export default function ProjectBrowser(): ReactNode {
       gameType === projectTypeEnum.Game
         ? !projectTypeFilter['game'].activated
         : false;
-    
+
     projectTypeFilter['gametools'].activated =
       gameType === projectTypeEnum.GameTool
         ? !projectTypeFilter['gametools'].activated
         : false;
-    
+
     projectTypeFilter['otherProjects'].activated =
       gameType === projectTypeEnum.Tool
         ? !projectTypeFilter['otherProjects'].activated
@@ -93,14 +126,23 @@ export default function ProjectBrowser(): ReactNode {
 
   function ProjectCardBuilder(): void {
     setProjectData(
-      output.filter(
-        e => {
-          return (e.type === projectTypeEnum.Tool && projectTypeFilter['otherProjects'].activated) ||
-          (e.type === projectTypeEnum.Game && projectTypeFilter['game'].activated) ||
-          (e.type === projectTypeEnum.GameTool && projectTypeFilter['gametools'].activated)
+      filterOrReturn(
+        output.filter(
+          e => {
+            return (e.type === projectTypeEnum.Tool && projectTypeFilter['otherProjects'].activated) ||
+              (e.type === projectTypeEnum.Game && projectTypeFilter['game'].activated) ||
+              (e.type === projectTypeEnum.GameTool && projectTypeFilter['gametools'].activated)
           }
-      ).toSorted(e=>e.year)
+        ))
+        .toSorted((a, b) => b.year - a.year)
+        .toSorted((a, b) => a.type - b.type)
     );
+  }
+
+  function filterOrReturn(projectData: Array<ProjectData>) {
+    if (filterStack.size == 0 || projectData.length == 0) { return projectData; }
+
+    return projectData.filter(project => [...filterStack].every(fs => project.stack.includes(fs)))
   }
 
   function getStatusValue(gameType: projectTypeEnum): boolean {
@@ -113,6 +155,37 @@ export default function ProjectBrowser(): ReactNode {
         return projectTypeFilter['otherProjects'].activated;
     }
   }
+
+  function Types(): ReactNode {
+    if (projectData.length == 0) { return <></>; }
+    let tmp;
+    const _categories = [...new Set(projectData.map(item => item.stack.map(e => e)).reduce((a, b) => a.concat(b)))];
+    return (<>
+      <div className='flex flex-col pl-20 pt-10 mt-40'>
+        <h3 className='pb-5'>Filter</h3>
+        {
+          categories.map(
+            (category) => {
+              tmp = _categories.filter(_category => type[_category]?.type == category.type);
+              if (tmp.length == 0) { return <></> }
+              return <>
+                <h4 className='h3'>{category.FullName}</h4>
+                {
+                  tmp.map(e =>
+                    <div className="pt-1 pb-1 flex items-center gap-2">
+                      <Checkbox id={e}
+                        defaultChecked={_filterStack.has(e)}
+                        onClick={() => { _filterStack.has(e) ? filterStack.delete(e) : filterStack.add(e); setFilterStack(filterStack); ProjectCardBuilder(); }} />
+                      <Label htmlFor={e}>{type[e]?.FullName}</Label>
+                    </div>)
+                }
+              </>
+            })
+        }
+
+      </div></>)
+  }
+
 
   function ButtonGroup() {
     return (
@@ -144,7 +217,11 @@ export default function ProjectBrowser(): ReactNode {
   return (
     <>
       <ButtonGroup />
-      <ProjectCards projectdata={projectData} />
+      <div className='flex flex-row'>
+        <Types />
+        <ProjectCards projectdata={projectData} />
+
+      </div>
     </>
   );
 }

@@ -2,11 +2,50 @@ import {GameProjects} from '@/src/data/ProjectDataTypes';
 
 const gameProjects = [
   new GameProjects(
+    'project-34',
+    't!WtXn9NQ4/v45Nw==',
+    ['unreal'],
+    2023,
+    'img/projects/project-34-icon.png',
+    '',
+    `
+    `,
+    [],
+    '#23bd69',
+    true
+  ),
+  new GameProjects(
+    'project-33',
+    't!WtXn9NQ4/v45Nw==',
+    ['unreal', 'wwise'],
+    2023,
+    'img/projects/project-33-icon.png',
+    '',
+    `
+    `,
+    [],
+    '#23bd69',
+    true
+  ),
+  new GameProjects(
+    'project-32',
+    't!Td3h9JsP/v4lNCeX',
+    ['csharp', 'unity', 'fmod'],
+    2023,
+    'img/projects/project-32-icon.png',
+    '',
+    `
+    `,
+    [],
+    '#23bd69',
+    true
+  ),
+  new GameProjects(
     'project-1',
     't!TNr+7YAA+vZ8EgbSKgLUSKeDdHZjk1EJ',
     ['unreal', 'fmod'],
     2022,
-    'img/projects/project-1-icon.png',
+    'img/projects/project-31-icon.png',
     '',
     `
     <div class="paragraph">
@@ -36,7 +75,7 @@ const gameProjects = [
   new GameProjects(
     'project-2',
     'Kübler',
-    [],
+    ["love2d"],
     2021,
     'img/projects/project-2-icon.png',
     '',
@@ -125,7 +164,7 @@ const gameProjects = [
   new GameProjects(
     'project-4',
     '_4thof4th',
-    [],
+    ["monogame"],
     2017,
     'img/projects/project-4-icon.png',
     'A Prototype 2D Game Engine (Based on MonoGame)',

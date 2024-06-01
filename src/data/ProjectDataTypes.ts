@@ -4,7 +4,7 @@ export class ProjectData {
   id: string;
   name: string;
   type: number;
-  stack: string[];
+  stack: Array<string> = new Array<string>();
   year: number;
   summary: string;
   htmlDescription: string;
@@ -29,7 +29,7 @@ export class ProjectData {
     this.id = id;
     this.name = name;
     this.type = type;
-    this.stack = stack;
+    this.stack = stack as Array<string>;
     this.year = year;
     this.summary = summary;
     this.htmlDescription = html;
@@ -41,19 +41,19 @@ export class ProjectData {
 }
 
 export class ProjectDataWithImages extends ProjectData {
-  screenshots: string[] | undefined;
+  screenshots: Array<string> | undefined;
 
   constructor(
     id: string,
     name: string,
     type: number,
-    stack: string[],
+    stack: Array<string>,
     year: number,
     iconUrl: string,
     summary: string,
     html: string,
     accentColor = '#000000',
-    screenshots: string[],
+    screenshots: Array<string>,
     isHigh = false,
     isWide = false
   ) {
@@ -78,12 +78,12 @@ export class GameProjects extends ProjectDataWithImages {
   constructor(
     id: string,
     name: string,
-    stack: string[],
+    stack: Array<string>,
     year: number,
     iconUrl: string,
     summary: string,
     html: string,
-    screenshots: string[],
+    screenshots: Array<string>,
     accentColor = '#000000',
     isHigh = false,
     isWide = false
@@ -109,12 +109,12 @@ export class GameToolProjects extends ProjectDataWithImages {
   constructor(
     id: string,
     name: string,
-    stack: string[],
+    stack: Array<string>,
     year: number,
     iconUrl: string,
     summary: string,
     html: string,
-    screenshots: string[],
+    screenshots: Array<string>,
     accentColor = '#000000',
     isHigh = false,
     isWide = false
@@ -140,7 +140,7 @@ export class ToolsProjects extends ProjectData {
   constructor(
     id: string,
     name: string,
-    stack: string[],
+    stack: Array<string>,
     year: number,
     iconUrl: string,
     summary: string,
