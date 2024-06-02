@@ -49,6 +49,8 @@ jobs:
             echo "Unable to determine package manager" >&2
             exit 1
           fi
+      - name: Enable Corepack before setting up Node
+        run: corepack enable
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
