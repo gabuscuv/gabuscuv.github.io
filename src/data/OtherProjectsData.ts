@@ -1,14 +1,14 @@
-import {ProjectData, ToolsProjects} from '@/src/data/ProjectDataTypes';
+import {ToolsProjects} from '@/src/data/ProjectDataTypes';
 
 export default [
   new ToolsProjects(
     'project-40',
     'Party Game Launcher',
-    ["c", "raylib"],
+    ['c', 'raylib'],
     2024,
     '',
     '',
-    ``,
+    '',
     '#c10606',
     false,
     true
@@ -16,7 +16,7 @@ export default [
   new ToolsProjects(
     'project-9',
     'Beaten Games',
-    ["react"],
+    ['react'],
     2023,
     'img/projects/BeatenGames-icon.png',
     '',
@@ -49,7 +49,7 @@ export default [
   new ToolsProjects(
     'project-10',
     'BacklogDatabase-Utils',
-    ["csharp"],
+    ['csharp'],
     2023,
     'img/projects/HLTB2GameList-icon.png',
     '',
@@ -81,7 +81,7 @@ export default [
   new ToolsProjects(
     'project-11',
     'HLTB2GameList',
-    ["python"],
+    ['python'],
     2023,
     'img/projects/toolkit/cmd.jpg',
     '',

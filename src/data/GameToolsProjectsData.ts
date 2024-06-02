@@ -1,14 +1,14 @@
-import {GameToolProjects, ProjectData} from '@/src/data/ProjectDataTypes';
+import {GameToolProjects} from '@/src/data/ProjectDataTypes';
 
 export default [
   new GameToolProjects(
     'project-16',
     'Async Map Framework',
-    ["unreal", "cpp"],
+    ['unreal', 'cpp'],
     2021,
     '',
     '',
-    ``,
+    '',
     [],
     '#c10606',
     false,
@@ -17,11 +17,11 @@ export default [
   new GameToolProjects(
     'project-17',
     'OpenXR Controller Integration',
-    ["unreal", "cpp"],
+    ['unreal', 'cpp'],
     2021,
     '',
     '',
-    ``,
+    '',
     [],
     '#c10606',
     false,
@@ -30,7 +30,7 @@ export default [
   new GameToolProjects(
     'project-6',
     'ArrowDialogueParse',
-    ["golang"],
+    ['golang'],
     2021,
     'img/projects/project-6-icon.png',
     '',
@@ -63,7 +63,7 @@ export default [
   new GameToolProjects(
     'project-7',
     'DialogueToTTS',
-    ["csharp"],
+    ['csharp'],
     2021,
     'img/projects/DialogueToTTS-icon.png',
     '',
@@ -91,7 +91,7 @@ export default [
 
     `,
     [],
-    
+
     '#c10606',
     false,
     false
@@ -99,7 +99,7 @@ export default [
   new GameToolProjects(
     'project-8',
     'UE4 Toolkit',
-    ["powershell","bash"],
+    ['powershell', 'bash'],
     2020,
     'img/projects/toolkit/cmd.jpg',
     '',

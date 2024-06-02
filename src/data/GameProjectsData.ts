@@ -75,7 +75,7 @@ const gameProjects = [
   new GameProjects(
     'project-2',
     'Kübler',
-    ["love2d", "lua"],
+    ['love2d', 'lua'],
     2021,
     'img/projects/project-2-icon.png',
     '',
@@ -104,17 +104,17 @@ const gameProjects = [
     </div>
     `,
     [
-      "img/projects/Kubler/MainTitle.jpg",
-      "https://img.itch.zone/aW1hZ2UvNzcxMzE3LzQzMTUzNDcucG5n/250x600/Q3WTMj.png",
-      "img/projects/Kubler/Shield.jpg",
-      "img/projects/Kubler/Boss.jpg"
+      'img/projects/Kubler/MainTitle.jpg',
+      'https://img.itch.zone/aW1hZ2UvNzcxMzE3LzQzMTUzNDcucG5n/250x600/Q3WTMj.png',
+      'img/projects/Kubler/Shield.jpg',
+      'img/projects/Kubler/Boss.jpg',
     ],
     '#5a78af'
   ),
   new GameProjects(
     'project-3',
     'TestingGround++',
-    ['unreal', "cpp"],
+    ['unreal', 'cpp'],
     2019,
     'img/projects/project-3-icon.png',
     '',
@@ -162,7 +162,7 @@ const gameProjects = [
   new GameProjects(
     'project-4',
     '_4thof4th',
-    ["monogame", "csharp"],
+    ['monogame', 'csharp'],
     2017,
     'img/projects/project-4-icon.png',
     'A Prototype 2D Game Engine (Based on MonoGame)',

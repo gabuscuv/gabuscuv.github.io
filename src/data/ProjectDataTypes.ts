@@ -1,10 +1,10 @@
-import { projectTypeEnum } from "@/app/Projects/projectTypeEnum";
+import {projectTypeEnum} from '@/app/Projects/projectTypeEnum';
 
 export class ProjectData {
   id: string;
   name: string;
   type: number;
-  stack: Array<string> = new Array<string>();
+  stack: Array<string> = [];
   year: number;
   summary: string;
   htmlDescription: string;

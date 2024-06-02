@@ -2,5 +2,5 @@
 export enum projectTypeEnum {
   Game,
   GameTool,
-  Tool
+  Tool,
 }

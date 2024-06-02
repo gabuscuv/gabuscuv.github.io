@@ -1,6 +1,4 @@
-import gameProjects from "./GameProjectsData";
-import { ProjectData } from "./ProjectDataTypes";
-
+import {ProjectData} from './ProjectDataTypes';
 
 export class ProjectDataArrayEncrypted {
   botUserAgentsArray = [
@@ -14,27 +12,34 @@ export class ProjectDataArrayEncrypted {
 
   projectdata: Array<ProjectData> = [];
   Cachedprojects: Array<ProjectData> = [];
-  iv: Uint8Array = Uint8Array.from([48, 52, 131, 94, 42, 12, 228, 142, 17, 230, 205, 63, 232, 156, 119, 194]);
+  iv: Uint8Array = Uint8Array.from([
+    48, 52, 131, 94, 42, 12, 228, 142, 17, 230, 205, 63, 232, 156, 119, 194,
+  ]);
 
   key_encoded: CryptoKey | null;
   enc: TextDecoder;
   constructor(projectData: Array<ProjectData>, key: CryptoKey) {
     this.projectdata = projectData;
     this.key_encoded = null;
-    this.enc = new TextDecoder("utf-8");
+    this.enc = new TextDecoder('utf-8');
     this.key_encoded = key;
-
   }
 
-    Getter(callback: (para: Array<ProjectData>) => void) {
-    if (this.Cachedprojects.length != 0) { callback(this.Cachedprojects); }
+  Getter(callback: (para: Array<ProjectData>) => void) {
+    if (this.Cachedprojects.length !== 0) {
+      callback(this.Cachedprojects);
+    }
 
     const agent = navigator.userAgent;
 
-    console.log("Name Agent is..." + agent);
-    var isBotUserAgent = 0;
-    for (var j = 0; j < this.botUserAgentsArray.length; j++) {
-      if (agent.toLowerCase().indexOf(this.botUserAgentsArray[j].toLowerCase()) !== -1) {
+    console.log('Name Agent is...' + agent);
+    let isBotUserAgent = 0;
+    for (let j = 0; j < this.botUserAgentsArray.length; j++) {
+      if (
+        agent
+          .toLowerCase()
+          .indexOf(this.botUserAgentsArray[j].toLowerCase()) !== -1
+      ) {
         console.log(this.botUserAgentsArray[j]);
 
         isBotUserAgent = 1;
@@ -42,32 +47,35 @@ export class ProjectDataArrayEncrypted {
       }
     }
 
-    if (isBotUserAgent == 1) {
-    //  callback(gameProjects); return;
+    if (isBotUserAgent === 1) {
+      //  callback(gameProjects); return;
     }
-
 
     this.projectdata.forEach(project => {
       if (project.name.startsWith('t!')) {
-        crypto.subtle.decrypt({ name: "AES-CTR", counter: this.iv, length: 128 }, <CryptoKey>this.key_encoded, Uint8Array.from([...atob(project.name.replace('t!', ''))].map(char => char.charCodeAt(0))))
-          .then((name) => {
+        crypto.subtle
+          .decrypt(
+            {name: 'AES-CTR', counter: this.iv, length: 128},
+            <CryptoKey>this.key_encoded,
+            Uint8Array.from(
+              [...atob(project.name.replace('t!', ''))].map(char =>
+                char.charCodeAt(0)
+              )
+            )
+          )
+          .then(name => {
             project.name = this.enc.decode(name);
-              this.Cachedprojects.push(project);
-              if (this.projectdata.length == this.Cachedprojects.length) {
-                callback(this.Cachedprojects);
-              }
+            this.Cachedprojects.push(project);
+            if (this.projectdata.length === this.Cachedprojects.length) {
+              callback(this.Cachedprojects);
+            }
           });
-      } else
-      { 
-
-      this.Cachedprojects.push(project);
-
-      
+      } else {
+        this.Cachedprojects.push(project);
       }
-      if (this.projectdata.length == this.Cachedprojects.length) {
+      if (this.projectdata.length === this.Cachedprojects.length) {
         callback(this.Cachedprojects);
       }
     });
-
   }
 }
