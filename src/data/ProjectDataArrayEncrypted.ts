@@ -3,6 +3,7 @@ import {ProjectData} from './ProjectDataTypes';
 export class ProjectDataArrayEncrypted {
   botUserAgentsArray = [
     'googlebot',
+    'AdsBot-Google',
     'bingbot',
     'linkedinbot',
     'mediapartners-google',
@@ -48,7 +49,8 @@ export class ProjectDataArrayEncrypted {
     }
 
     if (isBotUserAgent === 1) {
-      //  callback(gameProjects); return;
+      callback(this.projectdata);
+      return;
     }
 
     this.projectdata.forEach(project => {

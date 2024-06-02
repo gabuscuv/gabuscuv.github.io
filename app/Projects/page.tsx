@@ -7,18 +7,18 @@ import otherProjectsData from '@/src/data/OtherProjectsData';
 import {ProjectCards} from './components/ProjectCards';
 import {ProjectData} from '@/src/data/ProjectDataTypes';
 import {ProjectDataArrayEncrypted} from '@/src/data/ProjectDataArrayEncrypted';
-import {Button} from 'flowbite-react';
 import {projectTypeEnum} from './projectTypeEnum';
 import ProjectModal from './components/ProjectModal';
 import {Types} from './components/ProjectFilter';
+import {projectType} from './projectType';
+import {ButtonGroup} from './components/ProjectToggle';
 
-interface projectType {
-  activated: boolean;
-}
-
+const cipherstring: Uint8Array = Uint8Array.from([
+  140, 27, 0, 173, 96, 5, 158, 202, 36, 231, 212, 24, 62, 84, 117, 167,
+]);
 const filterStack: Set<string> = new Set<string>();
 let output: Array<ProjectData> = [];
-const projectTypeFilter: {
+let projectTypeFilter: {
   [id: string]: projectType;
 } = {
   game: {activated: true},
@@ -27,17 +27,11 @@ const projectTypeFilter: {
 };
 
 export default function ProjectBrowser(): ReactNode {
-  const cipherstring: Uint8Array = Uint8Array.from([
-    140, 27, 0, 173, 96, 5, 158, 202, 36, 231, 212, 24, 62, 84, 117, 167,
-  ]);
   const [projectsData, setProjectsData] = useState<Array<ProjectData>>([]);
   const [projectData, setProjectData] = useState<ProjectData | undefined>(
     undefined
   );
-  const [_filterStack, setFilterStack] = useState<Set<string>>(
-    new Set<string>()
-  );
-  const [openModal, setOpenModal] = useState(false);
+  const [openModalStatus, setOpenModal] = useState(false);
 
   useEffect(() => {
     if (output.length === 0) {
@@ -61,60 +55,12 @@ export default function ProjectBrowser(): ReactNode {
     }
   }, [projectsData]);
 
-  function OpenModal(id: string) {
-    setProjectData(output.find(e => e.id === id));
-    setOpenModal(true);
-  }
-
-  function setAllToggles(status: boolean) {
-    projectTypeFilter['game'].activated = status;
-    projectTypeFilter['gametools'].activated = status;
-    projectTypeFilter['otherProjects'].activated = status;
-  }
-
-  function isAllToogleEnable(): Boolean {
-    return (
-      projectTypeFilter['game'].activated &&
-      projectTypeFilter['gametools'].activated &&
-      projectTypeFilter['otherProjects'].activated
-    );
-  }
-
-  function ProjectChecker(gameType: projectTypeEnum) {
-    if (isAllToogleEnable()) {
-      setAllToggles(false);
-    }
-
-    projectTypeFilter['game'].activated =
-      gameType === projectTypeEnum.Game
-        ? !projectTypeFilter['game'].activated
-        : false;
-
-    projectTypeFilter['gametools'].activated =
-      gameType === projectTypeEnum.GameTool
-        ? !projectTypeFilter['gametools'].activated
-        : false;
-
-    projectTypeFilter['otherProjects'].activated =
-      gameType === projectTypeEnum.Tool
-        ? !projectTypeFilter['otherProjects'].activated
-        : false;
-
-        if (
-          !projectTypeFilter['game'].activated &&
-          !projectTypeFilter['gametools'].activated &&
-          !projectTypeFilter['otherProjects'].activated
-        ) {
-          setAllToggles(true);
-        }
-
-    ProjectCardBuilder();
-  }
-
-  function ProjectCardBuilder(): void {
+  function ProjectCardBuilder(projectTypeFilter: {
+    [id: string]: projectType;
+  }): void {
     setProjectsData(
-      filterOrReturn(
-        output.filter(e => {
+      output
+        .filter(e => {
           return (
             (e.type === projectTypeEnum.Tool &&
               projectTypeFilter['otherProjects'].activated) ||
@@ -124,89 +70,49 @@ export default function ProjectBrowser(): ReactNode {
               projectTypeFilter['gametools'].activated)
           );
         })
-      )
+        .filter(project =>
+          [...filterStack].every(fs => project.stack.includes(fs))
+        )
         .toSorted((a, b) => b.year - a.year)
         .toSorted((a, b) => a.type - b.type)
     );
   }
 
-  function filterOrReturn(projectData: Array<ProjectData>) {
-    if (filterStack.size === 0 || projectData.length === 0) {
-      return projectData;
-    }
-
-    return projectData.filter(project =>
-      [...filterStack].every(fs => project.stack.includes(fs))
-    );
-  }
-
-  function getStatusValue(gameType: projectTypeEnum): boolean {
-    switch (gameType) {
-      case projectTypeEnum.Game:
-        return projectTypeFilter['game'].activated;
-      case projectTypeEnum.GameTool:
-        return projectTypeFilter['gametools'].activated;
-      case projectTypeEnum.Tool:
-        return projectTypeFilter['otherProjects'].activated;
-    }
-  }
-
-  function ButtonGroup() {
-    return (
-      <>
-        <div className="inline relative top-20 place-self-center">
-          <Button.Group outline>
-            <Button
-              color={getStatusValue(projectTypeEnum.Game) ? 'pink' : 'gray'}
-              onClick={() => ProjectChecker(projectTypeEnum.Game)}
-            >
-              Games
-            </Button>
-            <Button
-              color={getStatusValue(projectTypeEnum.GameTool) ? 'pink' : 'gray'}
-              onClick={() => ProjectChecker(projectTypeEnum.GameTool)}
-            >
-              Game Tools
-            </Button>
-            <Button
-              color={getStatusValue(projectTypeEnum.Tool) ? 'pink' : 'gray'}
-              onClick={() => ProjectChecker(projectTypeEnum.Tool)}
-            >
-              Tools
-            </Button>
-          </Button.Group>
-        </div>
-      </>
-    );
+  function OpenProjectModal(id: string) {
+    setProjectData(output.find(e => e.id === id));
+    setOpenModal(true);
   }
 
   function ChangedFilter(e: string) {
     filterStack.has(e) ? filterStack.delete(e) : filterStack.add(e);
+    ProjectCardBuilder(projectTypeFilter);
+  }
 
-    setFilterStack(filterStack);
-    ProjectCardBuilder();
+  function ToggleChanged(output: {[id: string]: projectType}) {
+    projectTypeFilter = output;
+    ProjectCardBuilder(projectTypeFilter);
   }
 
   return (
     <>
       <div className="flex flex-col">
-        <ButtonGroup />
+        <ButtonGroup callback={ToggleChanged} />
         <div className="flex flex-row">
           <Types
             projectsData={projectsData}
-            _filterStack={_filterStack}
+            _filterStack={filterStack}
             callback={ChangedFilter}
           />
           <ProjectCards
-            callback={string => OpenModal(string)}
+            callback={OpenProjectModal}
             projectdata={projectsData}
           />
-          <ProjectModal
-            projectData={projectData}
-            openModal={openModal}
-            closeCallback={() => setOpenModal(false)}
-          />
         </div>
+        <ProjectModal
+          projectData={projectData}
+          openModalStatus={openModalStatus}
+          closeCallback={() => setOpenModal(false)}
+        />
       </div>
     </>
   );

@@ -3,14 +3,14 @@ import {Carousel, Modal} from 'flowbite-react';
 import '../../oldcss.css';
 
 export default function ProjectModal(props: {
-  openModal: boolean;
+  openModalStatus: boolean;
   closeCallback: () => void;
   projectData: ProjectData | undefined;
 }) {
   return (
     <>
       <Modal
-        show={props.openModal}
+        show={props.openModalStatus}
         size="3xl"
         onClose={props.closeCallback}
         popup
