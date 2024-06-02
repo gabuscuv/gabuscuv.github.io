@@ -5,9 +5,6 @@
 name: Check NextJs build
 
 on:
-  push:
-    branches: ["development/main"]
-
   # Runs on pushes targeting the default branch
   push:
     branches: ["development/main", 'development/**', dependabot/**]

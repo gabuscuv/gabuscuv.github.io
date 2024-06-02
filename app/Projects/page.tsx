@@ -7,7 +7,7 @@ import otherProjectsData from '@/src/data/OtherProjectsData';
 import {ProjectCards} from './components/ProjectCards';
 import {ProjectData} from '@/src/data/ProjectDataTypes';
 import {ProjectDataArrayEncrypted} from '@/src/data/ProjectDataArrayEncrypted';
-import {projectTypeEnum} from './projectTypeEnum';
+import {projectTypeEnum} from '@/src/projectTypeEnum';
 import ProjectModal from './components/ProjectModal';
 import {Types} from './components/ProjectFilter';
 import {projectType} from './projectType';
@@ -53,7 +53,7 @@ export default function ProjectBrowser(): ReactNode {
           )
         );
     }
-  }, [projectsData]);
+  }, []);
 
   function ProjectCardBuilder(projectTypeFilter: {
     [id: string]: projectType;
@@ -96,7 +96,10 @@ export default function ProjectBrowser(): ReactNode {
   return (
     <>
       <div className="flex flex-col">
-        <ButtonGroup callback={ToggleChanged} />
+        <ButtonGroup
+          projectTypeFilter={projectTypeFilter}
+          callback={ToggleChanged}
+        />
         <div className="flex flex-row">
           <Types
             projectsData={projectsData}

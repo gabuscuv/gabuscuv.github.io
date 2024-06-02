@@ -1,14 +1,6 @@
 import {Button} from 'flowbite-react';
-import {projectTypeEnum} from '../projectTypeEnum';
+import {projectTypeEnum} from '@/src/projectTypeEnum';
 import {projectType} from '../projectType';
-
-const projectTypeFilter: {
-  [id: string]: projectType;
-} = {
-  game: {activated: true},
-  gametools: {activated: true},
-  otherProjects: {activated: true},
-};
 
 function getStatusValue(
   projectTypeFilter: {[id: string]: projectType},
@@ -24,13 +16,18 @@ function getStatusValue(
   }
 }
 
-function setAllToggles(status: boolean) {
+function setAllToggles(
+  projectTypeFilter: {[id: string]: projectType},
+  status: boolean
+) {
   projectTypeFilter['game'].activated = status;
   projectTypeFilter['gametools'].activated = status;
   projectTypeFilter['otherProjects'].activated = status;
 }
 
-function isAllToogleEnable(): Boolean {
+function isAllToogleEnable(projectTypeFilter: {
+  [id: string]: projectType;
+}): Boolean {
   return (
     projectTypeFilter['game'].activated &&
     projectTypeFilter['gametools'].activated &&
@@ -39,11 +36,12 @@ function isAllToogleEnable(): Boolean {
 }
 
 function ProjectChecker(
+  projectTypeFilter: {[id: string]: projectType},
   callback: (output: {[id: string]: projectType}) => void,
   gameType: projectTypeEnum
 ) {
-  if (isAllToogleEnable()) {
-    setAllToggles(false);
+  if (isAllToogleEnable(projectTypeFilter)) {
+    setAllToggles(projectTypeFilter, false);
   }
 
   projectTypeFilter['game'].activated =
@@ -66,12 +64,13 @@ function ProjectChecker(
     !projectTypeFilter['gametools'].activated &&
     !projectTypeFilter['otherProjects'].activated
   ) {
-    setAllToggles(true);
+    setAllToggles(projectTypeFilter, true);
   }
   callback(projectTypeFilter);
 }
 
 export function ButtonGroup(props: {
+  projectTypeFilter: {[id: string]: projectType};
   callback: (output: {[id: string]: projectType}) => void;
 }) {
   return (
@@ -80,33 +79,49 @@ export function ButtonGroup(props: {
         <Button.Group outline>
           <Button
             color={
-              getStatusValue(projectTypeFilter, projectTypeEnum.Game)
+              getStatusValue(props.projectTypeFilter, projectTypeEnum.Game)
                 ? 'pink'
                 : 'gray'
             }
-            onClick={() => ProjectChecker(props.callback, projectTypeEnum.Game)}
+            onClick={() =>
+              ProjectChecker(
+                props.projectTypeFilter,
+                props.callback,
+                projectTypeEnum.Game
+              )
+            }
           >
             Games
           </Button>
           <Button
             color={
-              getStatusValue(projectTypeFilter, projectTypeEnum.GameTool)
+              getStatusValue(props.projectTypeFilter, projectTypeEnum.GameTool)
                 ? 'pink'
                 : 'gray'
             }
             onClick={() =>
-              ProjectChecker(props.callback, projectTypeEnum.GameTool)
+              ProjectChecker(
+                props.projectTypeFilter,
+                props.callback,
+                projectTypeEnum.GameTool
+              )
             }
           >
             Game Tools
           </Button>
           <Button
             color={
-              getStatusValue(projectTypeFilter, projectTypeEnum.Tool)
+              getStatusValue(props.projectTypeFilter, projectTypeEnum.Tool)
                 ? 'pink'
                 : 'gray'
             }
-            onClick={() => ProjectChecker(props.callback, projectTypeEnum.Tool)}
+            onClick={() =>
+              ProjectChecker(
+                props.projectTypeFilter,
+                props.callback,
+                projectTypeEnum.Tool
+              )
+            }
           >
             Tools
           </Button>
