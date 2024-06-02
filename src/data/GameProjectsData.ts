@@ -3,7 +3,7 @@ import {GameProjects} from '@/src/data/ProjectDataTypes';
 const gameProjects = [
   new GameProjects(
     'project-34',
-    't!WtXn9NQ4/v45Nw==',
+    't!Ut3h7YYFv9k1MDeaAhU=',
     ['unreal'],
     2023,
     'img/projects/project-34-icon.png',
@@ -58,8 +58,8 @@ const gameProjects = [
 
      <div class="paragraph center">
      <div class="notice">
-         Windows build available on <a href="https://cutt.ly/4HEqUQu" target="_blank">itch.io (Under a pen-name)</a>.<br/>
-         It's possible to ask for a verification by a message & digital signature <a href="https://cutt.ly/gHR0BaF">here</a><br/>
+         Windows build available on <a class="oldlink" href="https://cutt.ly/4HEqUQu" target="_blank">itch.io (Under a pen-name)</a>.<br/>
+         It's possible to ask for a verification by a message & digital signature <a class="oldlink" href="https://cutt.ly/gHR0BaF">here</a><br/>
          Please Contact me if It's necessary
      </div>
      <div class="paragraph center">
@@ -75,7 +75,7 @@ const gameProjects = [
   new GameProjects(
     'project-2',
     'Kübler',
-    ["love2d"],
+    ["love2d", "lua"],
     2021,
     'img/projects/project-2-icon.png',
     '',
@@ -99,24 +99,22 @@ const gameProjects = [
 
     <div class="paragraph">
     <div class="notice">
-        Windows build available on <a href="https://juanjosalvador.itch.io/kubler" target="_blank">itch.io</a>.
+        Windows build available on <a class="oldlink" href="https://juanjosalvador.itch.io/kubler" target="_blank">itch.io</a>.
     </div>
-    </div>
-
-    <div class="paragraph center">
-    <img class="pc-screenshot" src="img/projects/Kubler/MainTitle.jpg" alt="Singing Addict Screenshot" />
-    <img class="pc-screenshot" src="https://img.itch.zone/aW1hZ2UvNzcxMzE3LzQzMTUzNDcucG5n/250x600/Q3WTMj.png" alt="Singing Addict Screenshot" />
-    <img class="pc-screenshot" src="img/projects/Kubler/Shield.jpg" alt="Singing Addict Screenshot" />
-    <img class="pc-screenshot" src="img/projects/Kubler/Boss.jpg" alt="Singing Addict Screenshot" />
     </div>
     `,
-    [],
+    [
+      "img/projects/Kubler/MainTitle.jpg",
+      "https://img.itch.zone/aW1hZ2UvNzcxMzE3LzQzMTUzNDcucG5n/250x600/Q3WTMj.png",
+      "img/projects/Kubler/Shield.jpg",
+      "img/projects/Kubler/Boss.jpg"
+    ],
     '#5a78af'
   ),
   new GameProjects(
     'project-3',
     'TestingGround++',
-    ['unreal'],
+    ['unreal', "cpp"],
     2019,
     'img/projects/project-3-icon.png',
     '',
@@ -147,8 +145,8 @@ const gameProjects = [
 
     <div class="paragraph">
         <div class="notice">
-        Windows/Linux builds available <a href="https://github.com/gabuscuv/TestingGrounds-Public/releases" target="_blank">here</a>.
-        Source code is available on <a href="https://github.com/gabuscuv/TestingGrounds-Public" target="_blank">GitHub</a>.
+        Windows/Linux builds available <a class="oldlink" href="https://github.com/gabuscuv/TestingGrounds-Public/releases" target="_blank">here</a>.
+        Source code is available on <a class="oldlink" href="https://github.com/gabuscuv/TestingGrounds-Public" target="_blank">GitHub</a>.
         </div>
     </div>
 
@@ -164,7 +162,7 @@ const gameProjects = [
   new GameProjects(
     'project-4',
     '_4thof4th',
-    ["monogame"],
+    ["monogame", "csharp"],
     2017,
     'img/projects/project-4-icon.png',
     'A Prototype 2D Game Engine (Based on MonoGame)',
@@ -177,7 +175,7 @@ const gameProjects = [
     and produces some beepings (a little melody!), all with a cheap end battle which is poor bullet hell.
     And It doesn't have an ending so, yeah, An unfinished project.
     </div>
-    <br/>Placeholder Image by <a target="_blank" href="https://www.pexels.com/fr-fr/@neo8iam">NEOSiAM 2020</a>.
+    <br/>Placeholder Image by <a class="oldlink" target="_blank" href="https://www.pexels.com/fr-fr/@neo8iam">NEOSiAM 2020</a>.
     
     <div class="paragraph">
         Main features :

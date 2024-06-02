@@ -10,6 +10,7 @@ import { ProjectData } from '@/src/data/ProjectDataTypes';
 import { ProjectDataArrayEncrypted } from "@/src/data/ProjectDataArrayEncrypted";
 import { Button, Checkbox, Label } from 'flowbite-react';
 import { projectTypeEnum } from './projectTypeEnum';
+import ProjectModal from './components/ProjectModal';
 
 const type: { [id: string]: { FullName: string, type: string } } =
 {
@@ -49,8 +50,10 @@ let filterStack: Set<string> = new Set<string>();
 
 export default function ProjectBrowser(): ReactNode {
   const cipherstring: Uint8Array = Uint8Array.from([140, 27, 0, 173, 96, 5, 158, 202, 36, 231, 212, 24, 62, 84, 117, 167]);
-  const [projectData, setProjectData] = useState<Array<ProjectData>>([]);
+  const [projectsData, setProjectsData] = useState<Array<ProjectData>>([]);
+  const [projectData, setProjectData] = useState<ProjectData | undefined>(undefined);
   const [_filterStack, setFilterStack] = useState<Set<string>>(new Set<string>());
+  const [openModal, setOpenModal] = useState(false);
 
   const projectTypeFilter: {
     [id: string]: projectType;
@@ -74,15 +77,17 @@ export default function ProjectBrowser(): ReactNode {
           output = output.concat(projectData.toSorted((a, b) => b.year - a.year));
           output = output.concat(gameToolsProjectsData);
           output = output.concat(otherProjectsData);
-          setProjectData(output);
+          setProjectsData(output);
         }
         ),);
     }
-  }, [projectData]);
+  }, [projectsData]);
 
-
-
-
+  function OpenModal(id : string)
+  {
+    setProjectData(output.find(e => e.id == id));
+    setOpenModal(true);
+  }
 
   function ProjectChecker(gameType: projectTypeEnum) {
 
@@ -125,7 +130,7 @@ export default function ProjectBrowser(): ReactNode {
   }
 
   function ProjectCardBuilder(): void {
-    setProjectData(
+    setProjectsData(
       filterOrReturn(
         output.filter(
           e => {
@@ -157,9 +162,9 @@ export default function ProjectBrowser(): ReactNode {
   }
 
   function Types(): ReactNode {
-    if (projectData.length == 0) { return <></>; }
+    if (projectsData.length == 0) { return <></>; }
     let tmp;
-    const _categories = [...new Set(projectData.map(item => item.stack.map(e => e)).reduce((a, b) => a.concat(b)))];
+    const _categories = [...new Set(projectsData.map(item => item.stack.map(e => e)).reduce((a, b) => a.concat(b)))];
     return (<>
       <div className='flex flex-col pl-20 pt-10 mt-40'>
         <h3 className='pb-5'>Filter</h3>
@@ -190,7 +195,8 @@ export default function ProjectBrowser(): ReactNode {
   function ButtonGroup() {
     return (
       <>
-        <Button.Group>
+        <div className='inline relative top-20 place-self-center'>
+        <Button.Group outline>
           <Button
             color={getStatusValue(projectTypeEnum.Game) ? 'pink' : 'gray'}
             onClick={() => ProjectChecker(projectTypeEnum.Game)}
@@ -209,18 +215,23 @@ export default function ProjectBrowser(): ReactNode {
           >
             Tools
           </Button>
-        </Button.Group>
+          </Button.Group>
+          </div>
       </>
+      
     );
   }
 
   return (
     <>
+      
+      <div className='flex flex-col'>
       <ButtonGroup />
       <div className='flex flex-row'>
         <Types />
-        <ProjectCards projectdata={projectData} />
-
+        <ProjectCards callback={(string)=>OpenModal(string)} projectdata={projectsData} />
+        <ProjectModal projectData={projectData} openModal={openModal} closeCallback={()=> setOpenModal(false)}  />
+        </div>
       </div>
     </>
   );

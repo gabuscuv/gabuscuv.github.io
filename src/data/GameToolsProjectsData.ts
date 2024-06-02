@@ -3,7 +3,7 @@ import {GameToolProjects, ProjectData} from '@/src/data/ProjectDataTypes';
 export default [
   new GameToolProjects(
     'project-16',
-    'AsyncMapFramework',
+    'Async Map Framework',
     ["unreal", "cpp"],
     2021,
     '',
@@ -16,7 +16,7 @@ export default [
   ),
   new GameToolProjects(
     'project-17',
-    'CustomOpenXRControllerIntegration',
+    'OpenXR Controller Integration',
     ["unreal", "cpp"],
     2021,
     '',
