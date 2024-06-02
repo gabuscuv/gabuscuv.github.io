@@ -18,6 +18,13 @@ interface projectType {
 
 const filterStack: Set<string> = new Set<string>();
 let output: Array<ProjectData> = [];
+const projectTypeFilter: {
+  [id: string]: projectType;
+} = {
+  game: {activated: true},
+  gametools: {activated: true},
+  otherProjects: {activated: true},
+};
 
 export default function ProjectBrowser(): ReactNode {
   const cipherstring: Uint8Array = Uint8Array.from([
@@ -31,14 +38,6 @@ export default function ProjectBrowser(): ReactNode {
     new Set<string>()
   );
   const [openModal, setOpenModal] = useState(false);
-
-  const projectTypeFilter: {
-    [id: string]: projectType;
-  } = {
-    game: {activated: true},
-    gametools: {activated: true},
-    otherProjects: {activated: true},
-  };
 
   useEffect(() => {
     if (output.length === 0) {
@@ -67,15 +66,23 @@ export default function ProjectBrowser(): ReactNode {
     setOpenModal(true);
   }
 
-  function ProjectChecker(gameType: projectTypeEnum) {
-    if (
+  function setAllToggles(status: boolean) {
+    projectTypeFilter['game'].activated = status;
+    projectTypeFilter['gametools'].activated = status;
+    projectTypeFilter['otherProjects'].activated = status;
+  }
+
+  function isAllToogleEnable(): Boolean {
+    return (
       projectTypeFilter['game'].activated &&
       projectTypeFilter['gametools'].activated &&
       projectTypeFilter['otherProjects'].activated
-    ) {
-      projectTypeFilter['game'].activated = false;
-      projectTypeFilter['gametools'].activated = false;
-      projectTypeFilter['otherProjects'].activated = false;
+    );
+  }
+
+  function ProjectChecker(gameType: projectTypeEnum) {
+    if (isAllToogleEnable()) {
+      setAllToggles(false);
     }
 
     projectTypeFilter['game'].activated =
@@ -93,15 +100,13 @@ export default function ProjectBrowser(): ReactNode {
         ? !projectTypeFilter['otherProjects'].activated
         : false;
 
-    if (
-      !projectTypeFilter['game'].activated &&
-      !projectTypeFilter['gametools'].activated &&
-      !projectTypeFilter['otherProjects'].activated
-    ) {
-      projectTypeFilter['game'].activated = true;
-      projectTypeFilter['gametools'].activated = true;
-      projectTypeFilter['otherProjects'].activated = true;
-    }
+        if (
+          !projectTypeFilter['game'].activated &&
+          !projectTypeFilter['gametools'].activated &&
+          !projectTypeFilter['otherProjects'].activated
+        ) {
+          setAllToggles(true);
+        }
 
     ProjectCardBuilder();
   }
