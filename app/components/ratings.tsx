@@ -6,17 +6,17 @@ import {ReactNode} from 'react';
 
 export function ReferencesCarouselComponent(): ReactNode {
   return (
-    <div className="border round h-80 w-full mt-4 l:ml-96 xl:h-96 2xl:w-3/6 md:h-64">
-      <Carousel className="shadow-md pt-10 bg-gray-400">
+    <>
+      <Carousel className="rounded-md h-80  2xl:h-96 xl:h-80 pt-10 bg-gray-400">
         {References.map(e => Component(e))}
       </Carousel>
-    </div>
+    </>
   );
 }
 
-function Component(reference: ReferenceClass): ReactNode {
+export function Component(reference: ReferenceClass): ReactNode {
   return (
-    <figure className="mx-auto  max-w-screen-md text-center">
+    <figure className="h-full max-h-screen-md max-w-screen-md text-center">
       <Blockquote>
         <p className="text-m md:text-2xl font-xs xl:font-medium italic text-gray-900 dark:text-white">
           {reference.description}
