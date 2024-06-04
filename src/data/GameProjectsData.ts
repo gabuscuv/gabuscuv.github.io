@@ -5,9 +5,9 @@ const gameProjects = [
     'project-34',
     't!Ut3h7YYFv9k1MDeaAhU=',
     ['unreal'],
-    2023,
+    2024,
     'img/projects/project-34-icon.png',
-    '',
+    'MalagaJam 2024',
     `
     `,
     [],
@@ -20,7 +20,7 @@ const gameProjects = [
     ['unreal', 'wwise'],
     2023,
     'img/projects/project-33-icon.png',
-    '',
+    'Spain Game Jam IV',
     `
     `,
     [],
@@ -30,10 +30,10 @@ const gameProjects = [
   new GameProjects(
     'project-32',
     't!Td3h9JsP/v4lNCeX',
-    ['csharp', 'unity', 'fmod'],
+    ['unity', 'csharp', 'fmod'],
     2023,
     'img/projects/project-32-icon.png',
-    '',
+    'MalagaJam 2023 Summer Edition',
     `
     `,
     [],
@@ -46,7 +46,7 @@ const gameProjects = [
     ['unreal', 'fmod'],
     2022,
     'img/projects/project-31-icon.png',
-    '',
+    'My First Big Project',
     `
     <div class="paragraph">
      <strong>VRProject</strong> is my latest project. You can check the real game page <a href="https://cutt.ly/LHTkwEH"><strong>here</strong></a> <br/>
@@ -76,9 +76,9 @@ const gameProjects = [
     'project-2',
     'Kübler',
     ['love2d', 'lua'],
-    2021,
+    2020,
     'img/projects/project-2-icon.png',
-    '',
+    'Spain Game Jam II',
     `
     <div class="paragraph">
         <strong>Kübler</strong> is a "unfinished" project leaded by Juanjo Salvador for Spain GameDev II, Written in Love2D. <br />
@@ -117,7 +117,7 @@ const gameProjects = [
     ['unreal', 'cpp'],
     2019,
     'img/projects/project-3-icon.png',
-    '',
+    'Improved version of an exercise',
     `
     <div class="paragraph">
         <strong>TestingGround++</strong> is an improvement of the last exercise from the UE4 course made by <a href="https://www.udemy.com/user/bentristem/">Ben Tristem</a><br/>
@@ -165,7 +165,7 @@ const gameProjects = [
     ['monogame', 'csharp'],
     2017,
     'img/projects/project-4-icon.png',
-    'A Prototype 2D Game Engine (Based on MonoGame)',
+    'An end-of-degree 2D Game Engine',
     `
     <div class="paragraph">
     <strong>_4thof4th (2017)</strong> was my end of degree project (note: 9) using my game engine (Usagi Engine) based on MonoGame Game Framework. (C#). <br />
