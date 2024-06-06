@@ -2,10 +2,12 @@
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "declaration": false,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
+    "target":"es2015",
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,

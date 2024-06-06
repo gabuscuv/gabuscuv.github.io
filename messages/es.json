@@ -1,0 +1,11 @@
+{
+    "HomePage": {
+      "Greetings": "Hola!"
+    },
+    "LocaleSwitcher": {
+      "locale": "{locale, select, es {Español} en {Ingles} other {Unknown}}"
+  },
+  "Title": "Gabriel Bustillo del Cuvillo - Desarrollador multidisciplinar"
+
+  }
+  
