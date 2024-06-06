@@ -1,0 +1,9 @@
+{
+  "HomePage": {
+    "Greetings": "Hi!"
+  },
+  "LocaleSwitcher": {
+    "locale": "{locale, select, es {Spanish} en {English} other {Unknown}}"
+  },
+  "Title": "Gabriel Bustillo del Cuvillo - Jack of the Trades Dev/IT"
+}

@@ -1,9 +1,12 @@
 'use client';
-
-import Link from 'next/link';
+import {Link, redirect, usePathname, useRouter} from './navigation';
 import {Navbar} from 'flowbite-react';
+import { ReactNode } from 'react';
 
-export function NavBar() {
+export const locales = ['en', 'es'] as const;
+export const localePrefix = 'always'; // Default
+
+  export function NavBar(props: {localeSwitcher: ReactNode}) {
   return (
     <Navbar fluid rounded>
       <Navbar.Brand as={Link} href="/">
@@ -28,6 +31,7 @@ export function NavBar() {
         <Navbar.Link as={Link} href="/References">
           References
         </Navbar.Link>
+        {props.localeSwitcher}
       </Navbar.Collapse>
     </Navbar>
   );
