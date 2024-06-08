@@ -1,4 +1,4 @@
-import {ProjectData} from './ProjectDataTypes';
+import {GameProjects, ProjectData} from './ProjectDataTypes';
 
 export class ProjectDataArrayEncrypted {
   botUserAgentsArray = [
@@ -19,8 +19,8 @@ export class ProjectDataArrayEncrypted {
 
   key_encoded: CryptoKey | null;
   enc: TextDecoder;
-  constructor(projectData: Array<ProjectData>, key: CryptoKey) {
-    this.projectdata = projectData;
+  constructor(key: CryptoKey, locale: Array<ProjectData>) {
+    this.projectdata = locale;
     this.key_encoded = null;
     this.enc = new TextDecoder('utf-8');
     this.key_encoded = key;
@@ -33,7 +33,6 @@ export class ProjectDataArrayEncrypted {
 
     const agent = navigator.userAgent;
 
-    console.log('Name Agent is...' + agent);
     let isBotUserAgent = 0;
     for (let j = 0; j < this.botUserAgentsArray.length; j++) {
       if (

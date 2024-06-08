@@ -18,7 +18,7 @@ export default [
     'Beaten Games',
     ['react'],
     2023,
-    'img/projects/BeatenGames-icon.png',
+    '/img/projects/BeatenGames-icon.png',
     '',
     `
   <div class="paragraph">
@@ -51,7 +51,7 @@ export default [
     'BacklogDatabase-Utils',
     ['csharp'],
     2023,
-    'img/projects/HLTB2GameList-icon.png',
+    '/img/projects/HLTB2GameList-icon.png',
     '',
     `
     <div class="paragraph">
@@ -83,7 +83,7 @@ export default [
     'HLTB2GameList',
     ['python'],
     2023,
-    'img/projects/toolkit/cmd.jpg',
+    '/img/projects/toolkit/cmd.jpg',
     '',
     `
     <div class="paragraph">

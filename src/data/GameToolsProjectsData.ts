@@ -32,7 +32,7 @@ export default [
     'ArrowDialogueParse',
     ['golang'],
     2021,
-    'img/projects/project-6-icon.png',
+    '/img/projects/project-6-icon.png',
     '',
     `
     <div class="paragraph">
@@ -65,7 +65,7 @@ export default [
     'DialogueToTTS',
     ['csharp'],
     2021,
-    'img/projects/DialogueToTTS-icon.png',
+    '/img/projects/DialogueToTTS-icon.png',
     '',
     `
     <div class="paragraph">
@@ -101,7 +101,7 @@ export default [
     'UE4 Toolkit',
     ['powershell', 'bash'],
     2020,
-    'img/projects/toolkit/cmd.jpg',
+    '/img/projects/toolkit/cmd.jpg',
     '',
     `
     <div class="paragraph">

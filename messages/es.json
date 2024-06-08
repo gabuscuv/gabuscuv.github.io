@@ -1,11 +1,20 @@
 {
-    "HomePage": {
-      "Greetings": "Hola!"
-    },
-    "LocaleSwitcher": {
-      "locale": "{locale, select, es {Español} en {Ingles} other {Unknown}}"
+  "HomePage": {
+    "Greetings": "Hola!"
   },
-  "Title": "Gabriel Bustillo del Cuvillo - Desarrollador multidisciplinar"
-
+  "LocaleSwitcher": {
+    "locale": "{locale, select, es {Español} en {Ingles} other {Unknown}}"
+  },
+  "Title": "Gabriel Bustillo del Cuvillo - Desarrollador multidisciplinar",
+  "CommonWords": {
+    "years": "Años",
+    "Work Experience": "Experiencia Laboral",
+    "WorkExperience": "Experiencia Laboral",
+    "Coding Experience": "Experiencia Programando"
+  },
+  "gameProjects": {
+    "TestingGround": {
+      "Description": "Una version mejorada de un ejercicio."
+    }
   }
-  
+}
