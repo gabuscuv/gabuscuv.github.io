@@ -1,12 +1,14 @@
 'use client';
-import {Link, redirect, usePathname, useRouter} from './navigation';
+import {Link, usePathname} from './navigation';
 import {Navbar} from 'flowbite-react';
-import { ReactNode } from 'react';
+import {useTranslations} from 'next-intl';
+import {ReactNode} from 'react';
 
 export const locales = ['en', 'es'] as const;
 export const localePrefix = 'always'; // Default
 
-  export function NavBar(props: {localeSwitcher: ReactNode}) {
+export function NavBar(props: {localeSwitcher: ReactNode}) {
+  const t = useTranslations('NavBar');
   return (
     <Navbar fluid rounded>
       <Navbar.Brand as={Link} href="/">
@@ -20,16 +22,20 @@ export const localePrefix = 'always'; // Default
           Home
         </Navbar.Link>
         <Navbar.Link as={Link} href="/">
-          About Me
+          {t('AboutMe')}
         </Navbar.Link>
-        <Navbar.Link as={Link} href="/Projects">
-          (Game(Tools)) Projects
+        <Navbar.Link
+          as={Link}
+          href="/Projects"
+          active={usePathname() === '/Projects'}
+        >
+          {t('Projects')}
         </Navbar.Link>
         <Navbar.Link as={Link} href="/Resume">
-          Resume
+          {t('Resume')}
         </Navbar.Link>
-        <Navbar.Link as={Link} href="/References">
-          References
+        <Navbar.Link as={Link} href="/GuestBook">
+          {t('GuestBook')}
         </Navbar.Link>
         {props.localeSwitcher}
       </Navbar.Collapse>

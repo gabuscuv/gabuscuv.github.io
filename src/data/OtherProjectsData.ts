@@ -1,26 +1,29 @@
 import {ToolsProjects} from '@/src/data/ProjectDataTypes';
+import {useTranslations} from 'next-intl';
 
-export default [
-  new ToolsProjects(
-    'project-40',
-    'Party Game Launcher',
-    ['c', 'raylib'],
-    2024,
-    '',
-    '',
-    '',
-    '#c10606',
-    false,
-    true
-  ),
-  new ToolsProjects(
-    'project-9',
-    'Beaten Games',
-    ['react'],
-    2023,
-    '/img/projects/BeatenGames-icon.png',
-    '',
-    `
+function ToolsProjectsList() {
+  const t = useTranslations('Projects.tools');
+  return [
+    new ToolsProjects(
+      'project-40',
+      'Party Game Launcher',
+      ['c', 'raylib'],
+      2024,
+      '',
+      t('PGL.Description'),
+      '',
+      '#c10606',
+      false,
+      true
+    ),
+    new ToolsProjects(
+      'project-9',
+      'Beaten Games',
+      ['react'],
+      2023,
+      '/img/projects/BeatenGames-icon.png',
+      '',
+      `
   <div class="paragraph">
     <strong>BeatenGames</strong> is a SPA (single-page application) written in JS/React.JS<br />
     This SPA is automatized list which uses data from a static (for now) JSON generated with information from my game database plus some reference from the IGDB database
@@ -42,18 +45,18 @@ export default [
       </div>
 
   `,
-    '#c10606',
-    false,
-    true
-  ),
-  new ToolsProjects(
-    'project-10',
-    'BacklogDatabase-Utils',
-    ['csharp'],
-    2023,
-    '/img/projects/HLTB2GameList-icon.png',
-    '',
-    `
+      '#c10606',
+      false,
+      true
+    ),
+    new ToolsProjects(
+      'project-10',
+      'BacklogDatabase-Utils',
+      ['csharp'],
+      2023,
+      '/img/projects/HLTB2GameList-icon.png',
+      '',
+      `
     <div class="paragraph">
       <strong>BacklogDatabase-Utils</strong> is a autofiller database & other utils CLI program for my personal Game Database written in C#. <br />
       It uses information from IGDB (API Keys required) and HowLongToBeat.
@@ -74,18 +77,18 @@ export default [
         </div>
 
     `,
-    '#c10606',
-    false,
-    true
-  ),
-  new ToolsProjects(
-    'project-11',
-    'HLTB2GameList',
-    ['python'],
-    2023,
-    '/img/projects/toolkit/cmd.jpg',
-    '',
-    `
+      '#c10606',
+      false,
+      true
+    ),
+    new ToolsProjects(
+      'project-11',
+      'HLTB2GameList',
+      ['python'],
+      2023,
+      '/img/projects/toolkit/cmd.jpg',
+      '',
+      `
     <div class="paragraph">
                 <strong>HLTB2GameList</strong> is a workaround script written in Python for a malfunction feature of BacklogDatabase-Utils (because a deprected third-party library, It's planned fix the library by myself)           
                 </div>
@@ -98,8 +101,10 @@ export default [
           </div>
 
 `,
-    '#1ca1e2',
-    false,
-    false
-  ),
-];
+      '#1ca1e2',
+      false,
+      false
+    ),
+  ];
+}
+export default ToolsProjectsList;

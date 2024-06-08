@@ -5,16 +5,75 @@
   "LocaleSwitcher": {
     "locale": "{locale, select, es {Español} en {Ingles} other {Unknown}}"
   },
-  "Title": "Gabriel Bustillo del Cuvillo - Desarrollador multidisciplinar",
+  "Metadata": {
+    "Title": "Gabriel Bustillo del Cuvillo - Desarrollador multidisciplinar"
+  },
   "CommonWords": {
     "years": "Años",
     "Work Experience": "Experiencia Laboral",
     "WorkExperience": "Experiencia Laboral",
-    "Coding Experience": "Experiencia Programando"
+    "Coding Experience": "Experiencia Programando",
+    "Education": "Educacion"
   },
-  "gameProjects": {
+  "Projects": {
+    "gameProjects": {
+      "VRProject": {
+        "Description": "Mi Primer Gran Proyecto"
+      },
+      "TestingGround": {
+        "Description": "Una version mejorada de un ejercicio."
+      }
+    },
     "TestingGround": {
       "Description": "Una version mejorada de un ejercicio."
+    },
+    "gameTools": {
+      "OXI": {
+        "Description": "Un sistema de ilumnacion de Botones para Unreal"
+      }
+    },
+    "tools": {
+      "PGL": {
+        "Description": "Un lanzador de juegos según el periferico/pincho."
+      }
     }
+  },
+  "VRProject": {
+    "Description": "Mi Primer Gran Proyecto"
+  },
+  "Guestbook": {
+    "Name": "Name/Nickname",
+    "LinkedinLink": "Linkedin Link",
+    "Description": "Message",
+    "Submit": "Send",
+    "update": "Update"
+  },
+  "Resume": {
+    "Education": {
+      "DAM": {
+        "Title": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma"
+      },
+      "SMR": {
+        "Title": "Técnico en Sistemas Microinformáticos y Redes"
+      }
+    },
+    "Locations": {
+      "Caceres": "Cáceres, España",
+      "Prague": "Parga, Chequia",
+      "London": "Londres, Inglaterra"
+    },
+    "Jobs": {
+      "Abance": {
+        "csharpdev": {
+          "Description": "Debido a una reestructuración de la Empresa, el proyecto anterior fue suspendido y soy de los pocos que permanece en la empresa debido a mis conocimientos generales de programación."
+        }
+      }
+    }
+  },
+  "NavBar": {
+    "Projects": "Proyectos",
+    "Resume": "Curriculum",
+    "GuestBook": "Libro de Invitados",
+    "AboutMe": "Sobre Mi"
   }
 }

@@ -1,4 +1,4 @@
-import {GameProjects, ProjectData} from './ProjectDataTypes';
+import {ProjectData} from './ProjectDataTypes';
 
 export class ProjectDataArrayEncrypted {
   botUserAgentsArray = [

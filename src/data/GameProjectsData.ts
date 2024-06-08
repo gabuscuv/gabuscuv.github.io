@@ -1,13 +1,11 @@
 'use client';
-import {GameProjects} from '@/src/data/ProjectDataTypes';
-import { useTranslations } from 'next-intl';
+import {GameProjects as GameProjectsType} from '@/src/data/ProjectDataTypes';
+import {useTranslations} from 'next-intl';
 
-export function gameProjects(locale: string) {
- 
- /// unstable_setRequestLocale(locale);
+export function GameProjects() {
   const t = useTranslations('Projects.gameProjects');
   return [
-    new GameProjects(
+    new GameProjectsType(
       'project-34',
       't!Ut3h7YYFv9k1MDeaAhU=',
       ['unreal'],
@@ -20,7 +18,7 @@ export function gameProjects(locale: string) {
       '#23bd69',
       true
     ),
-    new GameProjects(
+    new GameProjectsType(
       'project-33',
       't!WtXn9NQ4/v45Nw==',
       ['unreal', 'wwise'],
@@ -33,7 +31,7 @@ export function gameProjects(locale: string) {
       '#23bd69',
       true
     ),
-    new GameProjects(
+    new GameProjectsType(
       'project-32',
       't!Td3h9JsP/v4lNCeX',
       ['unity', 'csharp', 'fmod'],
@@ -46,13 +44,13 @@ export function gameProjects(locale: string) {
       '#23bd69',
       true
     ),
-    new GameProjects(
+    new GameProjectsType(
       'project-1',
       't!TNr+7YAA+vZ8EgbSKgLUSKeDdHZjk1EJ',
       ['unreal', 'fmod'],
       2022,
       '/img/projects/project-31-icon.png',
-       t('VRProject.Description'),
+      t('VRProject.Description'),
       `
     <div class="paragraph">
      <strong>VRProject</strong> is my latest project. You can check the real game page <a href="https://cutt.ly/LHTkwEH"><strong>here</strong></a> <br/>
@@ -78,7 +76,7 @@ export function gameProjects(locale: string) {
       '#23bd69',
       true
     ),
-    new GameProjects(
+    new GameProjectsType(
       'project-2',
       'Kübler',
       ['love2d', 'lua'],
@@ -117,7 +115,7 @@ export function gameProjects(locale: string) {
       ],
       '#5a78af'
     ),
-    new GameProjects(
+    new GameProjectsType(
       'project-3',
       'TestingGround++',
       ['unreal', 'cpp'],
@@ -165,7 +163,7 @@ export function gameProjects(locale: string) {
       ],
       '#383838'
     ),
-    new GameProjects(
+    new GameProjectsType(
       'project-4',
       '_4thof4th',
       ['monogame', 'csharp'],
@@ -213,4 +211,4 @@ export function gameProjects(locale: string) {
   ];
 }
 
-export default gameProjects;
+export default GameProjects;

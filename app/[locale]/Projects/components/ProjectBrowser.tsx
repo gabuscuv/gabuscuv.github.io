@@ -1,7 +1,7 @@
 'use client';
 
 import {ReactNode, useEffect, useState} from 'react';
-import gameToolsProjectsData from '@/src/data/GameToolsProjectsData';
+import {GameToolProjectsList} from '@/src/data/GameToolsProjectsData';
 import otherProjectsData from '@/src/data/OtherProjectsData';
 import {ProjectCards} from './ProjectCards';
 import {ProjectData, ProjectDataWithImages} from '@/src/data/ProjectDataTypes';
@@ -26,16 +26,22 @@ let projectTypeFilter: {
   otherProjects: {activated: true},
 };
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const locale: string = '';
+const locale = '';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function ProjectBrowser(props: {locale: string}): ReactNode {
   const [projectsData, setProjectsData] = useState<Array<ProjectData>>([]);
   const [projectData, setProjectData] = useState<ProjectData | undefined>(
     undefined
   );
   const [openModalStatus, setOpenModal] = useState(false);
-  const [projectDataOriginal] = useState<Array<ProjectDataWithImages>>(
-    GameProjectsData(props.locale)
+  // This is bad
+  const [projectDataOriginal] =
+    useState<Array<ProjectDataWithImages>>(GameProjectsData());
+  const [GameToolsProjectsList] = useState<Array<ProjectData>>(
+    GameToolProjectsList()
   );
+  const [otherProjectsDataList] =
+    useState<Array<ProjectData>>(otherProjectsData());
   // if (props.locale !== locale)
   // {
 
@@ -44,7 +50,7 @@ export default function ProjectBrowser(props: {locale: string}): ReactNode {
   // }
 
   useEffect(() => {
-    if (projectsData) {
+    if (projectsData.length === 0) {
       crypto.subtle
         .importKey('raw', cipherstring.buffer, 'AES-CTR', false, ['decrypt'])
         .then(e =>
@@ -56,14 +62,19 @@ export default function ProjectBrowser(props: {locale: string}): ReactNode {
               output = output.concat(
                 projectData.toSorted((a, b) => b.year - a.year)
               );
-              output = output.concat(gameToolsProjectsData);
-              output = output.concat(otherProjectsData);
+              output = output.concat(GameToolsProjectsList);
+              output = output.concat(otherProjectsDataList);
               setProjectsData(output);
             }
           )
         );
     }
-  }, []);
+  }, [
+    GameToolsProjectsList,
+    otherProjectsDataList,
+    projectDataOriginal,
+    projectsData,
+  ]);
   function ProjectCardBuilder(projectTypeFilter: {
     [id: string]: projectType;
   }): void {

@@ -5,25 +5,76 @@
   "LocaleSwitcher": {
     "locale": "{locale, select, es {Spanish} en {English} other {Unknown}}"
   },
-  "Title": "Gabriel Bustillo del Cuvillo - Jack of the Trades Dev/IT",
+  "Metadata": {
+    "Title": "Gabriel Bustillo del Cuvillo - Jack of the Trades Dev/IT"
+  },
   "CommonWords": {
     "years": "Years",
     "Work": "Work",
     "Work Experience": "Work Experience",
     "WorkExperience": "Work Experience",
-    "Coding Experience": "Coding Experience"
+    "Coding Experience": "Coding Experience",
+    "Education": "Education"
   },
   "Projects": {
     "gameProjects": {
       "VRProject": {
         "Description": "My First Big Project"
+      },
+      "TestingGround": {
+        "Description": "An Improved Exercise"
       }
     },
     "TestingGround": {
       "Description": "An improved version of an exercise"
+    },
+    "gameTools": {
+      "OXI": {
+        "Description": "A Highlight Button System for Unreal"
+      }
+    },
+    "tools": {
+      "PGL": {
+        "Description": "A Dongle/Gadget-based Game Launcher"
+      }
     }
   },
   "VRProject": {
     "Description": "My First Big Project"
+  },
+  "Guestbook": {
+    "Name": "Name/Nickname",
+    "LinkedinLink": "Linkedin Link",
+    "Description": "Message",
+    "Submit": "Send",
+    "update": "Update"
+  },
+  "Resume": {
+    "Education": {
+      "DAM": {
+        "Title": "Multi-platform Applications Development"
+      },
+      "SMR": {
+        "Title": "Information Technology Technican"
+      }
+    },
+    "Locations": {
+      "Caceres": "Cáceres, Spain",
+      "Prague": "Prague, Czechia",
+      "London": "London, England"
+    },
+    "Jobs": {
+      "Abance": {
+        "csharpdev": {
+          "Description": "Due to a Company restructuring, The previous project was suspended and I am one of the few who remains in the company due to my general programming knowledge."
+        }
+      }
+    }
+  },
+  "NavBar": {
+    "Projects": "(Game(Tools)) Projects",
+    "Resume": "Resume",
+    "GuestBook": "Guest Book",
+    "AboutMe": "About Me"
   }
 }

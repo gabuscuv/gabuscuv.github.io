@@ -64,7 +64,7 @@ export function Types(props: {
             <>
               <h4 className="h3">{category.FullName}</h4>
               {tmp.map(e => (
-                <div className="pt-1 pb-1 flex items-center gap-2">
+                <div key={e} className="pt-1 pb-1 flex items-center gap-2">
                   <Checkbox
                     id={e}
                     onClick={() => {
