@@ -60,7 +60,8 @@
     "Locations": {
       "Caceres": "Cáceres, España",
       "Prague": "Parga, Chequia",
-      "London": "Londres, Inglaterra"
+      "London": "Londres, Inglaterra",
+      "Puerto": "El Puerto de Santa María, España"
     },
     "Jobs": {
       "Abance": {
@@ -68,6 +69,11 @@
           "Description": "Debido a una reestructuración de la Empresa, el proyecto anterior fue suspendido y soy de los pocos que permanece en la empresa debido a mis conocimientos generales de programación."
         }
       }
+    },
+    "QuestionModal": {
+      "web": "Web",
+      "backend": "Backend",
+      "all": "Todos"
     }
   },
   "NavBar": {

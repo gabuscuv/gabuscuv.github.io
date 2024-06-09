@@ -10,7 +10,6 @@
   },
   "CommonWords": {
     "years": "Years",
-    "Work": "Work",
     "Work Experience": "Work Experience",
     "WorkExperience": "Work Experience",
     "Coding Experience": "Coding Experience",
@@ -61,7 +60,8 @@
     "Locations": {
       "Caceres": "Cáceres, Spain",
       "Prague": "Prague, Czechia",
-      "London": "London, England"
+      "London": "London, England",
+      "Puerto": "El Puerto de Santa Maria, Spain"
     },
     "Jobs": {
       "Abance": {
@@ -69,6 +69,11 @@
           "Description": "Due to a Company restructuring, The previous project was suspended and I am one of the few who remains in the company due to my general programming knowledge."
         }
       }
+    },
+    "QuestionModal": {
+      "web": "Web",
+      "backend": "Backend",
+      "all": "All"
     }
   },
   "NavBar": {
