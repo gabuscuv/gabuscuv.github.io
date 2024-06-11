@@ -13,7 +13,9 @@
     "Work Experience": "Work Experience",
     "WorkExperience": "Work Experience",
     "Coding Experience": "Coding Experience",
-    "Education": "Education"
+    "Education": "Education",
+    "Certificates": "Certificates",
+    "Talks": "Talks"
   },
   "Projects": {
     "gameProjects": {
@@ -66,7 +68,25 @@
     "Jobs": {
       "Abance": {
         "csharpdev": {
-          "Description": "Due to a Company restructuring, The previous project was suspended and I am one of the few who remains in the company due to my general programming knowledge."
+          "Description": "Due to a Company restructuring, The previous project was suspended and I am one of the few who remains in the company due to my general programming knowledge.",
+          "DotNetConsultant": ".NET Ecosystem Consultant ( architecture migration)",
+          "UnitTestDesigner": "Testing Automatization Designer"
+        },
+        "unreal": {
+          "bulletpoints": {
+            "ioOptimization": "I/O Optimization (reduction of 10-15 Min to a few seconds On Load)",
+            "pythonAuto": "Python Automatization (Commandlet and In-Editor)",
+            "accesibility": "Accessibility Options",
+            "qtTools": "Automatized Content Build Pipeline with QT tools and Multithreaded optimisations)",
+            "Networking": "Networking (replication)",
+            "buildPipeline": "Builds Pipeline (Server Included)",
+            "features": "Custom Features"
+          }
+        }
+      },
+      "itixo": {
+        "backend": {
+          "Description": "Software Creation y maintenance in .NET Framework and migration tasks to .NET Standard/Core"
         }
       }
     },

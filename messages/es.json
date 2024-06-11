@@ -13,7 +13,9 @@
     "Work Experience": "Experiencia Laboral",
     "WorkExperience": "Experiencia Laboral",
     "Coding Experience": "Experiencia Programando",
-    "Education": "Educacion"
+    "Education": "Educacion",
+    "Certificates": "Certificados",
+    "Talks": "Charlas"
   },
   "Projects": {
     "gameProjects": {

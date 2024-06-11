@@ -1,6 +1,6 @@
 import {ReactNode} from 'react';
 import {unstable_setRequestLocale} from 'next-intl/server';
-import {ResumeBuilder} from './components/ResumeBuilder';
+import {ResumeBuilder} from './ResumeBuilder';
 import {ResumeContent} from '@/src/data/Resume';
 
 //function to generate the routes for all the locales

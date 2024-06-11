@@ -1,10 +1,10 @@
 import {useTranslations} from 'next-intl';
 
 export enum JobTypeEnum {
-  None = 0,
-  GameDev = 1,
-  Backend = 2,
-  Web = 3,
+  All,
+  GameDev,
+  Backend,
+  Web,
 }
 
 class CommonMinimum {
@@ -20,7 +20,7 @@ class CommonMinimumWithLocation extends CommonMinimum {
 
 export class JobsType extends CommonMinimum {
   Description = '';
-  JobType = JobTypeEnum.None;
+  JobType = JobTypeEnum.All;
   BulletPoints: Array<string> = [];
   techStack: Array<string> = [];
 }
@@ -42,12 +42,12 @@ export type ResumeType = {
   Jobs: Array<CompanyType>;
   Education: Array<EducationType>;
   Certificate: Array<{
-    title: string;
+    Title: string;
     type: string;
     IssuerOrg: string;
     date: number;
   }>;
-  Talks: Array<{title: string; location: string; date: number}>;
+  Talks: Array<{Title: string; location: string; date: number}>;
 };
 
 export function ResumeContent(): ResumeType {
@@ -89,25 +89,25 @@ export function ResumeContent(): ResumeType {
             BulletPoints: [
               'Excel Parsing (OpenXML)',
               'HTMLScrapper',
-              '.NET Ecosystem Consultant ( architecture migration)',
-              'Testing Automatization Designer',
+              t('Jobs.Abance.csharpdev.DotNetConsultant'),
+              t('Jobs.Abance.csharpdev.UnitTestDesigner'),
             ],
           },
           {
             Title: 'Lead Unreal Engine VR Developer',
-            Description: '',
+            Description: t('Jobs.Abance.unreal.Description'),
             StartDate: Date.parse('2023/09/25'),
             EndDate: Date.parse('2024/02/24'),
             JobType: JobTypeEnum.GameDev,
             techStack: ['unreal'],
             BulletPoints: [
-              'Networking',
-              'Builds Pipeline (Server Included)',
-              'Automatized Content Build Pipeline with QT tools and Multithreaded optimisations)',
-              'I/O Optimization (reduction of 10-15 Min to a few seconds On Load)',
-              'Python Automatization (Commandlet and In-Editor)',
-              'Accessibility Options',
-              'Custom Features',
+              t('Jobs.Abance.unreal.bulletpoints.Networking'),
+              t('Jobs.Abance.unreal.bulletpoints.buildPipeline'),
+              t('Jobs.Abance.unreal.bulletpoints.qtTools'),
+              t('Jobs.Abance.unreal.bulletpoints.ioOptimization'),
+              t('Jobs.Abance.unreal.bulletpoints.pythonAuto'),
+              t('Jobs.Abance.unreal.bulletpoints.accesibility'),
+              t('Jobs.Abance.unreal.bulletpoints.features'),
             ],
           },
         ],
@@ -123,9 +123,7 @@ export function ResumeContent(): ResumeType {
         Jobs: [
           {
             Title: 'Backend Developer',
-
-            Description:
-              'Software Creation y maintenance in .NET Framework and migration tasks to .NET Standard/Core',
+            Description: t('Jobs.itixo.backend.Description'),
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2018/02/27'),
             EndDate: Date.parse('2020/06/15'),
@@ -229,44 +227,44 @@ export function ResumeContent(): ResumeType {
     ],
     Certificate: [
       {
-        title: 'Unreal Engine C++ Developer: Learn C++ and Make Video Games',
+        Title: 'Unreal Engine C++ Developer: Learn C++ and Make Video Games',
         type: 'gamedev',
         IssuerOrg: 'Udemy',
         date: Date.parse('2019/05/01'),
       },
       {
-        title:
+        Title:
           'CCNA Discovery 2 : Working at a Small-to-Medium Business or ISP',
         type: 'network',
         IssuerOrg: 'Cisco',
         date: Date.parse('2013/06/01'),
       },
       {
-        title: 'Adobe Photoshop CS3 Course',
+        Title: 'Adobe Photoshop CS3 Course',
         type: 'design',
         IssuerOrg: 'Grupo System',
         date: Date.parse('2013/06/01'),
       },
       {
-        title: 'PowerPoint 2010',
+        Title: 'PowerPoint 2010',
         type: 'office',
         IssuerOrg: 'Grupo System',
         date: Date.parse('2013/06/01'),
       },
       {
-        title: 'Access 2010',
+        Title: 'Access 2010',
         type: 'office',
         IssuerOrg: 'Grupo System',
         date: Date.parse('2013/06/01'),
       },
       {
-        title: 'CCNA Discovery 1 : Networking for Home and Small Businesses',
+        Title: 'CCNA Discovery 1 : Networking for Home and Small Businesses',
         type: 'office',
         IssuerOrg: 'Grupo System',
         date: Date.parse('2013/02/01'),
       },
       {
-        title: 'OpenOffice Writer',
+        Title: 'OpenOffice Writer',
         type: 'office',
         IssuerOrg: 'Grupo System',
         date: Date.parse('2012/12/01'),
@@ -274,7 +272,7 @@ export function ResumeContent(): ResumeType {
     ],
     Talks: [
       {
-        title: 'Domestic Motion Capture',
+        Title: 'Domestic Motion Capture',
         location: 'Cadiz GameDev MeetUp',
         date: Date.parse('2023/12/15'),
       },

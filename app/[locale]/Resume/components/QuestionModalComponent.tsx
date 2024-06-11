@@ -4,12 +4,11 @@ import {Button, Modal} from 'flowbite-react';
 import {useTranslations} from 'next-intl';
 import {ReactNode} from 'react';
 
-let jobeNum: JobTypeEnum = JobTypeEnum.None;
-
 export function QuestionModal(props: {
   openModalStatus: boolean;
   closeModalCallback: (jobeNum: JobTypeEnum) => void;
 }): ReactNode {
+  let jobeNum: JobTypeEnum;
   const t = useTranslations('Resume.QuestionModal');
   return (
     <Modal
@@ -29,7 +28,7 @@ export function QuestionModal(props: {
               <Button
                 color="gray"
                 onClick={() => {
-                  jobeNum = JobTypeEnum.None;
+                  jobeNum = JobTypeEnum.All;
                 }}
               >
                 {t('all')}
