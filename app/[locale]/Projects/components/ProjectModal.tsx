@@ -34,6 +34,8 @@ export default function ProjectModal(props: {
                 <Carousel>
                   {props.projectData.screenshots?.map((screenshots, index) => (
                     <Image
+                      width={512}
+                      height={288}
                       key={props?.projectData?.id + 'screenshot' + index}
                       alt={
                         'Screenshot ' +

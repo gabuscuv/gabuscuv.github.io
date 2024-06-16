@@ -19,9 +19,7 @@ export function QuestionModal(props: {
       <Modal.Body>
         <div className="space-y-6 p-6">
           <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-            Hi!, Thanks for getting interested in me, As I am multidisciplined
-            developer, I am obligated to get some resumes optimized for each
-            role,
+            {t('Description')}
           </p>
           <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
             <Button.Group>
@@ -67,7 +65,7 @@ export function QuestionModal(props: {
             props.closeModalCallback(jobeNum);
           }}
         >
-          I accept
+          {t('Choose')}
         </Button>
       </Modal.Footer>
     </Modal>

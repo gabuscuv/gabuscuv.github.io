@@ -11,7 +11,11 @@ export function GameToolProjectsList() {
       2021,
       '',
       '',
-      '',
+      `
+      <p>${t('WorkInProgressDescription')}</p>
+
+      <a href="https://github.com/gabuscuv/AsyncMapFramework"><img src="https://opengraph.githubassets.com/a2ecbd5836e9df8799bc72db1eaf9432781e55f22b3da85036716adcf36a00b1/gabuscuv/AsyncMapFramework" /> </a>
+      `,
       [],
       '#c10606',
       false,
@@ -24,7 +28,11 @@ export function GameToolProjectsList() {
       2021,
       '',
       t('OXI.Description'),
-      '',
+      `
+      <p>${t('WorkInProgressDescription')}</p>
+        <a href="https://github.com/gabuscuv/CustomOpenXRControllerIntegration"><img src="https://opengraph.githubassets.com/79762130c9bbd1f90ef3b2fcc247eb55c37fea6dfbd7fb9aa27b0db43bbeb3e8/gabuscuv/CustomOpenXRControllerIntegration" /> </a>
+
+      `,
       [],
       '#c10606',
       false,

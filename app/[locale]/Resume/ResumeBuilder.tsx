@@ -29,8 +29,10 @@ const jobTypeFilter: {
     wordpress: 2,
   },
   [JobTypeEnum.GameDev]: {
-    unreal: 3,
-    csharp: 2,
+    unreal: 10,
+    cpp: 6,
+    csharp: 4,
+    wordpress: -5,
   },
   [JobTypeEnum.Backend]: {
     csharp: 3,
@@ -67,6 +69,7 @@ export function ResumeBuilder(props: {
   return (
     <>
       <main className="m-5">
+        {t('CurrentView') + Object.entries(JobTypeEnum)[JobEnum]}
         <Button
           onClick={() => {
             setOpenSelectorModal(true);
@@ -74,7 +77,7 @@ export function ResumeBuilder(props: {
         >
           Change Tech Profile
         </Button>
-        <ResumeSection title="Long Live experience">
+        <ResumeSection title={t('TechExperience')}>
           <p>
             {t('Work Experience')}:{' '}
             {(
@@ -123,7 +126,7 @@ export function points(b: JobsType): number {
   b.techStack.forEach(az => {
     return (points += jobTypeFilter[JobEnum][az]
       ? jobTypeFilter[JobEnum][az]
-      : -5);
+      : 0);
   });
   return points;
 }

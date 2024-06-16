@@ -1,6 +1,7 @@
 import {useTranslations} from 'next-intl';
 import {ReferencesCarouselComponent} from './components/ratings';
 import {getTranslations, unstable_setRequestLocale} from 'next-intl/server';
+import Image from 'next/image';
 
 // Can be imported from a shared config
 const locales = ['en', 'es'];
@@ -29,17 +30,16 @@ export default function Home({params: {locale}}) {
       <div className="w-full justify-center grid gap-4 grid-cols-2 grid-flow-row">
         <h1 className=" col-span-2 text-3xl">{t('Greetings')}</h1>
         <div className="rounded-md mr-10 shadow p-5">
-          <div>
-            I&apos;m <b>Gabriel Bustillo del Cuvillo</b>, a Jack-of-all-trades
-            IT, But officially I&apos;m a Software Developer (and former IT
-            Technician).
-          </div>
+          <div>{t('Description')}.</div>
         </div>
         <div className="rounded-md shadow p-5">
           <div>
-            I&apos;m <b>Gabriel Bustillo del Cuvillo</b>, a Jack-of-all-trades
-            IT, But officially I&apos;m a Software Developer (and former IT
-            Technician).
+            <Image
+              src="/img/avatar-2.png"
+              width={200}
+              height={200}
+              alt="A Picture of me (Gaby)"
+            />
           </div>
         </div>
         <div className="xl:mx-80 col-span-2">

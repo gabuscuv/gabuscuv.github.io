@@ -76,7 +76,7 @@ export function ResumeContent(): ResumeType {
             JobType: JobTypeEnum.Web,
             StartDate: Date.parse('2024/03/10'),
             EndDate: Date.now(),
-            techStack: ['oxygen', 'css'],
+            techStack: ['oxygen'],
             BulletPoints: [],
           },
           {
@@ -85,7 +85,7 @@ export function ResumeContent(): ResumeType {
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2024/02/24'),
             EndDate: Date.now(),
-            techStack: ['csharp'],
+            techStack: ['csharp', 'grpc'],
             BulletPoints: [
               'Excel Parsing (OpenXML)',
               'HTMLScrapper',
@@ -99,7 +99,7 @@ export function ResumeContent(): ResumeType {
             StartDate: Date.parse('2023/09/25'),
             EndDate: Date.parse('2024/02/24'),
             JobType: JobTypeEnum.GameDev,
-            techStack: ['unreal'],
+            techStack: ['unreal', 'csharp', 'cpp', 'python', 'grpc'],
             BulletPoints: [
               t('Jobs.Abance.unreal.bulletpoints.Networking'),
               t('Jobs.Abance.unreal.bulletpoints.buildPipeline'),
@@ -136,9 +136,11 @@ export function ResumeContent(): ResumeType {
               'entity',
             ],
             BulletPoints: [
-              'Refactoring Tasks.',
-              'Creation and Design of Unit Tests for old and new projects',
-              'Creation of Software for Azure Platform',
+              t('Jobs.itixo.backend.bulletpoints.monitoring'),
+              t('Jobs.itixo.backend.bulletpoints.refactoring'),
+              t('Jobs.itixo.backend.bulletpoints.graphs'),
+              t('Jobs.itixo.backend.bulletpoints.tests'),
+              t('Jobs.itixo.backend.bulletpoints.azure'),
             ],
           },
         ],
@@ -154,16 +156,21 @@ export function ResumeContent(): ResumeType {
         Jobs: [
           {
             Title: 'WebApp Dev',
-            Description:
-              'Remade a Web Application originally made with Microsoft Silverlight to Node.js with REST API reverse engineering (because lack of documentation)',
+            Description: t('Jobs.knowledgemill.webapp.Description'),
             JobType: JobTypeEnum.Web,
             StartDate: Date.parse('2017/08/15'),
             EndDate: Date.parse('2017/12/15'),
-            techStack: ['nodejs', 'bootstrap', 'exchangeapi', 'centos'],
+            techStack: [
+              'nodejs',
+              'expressjs',
+              'bootstrap',
+              'exchangeapi',
+              'centos',
+            ],
             BulletPoints: [
-              'Improving WebApp offering Microsoft Exchange Service Support and Integration like other newer Company’s products.',
-              'Redesign Front Page.',
-              'RPM Packing and init.d configuration',
+              t('Jobs.knowledgemill.webapp.improvements'),
+              t('Jobs.knowledgemill.webapp.redesign'),
+              t('Jobs.knowledgemill.webapp.rpm'),
             ],
           },
           {

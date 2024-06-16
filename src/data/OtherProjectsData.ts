@@ -11,7 +11,9 @@ function ToolsProjectsList() {
       2024,
       '',
       t('PGL.Description'),
-      '',
+      `<p>${t('WorkInProgressDescription')}</p>
+      <a href="https://github.com/gabuscuv/PartyGameLauncher"><img src="https://opengraph.githubassets.com/05d4f663164deecec1ec769ac1c9fad9ca3fe326d28b85ea16ca8c79d5a5696b/gabuscuv/PartyGameLauncher" /> </a>
+`,
       '#c10606',
       false,
       true
@@ -57,6 +59,8 @@ function ToolsProjectsList() {
       '/img/projects/HLTB2GameList-icon.png',
       '',
       `
+      <p>${t('TranslationMissing')}</p>
+
     <div class="paragraph">
       <strong>BacklogDatabase-Utils</strong> is a autofiller database & other utils CLI program for my personal Game Database written in C#. <br />
       It uses information from IGDB (API Keys required) and HowLongToBeat.
@@ -89,6 +93,7 @@ function ToolsProjectsList() {
       '/img/projects/toolkit/cmd.jpg',
       '',
       `
+    <p>${t('TranslationMissing')}</p>
     <div class="paragraph">
                 <strong>HLTB2GameList</strong> is a workaround script written in Python for a malfunction feature of BacklogDatabase-Utils (because a deprected third-party library, It's planned fix the library by myself)           
                 </div>

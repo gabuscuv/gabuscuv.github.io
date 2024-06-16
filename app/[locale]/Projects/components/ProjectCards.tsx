@@ -16,7 +16,7 @@ export function ProjectCards(props: {
         {props.projectdata.map(project => (
           <Card
             key={project.id}
-            className="w-60 m-2 "
+            className="w-60 m-2 cursor-pointer"
             onClick={() => props.callback(project.id)}
             imgAlt={'Screenshot of' + project.name}
             imgSrc={project.iconUrl}

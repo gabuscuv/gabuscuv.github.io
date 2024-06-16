@@ -13,7 +13,12 @@ export function GameProjects() {
       '/img/projects/project-34-icon.png',
       'MalagaJam 2024',
       `
-    `,
+      <p>${t('WorkInProgressDescription')}</p>
+      <iframe frameborder="0"
+      src="https://itch.io/embed/2494020"
+      width="552"
+      height="167">
+     </iframe>`,
       [],
       '#23bd69',
       true
@@ -26,7 +31,9 @@ export function GameProjects() {
       '/img/projects/project-33-icon.png',
       'Spain Game Jam IV',
       `
-    `,
+      <p>${t('WorkInProgressDescription')}</p>
+      <iframe frameborder="0" src="https://itch.io/embed/2274926" width="552" height="167"></iframe>
+      `,
       [],
       '#23bd69',
       true
@@ -39,7 +46,9 @@ export function GameProjects() {
       '/img/projects/project-32-icon.png',
       'MalagaJam 2023 Summer Edition',
       `
-    `,
+      <p>${t('WorkInProgressDescription')}</p>
+      <iframe frameborder="0" src="https://itch.io/embed/2194730" width="552" height="167"></iframe>
+      `,
       [],
       '#23bd69',
       true
@@ -52,6 +61,8 @@ export function GameProjects() {
       '/img/projects/project-31-icon.png',
       t('VRProject.Description'),
       `
+      <p>${t('TranslationMissing')}</p>
+
     <div class="paragraph">
      <strong>VRProject</strong> is my latest project. You can check the real game page <a href="https://cutt.ly/LHTkwEH"><strong>here</strong></a> <br/>
 
@@ -84,6 +95,7 @@ export function GameProjects() {
       '/img/projects/project-2-icon.png',
       'Spain Game Jam II',
       `
+      <p>${t('TranslationMissing')}</p>
     <div class="paragraph">
         <strong>Kübler</strong> is a "unfinished" project leaded by Juanjo Salvador for Spain GameDev II, Written in Love2D. <br />
         It's only in Spanish
@@ -123,6 +135,7 @@ export function GameProjects() {
       '/img/projects/project-3-icon.png',
       t('TestingGround.Description'),
       `
+      <p>${t('TranslationMissing')}</p>
     <div class="paragraph">
         <strong>TestingGround++</strong> is an improvement of the last exercise from the UE4 course made by <a href="https://www.udemy.com/user/bentristem/">Ben Tristem</a><br/>
         Adding some must-have features.
@@ -171,6 +184,7 @@ export function GameProjects() {
       '/img/projects/project-4-icon.png',
       'An end-of-degree 2D Game Engine',
       `
+      <p>${t('TranslationMissing')}</p>
     <div class="paragraph">
     <strong>_4thof4th (2017)</strong> was my end of degree project (note: 9) using my game engine (Usagi Engine) based on MonoGame Game Framework. (C#). <br />
     The Game is about a supposed cute game which suffers a simulated buffer overflow and because of this causes a virtual reboot <br />
