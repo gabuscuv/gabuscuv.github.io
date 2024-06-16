@@ -1,5 +1,6 @@
 import {ProjectData, ProjectDataWithImages} from '@/src/data/ProjectDataTypes';
 import {Carousel, Modal} from 'flowbite-react';
+import Image from 'next/image';
 import '../../../oldcss.css';
 
 export default function ProjectModal(props: {
@@ -31,8 +32,19 @@ export default function ProjectModal(props: {
             {props.projectData instanceof ProjectDataWithImages ? (
               <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
                 <Carousel>
-                  {props.projectData.screenshots?.map(screenshots => (
-                    <img src={screenshots} />
+                  {props.projectData.screenshots?.map((screenshots, index) => (
+                    <Image
+                      width={512}
+                      height={288}
+                      key={props?.projectData?.id + 'screenshot' + index}
+                      alt={
+                        'Screenshot ' +
+                        index +
+                        'of Project' +
+                        props?.projectData?.name
+                      }
+                      src={screenshots}
+                    />
                   ))}
                 </Carousel>
               </div>

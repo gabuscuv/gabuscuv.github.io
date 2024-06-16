@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type {Metadata} from 'next';
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages, unstable_setRequestLocale} from 'next-intl/server';
 import {NavBar} from '../_components/NavBar';
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params: { locale }
+  params: {locale},
 }: Readonly<{
   children: React.ReactNode;
   params: {locale: string};
@@ -26,10 +26,10 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className={inter.className}>
-      <NextIntlClientProvider messages={messages}>
-        <NavBar localeSwitcher={<LocaleSwitcher />} />
+        <NextIntlClientProvider messages={messages}>
+          <NavBar localeSwitcher={<LocaleSwitcher />} />
           <Layout>{children}</Layout>
-          </NextIntlClientProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

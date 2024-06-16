@@ -1,53 +1,68 @@
-import {GameProjects} from '@/src/data/ProjectDataTypes';
+'use client';
+import {GameProjects as GameProjectsType} from '@/src/data/ProjectDataTypes';
+import {useTranslations} from 'next-intl';
 
-const gameProjects = [
-  new GameProjects(
-    'project-34',
-    't!Ut3h7YYFv9k1MDeaAhU=',
-    ['unreal'],
-    2024,
-    'img/projects/project-34-icon.png',
-    'MalagaJam 2024',
-    `
-    `,
-    [],
-    '#23bd69',
-    true
-  ),
-  new GameProjects(
-    'project-33',
-    't!WtXn9NQ4/v45Nw==',
-    ['unreal', 'wwise'],
-    2023,
-    'img/projects/project-33-icon.png',
-    'Spain Game Jam IV',
-    `
-    `,
-    [],
-    '#23bd69',
-    true
-  ),
-  new GameProjects(
-    'project-32',
-    't!Td3h9JsP/v4lNCeX',
-    ['unity', 'csharp', 'fmod'],
-    2023,
-    'img/projects/project-32-icon.png',
-    'MalagaJam 2023 Summer Edition',
-    `
-    `,
-    [],
-    '#23bd69',
-    true
-  ),
-  new GameProjects(
-    'project-1',
-    't!TNr+7YAA+vZ8EgbSKgLUSKeDdHZjk1EJ',
-    ['unreal', 'fmod'],
-    2022,
-    'img/projects/project-31-icon.png',
-    'My First Big Project',
-    `
+export function GameProjects() {
+  const t = useTranslations('Projects.gameProjects');
+  return [
+    new GameProjectsType(
+      'project-34',
+      't!Ut3h7YYFv9k1MDeaAhU=',
+      ['unreal'],
+      2024,
+      '/img/projects/project-34-icon.png',
+      'MalagaJam 2024',
+      `
+      <p>${t('WorkInProgressDescription')}</p>
+      <iframe frameborder="0"
+      src="https://itch.io/embed/2494020"
+      width="552"
+      height="167">
+     </iframe>`,
+      [],
+      '#23bd69',
+      true
+    ),
+    new GameProjectsType(
+      'project-33',
+      't!WtXn9NQ4/v45Nw==',
+      ['unreal', 'wwise'],
+      2023,
+      '/img/projects/project-33-icon.png',
+      'Spain Game Jam IV',
+      `
+      <p>${t('WorkInProgressDescription')}</p>
+      <iframe frameborder="0" src="https://itch.io/embed/2274926" width="552" height="167"></iframe>
+      `,
+      [],
+      '#23bd69',
+      true
+    ),
+    new GameProjectsType(
+      'project-32',
+      't!Td3h9JsP/v4lNCeX',
+      ['unity', 'csharp', 'fmod'],
+      2023,
+      '/img/projects/project-32-icon.png',
+      'MalagaJam 2023 Summer Edition',
+      `
+      <p>${t('WorkInProgressDescription')}</p>
+      <iframe frameborder="0" src="https://itch.io/embed/2194730" width="552" height="167"></iframe>
+      `,
+      [],
+      '#23bd69',
+      true
+    ),
+    new GameProjectsType(
+      'project-1',
+      't!TNr+7YAA+vZ8EgbSKgLUSKeDdHZjk1EJ',
+      ['unreal', 'fmod'],
+      2022,
+      '/img/projects/project-31-icon.png',
+      t('VRProject.Description'),
+      `
+      <p>${t('TranslationMissing')}</p>
+
     <div class="paragraph">
      <strong>VRProject</strong> is my latest project. You can check the real game page <a href="https://cutt.ly/LHTkwEH"><strong>here</strong></a> <br/>
 
@@ -68,18 +83,19 @@ const gameProjects = [
     </div>
 
     `,
-    [],
-    '#23bd69',
-    true
-  ),
-  new GameProjects(
-    'project-2',
-    'Kübler',
-    ['love2d', 'lua'],
-    2020,
-    'img/projects/project-2-icon.png',
-    'Spain Game Jam II',
-    `
+      [],
+      '#23bd69',
+      true
+    ),
+    new GameProjectsType(
+      'project-2',
+      'Kübler',
+      ['love2d', 'lua'],
+      2020,
+      '/img/projects/project-2-icon.png',
+      'Spain Game Jam II',
+      `
+      <p>${t('TranslationMissing')}</p>
     <div class="paragraph">
         <strong>Kübler</strong> is a "unfinished" project leaded by Juanjo Salvador for Spain GameDev II, Written in Love2D. <br />
         It's only in Spanish
@@ -103,22 +119,23 @@ const gameProjects = [
     </div>
     </div>
     `,
-    [
-      'img/projects/Kubler/MainTitle.jpg',
-      'https://img.itch.zone/aW1hZ2UvNzcxMzE3LzQzMTUzNDcucG5n/250x600/Q3WTMj.png',
-      'img/projects/Kubler/Shield.jpg',
-      'img/projects/Kubler/Boss.jpg',
-    ],
-    '#5a78af'
-  ),
-  new GameProjects(
-    'project-3',
-    'TestingGround++',
-    ['unreal', 'cpp'],
-    2019,
-    'img/projects/project-3-icon.png',
-    'Improved version of an exercise',
-    `
+      [
+        '/img/projects/Kubler/MainTitle.jpg',
+        'https://img.itch.zone/aW1hZ2UvNzcxMzE3LzQzMTUzNDcucG5n/250x600/Q3WTMj.png',
+        '/img/projects/Kubler/Shield.jpg',
+        '/img/projects/Kubler/Boss.jpg',
+      ],
+      '#5a78af'
+    ),
+    new GameProjectsType(
+      'project-3',
+      'TestingGround++',
+      ['unreal', 'cpp'],
+      2019,
+      '/img/projects/project-3-icon.png',
+      t('TestingGround.Description'),
+      `
+      <p>${t('TranslationMissing')}</p>
     <div class="paragraph">
         <strong>TestingGround++</strong> is an improvement of the last exercise from the UE4 course made by <a href="https://www.udemy.com/user/bentristem/">Ben Tristem</a><br/>
         Adding some must-have features.
@@ -151,22 +168,23 @@ const gameProjects = [
     </div>
 
     `,
-    [
-      'img/projects/TestingGrounds/MainMenu.jpg',
-      'img/projects/TestingGrounds/NormalBattle.jpg',
-      'img/projects/TestingGrounds/AmmoItem.jpg',
-      'img/projects/TestingGrounds/DeathScreen.jpg',
-    ],
-    '#383838'
-  ),
-  new GameProjects(
-    'project-4',
-    '_4thof4th',
-    ['monogame', 'csharp'],
-    2017,
-    'img/projects/project-4-icon.png',
-    'An end-of-degree 2D Game Engine',
-    `
+      [
+        '/img/projects/TestingGrounds/MainMenu.jpg',
+        '/img/projects/TestingGrounds/NormalBattle.jpg',
+        '/img/projects/TestingGrounds/AmmoItem.jpg',
+        '/img/projects/TestingGrounds/DeathScreen.jpg',
+      ],
+      '#383838'
+    ),
+    new GameProjectsType(
+      'project-4',
+      '_4thof4th',
+      ['monogame', 'csharp'],
+      2017,
+      '/img/projects/project-4-icon.png',
+      'An end-of-degree 2D Game Engine',
+      `
+      <p>${t('TranslationMissing')}</p>
     <div class="paragraph">
     <strong>_4thof4th (2017)</strong> was my end of degree project (note: 9) using my game engine (Usagi Engine) based on MonoGame Game Framework. (C#). <br />
     The Game is about a supposed cute game which suffers a simulated buffer overflow and because of this causes a virtual reboot <br />
@@ -196,14 +214,15 @@ const gameProjects = [
     *Ba dum tss*
     </div>
     `,
-    [
-      'img/projects/4thof4th/MainTitle.jpg',
-      'img/projects/4thof4th/Overflow.jpg',
-      'img/projects/4thof4th/VirtualBios.jpg',
-      'img/projects/4thof4th/InGame.jpg',
-    ],
-    '#e80fb7'
-  ),
-];
+      [
+        '/img/projects/4thof4th/MainTitle.jpg',
+        '/img/projects/4thof4th/Overflow.jpg',
+        '/img/projects/4thof4th/VirtualBios.jpg',
+        '/img/projects/4thof4th/InGame.jpg',
+      ],
+      '#e80fb7'
+    ),
+  ];
+}
 
-export default gameProjects;
+export default GameProjects;

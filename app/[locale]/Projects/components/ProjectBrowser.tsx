@@ -1,17 +1,17 @@
 'use client';
 
 import {ReactNode, useEffect, useState} from 'react';
-import gameProjects from '@/src/data/GameProjectsData';
-import gameToolsProjectsData from '@/src/data/GameToolsProjectsData';
+import {GameToolProjectsList} from '@/src/data/GameToolsProjectsData';
 import otherProjectsData from '@/src/data/OtherProjectsData';
 import {ProjectCards} from './ProjectCards';
-import {ProjectData} from '@/src/data/ProjectDataTypes';
+import {ProjectData, ProjectDataWithImages} from '@/src/data/ProjectDataTypes';
 import {ProjectDataArrayEncrypted} from '@/src/data/ProjectDataArrayEncrypted';
 import {projectTypeEnum} from '@/src/projectTypeEnum';
 import ProjectModal from './ProjectModal';
 import {Types} from './ProjectFilter';
 import {projectType} from '../projectType';
 import {ButtonGroup} from './ProjectToggle';
+import GameProjectsData from '@/src/data/GameProjectsData';
 
 const cipherstring: Uint8Array = Uint8Array.from([
   140, 27, 0, 173, 96, 5, 158, 202, 36, 231, 212, 24, 62, 84, 117, 167,
@@ -25,20 +25,36 @@ let projectTypeFilter: {
   gametools: {activated: true},
   otherProjects: {activated: true},
 };
-
-export default function ProjectBrowser(): ReactNode {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const locale = '';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default function ProjectBrowser(props: {locale: string}): ReactNode {
   const [projectsData, setProjectsData] = useState<Array<ProjectData>>([]);
   const [projectData, setProjectData] = useState<ProjectData | undefined>(
     undefined
   );
   const [openModalStatus, setOpenModal] = useState(false);
+  // This is bad
+  const [projectDataOriginal] =
+    useState<Array<ProjectDataWithImages>>(GameProjectsData());
+  const [GameToolsProjectsList] = useState<Array<ProjectData>>(
+    GameToolProjectsList()
+  );
+  const [otherProjectsDataList] =
+    useState<Array<ProjectData>>(otherProjectsData());
+  // if (props.locale !== locale)
+  // {
+
+  //   setprojectDataOriginal(GameProjectsData(props.locale))
+  //   locale = props.locale;
+  // }
 
   useEffect(() => {
-    if (output.length === 0) {
+    if (projectsData.length === 0) {
       crypto.subtle
         .importKey('raw', cipherstring.buffer, 'AES-CTR', false, ['decrypt'])
         .then(e =>
-          new ProjectDataArrayEncrypted(gameProjects, e).Getter(
+          new ProjectDataArrayEncrypted(e, projectDataOriginal).Getter(
             (projectData: Array<ProjectData>) => {
               if (output.length !== 0) {
                 return;
@@ -46,15 +62,19 @@ export default function ProjectBrowser(): ReactNode {
               output = output.concat(
                 projectData.toSorted((a, b) => b.year - a.year)
               );
-              output = output.concat(gameToolsProjectsData);
-              output = output.concat(otherProjectsData);
+              output = output.concat(GameToolsProjectsList);
+              output = output.concat(otherProjectsDataList);
               setProjectsData(output);
             }
           )
         );
     }
-  }, []);
-
+  }, [
+    GameToolsProjectsList,
+    otherProjectsDataList,
+    projectDataOriginal,
+    projectsData,
+  ]);
   function ProjectCardBuilder(projectTypeFilter: {
     [id: string]: projectType;
   }): void {

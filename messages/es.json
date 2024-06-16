@@ -1,11 +1,131 @@
 {
-    "HomePage": {
-      "Greetings": "Hola!"
-    },
-    "LocaleSwitcher": {
-      "locale": "{locale, select, es {Español} en {Ingles} other {Unknown}}"
+  "HomePage": {
+    "Greetings": "Hola!",
+    "Description": "Soy Gabriel Bustillo del Cuvillo, un experto en TI, pero oficialmente soy desarrollador de software (y ex técnico de TI)"
   },
-  "Title": "Gabriel Bustillo del Cuvillo - Desarrollador multidisciplinar"
-
+  "LocaleSwitcher": {
+    "locale": "{locale, select, es {Español} en {Ingles} other {Unknown}}"
+  },
+  "Metadata": {
+    "Title": "Gabriel Bustillo del Cuvillo - Desarrollador multidisciplinar"
+  },
+  "CommonWords": {
+    "years": "Años",
+    "Work Experience": "Experiencia Laboral",
+    "WorkExperience": "Experiencia Laboral",
+    "Coding Experience": "Experiencia Programando",
+    "Education": "Educacion",
+    "Certificates": "Certificados",
+    "Talks": "Charlas",
+    "CurrentView": "Su vista actual es la siguiente:",
+    "TechExperience": "Algunas experiencias tecnológicas"
+  },
+  "Projects": {
+    "gameProjects": {
+      "VRProject": {
+        "Description": "Mi Primer Gran Proyecto"
+      },
+      "TestingGround": {
+        "Description": "Una version mejorada de un ejercicio."
+      },
+      "TranslationMissing": "Traduccion Pendiente (Contenido migrado de origen monolingüe)",
+      "WorkInProgressDescription": "Descripción / Resumen en curso"
+    },
+    "TestingGround": {
+      "Description": "Una version mejorada de un ejercicio."
+    },
+    "gameTools": {
+      "OXI": {
+        "Description": "Un sistema de ilumnacion de Botones para Unreal"
+      },
+      "TranslationMissing": "(Contenido antiguo) Resumen pendiente de revisión",
+      "WorkInProgressDescription": "Descripción / Resumen en curso"
+    },
+    "tools": {
+      "PGL": {
+        "Description": "Un lanzador de juegos según el periferico/pincho."
+      },
+      "TranslationMissing": "(Contenido antiguo) Resumen pendiente de revisión",
+      "WorkInProgressDescription": "Descripción / Resumen en curso"
+    }
+  },
+  "VRProject": {
+    "Description": "Mi Primer Gran Proyecto"
+  },
+  "Guestbook": {
+    "Name": "Name/Nickname",
+    "LinkedinLink": "Linkedin Link",
+    "Description": "Message",
+    "Submit": "Send",
+    "update": "Update"
+  },
+  "Resume": {
+    "Education": {
+      "DAM": {
+        "Title": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma"
+      },
+      "SMR": {
+        "Title": "Técnico en Sistemas Microinformáticos y Redes"
+      }
+    },
+    "Locations": {
+      "Caceres": "Cáceres, España",
+      "Prague": "Parga, Chequia",
+      "London": "Londres, Inglaterra",
+      "Puerto": "El Puerto de Santa María, España"
+    },
+    "Jobs": {
+      "Abance": {
+        "csharpdev": {
+          "Description": "Debido a una reestructuración de la Empresa, el proyecto anterior fue suspendido y soy de los pocos que permanece en la empresa debido a mis conocimientos generales de programación.",
+          "DotNetConsultant": "Consultoria de ecosistema .NET (migración de arquitectura)",
+          "UnitTestDesigner": "Diseñador de automatización de pruebas"
+        },
+        "unreal": {
+          "bulletpoints": {
+            "accesibility": "Opciones de accesibilidad",
+            "features": "Funciones personalizadas",
+            "Networking": "Redes (replicación)",
+            "buildPipeline": "Construye canalización (servidor incluido)",
+            "ioOptimization": "Optimización de E/S (reducción de 10-15 minutos a unos pocos segundos en carga)",
+            "pythonAuto": "Automatización en Python (commandlet y en el editor)",
+            "qtTools": "Creacion de herramientas de automatizacion de procesamiento de contenido en QT y optimizaciones multiproceso)"
+          }
+        }
+      },
+      "itixo": {
+        "backend": {
+          "Description": "Creación, diseño, refactorización y mantenimiento de Software y pruebas unitarias en .NET Framework, Tareas de refactorización y migración a .NET Standard/Core para proyectos antiguos y nuevos",
+          "bulletpoints": {
+            "azure": "Creación de Software para Plataforma Azure",
+            "graphs": "Desarrollo de herramientas para visualización de gráficos de ventas en la parte de administración web.",
+            "monitoring": "Desarrollo de servicios/demonios modulares de monitorización y alarma.",
+            "refactoring": "Tareas de refactorización.",
+            "tests": "Creación y Diseño de Pruebas Unitarias para proyectos antiguos y nuevos."
+          }
+        }
+      },
+      "knowledgemill": {
+        "webapp": {
+          "Description": "Rehecho una aplicación web originalmente creada con Microsoft Silverlight a Node.js con ingeniería inversa de API REST (por falta de documentación)",
+          "improvements": "Mejorar la aplicación web que ofrece soporte e integración del servicio Microsoft Exchange como otros productos más nuevos de la empresa.",
+          "redesign": "Rediseñar la portada",
+          "rpm": "Embalaje RPM y configuración init.d"
+        }
+      }
+    },
+    "QuestionModal": {
+      "web": "Web",
+      "backend": "Backend",
+      "all": "Todos",
+      "Description": "¡Hola! Gracias por interesarte en mí. Como soy un desarrollador multidisciplinario, estoy obligado a optimizar algunos currículums para cada rol. Elige uno de estos roles para continuar.",
+      "Choose": "Elegir"
+    }
+  },
+  "NavBar": {
+    "Projects": "Proyectos",
+    "Resume": "Curriculum",
+    "GuestBook": "Libro de Visitas",
+    "AboutMe": "Sobre Mi"
   }
-  
+}
