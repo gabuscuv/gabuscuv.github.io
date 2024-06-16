@@ -1,4 +1,4 @@
-import {projectTypeEnum} from '@/app/Projects/projectTypeEnum';
+import {projectTypeEnum} from '../projectTypeEnum';
 
 export class ProjectData {
   id: string;

@@ -1,9 +1,14 @@
 'use client';
-
-import Link from 'next/link';
+import {Link, usePathname} from './navigation';
 import {Navbar} from 'flowbite-react';
+import {useTranslations} from 'next-intl';
+import {ReactNode} from 'react';
 
-export function NavBar() {
+export const locales = ['en', 'es'] as const;
+export const localePrefix = 'always'; // Default
+
+export function NavBar(props: {localeSwitcher: ReactNode}) {
+  const t = useTranslations('NavBar');
   return (
     <Navbar fluid rounded>
       <Navbar.Brand as={Link} href="/">
@@ -13,21 +18,33 @@ export function NavBar() {
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
-        <Navbar.Link as={Link} href="/">
+        <Navbar.Link as={Link} href="/" active={usePathname() === '/'}>
           Home
         </Navbar.Link>
-        <Navbar.Link as={Link} href="/">
-          About Me
+        {
+          // I Will Do it later
+          /* <Navbar.Link as={Link} href="/">
+          {t('AboutMe')}
+        </Navbar.Link> */
+        }
+        <Navbar.Link
+          as={Link}
+          href="/Projects"
+          active={usePathname() === '/Projects'}
+        >
+          {t('Projects')}
         </Navbar.Link>
-        <Navbar.Link as={Link} href="/Projects">
-          (Game(Tools)) Projects
+        <Navbar.Link
+          as={Link}
+          href="/Resume"
+          active={usePathname() === '/Resume'}
+        >
+          {t('Resume')}
         </Navbar.Link>
-        <Navbar.Link as={Link} href="/Resume">
-          Resume
+        <Navbar.Link as={Link} href="/GuestBook">
+          {t('GuestBook')}
         </Navbar.Link>
-        <Navbar.Link as={Link} href="/References">
-          References
-        </Navbar.Link>
+        {props.localeSwitcher}
       </Navbar.Collapse>
     </Navbar>
   );

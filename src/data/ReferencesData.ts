@@ -1,4 +1,4 @@
-class ReferenceClass {
+export class ReferenceClass {
   id: string;
   name: string;
   iconUrl: string; // used as thumnail
@@ -23,7 +23,7 @@ class ReferenceClass {
   }
 }
 
-export default [
+export const References = [
   new ReferenceClass(
     'kevin',
     'Kevin Baker',

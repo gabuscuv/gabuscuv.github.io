@@ -1,0 +1,131 @@
+{
+  "HomePage": {
+    "Greetings": "Hi!",
+    "Description": "I'm Gabriel Bustillo del Cuvillo, a Jack-of-all-trades IT, But officially I'm a Software Developer (and former IT Technician)"
+  },
+  "LocaleSwitcher": {
+    "locale": "{locale, select, es {Spanish} en {English} other {Unknown}}"
+  },
+  "Metadata": {
+    "Title": "Gabriel Bustillo del Cuvillo - Jack of the Trades Dev/IT"
+  },
+  "CommonWords": {
+    "years": "Years",
+    "Work Experience": "Work Experience",
+    "WorkExperience": "Work Experience",
+    "Coding Experience": "Coding Experience",
+    "Education": "Education",
+    "Certificates": "Certificates",
+    "Talks": "Talks",
+    "CurrentView": "Your current view is as :",
+    "TechExperience": "Some Tech Experiences"
+  },
+  "Projects": {
+    "gameProjects": {
+      "VRProject": {
+        "Description": "My First Big Project"
+      },
+      "TestingGround": {
+        "Description": "An Improved Exercise"
+      },
+      "WorkInProgressDescription": "Description / Summary in progress ",
+      "TranslationMissing": "(Old Content) Summary pending to review"
+    },
+    "TestingGround": {
+      "Description": "An improved version of an exercise"
+    },
+    "gameTools": {
+      "OXI": {
+        "Description": "A Highlight Button System for Unreal"
+      },
+      "WorkInProgressDescription": "Description / Summary in progress ",
+      "TranslationMissing": "(Old Content) Summary pending to review"
+    },
+    "tools": {
+      "PGL": {
+        "Description": "A Dongle/Gadget-based Game Launcher"
+      },
+      "WorkInProgressDescription": "Description / Summary in progress ",
+      "TranslationMissing": "(Old Content) Summary pending to review"
+    }
+  },
+  "VRProject": {
+    "Description": "My First Big Project"
+  },
+  "Guestbook": {
+    "Name": "Name/Nickname",
+    "LinkedinLink": "Linkedin Link",
+    "Description": "Message",
+    "Submit": "Send",
+    "update": "Update"
+  },
+  "Resume": {
+    "Education": {
+      "DAM": {
+        "Title": "Multi-platform Applications Development"
+      },
+      "SMR": {
+        "Title": "Information Technology Technican"
+      }
+    },
+    "Locations": {
+      "Caceres": "Cáceres, Spain",
+      "Prague": "Prague, Czechia",
+      "London": "London, England",
+      "Puerto": "El Puerto de Santa Maria, Spain"
+    },
+    "Jobs": {
+      "Abance": {
+        "csharpdev": {
+          "Description": "Due to a Company restructuring, The previous project was suspended and I am one of the few who remains in the company due to my general programming knowledge.",
+          "DotNetConsultant": ".NET Ecosystem Consultant ( architecture migration)",
+          "UnitTestDesigner": "Testing Automatization Designer"
+        },
+        "unreal": {
+          "bulletpoints": {
+            "ioOptimization": "I/O Optimization (reduction of 10-15 Min to a few seconds On Load)",
+            "pythonAuto": "Python Automatization (Commandlet and In-Editor)",
+            "accesibility": "Accessibility Options",
+            "qtTools": "Automatized Content Build Pipeline with QT tools and Multithreaded optimisations)",
+            "Networking": "Networking (replication)",
+            "buildPipeline": "Builds Pipeline (Server Included)",
+            "features": "Custom Features"
+          }
+        }
+      },
+      "itixo": {
+        "backend": {
+          "Description": "Creation, design, refactoring and maintenance of Software and unit tests in .NET Framework, Refactoring and migration tasks to .NET Standard/Core for old and new projects",
+          "bulletpoints": {
+            "monitoring": "Development of modular monitoring and alarm services/daemons",
+            "graphs": "Development of tools for displaying sales graphics in the web administration part.",
+            "azure": "Creation of Software for Azure Platform",
+            "refactoring": "Refactoring Tasks.",
+            "tests": "Creation and Design of Unit Tests for old and new projects"
+          }
+        }
+      },
+      "knowledgemill": {
+        "webapp": {
+          "Description": "Remade a Web Application originally made with Microsoft Silverlight to Node.js with REST API reverse engineering (because lack of documentation)",
+          "improvements": "Improving WebApp offering Microsoft Exchange Service Support and Integration like other newer Company’s products.",
+          "redesign": "Redesign Front Page",
+          "rpm": "RPM Packing and init.d configuration"
+        }
+      }
+    },
+    "QuestionModal": {
+      "web": "Web",
+      "backend": "Backend",
+      "all": "All",
+      "Description": "Hi!, Thanks for getting interested in me, As I am a multi-disciplined developer, I am obligated to get some resumes optimized for each role, Choose one of these roles to continue.",
+      "Choose": "Choose"
+    }
+  },
+  "NavBar": {
+    "Projects": "(Game(Tools)) Projects",
+    "Resume": "Resume",
+    "GuestBook": "Guest Book",
+    "AboutMe": "About Me"
+  }
+}
