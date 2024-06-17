@@ -4,7 +4,8 @@ import {ReactNode, useEffect, useState} from 'react';
 import {GameToolProjectsList} from '@/src/data/GameToolsProjectsData';
 import otherProjectsData from '@/src/data/OtherProjectsData';
 import {ProjectCards} from './ProjectCards';
-import {HiOutlineArrowRight, HiFilter} from 'react-icons/hi';
+// eslint-disable-next-line n/no-extraneous-import
+import {HiFilter} from 'react-icons/hi';
 import {ProjectData, ProjectDataWithImages} from '@/src/data/ProjectDataTypes';
 import {ProjectDataArrayEncrypted} from '@/src/data/ProjectDataArrayEncrypted';
 import {projectTypeEnum} from '@/src/projectTypeEnum';
@@ -155,8 +156,12 @@ export default function ProjectBrowser(props: {locale: string}): ReactNode {
           openModalStatus={openModalStatus}
           closeCallback={() => setOpenModal(false)}
         />
-        <div className='visible lg:invisible fixed bottom-10 right-10'>
-          <Button onClick={() => {setOpenFilterSidebar(true)}}>
+        <div className="visible lg:invisible fixed bottom-10 right-10">
+          <Button
+            onClick={() => {
+              setOpenFilterSidebar(true);
+            }}
+          >
             <HiFilter className="h-6 w-6" />
           </Button>
         </div>
