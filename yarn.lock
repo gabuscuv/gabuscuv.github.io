@@ -2814,7 +2814,7 @@ __metadata:
     gts: "npm:^5.3.1"
     lodash: "npm:^4.17.21"
     next: "npm:14.2.3"
-    next-intl: "npm:^3.14.1"
+    next-intl: "npm:^3.15.0"
     postcss: "npm:^8"
     react: "npm:^18"
     react-dom: "npm:^18"
@@ -4106,17 +4106,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-intl@npm:^3.14.1":
-  version: 3.14.1
-  resolution: "next-intl@npm:3.14.1"
+"next-intl@npm:^3.15.0":
+  version: 3.15.0
+  resolution: "next-intl@npm:3.15.0"
   dependencies:
     "@formatjs/intl-localematcher": "npm:^0.2.32"
     negotiator: "npm:^0.6.3"
-    use-intl: "npm:^3.14.1"
+    use-intl: "npm:^3.15.0"
   peerDependencies:
     next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/4b7fa311ec17d684baa6c8b16f031a5e561a09e03fb805f42e0963b9ce6ba48e621a11a6438c57d244bba94284ba0e7f2ee035d10136d01df2f547aa0fb08b47
+  checksum: 10c0/28f5380397490fb8990c87b3e7d3f16f1b85f2e9bb155accd029ea8b93151baf5d435b41475c267ca2bfdd51ba1e9ec23a538a3a8b724a2772a2c141f97a33e0
   languageName: node
   linkType: hard
 
@@ -5733,15 +5733,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-intl@npm:^3.14.1":
-  version: 3.14.1
-  resolution: "use-intl@npm:3.14.1"
+"use-intl@npm:^3.15.0":
+  version: 3.15.0
+  resolution: "use-intl@npm:3.15.0"
   dependencies:
     "@formatjs/ecma402-abstract": "npm:^1.11.4"
     intl-messageformat: "npm:^10.5.11"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/13aef730888d63df45ae2593c9dbda4809a7de074832ff21a40b8e184fc93ace08762c2b384dd7cc6b94408a952edc3ad71ea56d17f9bde2b9841fe7bf898a03
+  checksum: 10c0/029554a87b98dba14fc4abb4980e0218988cc8e92f8f2054001b9420d0b33feca57af824e03269ac22386ab7c28fc2ebfd61a9c0a07dc966dccb206624fc588f
   languageName: node
   linkType: hard
 
