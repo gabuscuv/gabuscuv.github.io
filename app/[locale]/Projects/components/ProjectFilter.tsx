@@ -25,6 +25,7 @@ let tmp;
 
 export function Types(props: {
   projectsData: ProjectData[];
+  className?: string;
   _filterStack: Set<string>;
   callback: (filterstack: string) => void;
 }): ReactNode {
@@ -33,7 +34,7 @@ export function Types(props: {
   }
   return (
     <>
-      <div className="flex flex-col pl-20 pt-10 mt-40">
+      <div className={'flex flex-col pl-20 pt-10 mt-40 ' + props.className}>
         <h3 className="pb-5">Filter</h3>
         {categories.map(category => {
           tmp = getCurrentStack(props.projectsData)

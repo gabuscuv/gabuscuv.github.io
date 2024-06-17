@@ -11,7 +11,7 @@ export function ProjectCards(props: {
     <>
       <div
         id="projectcardsid"
-        className="relative mt-36 flex-wrap flex flex-row m-100"
+        className="relative justify-center mt-36 flex-wrap flex flex-row lg:m-100"
       >
         {props.projectdata.map(project => (
           <Card
