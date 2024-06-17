@@ -4,6 +4,7 @@ import {ReactNode, useEffect, useState} from 'react';
 import {GameToolProjectsList} from '@/src/data/GameToolsProjectsData';
 import otherProjectsData from '@/src/data/OtherProjectsData';
 import {ProjectCards} from './ProjectCards';
+import {HiOutlineArrowRight, HiFilter} from 'react-icons/hi';
 import {ProjectData, ProjectDataWithImages} from '@/src/data/ProjectDataTypes';
 import {ProjectDataArrayEncrypted} from '@/src/data/ProjectDataArrayEncrypted';
 import {projectTypeEnum} from '@/src/projectTypeEnum';
@@ -12,6 +13,7 @@ import {Types} from './ProjectFilter';
 import {projectType} from '../projectType';
 import {ButtonGroup} from './ProjectToggle';
 import GameProjectsData from '@/src/data/GameProjectsData';
+import {Button, Drawer} from 'flowbite-react';
 
 const cipherstring: Uint8Array = Uint8Array.from([
   140, 27, 0, 173, 96, 5, 158, 202, 36, 231, 212, 24, 62, 84, 117, 167,
@@ -34,6 +36,8 @@ export default function ProjectBrowser(props: {locale: string}): ReactNode {
     undefined
   );
   const [openModalStatus, setOpenModal] = useState(false);
+  const [openFilterSidebar, setOpenFilterSidebar] = useState(false);
+
   // This is bad
   const [projectDataOriginal] =
     useState<Array<ProjectDataWithImages>>(GameProjectsData());
@@ -121,7 +125,22 @@ export default function ProjectBrowser(props: {locale: string}): ReactNode {
           callback={ToggleChanged}
         />
         <div className="flex flex-row">
+          <Drawer
+            className="lg:invisible"
+            open={openFilterSidebar}
+            onClose={() => setOpenFilterSidebar(false)}
+          >
+            <Drawer.Header title="Filter Drawer" />
+            <Drawer.Items>
+              <Types
+                projectsData={projectsData}
+                _filterStack={filterStack}
+                callback={ChangedFilter}
+              />
+            </Drawer.Items>
+          </Drawer>
           <Types
+            className="collapse lg:visible"
             projectsData={projectsData}
             _filterStack={filterStack}
             callback={ChangedFilter}
@@ -136,6 +155,11 @@ export default function ProjectBrowser(props: {locale: string}): ReactNode {
           openModalStatus={openModalStatus}
           closeCallback={() => setOpenModal(false)}
         />
+        <div className='visible lg:invisible fixed bottom-10 right-10'>
+          <Button onClick={() => {setOpenFilterSidebar(true)}}>
+            <HiFilter className="h-6 w-6" />
+          </Button>
+        </div>
       </div>
     </>
   );
