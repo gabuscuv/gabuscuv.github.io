@@ -1,0 +1,17 @@
+{
+    "stackIcons":
+    {
+        "c": "c.png",
+        "csharp": "CsharpPurple.png",
+        "cpp": "cpp.png",
+        "react": "React.png",
+        "rust": "Rust.png",
+        "python": "Python.png",
+        "golang": "Golang.png",
+        "unreal": "UE-Icon-2023-Black.png",
+        "unity": "U_Cube_1C_Black.png",
+        "love2d": "love-app-icon.png",
+        "monogame": "monogame.png"
+
+    }
+}
