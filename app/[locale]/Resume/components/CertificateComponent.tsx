@@ -2,11 +2,11 @@
 import {useTranslations} from 'next-intl';
 import {JobTypeEnum} from '@/src/data/Resume';
 import {ReactNode} from 'react';
-import {JobEnum} from '../ResumeBuilder';
 import {ResumeSection} from './layout/ResumeSection';
 
 export function Certificate(props: {
   locale: string;
+  JobTypeEnum: JobTypeEnum;
   certificate: Array<{
     Title: string;
     type: string;
@@ -27,7 +27,7 @@ export function Certificate(props: {
             <h4 className="text-mg">{new Date(cert.date).getFullYear()}</h4>
           </div>
         ))
-        .slice(0, JobEnum !== JobTypeEnum.All ? 3 : undefined)}
+        .slice(0, props.JobTypeEnum !== JobTypeEnum.All ? 3 : undefined)}
     </ResumeSection>
   );
 }

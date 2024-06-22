@@ -1,6 +1,6 @@
 'use client';
 import {useTranslations} from 'next-intl';
-import {JobTypeEnum, JobsType, ResumeType} from '@/src/data/Resume';
+import {JobTypeEnum, ResumeType} from '@/src/data/Resume';
 import {ReactNode, useState} from 'react';
 import {QuestionModal} from './components/QuestionModalComponent';
 import {Button} from 'flowbite-react';
@@ -9,38 +9,13 @@ import {Certificate} from './components/CertificateComponent';
 import {Talks} from './components/TalksComponent';
 import {WorkExperience} from './components/WorkExperienceComponent';
 import {ResumeSection} from './components/layout/ResumeSection';
+import {getYearLapse} from '@/src/utils/dates';
+
+let JobEnum: JobTypeEnum;
 
 export interface projectType {
   activated: boolean;
 }
-
-export let JobEnum: JobTypeEnum;
-
-const jobTypeFilter: {
-  [id: number]: {[id: string]: number};
-} = {
-  [JobTypeEnum.All]: {},
-  [JobTypeEnum.Web]: {
-    react: 3,
-    typescript: 3,
-    csharp: 1,
-    css: 1,
-    bootstrap: 1,
-    wordpress: 2,
-  },
-  [JobTypeEnum.GameDev]: {
-    unreal: 10,
-    cpp: 6,
-    csharp: 4,
-    wordpress: -5,
-  },
-  [JobTypeEnum.Backend]: {
-    csharp: 3,
-    unreal: -3,
-    typescript: 2,
-    javascript: 1,
-  },
-};
 
 export function ResumeBuilder(props: {
   locale: string;
@@ -101,50 +76,17 @@ export function ResumeBuilder(props: {
         </ResumeSection>
         <WorkExperience
           locale={props.locale}
+          JobTypeEnum={JobEnum}
           workExperience={props.resume.Jobs}
         />
         <Education Education={props.resume.Education} locale={props.locale} />
         <Certificate
           locale={props.locale}
           certificate={props.resume.Certificate}
+          JobTypeEnum={JobEnum}
         />
-        <Talks talks={props.resume.Talks} />
+        <Talks JobTypeEnum={JobEnum} talks={props.resume.Talks} />
       </main>
     </>
   );
-}
-
-export function getYearLapse(startDate: number, endDate: number): string {
-  return ((endDate - startDate) / 1000 / 31536000).toFixed(2);
-}
-
-export function points(b: JobsType): number {
-  let points = 0;
-  if (JobEnum === undefined || JobEnum === JobTypeEnum.All) {
-    return points;
-  }
-  b.techStack.forEach(az => {
-    return (points += jobTypeFilter[JobEnum][az]
-      ? jobTypeFilter[JobEnum][az]
-      : 0);
-  });
-  return points;
-}
-
-function getYearsMonth(locale: string, date: number): string {
-  const _startDateType = new Date(date);
-  return `${_startDateType.toLocaleString(locale, {
-    month: 'long',
-  })} ${_startDateType.getFullYear()}`;
-}
-
-export function getYearsMonthRange(
-  locale: string,
-  startDate: number,
-  endDate: number
-): string {
-  return `( ${getYearsMonth(locale, startDate)} - ${getYearsMonth(
-    locale,
-    endDate
-  )} )`;
 }

@@ -2,8 +2,8 @@
 import {useTranslations} from 'next-intl';
 import {EducationType} from '@/src/data/Resume';
 import {ReactNode} from 'react';
-import {getYearLapse} from '../ResumeBuilder';
 import {ResumeSection} from './layout/ResumeSection';
+import {getYearLapse} from '@/src/utils/dates';
 
 export function Education(props: {
   locale: string;
