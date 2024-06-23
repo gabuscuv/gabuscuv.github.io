@@ -41,10 +41,10 @@ export function Types(props: {
             .filter(_category => type[_category]?.type === category.type)
             .toSorted((a, b) => (a > b ? 1 : 0));
           if (tmp.length === 0) {
-            return <></>;
+            return <div key={category.FullName}></div>;
           }
           return (
-            <>
+            <div key={category.FullName}>
               <h4 className="h3">{category.FullName}</h4>
               {tmp.map(e => (
                 <div key={e} className="pt-1 pb-1 flex items-center gap-2">
@@ -60,7 +60,7 @@ export function Types(props: {
                   <Label htmlFor={e}>{type[e]?.FullName}</Label>
                 </div>
               ))}
-            </>
+            </div>
           );
         })}
       </div>

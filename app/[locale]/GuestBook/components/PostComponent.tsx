@@ -136,7 +136,7 @@ export function GuestFunctionMain() {
 
   return (
     <>
-      <main className="m-10 grid grid-cols-2">
+      <main className="m-10 md:grid md:grid-cols-2">
         <ReaderComponent />
         <div className="m-10">
           <PostComponent />

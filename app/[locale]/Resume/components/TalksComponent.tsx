@@ -2,10 +2,10 @@
 import {useTranslations} from 'next-intl';
 import {JobTypeEnum} from '@/src/data/Resume';
 import {ReactNode} from 'react';
-import {JobEnum} from '../ResumeBuilder';
 import {ResumeSection} from './layout/ResumeSection';
 
 export function Talks(props: {
+  JobTypeEnum: JobTypeEnum;
   talks: Array<{Title: string; location: string; date: number}>;
 }): ReactNode {
   const t = useTranslations('CommonWords');
@@ -22,7 +22,7 @@ export function Talks(props: {
             <h4 className="text-mg">{new Date(cert.date).getFullYear()}</h4>
           </div>
         ))
-        .slice(0, JobEnum !== JobTypeEnum.All ? 3 : undefined)}
+        .slice(0, props.JobTypeEnum !== JobTypeEnum.All ? 3 : undefined)}
     </ResumeSection>
   );
 }
