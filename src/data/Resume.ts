@@ -1,4 +1,4 @@
-import {useTranslations} from 'next-intl';
+import {getTranslations} from 'next-intl/server';
 
 export enum JobTypeEnum {
   All,
@@ -50,8 +50,8 @@ export type ResumeType = {
   Talks: Array<{Title: string; location: string; date: number}>;
 };
 
-export function ResumeContent(): ResumeType {
-  const t = useTranslations('Resume');
+export async function ResumeContent(): Promise<ResumeType> {
+  const t = await getTranslations('Resume');
   return {
     Jobs: [
       {
