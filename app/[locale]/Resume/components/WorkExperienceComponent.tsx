@@ -1,51 +1,76 @@
 'use client';
 import {useTranslations} from 'next-intl';
-import {CompanyType, JobTypeEnum, JobsType} from '@/src/data/Resume';
 import {ReactNode} from 'react';
-import {
-  getYearLapse,
-  points,
-  JobEnum,
-  getYearsMonthRange,
-} from '../ResumeBuilder';
+
 import {ResumeSection} from './layout/ResumeSection';
+
 import {type} from '@/src/data/type';
+import {CompanyType, JobTypeEnum, JobsType} from '@/src/data/Resume';
+import {clamp} from '@/src/utils/maths';
+import {points, totalPoints} from '@/src/utils/points';
+import {getYearLapse, getYearsMonthRange} from '@/src/utils/dates';
 
 export function WorkExperience(props: {
   locale: string;
+  JobTypeEnum: JobTypeEnum;
   workExperience: Array<CompanyType>;
 }): ReactNode {
   const t = useTranslations('CommonWords');
+  const workSorted = props.workExperience
+    .toSorted(
+      (e, z) =>
+        totalPoints(props.JobTypeEnum, z) - totalPoints(props.JobTypeEnum, e)
+    )
+    .slice(0, props.JobTypeEnum !== JobTypeEnum.All ? 2 : undefined);
   return (
-    <ResumeSection title={t('WorkExperience')}>
+    <ResumeSection
+      title={`
+        ${t('WorkExperience')} 
+        (${props.JobTypeEnum !== JobTypeEnum.All ? workSorted.length : props.workExperience.length}
+        of
+        ${props.workExperience.length} Companies - 
+        ${workSorted.map(e => (props.JobTypeEnum !== JobTypeEnum.All ? clamp(e.Jobs.length, 0, 2) : e.Jobs.length)).reduce((a, z) => a + z)} of 
+        ${props.workExperience.map(e => e.Jobs.length).reduce((a, z) => a + z)} Job Positions)`}
+    >
       {/* eslint-disable-next-line @typescript-eslint/no-unused-vars*/}
-      {props.workExperience.map((job, index) => (
-        <div className={'m-3 '} key={job.Title}>
-          <div className="md:flex">
-            <a href={job.Url}>
-              {' '}
-              <h3 className="text-xl">{job.Title}</h3>
-            </a>
-            <h5 className="text-right">&nbsp;({job.Location})</h5>
+      {props.workExperience
+        .toSorted(
+          (e, z) =>
+            totalPoints(props.JobTypeEnum, z) -
+            totalPoints(props.JobTypeEnum, e)
+        )
+        .slice(0, props.JobTypeEnum !== JobTypeEnum.All ? 2 : undefined)
+        .map(job => (
+          <div className={'m-3 '} key={job.Title}>
+            <div className="md:flex">
+              <a href={job.Url}>
+                {' '}
+                <h3 className="text-xl">{job.Title}</h3>
+              </a>
+              <h5 className="text-right">&nbsp;({job.Location})</h5>
+            </div>
+            <p>
+              {new Date(job.StartDate).getFullYear() +
+                ' - ' +
+                new Date(job.EndDate).getFullYear()}{' '}
+              ({' ' + getYearLapse(job.StartDate, job.EndDate)}{' '}
+              {t('years') + ' '})
+            </p>
+            {JobsItems(props.locale, props.JobTypeEnum, job.Jobs)}
           </div>
-          <p>
-            {new Date(job.StartDate).getFullYear() +
-              ' - ' +
-              new Date(job.EndDate).getFullYear()}{' '}
-            ({' ' + getYearLapse(job.StartDate, job.EndDate)} {t('years') + ' '}
-            )
-          </p>
-          {JobsItems(props.locale, job.Jobs)}
-        </div>
-      ))}
+        ))}
     </ResumeSection>
   );
 }
-function JobsItems(locale: string, Jobs: Array<JobsType>): ReactNode {
+function JobsItems(
+  locale: string,
+  jobTypeEnum: JobTypeEnum,
+  Jobs: Array<JobsType>
+): ReactNode {
   return (
     <ul className="list-disc ">
-      {Jobs.toSorted((a, b) => points(b) - points(a))
-        .slice(0, JobEnum !== JobTypeEnum.All ? 2 : undefined)
+      {Jobs.toSorted((a, b) => points(jobTypeEnum, b) - points(jobTypeEnum, a))
+        .slice(0, jobTypeEnum !== JobTypeEnum.All ? 2 : undefined)
         .map(e => (
           <li key={e.Title} className="m-2">
             <h4 className="text-lg inline">

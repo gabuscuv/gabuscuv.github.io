@@ -26,7 +26,7 @@ export function GameToolProjectsList() {
       'OpenXR Controller Integration',
       ['unreal', 'cpp'],
       2021,
-      '',
+      '/img/projects/project-17-icon.gif',
       t('OXI.Description'),
       `
       <p>${t('WorkInProgressDescription')}</p>
