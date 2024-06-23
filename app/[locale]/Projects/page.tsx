@@ -1,5 +1,8 @@
-import {unstable_setRequestLocale} from 'next-intl/server';
+import {getMessages, unstable_setRequestLocale} from 'next-intl/server';
 import ProjectBrowser from './components/ProjectBrowser';
+import {NextIntlClientProvider} from 'next-intl';
+import {pick} from 'lodash';
+import {ReactNode} from 'react';
 
 //function to generate the routes for all the locales
 export async function generateStaticParams() {
@@ -9,11 +12,16 @@ export async function generateStaticParams() {
 // @ts-expect-error -- TypeScript will validate that only known `params`
 // are used in combination with a given `pathname`. Since the two will
 // always match for the current route, we can skip runtime checks.
-export default function Project({params: locale}) {
+export default async function Project({params: locale}): ReactNode {
   unstable_setRequestLocale(locale);
-
+  const messages = await getMessages(locale);
   return (
-    <>
+    <NextIntlClientProvider
+      messages={
+        // … and provide the relevant messages
+        pick(messages, 'Projects')
+      }
+    >
       <ProjectBrowser locale={locale} />
       <div className="my-10 justify-center text-center">
         <p>
@@ -34,6 +42,6 @@ export default function Project({params: locale}) {
           Technologies or its subsidiaries.
         </p>
       </div>
-    </>
+    </NextIntlClientProvider>
   );
 }

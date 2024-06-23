@@ -66,6 +66,7 @@ export function ProjectCards(props: {
               <h5 className="text-base font-bold tracking-tight text-gray-900 dark:text-white">
                 {project.name}
               </h5>
+              <p className="text-xs font-normal "> ({project.year})</p>
               <p className="text-xs text-gray-700 dark:text-gray-400">
                 {project.summary}
               </p>
