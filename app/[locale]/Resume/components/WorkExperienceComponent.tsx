@@ -52,8 +52,15 @@ export function WorkExperience(props: {
             <p>
               {new Date(job.StartDate).getFullYear() +
                 ' - ' +
-                new Date(job.EndDate).getFullYear()}{' '}
-              ({' ' + getYearLapse(job.StartDate, job.EndDate)}{' '}
+                (job.EndDate !== 0
+                  ? new Date(job.EndDate).getFullYear()
+                  : t('OnGoing'))}{' '}
+              (
+              {' ' +
+                getYearLapse(
+                  job.StartDate,
+                  job.EndDate !== 0 ? job.EndDate : Date.now()
+                )}{' '}
               {t('years') + ' '})
             </p>
             {JobsItems(props.locale, props.JobTypeEnum, job.Jobs)}
@@ -67,6 +74,8 @@ function JobsItems(
   jobTypeEnum: JobTypeEnum,
   Jobs: Array<JobsType>
 ): ReactNode {
+  const t = useTranslations('CommonWords');
+
   return (
     <ul className="list-disc ">
       {Jobs.toSorted((a, b) => points(jobTypeEnum, b) - points(jobTypeEnum, a))
@@ -77,7 +86,12 @@ function JobsItems(
               {e.Title}&nbsp;&nbsp;
               <p className="text-base">
                 &nbsp;
-                {getYearsMonthRange(locale, e.StartDate, e.EndDate)}
+                {getYearsMonthRange(
+                  locale,
+                  e.StartDate,
+                  e.EndDate,
+                  t('OnGoing')
+                )}
               </p>
             </h4>
             <p>{e.Description}</p>

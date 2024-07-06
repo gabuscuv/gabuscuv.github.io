@@ -18,7 +18,8 @@
     "Certificates": "Certificados",
     "Talks": "Charlas",
     "CurrentView": "Su vista actual es la siguiente:",
-    "TechExperience": "Algunas experiencias tecnológicas"
+    "TechExperience": "Algunas experiencias tecnológicas",
+    "OnGoing": "En curso"
   },
   "Projects": {
     "gameProjects": {
@@ -80,18 +81,30 @@
         "csharpdev": {
           "Description": "Debido a una reestructuración de la Empresa, el proyecto anterior fue suspendido y soy de los pocos que permanece en la empresa debido a mis conocimientos generales de programación.",
           "DotNetConsultant": "Consultoria de ecosistema .NET (migración de arquitectura)",
-          "UnitTestDesigner": "Diseñador de automatización de pruebas"
+          "UnitTestDesigner": "Diseñador de automatización de pruebas",
+          "bulletpoints": {
+            "DotNetConsultant": "Consultor de ecosistemas .NET (migración de arquitectura)",
+            "ExcelParser": "Desarrollo de Analizadores de Excel (OpenXML) al Formato S1000D",
+            "HTMLScrapper": "Scrapper/Convertidor HTML a formato S1000D",
+            "MultimediaConverter": "Convertidor multimedia multiproceso automatizado",
+            "UnitTestDesigner": "Diseñador de automatización de pruebas"
+          }
         },
         "unreal": {
           "bulletpoints": {
+            "qtTools": "Creacion de herramientas de automatizacion de procesamiento de contenido en QT y optimizaciones multiproceso)",
+            "importOptimizations": "Importar optimizaciones de activos (de 40 minutos a 10 minutos)",
+            "Networking": "Multiusuario/Multijugador/Redes (replicación)",
             "accesibility": "Opciones de accesibilidad",
-            "features": "Funciones personalizadas",
-            "Networking": "Redes (replicación)",
-            "buildPipeline": "Construye canalización (servidor incluido)",
+            "buildPipeline": "Canalización de compilaciones desatendidas (compilaciones de servidor incluidas)",
+            "features": "Herramientas personalizadas en el juego (compatibles con múltiples usuarios)",
             "ioOptimization": "Optimización de E/S (reducción de 10-15 minutos a unos pocos segundos en carga)",
-            "pythonAuto": "Automatización en Python (commandlet y en el editor)",
-            "qtTools": "Creacion de herramientas de automatizacion de procesamiento de contenido en QT y optimizaciones multiproceso)"
-          }
+            "pythonAuto": "Automatización de Python (commandlet y en el editor)"
+          },
+          "Description": "Desarrollo, Optimizaciones de un Visor de Modelos 3D VR realizado con Unreal Engine 5.1 y actualizando a 5.3, Suspendido por reestructuración empresarial y reordenamiento de prioridades"
+        },
+        "nextjs": {
+          "Description": ""
         }
       },
       "itixo": {
