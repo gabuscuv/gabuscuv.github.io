@@ -55,9 +55,10 @@
   "Guestbook": {
     "Name": "Name/Nickname",
     "LinkedinLink": "Linkedin Link",
-    "Description": "Message",
-    "Submit": "Send",
-    "update": "Update"
+    "Description": "Mensaje",
+    "Submit": "Enviar",
+    "update": "Actualizar",
+    "Loading": "Cargando"
   },
   "Resume": {
     "Education": {
@@ -119,7 +120,8 @@
       "backend": "Backend",
       "all": "Todos",
       "Description": "¡Hola! Gracias por interesarte en mí. Como soy un desarrollador multidisciplinario, estoy obligado a optimizar algunos currículums para cada rol. Elige uno de estos roles para continuar.",
-      "Choose": "Elegir"
+      "Choose": "Elegir",
+      "Title": "Selector de rol tecnologico"
     }
   },
   "NavBar": {

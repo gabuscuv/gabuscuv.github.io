@@ -86,7 +86,7 @@ function JobsItems(
                 <li key={e.Title + 'bulletpoint' + index}>{bulletpoint}</li>
               ))}
             </ul>
-            <ul className=" mt-1 text-xs flex">
+            <ul className=" mt-1 text-xs flex-wrap flex">
               {e.techStack.map((techstack, index) => (
                 <li key={e.Title + 'bulletpoint' + index}>
                   &nbsp;{`${type[techstack]?.FullName}`}&nbsp;{}

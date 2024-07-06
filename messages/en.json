@@ -57,7 +57,8 @@
     "LinkedinLink": "Linkedin Link",
     "Description": "Message",
     "Submit": "Send",
-    "update": "Update"
+    "update": "Update",
+    "Loading": "Loading"
   },
   "Resume": {
     "Education": {
@@ -119,7 +120,8 @@
       "backend": "Backend",
       "all": "All",
       "Description": "Hi!, Thanks for getting interested in me, As I am a multi-disciplined developer, I am obligated to get some resumes optimized for each role, Choose one of these roles to continue.",
-      "Choose": "Choose"
+      "Choose": "Choose",
+      "Title": "Tech Role Chooser"
     }
   },
   "NavBar": {

@@ -29,7 +29,7 @@ export default function Home({params: {locale}}) {
     <main className=" m-5 ">
       <div className="w-full justify-center grid gap-4 grid-cols-2 grid-flow-row">
         <h1 className=" col-span-2 text-3xl">{t('Greetings')}</h1>
-        <div className="rounded-md mr-10 shadow p-5">
+        <div className="rounded-md border-slate-700 mr-10 shadow-lg p-5">
           <div>{t('Description')}.</div>
         </div>
         <div className="rounded-md shadow p-5">
