@@ -1,15 +1,9 @@
 'use client';
+import {GetEntries, GuestBookEntries, PostEntry} from '@/src/GuestBook';
 import {Label, TextInput, Button} from 'flowbite-react';
 import {useTranslations} from 'next-intl';
 
 import {useEffect, useReducer, useState} from 'react';
-
-interface GuestBookEntries {
-  TimeStamp: string;
-  Name: string;
-  Linkedin: string;
-  Message: string;
-}
 
 function Entry(props: {guestEntry: GuestBookEntries}) {
   return (
@@ -40,21 +34,8 @@ export function GuestFunctionMain() {
   const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
   const t = useTranslations('Guestbook');
 
-  function Post(formData: FormData) {
-    // event.preventDefault();
-    fetch(
-      `https://docs.google.com/forms/d/e/1FAIpQLSeZRfqcA39lPVfk363wukI2iwd2Ud5qJUJUqM37TcAKeE2tMQ/formResponse?usp=pp_url&entry.1964352140=${formData.get(
-        'name'
-      )}&entry.708731546=${formData.get(
-        'linkedin'
-      )}&entry.1290048304=${formData.get('message')}`,
-      {
-        method: 'POST',
-        credentials: 'omit',
-        mode: 'no-cors',
-        headers: {'Access-Control-Allow-Origin': 'https://docs.google.com/'},
-      }
-    ).then(() => {
+  function Post(formData: FormData): Promise<void> {
+    return PostEntry(formData).then(() => {
       forceUpdate();
     });
   }
@@ -64,23 +45,7 @@ export function GuestFunctionMain() {
       Array<GuestBookEntries> | undefined
     >(undefined);
     useEffect(() => {
-      fetch(
-        'https://docs.google.com/spreadsheets/d/e/2PACX-1vS21jGYeFhM3EwbwY13OXo98UhrhOY9B6ZkyoBAuFM9foRjEJxKIyESL4nBYqA7kfRbvAUzHq-ij4_v/pub?output=csv'
-      ).then(e => {
-        e.text().then(s => {
-          setGuestBookEntries(
-            s.split('\n').map<GuestBookEntries>(itemLine => {
-              const itemLineSplited = itemLine.split(',');
-              return {
-                TimeStamp: itemLineSplited[0],
-                Name: itemLineSplited[1],
-                Linkedin: itemLineSplited[2],
-                Message: itemLineSplited[3],
-              };
-            })
-          );
-        });
-      });
+      GetEntries().then(entries => setGuestBookEntries(entries));
     }, []);
     if (guestBookEntries === undefined) {
       return (

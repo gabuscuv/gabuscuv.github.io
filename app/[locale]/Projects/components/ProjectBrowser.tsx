@@ -7,7 +7,7 @@ import {ProjectCards} from './ProjectCards';
 // eslint-disable-next-line n/no-extraneous-import
 import {HiFilter} from 'react-icons/hi';
 import {ProjectData, ProjectDataWithImages} from '@/src/data/ProjectDataTypes';
-import {ProjectDataArrayEncrypted} from '@/src/data/ProjectDataArrayEncrypted';
+import {ProjectDataArrayEncrypted} from '@/src/middleware/ProjectDataArrayEncrypted';
 import {projectTypeEnum} from '@/src/projectTypeEnum';
 import ProjectModal from './ProjectModal';
 import {Types} from './ProjectFilter';
@@ -16,10 +16,8 @@ import {ButtonGroup} from './ProjectToggle';
 import GameProjectsData from '@/src/data/GameProjectsData';
 import {Button, Drawer} from 'flowbite-react';
 import {TrademarkNotice} from './TrademarkNotice';
+import {GenerateKey as ImportKey} from '@/src/utils/decryptUtils';
 
-const cipherstring: Uint8Array = Uint8Array.from([
-  140, 27, 0, 173, 96, 5, 158, 202, 36, 231, 212, 24, 62, 84, 117, 167,
-]);
 const filterStack: Set<string> = new Set<string>();
 let output: Array<ProjectData> = [];
 let projectTypeFilter: {
@@ -57,23 +55,21 @@ export default function ProjectBrowser(props: {locale: string}): ReactNode {
 
   useEffect(() => {
     if (projectsData.length === 0) {
-      crypto.subtle
-        .importKey('raw', cipherstring.buffer, 'AES-CTR', false, ['decrypt'])
-        .then(e =>
-          new ProjectDataArrayEncrypted(e, projectDataOriginal).Getter(
-            (projectData: Array<ProjectData>) => {
-              if (output.length !== 0) {
-                return;
-              }
-              output = output.concat(
-                projectData.toSorted((a, b) => b.year - a.year)
-              );
-              output = output.concat(GameToolsProjectsList);
-              output = output.concat(otherProjectsDataList);
-              setProjectsData(output);
+      ImportKey().then(e =>
+        new ProjectDataArrayEncrypted(e, projectDataOriginal).Getter(
+          (projectData: Array<ProjectData>) => {
+            if (output.length !== 0) {
+              return;
             }
-          )
-        );
+            output = output.concat(
+              projectData.toSorted((a, b) => b.year - a.year)
+            );
+            output = output.concat(GameToolsProjectsList);
+            output = output.concat(otherProjectsDataList);
+            setProjectsData(output);
+          }
+        )
+      );
     }
   }, [
     GameToolsProjectsList,
