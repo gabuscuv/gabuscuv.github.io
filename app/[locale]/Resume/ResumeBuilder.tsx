@@ -44,7 +44,9 @@ export function ResumeBuilder(props: {
   return (
     <>
       <main className="m-5">
-        {t('CurrentView') + Object.entries(JobTypeEnum)[JobEnum]}
+        {t('CurrentView') +
+          ' ' +
+          Object.entries(JobTypeEnum)[JobEnum].toString().split(',')[1]}
         <Button
           onClick={() => {
             setOpenSelectorModal(true);
@@ -57,7 +59,9 @@ export function ResumeBuilder(props: {
             {t('Work Experience')}:{' '}
             {(
               props.resume.Jobs.map(
-                e => (e.EndDate - e.StartDate) / 1000
+                e =>
+                  ((e.EndDate !== 0 ? e.EndDate : Date.now()) - e.StartDate) /
+                  1000
               ).reduce((a, b) => a + b) / 31536000
             ).toFixed(2) +
               ' ' +
