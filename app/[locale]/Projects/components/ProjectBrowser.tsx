@@ -15,6 +15,7 @@ import {projectType} from '../projectType';
 import {ButtonGroup} from './ProjectToggle';
 import GameProjectsData from '@/src/data/GameProjectsData';
 import {Button, Drawer} from 'flowbite-react';
+import {TrademarkNotice} from './TrademarkNotice';
 
 const cipherstring: Uint8Array = Uint8Array.from([
   140, 27, 0, 173, 96, 5, 158, 202, 36, 231, 212, 24, 62, 84, 117, 167,
@@ -141,7 +142,7 @@ export default function ProjectBrowser(props: {locale: string}): ReactNode {
             </Drawer.Items>
           </Drawer>
           <Types
-            className="collapse lg:visible"
+            className="hidden lg:block"
             projectsData={projectsData}
             _filterStack={filterStack}
             callback={ChangedFilter}
@@ -166,6 +167,7 @@ export default function ProjectBrowser(props: {locale: string}): ReactNode {
           </Button>
         </div>
       </div>
+      <TrademarkNotice />
     </>
   );
 }

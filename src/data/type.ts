@@ -2,6 +2,8 @@ export const type: {[id: string]: {FullName: string; type: string}} = {
   c: {FullName: 'C', type: 'language'},
   cpp: {FullName: 'C++', type: 'language'},
   csharp: {FullName: 'C#', type: 'language'},
+  typescript: {FullName: 'Typescript', type: 'language'},
+  nextjs: {FullName: 'NextJS', type: 'webFramework'},
   react: {FullName: 'React', type: 'webFramework'},
   golang: {FullName: 'Golang', type: 'language'},
   unreal: {FullName: 'Unreal Engine', type: 'gameEngine'},

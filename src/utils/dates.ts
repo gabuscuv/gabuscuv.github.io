@@ -12,10 +12,10 @@ export function getYearsMonth(locale: string, date: number): string {
 export function getYearsMonthRange(
   locale: string,
   startDate: number,
-  endDate: number
+  endDate: number,
+  onGoingText: string
 ): string {
-  return `( ${getYearsMonth(locale, startDate)} - ${getYearsMonth(
-    locale,
-    endDate
-  )} )`;
+  return `( ${getYearsMonth(locale, startDate)} - ${
+    endDate !== 0 ? getYearsMonth(locale, endDate) : onGoingText
+  } )`;
 }

@@ -11,6 +11,7 @@
   },
   "CommonWords": {
     "years": "Years",
+    "OnGoing": "On-Going",
     "Work Experience": "Work Experience",
     "WorkExperience": "Work Experience",
     "Coding Experience": "Coding Experience",
@@ -57,7 +58,8 @@
     "LinkedinLink": "Linkedin Link",
     "Description": "Message",
     "Submit": "Send",
-    "update": "Update"
+    "update": "Update",
+    "Loading": "Loading"
   },
   "Resume": {
     "Education": {
@@ -76,20 +78,31 @@
     },
     "Jobs": {
       "Abance": {
+        "nextjs": {
+          "Description": "",
+          "bulletpoints": {}
+        },
         "csharpdev": {
-          "Description": "Due to a Company restructuring, The previous project was suspended and I am one of the few who remains in the company due to my general programming knowledge.",
-          "DotNetConsultant": ".NET Ecosystem Consultant ( architecture migration)",
-          "UnitTestDesigner": "Testing Automatization Designer"
+          "Description": "Due to the suspension of the previous project, My role changed as a support tools maker for ILS and I was one of the few who remained in the software dept company because of my general programming knowledge.",
+          "bulletpoints": {
+            "DotNetConsultant": ".NET Ecosystem Consultant ( architecture migration)",
+            "MultimediaConverter": "Automatized Multiprocess Multimedia Converter",
+            "ExcelParser": "Development of Excel Parsers (OpenXML) to S1000D Format",
+            "HTMLScrapper": "HTML Scrapper/Converter to S1000D Format",
+            "UnitTestDesigner": "Testing Automatization Designer"
+          }
         },
         "unreal": {
+          "Description": "Development, Optimizations of a VR 3D Model Viewer made with Unreal Engine 5.1 and upgrading to 5.3, Suspended due a business restructuring and reordering of priorities",
           "bulletpoints": {
             "ioOptimization": "I/O Optimization (reduction of 10-15 Min to a few seconds On Load)",
             "pythonAuto": "Python Automatization (Commandlet and In-Editor)",
             "accesibility": "Accessibility Options",
-            "qtTools": "Automatized Content Build Pipeline with QT tools and Multithreaded optimisations)",
-            "Networking": "Networking (replication)",
-            "buildPipeline": "Builds Pipeline (Server Included)",
-            "features": "Custom Features"
+            "importOptimizations": "Import Asset Optimizations (from 40 minutes to 10 minutes)",
+            "qtTools": "Automatized Content Build Pipeline with QT tools",
+            "Networking": "Multi-User/Multiplayer/Networking (replication)",
+            "buildPipeline": "Unattended builds pipeline (Server builds included)",
+            "features": "In-Game Customs Tools (Multi-User Supported)"
           }
         }
       },
@@ -98,7 +111,7 @@
           "Description": "Creation, design, refactoring and maintenance of Software and unit tests in .NET Framework, Refactoring and migration tasks to .NET Standard/Core for old and new projects",
           "bulletpoints": {
             "monitoring": "Development of modular monitoring and alarm services/daemons",
-            "graphs": "Development of tools for displaying sales graphics in the web administration part.",
+            "graphs": "Development of tools for displaying sales graphics in the web administration side.",
             "azure": "Creation of Software for Azure Platform",
             "refactoring": "Refactoring Tasks.",
             "tests": "Creation and Design of Unit Tests for old and new projects"
@@ -119,7 +132,8 @@
       "backend": "Backend",
       "all": "All",
       "Description": "Hi!, Thanks for getting interested in me, As I am a multi-disciplined developer, I am obligated to get some resumes optimized for each role, Choose one of these roles to continue.",
-      "Choose": "Choose"
+      "Choose": "Choose",
+      "Title": "Tech Role Chooser"
     }
   },
   "NavBar": {

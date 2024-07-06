@@ -61,8 +61,8 @@ export function GuestFunctionMain() {
 
   function ReaderComponent() {
     const [guestBookEntries, setGuestBookEntries] = useState<
-      Array<GuestBookEntries>
-    >([]);
+      Array<GuestBookEntries> | undefined
+    >(undefined);
     useEffect(() => {
       fetch(
         'https://docs.google.com/spreadsheets/d/e/2PACX-1vS21jGYeFhM3EwbwY13OXo98UhrhOY9B6ZkyoBAuFM9foRjEJxKIyESL4nBYqA7kfRbvAUzHq-ij4_v/pub?output=csv'
@@ -82,6 +82,13 @@ export function GuestFunctionMain() {
         });
       });
     }, []);
+    if (guestBookEntries === undefined) {
+      return (
+        <div>
+          <p>{t('Loading')}</p>
+        </div>
+      );
+    }
     return (
       <div className="w-full flex">
         <div className="h-10 w-full">
@@ -136,7 +143,7 @@ export function GuestFunctionMain() {
 
   return (
     <>
-      <main className="m-10 md:grid md:grid-cols-2">
+      <main className="m-10 flex flex-col-reverse md:grid md:grid-cols-2">
         <ReaderComponent />
         <div className="m-10">
           <PostComponent />
