@@ -1,10 +1,8 @@
-import {projectTypeEnum} from '../projectTypeEnum';
-
-export class ProjectData {
+export interface IProjectData {
   id: string;
   name: string;
-  type: number;
-  stack: Array<string> = [];
+  projecttype: string;
+  stack: Array<string>;
   year: number;
   summary: string;
   htmlDescription: string;
@@ -12,11 +10,26 @@ export class ProjectData {
   isWide: boolean; // thumbnail will take 2 cols in the grid view
   isHigh: boolean; // thumbnail will take 2 rows in the grid view
   accentColor: string; // color of title bar
+}
+
+export class ProjectData {
+  id: string;
+  name: string;
+  projecttype: string;
+  stack: Array<string> = [];
+  year: number;
+  summary: string;
+  htmlDescription: string;
+  iconUrl: string; // used as thumnail
+  screenshots: Array<string> = [];
+  isWide: boolean; // thumbnail will take 2 cols in the grid view
+  isHigh: boolean; // thumbnail will take 2 rows in the grid view
+  accentColor: string; // color of title bar
 
   constructor(
     id: string,
     name: string,
-    type: number,
+    projectType: string,
     stack: string[],
     year: number,
     iconUrl: string,
@@ -28,7 +41,7 @@ export class ProjectData {
   ) {
     this.id = id;
     this.name = name;
-    this.type = type;
+    this.projecttype = projectType;
     this.stack = stack as Array<string>;
     this.year = year;
     this.summary = summary;
@@ -41,12 +54,10 @@ export class ProjectData {
 }
 
 export class ProjectDataWithImages extends ProjectData {
-  screenshots: Array<string> | undefined;
-
   constructor(
     id: string,
     name: string,
-    type: number,
+    projecttype: string,
     stack: Array<string>,
     year: number,
     iconUrl: string,
@@ -60,7 +71,7 @@ export class ProjectDataWithImages extends ProjectData {
     super(
       id,
       name,
-      type,
+      projecttype,
       stack,
       year,
       iconUrl,
@@ -91,7 +102,7 @@ export class GameProjects extends ProjectDataWithImages {
     super(
       id,
       name,
-      projectTypeEnum.Game,
+      'Game',
       stack,
       year,
       iconUrl,
@@ -122,7 +133,7 @@ export class GameToolProjects extends ProjectDataWithImages {
     super(
       id,
       name,
-      projectTypeEnum.GameTool,
+      'GameTool',
       stack,
       year,
       iconUrl,
@@ -152,7 +163,7 @@ export class ToolsProjects extends ProjectData {
     super(
       id,
       name,
-      projectTypeEnum.Tool,
+      'Tool',
       stack,
       year,
       iconUrl,

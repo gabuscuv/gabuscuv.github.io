@@ -3,6 +3,7 @@ import ProjectBrowser from './components/ProjectBrowser';
 import {NextIntlClientProvider} from 'next-intl';
 import {pick} from 'lodash';
 import {ReactNode} from 'react';
+import {GetterProjects} from '@/src/middleware/Getter';
 
 //function to generate the routes for all the locales
 export async function generateStaticParams() {
@@ -15,6 +16,7 @@ export async function generateStaticParams() {
 export default async function Project({params: locale}): ReactNode {
   unstable_setRequestLocale(locale);
   const messages = await getMessages(locale);
+
   return (
     <NextIntlClientProvider
       messages={
@@ -22,7 +24,7 @@ export default async function Project({params: locale}): ReactNode {
         pick(messages, 'Projects')
       }
     >
-      <ProjectBrowser locale={locale} />
+      <ProjectBrowser locale={locale} projects={await GetterProjects()} />
     </NextIntlClientProvider>
   );
 }

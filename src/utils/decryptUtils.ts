@@ -14,7 +14,7 @@ export const alghParam: AesCtrParams = {
   length: 128,
 };
 
-export function GenerateKey(): Promise<CryptoKey> {
+export function ImportKey(): Promise<CryptoKey> {
   return crypto.subtle.importKey('raw', cipherstring.buffer, 'AES-CTR', false, [
     'decrypt',
   ]);

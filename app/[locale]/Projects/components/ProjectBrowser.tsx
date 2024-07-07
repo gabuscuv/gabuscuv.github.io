@@ -1,82 +1,63 @@
 'use client';
 
 import {ReactNode, useEffect, useState} from 'react';
-import {GameToolProjectsList} from '@/src/data/GameToolsProjectsData';
-import otherProjectsData from '@/src/data/OtherProjectsData';
 import {ProjectCards} from './ProjectCards';
 // eslint-disable-next-line n/no-extraneous-import
 import {HiFilter} from 'react-icons/hi';
-import {ProjectData, ProjectDataWithImages} from '@/src/data/ProjectDataTypes';
-import {ProjectDataArrayEncrypted} from '@/src/middleware/ProjectDataArrayEncrypted';
-import {projectTypeEnum} from '@/src/projectTypeEnum';
+import {ProjectData} from '@/src/data/ProjectDataTypes';
+import {GetProjects} from '@/src/middleware/ProjectDataArrayEncrypted';
 import ProjectModal from './ProjectModal';
 import {Types} from './ProjectFilter';
 import {projectType} from '../projectType';
 import {ButtonGroup} from './ProjectToggle';
-import GameProjectsData from '@/src/data/GameProjectsData';
 import {Button, Drawer} from 'flowbite-react';
 import {TrademarkNotice} from './TrademarkNotice';
-import {GenerateKey as ImportKey} from '@/src/utils/decryptUtils';
+import {projects} from '@/src/middleware/Getter';
 
 const filterStack: Set<string> = new Set<string>();
 let output: Array<ProjectData> = [];
 let projectTypeFilter: {
   [id: string]: projectType;
 } = {
-  game: {activated: true},
-  gametools: {activated: true},
-  otherProjects: {activated: true},
+  Game: {
+    activated: true,
+    id: 0,
+  },
+  GameTool: {
+    activated: true,
+    id: 1,
+  },
+  Tool: {
+    activated: true,
+    id: 2,
+  },
 };
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const locale = '';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default function ProjectBrowser(props: {locale: string}): ReactNode {
+export default function ProjectBrowser(props: {
+  locale: string;
+  projects: projects;
+}): ReactNode {
   const [projectsData, setProjectsData] = useState<Array<ProjectData>>([]);
   const [projectData, setProjectData] = useState<ProjectData | undefined>(
     undefined
   );
   const [openModalStatus, setOpenModal] = useState(false);
   const [openFilterSidebar, setOpenFilterSidebar] = useState(false);
-
-  // This is bad
-  const [projectDataOriginal] =
-    useState<Array<ProjectDataWithImages>>(GameProjectsData());
-  const [GameToolsProjectsList] = useState<Array<ProjectData>>(
-    GameToolProjectsList()
-  );
-  const [otherProjectsDataList] =
-    useState<Array<ProjectData>>(otherProjectsData());
-  // if (props.locale !== locale)
-  // {
-
-  //   setprojectDataOriginal(GameProjectsData(props.locale))
-  //   locale = props.locale;
-  // }
-
   useEffect(() => {
-    if (projectsData.length === 0) {
-      ImportKey().then(e =>
-        new ProjectDataArrayEncrypted(e, projectDataOriginal).Getter(
-          (projectData: Array<ProjectData>) => {
-            if (output.length !== 0) {
-              return;
-            }
-            output = output.concat(
-              projectData.toSorted((a, b) => b.year - a.year)
-            );
-            output = output.concat(GameToolsProjectsList);
-            output = output.concat(otherProjectsDataList);
-            setProjectsData(output);
-          }
-        )
-      );
+    if (output.length === 0) {
+      GetProjects(props.projects).then(projects => {
+        output = projects;
+        setProjectsData(output);
+      });
+    } else {
+      if (projectsData.length === 0) {
+        setProjectsData(output);
+      }
     }
-  }, [
-    GameToolsProjectsList,
-    otherProjectsDataList,
-    projectDataOriginal,
-    projectsData,
-  ]);
+  }, [projectsData.length, props.projects]);
+
   function ProjectCardBuilder(projectTypeFilter: {
     [id: string]: projectType;
   }): void {
@@ -84,19 +65,21 @@ export default function ProjectBrowser(props: {locale: string}): ReactNode {
       output
         .filter(e => {
           return (
-            (e.type === projectTypeEnum.Tool &&
-              projectTypeFilter['otherProjects'].activated) ||
-            (e.type === projectTypeEnum.Game &&
-              projectTypeFilter['game'].activated) ||
-            (e.type === projectTypeEnum.GameTool &&
-              projectTypeFilter['gametools'].activated)
+            (e.projecttype === 'Tool' && projectTypeFilter['Tool'].activated) ||
+            (e.projecttype === 'Game' && projectTypeFilter['Game'].activated) ||
+            (e.projecttype === 'GameTool' &&
+              projectTypeFilter['GameTool'].activated)
           );
         })
         .filter(project =>
           [...filterStack].every(fs => project.stack.includes(fs))
         )
         .toSorted((a, b) => b.year - a.year)
-        .toSorted((a, b) => a.type - b.type)
+        .toSorted(
+          (a, b) =>
+            projectTypeFilter[a.projecttype].id -
+            projectTypeFilter[b.projecttype].id
+        )
     );
   }
 

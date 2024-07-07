@@ -16,8 +16,6 @@ export function botChecker(): boolean {
     if (
       agent.toLowerCase().indexOf(botUserAgentsArray[j].toLowerCase()) !== -1
     ) {
-      console.log(botUserAgentsArray[j]);
-
       isBotUserAgent = true;
       break;
     }

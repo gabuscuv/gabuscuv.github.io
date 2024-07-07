@@ -8,11 +8,11 @@ function getStatusValue(
 ): boolean {
   switch (gameType) {
     case projectTypeEnum.Game:
-      return projectTypeFilter['game'].activated;
+      return projectTypeFilter['Game'].activated;
     case projectTypeEnum.GameTool:
-      return projectTypeFilter['gametools'].activated;
+      return projectTypeFilter['GameTool'].activated;
     case projectTypeEnum.Tool:
-      return projectTypeFilter['otherProjects'].activated;
+      return projectTypeFilter['Tool'].activated;
   }
 }
 
@@ -20,18 +20,18 @@ function setAllToggles(
   projectTypeFilter: {[id: string]: projectType},
   status: boolean
 ) {
-  projectTypeFilter['game'].activated = status;
-  projectTypeFilter['gametools'].activated = status;
-  projectTypeFilter['otherProjects'].activated = status;
+  projectTypeFilter['Game'].activated = status;
+  projectTypeFilter['GameTool'].activated = status;
+  projectTypeFilter['Tool'].activated = status;
 }
 
 function isAllToogleEnable(projectTypeFilter: {
   [id: string]: projectType;
 }): Boolean {
   return (
-    projectTypeFilter['game'].activated &&
-    projectTypeFilter['gametools'].activated &&
-    projectTypeFilter['otherProjects'].activated
+    projectTypeFilter['Game'].activated &&
+    projectTypeFilter['GameTool'].activated &&
+    projectTypeFilter['Tool'].activated
   );
 }
 
@@ -44,25 +44,25 @@ function ProjectChecker(
     setAllToggles(projectTypeFilter, false);
   }
 
-  projectTypeFilter['game'].activated =
+  projectTypeFilter['Game'].activated =
     gameType === projectTypeEnum.Game
-      ? !projectTypeFilter['game'].activated
+      ? !projectTypeFilter['Game'].activated
       : false;
 
-  projectTypeFilter['gametools'].activated =
+  projectTypeFilter['GameTool'].activated =
     gameType === projectTypeEnum.GameTool
-      ? !projectTypeFilter['gametools'].activated
+      ? !projectTypeFilter['GameTool'].activated
       : false;
 
-  projectTypeFilter['otherProjects'].activated =
+  projectTypeFilter['Tool'].activated =
     gameType === projectTypeEnum.Tool
-      ? !projectTypeFilter['otherProjects'].activated
+      ? !projectTypeFilter['Tool'].activated
       : false;
 
   if (
-    !projectTypeFilter['game'].activated &&
-    !projectTypeFilter['gametools'].activated &&
-    !projectTypeFilter['otherProjects'].activated
+    !projectTypeFilter['Game'].activated &&
+    !projectTypeFilter['GameTool'].activated &&
+    !projectTypeFilter['Tool'].activated
   ) {
     setAllToggles(projectTypeFilter, true);
   }

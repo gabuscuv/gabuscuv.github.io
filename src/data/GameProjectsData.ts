@@ -1,9 +1,8 @@
-'use client';
 import {GameProjects as GameProjectsType} from '@/src/data/ProjectDataTypes';
-import {useTranslations} from 'next-intl';
+import {getTranslations} from 'next-intl/server';
 
-export function GameProjects() {
-  const t = useTranslations('Projects.gameProjects');
+export async function GameProjects() {
+  const t = await getTranslations('Projects.gameProjects');
   return [
     new GameProjectsType(
       'project-34',

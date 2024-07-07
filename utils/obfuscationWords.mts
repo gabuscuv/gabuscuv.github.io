@@ -7,21 +7,22 @@ const iv : Uint8Array = new Uint8Array([48,52,131,94,42,12,228,142,17,230,205,63
 
 var enc = new TextEncoder(); // always utf-8
 
-const key_encoded = await 
-  crypto.subtle.importKey(
-    "raw",
-    cipherstring.buffer,
-    "AES-CTR",
-    false,
-    ["encrypt"],
-  );
+ 
+crypto.subtle.importKey(
+  "raw",
+  cipherstring.buffer,
+  "AES-CTR",
+  false,
+  ["encrypt"],
+).then(key_encoded => {
+  ;
 
 
-    const rl = readline.createInterface({ input, output });
-    const answer = await rl.question('What do you think of Node.js? ');
+  const rl = readline.createInterface({ input, output });
+  rl.question('What do you think of Node.js? ').then(answer => {
 
     console.log("This is the encryption:");
-    const message = await crypto.subtle.encrypt(
+    crypto.subtle.encrypt(
       {
         name: "AES-CTR",
         counter: iv,
@@ -29,7 +30,12 @@ const key_encoded = await
       },
       key_encoded,
       enc.encode(answer)
-)
-console.log(btoa(String.fromCharCode(...new Uint8Array(message))));
+    ).then(message => {
+      console.log(btoa(String.fromCharCode(...new Uint8Array(message))))
+      rl.close();
+    })
 
-rl.close()
+  });
+
+    
+});
