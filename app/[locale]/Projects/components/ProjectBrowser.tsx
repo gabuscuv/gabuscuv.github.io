@@ -32,9 +32,9 @@ let projectTypeFilter: {
     id: 2,
   },
 };
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const locale = '';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+let locale = '';
+
 export default function ProjectBrowser(props: {
   locale: string;
   projects: projects;
@@ -46,9 +46,10 @@ export default function ProjectBrowser(props: {
   const [openModalStatus, setOpenModal] = useState(false);
   const [openFilterSidebar, setOpenFilterSidebar] = useState(false);
   useEffect(() => {
-    if (output.length === 0) {
+    if (output.length === 0 || locale !== props.locale) {
       GetProjects(props.projects).then(projects => {
         output = projects;
+        locale = props.locale;
         setProjectsData(output);
       });
     } else {
@@ -56,7 +57,7 @@ export default function ProjectBrowser(props: {
         setProjectsData(output);
       }
     }
-  }, [projectsData.length, props.projects]);
+  }, [projectsData.length, props.locale, props.projects]);
 
   function ProjectCardBuilder(projectTypeFilter: {
     [id: string]: projectType;
