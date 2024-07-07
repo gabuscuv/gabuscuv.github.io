@@ -1,8 +1,8 @@
 import {GameToolProjects} from '@/src/data/ProjectDataTypes';
-import {useTranslations} from 'next-intl';
+import {getTranslations} from 'next-intl/server';
 
-export function GameToolProjectsList() {
-  const t = useTranslations('Projects.gameTools');
+export async function GameToolProjectsList() {
+  const t = await getTranslations('Projects.gameTools');
   return [
     new GameToolProjects(
       'project-16',

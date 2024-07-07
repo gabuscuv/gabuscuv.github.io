@@ -1,8 +1,8 @@
 import {ToolsProjects} from '@/src/data/ProjectDataTypes';
-import {useTranslations} from 'next-intl';
+import {getTranslations} from 'next-intl/server';
 
-function ToolsProjectsList() {
-  const t = useTranslations('Projects.tools');
+export async function ToolsProjectsList() {
+  const t = await getTranslations('Projects.tools');
   return [
     new ToolsProjects(
       'project-40',
