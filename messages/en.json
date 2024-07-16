@@ -145,6 +145,10 @@
     "Projects": "(Game(Tools)) Projects",
     "Resume": "Resume",
     "GuestBook": "Guest Book",
-    "AboutMe": "About Me"
+    "AboutMe": "About Me",
+    "Contact": "Contact"
+  },
+  "Contact": {
+    "Heading": "Hi!, If you want contact me, You have these options:"
   }
 }
