@@ -27,10 +27,10 @@ export function WorkExperience(props: {
       title={`
         ${t('WorkExperience')} 
         (${props.JobTypeEnum !== JobTypeEnum.All ? workSorted.length : props.workExperience.length}
-        of
-        ${props.workExperience.length} Companies - 
-        ${workSorted.map(e => (props.JobTypeEnum !== JobTypeEnum.All ? clamp(e.Jobs.length, 0, 2) : e.Jobs.length)).reduce((a, z) => a + z)} of 
-        ${props.workExperience.map(e => e.Jobs.length).reduce((a, z) => a + z)} Job Positions)`}
+        ${t('of')}
+        ${props.workExperience.length} ${t('Companies')} - 
+        ${workSorted.map(e => (props.JobTypeEnum !== JobTypeEnum.All ? clamp(e.Jobs.length, 0, 2) : e.Jobs.length)).reduce((a, z) => a + z)} ${t('of')} 
+        ${props.workExperience.map(e => e.Jobs.length).reduce((a, z) => a + z)} ${t('JobPositions')})`}
     >
       {/* eslint-disable-next-line @typescript-eslint/no-unused-vars*/}
       {props.workExperience

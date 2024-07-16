@@ -47,13 +47,29 @@ export function ResumeBuilder(props: {
         {t('CurrentView') +
           ' ' +
           Object.entries(JobTypeEnum)[JobEnum].toString().split(',')[1]}
-        <Button
-          onClick={() => {
-            setOpenSelectorModal(true);
-          }}
-        >
-          Change Tech Profile
-        </Button>
+        <div className="flex gap-2">
+          <Button
+            onClick={() => {
+              setOpenSelectorModal(true);
+            }}
+          >
+            {t('ChangeProfile')}
+          </Button>
+          <Button
+            onClick={() => {
+              open(
+                //'https://gabuscuv.dev' +
+                '/misc/resume/' +
+                  (props.locale === 'es' ? 'cv' : 'resume') +
+                  `-BustilloDelCuvilloGabriel-${props.locale}-` +
+                  (JobEnum === JobTypeEnum.GameDev ? 'gamedev' : 'dev') +
+                  '.pdf'
+              );
+            }}
+          >
+            {t('Download')}
+          </Button>
+        </div>
         <ResumeSection title={t('TechExperience')}>
           <p>
             {t('Work Experience')}:{' '}
