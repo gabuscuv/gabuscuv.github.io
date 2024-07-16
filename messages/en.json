@@ -19,7 +19,12 @@
     "Certificates": "Certificates",
     "Talks": "Talks",
     "CurrentView": "Your current view is as :",
-    "TechExperience": "Some Tech Experiences"
+    "TechExperience": "Some Tech Experiences",
+    "Download": "Download Resume",
+    "ChangeProfile": "Change Tech Profile",
+    "JobPositions": "Job Positions",
+    "Companies": "Companies",
+    "of": "of"
   },
   "Projects": {
     "gameProjects": {
@@ -140,6 +145,10 @@
     "Projects": "(Game(Tools)) Projects",
     "Resume": "Resume",
     "GuestBook": "Guest Book",
-    "AboutMe": "About Me"
+    "AboutMe": "About Me",
+    "Contact": "Contact"
+  },
+  "Contact": {
+    "Heading": "Hi!, If you want contact me, You have these options:"
   }
 }
