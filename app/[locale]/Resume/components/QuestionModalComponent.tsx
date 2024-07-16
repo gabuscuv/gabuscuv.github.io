@@ -2,13 +2,13 @@
 import {JobTypeEnum} from '@/src/data/Resume';
 import {Button, Modal} from 'flowbite-react';
 import {useTranslations} from 'next-intl';
-import {ReactNode} from 'react';
+import {ReactNode, useState} from 'react';
 
 export function QuestionModal(props: {
   openModalStatus: boolean;
   closeModalCallback: (jobeNum: JobTypeEnum) => void;
 }): ReactNode {
-  let jobeNum: JobTypeEnum;
+  const [jobeNum, setJobEnum] = useState<JobTypeEnum | undefined>();
   const t = useTranslations('Resume.QuestionModal');
   return (
     <Modal
@@ -26,7 +26,7 @@ export function QuestionModal(props: {
               <Button
                 color="gray"
                 onClick={() => {
-                  jobeNum = JobTypeEnum.All;
+                  setJobEnum(JobTypeEnum.All);
                 }}
               >
                 {t('all')}
@@ -34,7 +34,7 @@ export function QuestionModal(props: {
               <Button
                 color="gray"
                 onClick={() => {
-                  jobeNum = JobTypeEnum.GameDev;
+                  setJobEnum(JobTypeEnum.GameDev);
                 }}
               >
                 Game Developer/Interative App/Virtual Production
@@ -42,7 +42,7 @@ export function QuestionModal(props: {
               <Button
                 color="gray"
                 onClick={() => {
-                  jobeNum = JobTypeEnum.Web;
+                  setJobEnum(JobTypeEnum.Web);
                 }}
               >
                 {t('web')}
@@ -50,7 +50,7 @@ export function QuestionModal(props: {
               <Button
                 color="gray"
                 onClick={() => {
-                  jobeNum = JobTypeEnum.Backend;
+                  setJobEnum(JobTypeEnum.Backend);
                 }}
               >
                 {t('backend')}
@@ -62,8 +62,9 @@ export function QuestionModal(props: {
       <Modal.Footer>
         <Button
           onClick={() => {
-            props.closeModalCallback(jobeNum);
+            if (jobeNum) props.closeModalCallback(jobeNum);
           }}
+          disabled={!jobeNum}
         >
           {t('Choose')}
         </Button>

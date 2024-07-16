@@ -103,6 +103,7 @@ export async function ResumeContent(): Promise<ResumeType> {
             techStack: ['unreal', 'csharp', 'cpp', 'python', 'grpc'],
             BulletPoints: [
               t('Jobs.Abance.unreal.bulletpoints.Networking'),
+              t('Jobs.Abance.unreal.bulletpoints.importOptimizations'),
               t('Jobs.Abance.unreal.bulletpoints.buildPipeline'),
               t('Jobs.Abance.unreal.bulletpoints.qtTools'),
               t('Jobs.Abance.unreal.bulletpoints.ioOptimization'),

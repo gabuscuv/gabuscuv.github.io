@@ -19,7 +19,12 @@
     "Talks": "Charlas",
     "CurrentView": "Su vista actual es la siguiente:",
     "TechExperience": "Algunas experiencias tecnológicas",
-    "OnGoing": "En curso"
+    "OnGoing": "En curso",
+    "ChangeProfile": "Cambiar perfil técnico",
+    "Companies": "Compañías",
+    "Download": "Descargar Currículum",
+    "JobPositions": "Puestos de trabajo",
+    "of": "de"
   },
   "Projects": {
     "gameProjects": {
@@ -93,10 +98,10 @@
         "unreal": {
           "bulletpoints": {
             "qtTools": "Creacion de herramientas de automatizacion de procesamiento de contenido en QT y optimizaciones multiproceso)",
-            "importOptimizations": "Importar optimizaciones de activos (de 40 minutos a 10 minutos)",
+            "importOptimizations": "Optimizaciones al Importar de Assets (de 40 minutos a 10 minutos)",
             "Networking": "Multiusuario/Multijugador/Redes (replicación)",
             "accesibility": "Opciones de accesibilidad",
-            "buildPipeline": "Canalización de compilaciones desatendidas (compilaciones de servidor incluidas)",
+            "buildPipeline": "Pipeline de compilaciones desatendidas (compilaciones de servidor incluidas)",
             "features": "Herramientas personalizadas en el juego (compatibles con múltiples usuarios)",
             "ioOptimization": "Optimización de E/S (reducción de 10-15 minutos a unos pocos segundos en carga)",
             "pythonAuto": "Automatización de Python (commandlet y en el editor)"
