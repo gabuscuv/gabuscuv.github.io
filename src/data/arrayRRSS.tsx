@@ -16,7 +16,7 @@ function EmailTemplate(email: string): social {
   return {
     name: 'E-mail',
     logo: <MdEmail />,
-    url: 'mailto://' + email,
+    url: 'mailto:' + email,
     innerText: email,
   };
 }
