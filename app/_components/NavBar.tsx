@@ -41,11 +41,11 @@ export function NavBar(props: {localeSwitcher: ReactNode}) {
         >
           {t('Resume')}
         </Navbar.Link>
-        <Navbar.Link as={Link} href="/GuestBook">
-          {t('GuestBook')}
-        </Navbar.Link>
         <Navbar.Link as={Link} href="/Contact">
           {t('Contact')}
+        </Navbar.Link>
+        <Navbar.Link as={Link} href="/GuestBook">
+          {t('GuestBook')}
         </Navbar.Link>
         {props.localeSwitcher}
       </Navbar.Collapse>

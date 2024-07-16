@@ -62,9 +62,9 @@ export function QuestionModal(props: {
       <Modal.Footer>
         <Button
           onClick={() => {
-            if (jobeNum) props.closeModalCallback(jobeNum);
+            if (jobeNum !== undefined) props.closeModalCallback(jobeNum);
           }}
-          disabled={!jobeNum}
+          disabled={jobeNum === undefined}
         >
           {t('Choose')}
         </Button>
