@@ -371,21 +371,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@formatjs/intl-localematcher@npm:0.5.4":
+"@formatjs/intl-localematcher@npm:0.5.4, @formatjs/intl-localematcher@npm:^0.5.4":
   version: 0.5.4
   resolution: "@formatjs/intl-localematcher@npm:0.5.4"
   dependencies:
     tslib: "npm:^2.4.0"
   checksum: 10c0/c9ff5d34ca8b6fe59f8f303a3cc31a92d343e095a6987e273e5cc23f0fe99feb557a392a05da95931c7d24106acb6988e588d00ddd05b0934005aafd7fdbafe6
-  languageName: node
-  linkType: hard
-
-"@formatjs/intl-localematcher@npm:^0.2.32":
-  version: 0.2.32
-  resolution: "@formatjs/intl-localematcher@npm:0.2.32"
-  dependencies:
-    tslib: "npm:^2.4.0"
-  checksum: 10c0/21104d575846af4c66b6af73b28f54bb86405789d632189a04530022ab7d8a919c6e805cc6f9b749850d854985f12cb9fae248a33fe2a38c9d74565fa4345ff9
   languageName: node
   linkType: hard
 
@@ -4097,16 +4088,16 @@ __metadata:
   linkType: hard
 
 "next-intl@npm:^3":
-  version: 3.17.0
-  resolution: "next-intl@npm:3.17.0"
+  version: 3.19.0
+  resolution: "next-intl@npm:3.19.0"
   dependencies:
-    "@formatjs/intl-localematcher": "npm:^0.2.32"
+    "@formatjs/intl-localematcher": "npm:^0.5.4"
     negotiator: "npm:^0.6.3"
-    use-intl: "npm:^3.17.0"
+    use-intl: "npm:^3.19.0"
   peerDependencies:
     next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/31c7bbbc8266150b2f92bb33a7c84b89bc517526e972e62a026bd12974402b792afdc406545ca6e1b4d0021a4525ff755d2d49d246ccc86bbdffe85e1a99b627
+  checksum: 10c0/3d0e0f1d46c2d6d42e05ae5bb28f6f0a60ea55cbeb159c8a0e9521541a4278d365e0fbb6690d0f4982a9bf5cc80ef31d323c695b591579abdea3483088f42e5a
   languageName: node
   linkType: hard
 
@@ -5723,15 +5714,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-intl@npm:^3.17.0":
-  version: 3.17.0
-  resolution: "use-intl@npm:3.17.0"
+"use-intl@npm:^3.19.0":
+  version: 3.19.0
+  resolution: "use-intl@npm:3.19.0"
   dependencies:
     "@formatjs/fast-memoize": "npm:^2.2.0"
     intl-messageformat: "npm:^10.5.14"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/fd7d597f0d8e25721a71e51ca960f45f4ee0bcb8e0c88a94f608154a427e55eb6415ffba2311c15f4a9830265786195ff0e9534c61e0e1d8917724c712859467
+  checksum: 10c0/93b40f8c3b45c15e507cf42efec482cf684a2f03393cc938e939a679ae0270241f896596262d0353eabfb9815a160723c607f18e87228ce18ac6b5ec0f0102a8
   languageName: node
   linkType: hard
 
