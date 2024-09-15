@@ -154,5 +154,19 @@
   },
   "Contact": {
     "Heading": "¡Hola!, Si quieres contactarme, tienes estas opciones:"
+  },
+  "AboutMe": {
+    "Shorts": {
+      "MemberOf": "Miembro de:",
+      "FavouriteMedia": "Contenido Multimedia Favoritos"
+    },
+    "Paragraphs": {
+      "Paragraph1": "¡Hola! Soy Gabriel Bustillo del Cuvillo, un versátil profesional de TI y desarrollador de software de El Puerto de Santa María, España. Con experiencia como técnico de TI, aporto una gran cantidad de conocimientos y un enfoque práctico a cada proyecto que emprendo.",
+      "Paragraph2": "Desde mi infancia tuve un interés especial por la informática. Recuerdo haber usado DosBox para ejecutar Windows 3.1 cuando tenía 8 años (¡en 2003!), ejecutar Ubuntu 6.04 en un disco duro externo (un año después), desmontar ordenadores, ayudar a reparar ordenadores de familiares y amigos, abrir puertos (para servidores).",
+      "Paragraph3": "Como experto en TI, me encanta afrontar diversos desafíos y ampliar continuamente mi conjunto de habilidades. Mi trayectoria en el mundo de la tecnología me ha llevado a adentrarme en varios dominios, desde el desarrollo de software hasta el soporte de TI, siempre con el foco puesto en ofrecer soluciones innovadoras.",
+      "Paragraph4": "Me especializo en el full-stack desarrollo y estoy muy interesado en el desarrollo de juegos de realidad virtual (RV). Mi portafolio incluye una variedad de proyectos, como un juego de misterio en realidad virtual desarrollado con Unreal Engine, varios juegos desarrollados con Unity y varios Plugins y frameworks diseñados para mejorar las experiencias de realidad virtual.",
+      "Paragraph5": "Me apasiona aprovechar la tecnología para crear aplicaciones impactantes y fáciles de usar. Ya sea desarrollando una nueva característica, optimizando sistemas existentes o explorando tecnologías de vanguardia, estoy comprometido con la excelencia y el aprendizaje continuo.",
+      "Paragraph6": "En mi tiempo libre, puedes encontrarme explorando nuevas tendencias tecnológicas, participando en GameJams, contribuyendo a proyectos de código abierto, improvisando con mis guitarras, haciendo documentación sobre la historia del software en España (años 2000) o disfrutando de un juego o anime."
+    }
   }
 }
