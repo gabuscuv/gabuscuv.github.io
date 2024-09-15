@@ -147,7 +147,10 @@
     "Resume": "Curriculum",
     "GuestBook": "Libro de Visitas",
     "AboutMe": "Sobre Mi",
-    "Contact": "Contacto"
+    "Contact": "Contacto",
+    "Notes": "Notas",
+    "Blog": "Blog",
+    "Others": "Otros"
   },
   "Contact": {
     "Heading": "¡Hola!, Si quieres contactarme, tienes estas opciones:"
