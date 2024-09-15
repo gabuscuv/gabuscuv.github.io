@@ -1,6 +1,6 @@
 'use client';
-import {Link, usePathname} from './navigation';
-import {Navbar} from 'flowbite-react';
+import {Link, usePathname, useRouter} from './navigation';
+import {Dropdown, Navbar} from 'flowbite-react';
 import {useTranslations} from 'next-intl';
 import {ReactNode} from 'react';
 
@@ -9,6 +9,7 @@ export const localePrefix = 'always'; // Default
 
 export function NavBar(props: {localeSwitcher: ReactNode}) {
   const t = useTranslations('NavBar');
+  const router = useRouter();
   return (
     <Navbar fluid rounded>
       <Navbar.Brand as={Link} href="/">
@@ -47,8 +48,25 @@ export function NavBar(props: {localeSwitcher: ReactNode}) {
         <Navbar.Link as={Link} href="/Contact">
           {t('Contact')}
         </Navbar.Link>
-        {props.localeSwitcher}
+        <Dropdown arrowIcon={true} inline label={t('Others')}>
+          <Dropdown.Item
+            onClick={() => {
+              router.push('/Others/Blog');
+            }}
+          >
+            {t('Blog')}
+          </Dropdown.Item>
+          <Dropdown.Item
+            onClick={() => {
+              router.push('/Others/Notes');
+            }}
+          >
+            {t('Notes')}
+          </Dropdown.Item>
+        </Dropdown>
+        <Navbar.Toggle />
       </Navbar.Collapse>
+      {props.localeSwitcher}
     </Navbar>
   );
 }
