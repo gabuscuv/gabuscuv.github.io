@@ -20,7 +20,7 @@ export default async function BlogLayout({
         Warning!, Data Migrated from my old blog, Formatting & review in
         progress
       </p>
-      <div className="flex">
+      <div className="md:flex">
         <Sections />
         {children}
       </div>

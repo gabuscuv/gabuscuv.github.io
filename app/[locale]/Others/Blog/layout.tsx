@@ -12,11 +12,13 @@ export default async function BlogLayout({
   unstable_setRequestLocale(locale);
   const allPosts = await getAllPosts();
   return (
-    <div className="flex">
-      <EntryEnumeratorComponent
-        prefix={'/Others/Blog/'}
-        element={allPosts.map(e => ({title: e.title, src: e.slug}))}
-      />
+    <div className="md:flex">
+      <div className="flex md:h-full">
+        <EntryEnumeratorComponent
+          prefix={'/Others/Blog/'}
+          element={allPosts.map(e => ({title: e.title, src: e.slug}))}
+        />
+      </div>
       {children}
     </div>
   );
