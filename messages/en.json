@@ -153,5 +153,19 @@
   },
   "Contact": {
     "Heading": "Hi!, If you want contact me, You have these options:"
+  },
+  "AboutMe": {
+    "Shorts": {
+      "MemberOf": "Member Of:",
+      "FavouriteMedia": "Favourite Media"
+    },
+    "Paragraphs": {
+      "Paragraph1": "Hi! I’m Gabriel Bustillo del Cuvillo, a versatile IT professional and software developer from El Puerto de Santa Maria, Spain. With a background as an IT technician, I bring a wealth of knowledge and a hands-on approach to every project I undertake.",
+      "Paragraph2": "Since my childhood I had a special interest in Computer, I kind remember using DosBox to run Windows 3.1 when I was 8 y/o (in 2003!), Running Ubuntu 6.04 in an external HDD (one year later), Takedown Computers, helping to fix computers for family & friends, Opening Ports (for servers).",
+      "Paragraph3": "As a Jack-of-all-trades in IT, I thrive on tackling diverse challenges and continuously expanding my skill set. My journey in the tech world has seen me delve into various domains, from software development to IT support, always with a focus on delivering innovative solutions.",
+      "Paragraph4": "I specialize in full-stack development and am keenly interested in virtual reality (VR) game development. My portfolio includes a range of projects, such as a mystery VR game developed with Unreal Engine, various games developed with Unity, and several custom plugins and frameworks designed to enhance VR experiences.",
+      "Paragraph5": "I’m passionate about leveraging technology to create impactful and user-friendly applications. Whether it’s developing a new feature, optimizing existing systems, or exploring cutting-edge technologies, I am committed to excellence and continuous learning.",
+      "Paragraph6": "In my free time, you can find me exploring new tech trends, participating in GameJams, contributing to open-source projects, doing some improvisation in my guitars, making documentation about software history in Spain (2000s), or enjoying a game or anime."
+    }
   }
 }
