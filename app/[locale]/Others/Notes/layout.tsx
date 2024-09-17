@@ -12,11 +12,13 @@ export default async function NotesLayout({
   unstable_setRequestLocale(locale);
   const allPosts = await getAllPages();
   return (
-    <div className="flex">
-      <EntryEnumeratorComponent
-        prefix={'/Others/Notes/'}
-        element={allPosts.map(e => ({title: e.title, src: e.slug}))}
-      />
+    <div className="md:flex">
+      <div className="flex md:h-full">
+        <EntryEnumeratorComponent
+          prefix={'/Others/Notes/'}
+          element={allPosts.map(e => ({title: e.title, src: e.slug}))}
+        />
+      </div>
       {children}
     </div>
   );
