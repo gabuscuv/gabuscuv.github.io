@@ -4,8 +4,8 @@ import {ListGroup} from 'flowbite-react';
 export function Sections() {
   const router = useRouter();
   return (
-    <div className="flex justify-center">
-      <ListGroup className="w-48">
+    <div>
+      <ListGroup className="hidden md:block md:w-48">
         <ListGroup.Item
           onClick={() => {
             router.replace('/Others/Blog');
