@@ -23,10 +23,9 @@ export function NavBar(props: {localeSwitcher: ReactNode}) {
           Home
         </Navbar.Link>
         {
-          // I Will Do it later
-          /* <Navbar.Link as={Link} href="/">
-          {t('AboutMe')}
-        </Navbar.Link> */
+          <Navbar.Link as={Link} href="/AboutMe">
+            {t('AboutMe')}
+          </Navbar.Link>
         }
         <Navbar.Link
           as={Link}
