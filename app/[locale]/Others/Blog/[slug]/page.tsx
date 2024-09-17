@@ -13,8 +13,8 @@ export default async function Post({params}: Params) {
   const content = await markdownToHtml(post.content || '');
 
   return (
-    <main>
-      <article className="mb-32" dangerouslySetInnerHTML={{__html: content}} />
+    <main className="max-h-screen m-5 overflow-x-scroll">
+      <article className="" dangerouslySetInnerHTML={{__html: content}} />
     </main>
   );
 }
