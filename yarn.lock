@@ -612,15 +612,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/third-parties@npm:^14.2.11":
-  version: 14.2.11
-  resolution: "@next/third-parties@npm:14.2.11"
+"@next/third-parties@npm:^14.2.15":
+  version: 14.2.15
+  resolution: "@next/third-parties@npm:14.2.15"
   dependencies:
     third-party-capital: "npm:1.0.20"
   peerDependencies:
     next: ^13.0.0 || ^14.0.0
     react: ^18.2.0
-  checksum: 10c0/5197ba3fdea52a9b09d255c48a77d307de0a8bec5715c4c20faa5f027725fad8c75228bd14e0b22a4ac178502aba1f810f2069d66a9599c4ec896e4af39209b7
+  checksum: 10c0/9813cd87bd700010b21409ae39716b68ea394ecf3af406f5e6523c64eaf99241e2488bb875abc2c6131e20ba7a7c0c960d063bf1a3154eb2b3a8a447debfcd87
   languageName: node
   linkType: hard
 
@@ -3261,7 +3261,7 @@ __metadata:
     "@mdx-js/loader": "npm:^3.0.1"
     "@mdx-js/react": "npm:^3.0.1"
     "@next/mdx": "npm:^14.2.11"
-    "@next/third-parties": "npm:^14.2.11"
+    "@next/third-parties": "npm:^14.2.15"
     "@types/lodash": "npm:^4"
     "@types/mdx": "npm:^2.0.13"
     "@types/node": "npm:^20"
