@@ -1,4 +1,4 @@
-import {unstable_setRequestLocale} from 'next-intl/server';
+import {setRequestLocale} from 'next-intl/server';
 import {Sections} from './_Components/Sections';
 
 export async function generateStaticParams() {
@@ -12,7 +12,7 @@ export default async function BlogLayout({
   children: React.ReactNode;
   params: {locale: string};
 }>) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   return (
     <div>

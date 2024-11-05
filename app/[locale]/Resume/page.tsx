@@ -1,5 +1,5 @@
 import {AwaitedReactNode} from 'react';
-import {getMessages, unstable_setRequestLocale} from 'next-intl/server';
+import {getMessages, setRequestLocale} from 'next-intl/server';
 import {ResumeBuilder} from './ResumeBuilder';
 import {ResumeContent} from '@/src/data/Resume';
 import {NextIntlClientProvider} from 'next-intl';
@@ -16,7 +16,7 @@ export default async function Resume({
   // always match for the current route, we can skip runtime checks.
   params: {locale},
 }): Promise<AwaitedReactNode> {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const messages = await getMessages(locale);
 
   const resume = await ResumeContent();

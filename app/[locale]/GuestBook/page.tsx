@@ -1,4 +1,4 @@
-import {getMessages, unstable_setRequestLocale} from 'next-intl/server';
+import {getMessages, setRequestLocale} from 'next-intl/server';
 import {GuestFunctionMain} from './components/PostComponent';
 import {NextIntlClientProvider} from 'next-intl';
 import {pick} from 'lodash';
@@ -11,7 +11,7 @@ export async function generateStaticParams() {
 // are used in combination with a given `pathname`. Since the two will
 // always match for the current route, we can skip runtime checks.
 export default async function GuestBook({params: {locale}}) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const messages = await getMessages(locale);
   return (
     <NextIntlClientProvider
