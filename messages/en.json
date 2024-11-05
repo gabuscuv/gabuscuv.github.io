@@ -84,7 +84,6 @@
     "Jobs": {
       "Abance": {
         "nextjs": {
-          "Description": "",
           "bulletpoints": {}
         },
         "csharpdev": {
@@ -109,6 +108,21 @@
             "buildPipeline": "Unattended builds pipeline (Server builds included)",
             "features": "In-Game Customs Tools (Multi-User Supported)"
           }
+        },
+        "wordpress": {
+          "Description": "Maintainer & Supervisor of Abance Web",
+          "bulletpoints": {
+            "content": "Update Content",
+            "redesign": "Redesign the frontpage website",
+            "animations": "Improve animations"
+          }
+        },
+        "nextreact": {
+          "bulletpoints": {
+            "AbanceReact": "A remade version of Abance Web in React (+ some PHP and .htaccess tricks) migrated from Wordpress.",
+            "Magallanes": "An Internal Database for ILS"
+          },
+          "description": "Development of various internal projects"
         }
       },
       "itixo": {

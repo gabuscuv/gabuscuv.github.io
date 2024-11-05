@@ -3,6 +3,8 @@ import {getTranslations} from 'next-intl/server';
 
 export async function ToolsProjectsList() {
   const t = await getTranslations('Projects.tools');
+  // const t = useTranslations('Projects.tools'); preview for i18n-ally
+
   return [
     new ToolsProjects(
       'project-40',

@@ -3,6 +3,8 @@ import {getTranslations} from 'next-intl/server';
 
 export async function GameProjects() {
   const t = await getTranslations('Projects.gameProjects');
+  //   const t = useTranslations('Projects.gameProjects');
+
   return [
     new GameProjectsType(
       'project-34',
@@ -12,7 +14,10 @@ export async function GameProjects() {
       '/img/projects/project-34-icon.png',
       'MalagaJam 2024',
       `
-      <p>${t('WorkInProgressDescription')}</p>
+      <p>It's just a game about throwing chickens in a oven with climbing mechanics (the result after two changes of ideas)</p>
+        <div class="paragraph center">
+     <iframe class="youtube" src="https://www.youtube-nocookie.com/embed/MnTvlINnSJU" frameborder="0" allowfullscreen></iframe>
+     </div>
       <iframe frameborder="0"
       src="https://itch.io/embed/2494020"
       width="552"
@@ -30,8 +35,31 @@ export async function GameProjects() {
       '/img/projects/project-33-icon.png',
       'Spain Game Jam IV',
       `
-      <p>${t('WorkInProgressDescription')}</p>
+
+      <div class="paragraph ">
+ 
+      <div class="paragraph center">
+      CAMP TALES is a first-person narrative game with many alternative endings!
+        </div>
+     <div class="paragraph center">
+     <iframe class="youtube" src="https://www.youtube-nocookie.com/embed/QewxgfS0ByQ" frameborder="0" allowfullscreen></iframe>
+     </div>
+Join Telmo the Turtle, Celia the Zebra and Jude the Boar on a camping trip after dark.
+
+Once you're settled in, tell them the story of where you're going to spend the night. You're the one who knows the story! So you can tell it however you like by choosing various narrative suggestions that will affect the mood of the three friends.
+
+Try not to let any of them collapse from terror by listening to your story!
+
+Discover their likes and dislikes through immersive and different conversations, and try to avoid choices that accumulate stress in a single character.
+
+Good luck finding a benevolent ending ;)
+
+     <div class="notice">
+         Windows build available on <a class="oldlink" href="https://alexroivas.itch.io/tikpocalipsis" target="_blank">itch.io</a>.<br/>
+     </div>
       <iframe frameborder="0" src="https://itch.io/embed/2274926" width="552" height="167"></iframe>
+      </div>
+
       `,
       [],
       '#23bd69',
@@ -43,9 +71,19 @@ export async function GameProjects() {
       ['unity', 'csharp', 'fmod'],
       2023,
       '/img/projects/project-32-icon.png',
-      'MalagaJam 2023 Summer Edition',
+      'MalagaJam 2023 Summer',
       `
-      <p>${t('WorkInProgressDescription')}</p>
+      <div class="paragraph center">
+      Try to survive the end of the world while admiring your favorite TukTokers, dodging zombies and Daleks, avoiding being EXTERMINATED while satisfying your brain with the dopamine that comes from watching TukTuk videos.
+      </div>
+      <div class="paragraph ">
+      
+     <div class="notice">
+         Windows build available on <a class="oldlink" href="https://alexroivas.itch.io/tikpocalipsis" target="_blank">itch.io</a>.<br/>
+     </div>
+     <div class="paragraph center">
+     <iframe class="youtube" src="https://www.youtube-nocookie.com/embed/5ckl-LLg09o" frameborder="0" allowfullscreen></iframe>
+     </div>
       <iframe frameborder="0" src="https://itch.io/embed/2194730" width="552" height="167"></iframe>
       `,
       [],

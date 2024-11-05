@@ -85,8 +85,6 @@
       "Abance": {
         "csharpdev": {
           "Description": "Debido a una reestructuración de la Empresa, el proyecto anterior fue suspendido y soy de los pocos que permanece en la empresa debido a mis conocimientos generales de programación.",
-          "DotNetConsultant": "Consultoria de ecosistema .NET (migración de arquitectura)",
-          "UnitTestDesigner": "Diseñador de automatización de pruebas",
           "bulletpoints": {
             "DotNetConsultant": "Consultor de ecosistemas .NET (migración de arquitectura)",
             "ExcelParser": "Desarrollo de Analizadores de Excel (OpenXML) al Formato S1000D",
@@ -108,8 +106,21 @@
           },
           "Description": "Desarrollo, Optimizaciones de un Visor de Modelos 3D VR realizado con Unreal Engine 5.1 y actualizando a 5.3, Suspendido por reestructuración empresarial y reordenamiento de prioridades"
         },
-        "nextjs": {
-          "Description": ""
+        "nextjs": {},
+        "nextreact": {
+          "bulletpoints": {
+            "AbanceReact": "Una versión rehecha de Abance Web en React (algunos trucos de PHP y .htaccess) migró desde Wordpress.",
+            "Magallanes": "Una base de datos interna para ILS"
+          },
+          "description": "Desarrollo de diversos proyectos internos."
+        },
+        "wordpress": {
+          "bulletpoints": {
+            "animations": "Mejorar animaciones",
+            "content": "Actualizar contenido",
+            "redesign": "Rediseñar el sitio web de la página principal."
+          },
+          "Description": "mantenedor"
         }
       },
       "itixo": {
