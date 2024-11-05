@@ -615,15 +615,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/third-parties@npm:^14":
-  version: 14.2.16
-  resolution: "@next/third-parties@npm:14.2.16"
+"@next/third-parties@npm:^15":
+  version: 15.0.2
+  resolution: "@next/third-parties@npm:15.0.2"
   dependencies:
     third-party-capital: "npm:1.0.20"
   peerDependencies:
-    next: ^13.0.0 || ^14.0.0
-    react: ^18.2.0
-  checksum: 10c0/256b99e78e432a58072e5c38588f2c82ca5369ce16c8eb0bc9b25cdd6846d39644c3ea7a3b6f410146619882afe8c065195f7a5c978a8a1082a3504d950f6935
+    next: ^13.0.0 || ^14.0.0 || ^15.0.0
+    react: ^18.2.0 || 19.0.0-rc-02c0e824-20241028
+  checksum: 10c0/e98195bc35074c01a82a894036dfc547346649b379714ea61f3015adea4e9cc269b69195a26104df78861cc9a41b7aa8df1cbf615fe0aa83b85c9b588b660030
   languageName: node
   linkType: hard
 
@@ -3378,7 +3378,7 @@ __metadata:
     "@mdx-js/loader": "npm:^3.0.1"
     "@mdx-js/react": "npm:^3.0.1"
     "@next/mdx": "npm:^14.2.11"
-    "@next/third-parties": "npm:^14"
+    "@next/third-parties": "npm:^15"
     "@types/lodash": "npm:^4"
     "@types/mdx": "npm:^2"
     "@types/node": "npm:^20"
