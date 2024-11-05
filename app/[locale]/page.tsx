@@ -1,6 +1,6 @@
 import {useTranslations} from 'next-intl';
 import {ReferencesCarouselComponent} from './components/ratings';
-import {getTranslations, unstable_setRequestLocale} from 'next-intl/server';
+import {getTranslations, setRequestLocale} from 'next-intl/server';
 import Image from 'next/image';
 
 // Can be imported from a shared config
@@ -23,7 +23,7 @@ export async function generateMetadata({params: {locale}}) {
 // are used in combination with a given `pathname`. Since the two will
 // always match for the current route, we can skip runtime checks.
 export default function Home({params: {locale}}) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const t = useTranslations('HomePage');
   return (
     <main className=" m-5 ">
@@ -42,7 +42,7 @@ export default function Home({params: {locale}}) {
             />
           </div>
         </div>
-        <div className="xl:mx-80 col-span-2">
+        <div className="xl:mx-80 h-full col-span-2">
           <ReferencesCarouselComponent />
         </div>
       </div>

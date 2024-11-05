@@ -52,32 +52,40 @@ export type ResumeType = {
 
 export async function ResumeContent(): Promise<ResumeType> {
   const t = await getTranslations('Resume');
+  // const t = useTranslations('Resume'); // for preview with i18n-ally
   return {
     Jobs: [
       {
         Title: 'Abance',
         Location: t('Locations.Puerto'),
-        Url: '',
+        Url: 'https://www.abance.es/',
         StartDate: Date.parse('2023/09/25'),
         EndDate: 0,
         Jobs: [
           {
-            Title: 'Typescript / React / Next.JS Developer',
-            Description: '',
+            Title: 'Lead Typescript / React / Next.JS Developer',
+            Description: t('Jobs.Abance.nextreact.description'),
             JobType: JobTypeEnum.Web,
             StartDate: Date.parse('2024/05/15'),
             EndDate: 0,
             techStack: ['typescript', 'react', 'nextjs'],
-            BulletPoints: [],
+            BulletPoints: [
+              t('Jobs.Abance.nextreact.bulletpoints.AbanceReact'),
+              t('Jobs.Abance.nextreact.bulletpoints.Magallanes'),
+            ],
           },
           {
             Title: 'Wordpress Developer',
-            Description: '',
+            Description: t('Jobs.Abance.wordpress.Description'),
             JobType: JobTypeEnum.Web,
             StartDate: Date.parse('2024/03/10'),
-            EndDate: 0,
+            EndDate: Date.parse('2024/08/10'),
             techStack: ['oxygen'],
-            BulletPoints: [],
+            BulletPoints: [
+              t('Jobs.Abance.wordpress.bulletpoints.content'),
+              t('Jobs.Abance.wordpress.bulletpoints.redesign'),
+              t('Jobs.Abance.wordpress.bulletpoints.animations'),
+            ],
           },
           {
             Title: 'Lead C# Software Developer',

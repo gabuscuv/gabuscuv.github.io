@@ -1,3 +1,9 @@
 {
-  "extends": ["./node_modules/gts/","next/core-web-vitals"]
+  "extends": ["./node_modules/gts/","next/core-web-vitals"],
+  "rules": {    
+    "n/no-unsupported-features/node-builtins": ["error", {
+    "version": ">=23.0.0",
+    "allowExperimental": true,
+    "ignores": []
+}]}
 }

@@ -7,7 +7,7 @@ import {ReactNode} from 'react';
 export function ReferencesCarouselComponent(): ReactNode {
   return (
     <>
-      <Carousel className="rounded-md h-80 xl:h-96 pt-10 bg-gray-400">
+      <Carousel className="rounded-md h-96 md:xl:h-80 bg-gray-400">
         {References.map(e => Component(e))}
       </Carousel>
     </>

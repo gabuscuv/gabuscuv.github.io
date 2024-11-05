@@ -1,4 +1,4 @@
-import {ProjectData, ProjectDataWithImages} from '@/src/data/ProjectDataTypes';
+import {ProjectData} from '@/src/data/ProjectDataTypes';
 import {Carousel, Modal} from 'flowbite-react';
 import Image from 'next/image';
 import '../../../oldcss.css';
@@ -29,7 +29,8 @@ export default function ProjectModal(props: {
                   : '',
               }}
             />
-            {props.projectData instanceof ProjectDataWithImages ? (
+            {props.projectData?.screenshots &&
+            props.projectData?.screenshots.length !== 0 ? (
               <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
                 <Carousel>
                   {props.projectData.screenshots?.map((screenshots, index) => (

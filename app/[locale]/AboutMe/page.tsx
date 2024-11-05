@@ -1,4 +1,4 @@
-import {getMessages, unstable_setRequestLocale} from 'next-intl/server';
+import {getMessages, setRequestLocale} from 'next-intl/server';
 import {ReactNode} from 'react';
 import {AboutMeComponent} from './AboutMeComponent';
 import {NextIntlClientProvider} from 'next-intl';
@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 // are used in combination with a given `pathname`. Since the two will
 // always match for the current route, we can skip runtime checks.
 export default async function AboutMe({params: locale}): Promise<ReactNode> {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const messages = await getMessages(locale);
 
   return (
