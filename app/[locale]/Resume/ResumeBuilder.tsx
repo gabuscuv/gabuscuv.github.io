@@ -4,12 +4,7 @@ import {JobTypeEnum, ResumeType} from '@/src/data/Resume';
 import {ReactNode, useState} from 'react';
 import {QuestionModal} from './components/QuestionModalComponent';
 import {Button} from 'flowbite-react';
-import {Education} from './components/EducationComponent';
-import {Certificate} from './components/CertificateComponent';
-import {Talks} from './components/TalksComponent';
-import {WorkExperience} from './components/WorkExperienceComponent';
-import {ResumeSection} from './components/layout/ResumeSection';
-import {getYearLapse} from '@/src/utils/dates';
+import {MainResumeBody} from './MainBody';
 
 let JobEnum: JobTypeEnum;
 
@@ -62,7 +57,9 @@ export function ResumeBuilder(props: {
                 '/misc/resume/' +
                   (props.locale === 'es' ? 'cv' : 'resume') +
                   `-BustilloDelCuvilloGabriel-${props.locale}-` +
-                  (JobEnum === JobTypeEnum.GameDev ? 'gamedev' : 'dev') +
+                  (JobEnum === JobTypeEnum.All
+                    ? 'dev'
+                    : JobTypeEnum[JobEnum].toLocaleLowerCase()) +
                   '.pdf'
               );
             }}
@@ -70,42 +67,11 @@ export function ResumeBuilder(props: {
             {t('Download')}
           </Button>
         </div>
-        <ResumeSection title={t('TechExperience')}>
-          <p>
-            {t('Work Experience')}:{' '}
-            {(
-              props.resume.Jobs.map(
-                e =>
-                  ((e.EndDate !== 0 ? e.EndDate : Date.now()) - e.StartDate) /
-                  1000
-              ).reduce((a, b) => a + b) / 31536000
-            ).toFixed(2) +
-              ' ' +
-              t('years')}
-          </p>
-          <p>
-            {t('Coding Experience')}
-            {': '}
-            {getYearLapse(
-              props.resume.Jobs[props.resume.Jobs.length - 1].StartDate,
-              Date.now()
-            ) +
-              ' ' +
-              t('years')}
-          </p>
-        </ResumeSection>
-        <WorkExperience
+        <MainResumeBody
           locale={props.locale}
-          JobTypeEnum={JobEnum}
-          workExperience={props.resume.Jobs}
+          resume={props.resume}
+          JobEnum={JobEnum}
         />
-        <Education Education={props.resume.Education} locale={props.locale} />
-        <Certificate
-          locale={props.locale}
-          certificate={props.resume.Certificate}
-          JobTypeEnum={JobEnum}
-        />
-        <Talks JobTypeEnum={JobEnum} talks={props.resume.Talks} />
       </main>
     </>
   );

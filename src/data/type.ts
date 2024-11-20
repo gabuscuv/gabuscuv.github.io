@@ -30,4 +30,7 @@ export const type: {[id: string]: {FullName: string; type: string}} = {
   grpc: {FullName: 'GRPC/Protobuf', type: 'Protocol'},
   wordpress: {FullName: 'Wordpress', type: 'CMS'},
   oxygen: {FullName: 'Oxygen Site Builder', type: 'CMS'},
+  qt: {FullName: 'QT', type: 'framework'},
+  zmq: {FullName: 'ZeroMQ', type: 'library'},
+  dds: {FullName: 'DDS', type: 'library'},
 };

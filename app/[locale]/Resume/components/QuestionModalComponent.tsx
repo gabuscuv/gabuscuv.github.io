@@ -42,7 +42,7 @@ export function QuestionModal(props: {
               <Button
                 color="gray"
                 onClick={() => {
-                  setJobEnum(JobTypeEnum.Web);
+                  setJobEnum(JobTypeEnum.WebDev);
                 }}
               >
                 {t('web')}
