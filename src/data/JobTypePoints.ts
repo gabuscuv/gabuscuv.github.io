@@ -4,7 +4,7 @@ export const jobTypeFilter: {
   [id: number]: {[id: string]: number};
 } = {
   [JobTypeEnum.All]: {},
-  [JobTypeEnum.Web]: {
+  [JobTypeEnum.WebDev]: {
     react: 3,
     typescript: 3,
     csharp: 1,
@@ -20,6 +20,7 @@ export const jobTypeFilter: {
   },
   [JobTypeEnum.Backend]: {
     csharp: 3,
+    cpp: 2,
     unreal: -3,
     typescript: 2,
     javascript: 1,

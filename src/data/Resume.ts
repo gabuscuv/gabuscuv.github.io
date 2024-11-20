@@ -4,7 +4,7 @@ export enum JobTypeEnum {
   All,
   GameDev,
   Backend,
-  Web,
+  WebDev,
 }
 
 class CommonMinimum {
@@ -63,9 +63,18 @@ export async function ResumeContent(): Promise<ResumeType> {
         EndDate: 0,
         Jobs: [
           {
+            Title: 'C++ Backend Developer',
+            Description: t('Jobs.Abance.e park.description'),
+            JobType: JobTypeEnum.Backend,
+            StartDate: Date.parse('2024/10/15'),
+            EndDate: 0,
+            techStack: ['cpp', 'qt', 'zmq', 'dds'],
+            BulletPoints: [],
+          },
+          {
             Title: 'Lead Typescript / React / Next.JS Developer',
             Description: t('Jobs.Abance.nextreact.description'),
-            JobType: JobTypeEnum.Web,
+            JobType: JobTypeEnum.WebDev,
             StartDate: Date.parse('2024/05/15'),
             EndDate: 0,
             techStack: ['typescript', 'react', 'nextjs'],
@@ -77,7 +86,7 @@ export async function ResumeContent(): Promise<ResumeType> {
           {
             Title: 'Wordpress Developer',
             Description: t('Jobs.Abance.wordpress.Description'),
-            JobType: JobTypeEnum.Web,
+            JobType: JobTypeEnum.WebDev,
             StartDate: Date.parse('2024/03/10'),
             EndDate: Date.parse('2024/08/10'),
             techStack: ['oxygen'],
@@ -167,7 +176,7 @@ export async function ResumeContent(): Promise<ResumeType> {
           {
             Title: 'WebApp Dev',
             Description: t('Jobs.knowledgemill.webapp.Description'),
-            JobType: JobTypeEnum.Web,
+            JobType: JobTypeEnum.WebDev,
             StartDate: Date.parse('2017/08/15'),
             EndDate: Date.parse('2017/12/15'),
             techStack: [
@@ -186,7 +195,7 @@ export async function ResumeContent(): Promise<ResumeType> {
           {
             Title: 'Apprenticeship WebApp Dev',
             Description: '',
-            JobType: JobTypeEnum.Web,
+            JobType: JobTypeEnum.WebDev,
             StartDate: Date.parse('2017/07/27'),
             EndDate: Date.parse('2017/08/15'),
             techStack: ['nodejs', 'bootstrap', 'exchangeapi', 'centos'],

@@ -123,6 +123,9 @@
             "Magallanes": "An Internal Database for ILS"
           },
           "description": "Development of various internal projects"
+        },
+        "e park": {
+          "description": "Communication Developer for USV (Unmanned surface vehicle) Navantia's project: e-Park for the maintenance of offshore wind, subsidized by the European Union ( C++, Qt & DevOps Scripts).Communication Developer for USV (Unmanned surface vehicle) Navantia's project: e-Park for the maintenance of offshore wind, subsidized by the European Union"
         }
       },
       "itixo": {
