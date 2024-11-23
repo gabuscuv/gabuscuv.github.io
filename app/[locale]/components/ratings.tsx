@@ -8,13 +8,15 @@ export function ReferencesCarouselComponent(): ReactNode {
   return (
     <>
       <Carousel className="rounded-md h-96 md:xl:h-80 bg-gray-400">
-        {References.map(e => <Component key={e.name} reference={e} ></Component>)}
+        {References.map(e => (
+          <Component key={e.name} reference={e}></Component>
+        ))}
       </Carousel>
     </>
   );
 }
 
-export function Component(props: { reference: ReferenceClass }): ReactNode {
+export function Component(props: {reference: ReferenceClass}): ReactNode {
   return (
     <figure className="h-full max-h-screen-md p-5 max-w-screen-md text-center">
       <Blockquote>

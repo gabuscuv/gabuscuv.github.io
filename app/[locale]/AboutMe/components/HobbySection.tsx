@@ -70,11 +70,11 @@ export function HobbySections() {
         <div className="md:w-2/3">
           {section <= sectionEnum.music ? (
             <VideoCarrousel
-            array={getVideoArrayFunction(section)}
-            name={sectionEnum[section]}
+              array={getVideoArrayFunction(section)}
+              name={sectionEnum[section]}
             />
           ) : (
-              <ImgGallery
+            <ImgGallery
               key={sectionEnum[section]}
               name={sectionEnum[section]}
               elements={getVideoArrayFunction(section)}

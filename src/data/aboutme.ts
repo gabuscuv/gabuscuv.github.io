@@ -26,7 +26,7 @@ export const favThings: {
         },
         {
           src: 'mfahsGLtQwc',
-          title: 'Tamara C64'
+          title: 'Tamara C64',
         },
         {
           src: '_AoyQeUzbEU',
@@ -53,7 +53,7 @@ export const favThings: {
         },
         {
           src: 'kjq6Cv7no4w',
-          title: "Unicorn - Watanabe"
+          title: 'Unicorn - Watanabe',
         },
         // {
         //   src: 'Lp5n-YS22tY',

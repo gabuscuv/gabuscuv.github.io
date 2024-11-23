@@ -44,7 +44,11 @@ export function NavBar(props: {localeSwitcher: ReactNode}) {
         <Navbar.Link as={Link} href="/Contact">
           {t('Contact')}
         </Navbar.Link>
-        <Dropdown arrowIcon={true} inline label={<Navbar.Link>{t('Others')}</Navbar.Link>}>
+        <Dropdown
+          arrowIcon={true}
+          inline
+          label={<Navbar.Link>{t('Others')}</Navbar.Link>}
+        >
           <Dropdown.Item
             onClick={() => {
               router.push('/Others/Blog');
@@ -60,8 +64,8 @@ export function NavBar(props: {localeSwitcher: ReactNode}) {
             {t('Notes')}
           </Dropdown.Item>
           <Navbar.Link as={Link} href="/GuestBook">
-          {t('GuestBook')}
-        </Navbar.Link>
+            {t('GuestBook')}
+          </Navbar.Link>
         </Dropdown>
         <Navbar.Toggle />
       </Navbar.Collapse>
