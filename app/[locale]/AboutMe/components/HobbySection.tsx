@@ -55,7 +55,7 @@ export function HobbySections() {
       <b>{t('FavouriteMedia')}:</b>
       <div className="md:flex">
         <div className="flex ">
-          <ListGroup className="w-full md:w-48">
+          <ListGroup className="w-full md:w-48 pr-2">
             {elementsMenu.map(e => (
               <ListGroup.Item
                 key={e.title}
@@ -70,11 +70,12 @@ export function HobbySections() {
         <div className="md:w-2/3">
           {section <= sectionEnum.music ? (
             <VideoCarrousel
-              array={getVideoArrayFunction(section)}
-              name={sectionEnum[section]}
+            array={getVideoArrayFunction(section)}
+            name={sectionEnum[section]}
             />
           ) : (
-            <ImgGallery
+              <ImgGallery
+              key={sectionEnum[section]}
               name={sectionEnum[section]}
               elements={getVideoArrayFunction(section)}
             />
