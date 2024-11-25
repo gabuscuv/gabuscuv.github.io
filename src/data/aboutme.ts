@@ -25,6 +25,10 @@ export const favThings: {
           title: '',
         },
         {
+          src: 'mfahsGLtQwc',
+          title: 'Tamara C64',
+        },
+        {
           src: '_AoyQeUzbEU',
           title: '',
         },
@@ -46,6 +50,10 @@ export const favThings: {
         {
           src: '8ZP5eqm4JqM',
           title: 'Susei',
+        },
+        {
+          src: 'kjq6Cv7no4w',
+          title: 'Unicorn - Watanabe',
         },
         // {
         //   src: 'Lp5n-YS22tY',
