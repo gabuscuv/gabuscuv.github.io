@@ -7,7 +7,7 @@ import {ReactNode} from 'react';
 export function ReferencesCarouselComponent(): ReactNode {
   return (
     <>
-      <Carousel className="rounded-md h-96 md:xl:h-80 bg-gray-400">
+      <Carousel className="rounded-md p-10 bg-gray-400">
         {References.map(e => (
           <Component key={e.name} reference={e}></Component>
         ))}
@@ -18,8 +18,8 @@ export function ReferencesCarouselComponent(): ReactNode {
 
 export function Component(props: {reference: ReferenceClass}): ReactNode {
   return (
-    <figure className="h-full max-h-screen-md p-5 max-w-screen-md text-center">
-      <Blockquote>
+    <figure className="p-5 text-center">
+      <Blockquote className="p-30">
         <p className="text-m md:text-2xl font-xs xl:font-medium italic text-gray-900 dark:text-white">
           {props.reference.description}
         </p>
