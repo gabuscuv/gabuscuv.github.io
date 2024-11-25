@@ -17,61 +17,62 @@ export function NavBar(props: {localeSwitcher: ReactNode}) {
         </span>
       </Navbar.Brand>
       <Navbar.Toggle />
-      <Navbar.Collapse className="flex w-full items-center justify-between">
-        <Navbar.Link as={Link} href="/" active={usePathname() === '/'}>
-          Home
-        </Navbar.Link>
-        {
-          <Navbar.Link as={Link} href="/AboutMe">
-            {t('AboutMe')}
+      <div className="flex w-full md:w-fit items-center justify-between">
+        <Navbar.Collapse>
+          <Navbar.Link as={Link} href="/" active={usePathname() === '/'}>
+            Home
           </Navbar.Link>
-        }
-        <Navbar.Link
-          as={Link}
-          href="/Projects"
-          active={usePathname() === '/Projects'}
-        >
-          {t('Projects')}
-        </Navbar.Link>
-        <Navbar.Link
-          as={Link}
-          href="/Resume"
-          active={usePathname() === '/Resume'}
-        >
-          {t('Resume')}
-        </Navbar.Link>
-        <Navbar.Link as={Link} href="/Contact">
-          {t('Contact')}
-        </Navbar.Link>
-        <Dropdown
-          theme={{inlineWrapper: 'px-3 py-1 md:p-0 flex items-center'}}
-          arrowIcon={true}
-          inline
-          label={
-            <p className="hover:text-cyan-700 text-gray-700">{t('Others')}</p>
+          {
+            <Navbar.Link as={Link} href="/AboutMe">
+              {t('AboutMe')}
+            </Navbar.Link>
           }
-        >
-          <Dropdown.Item
-            onClick={() => {
-              router.push('/Others/Blog');
-            }}
+          <Navbar.Link
+            as={Link}
+            href="/Projects"
+            active={usePathname() === '/Projects'}
           >
-            {t('Blog')}
-          </Dropdown.Item>
-          <Dropdown.Item
-            onClick={() => {
-              router.push('/Others/Notes');
-            }}
-          >
-            {t('Notes')}
-          </Dropdown.Item>
-          <Navbar.Link as={Link} href="/GuestBook">
-            {t('GuestBook')}
+            {t('Projects')}
           </Navbar.Link>
-        </Dropdown>
-        <Navbar.Toggle />
-      </Navbar.Collapse>
-      {props.localeSwitcher}
+          <Navbar.Link
+            as={Link}
+            href="/Resume"
+            active={usePathname() === '/Resume'}
+          >
+            {t('Resume')}
+          </Navbar.Link>
+          <Navbar.Link as={Link} href="/Contact">
+            {t('Contact')}
+          </Navbar.Link>
+          <Dropdown
+            theme={{inlineWrapper: 'px-3 py-2 md:p-0 flex items-center'}}
+            arrowIcon={true}
+            inline
+            label={
+              <p className="hover:text-cyan-700 text-gray-700">{t('Others')}</p>
+            }
+          >
+            <Dropdown.Item
+              onClick={() => {
+                router.push('/Others/Blog');
+              }}
+            >
+              {t('Blog')}
+            </Dropdown.Item>
+            <Dropdown.Item
+              onClick={() => {
+                router.push('/Others/Notes');
+              }}
+            >
+              {t('Notes')}
+            </Dropdown.Item>
+            <Dropdown.Item as={Link} href="/GuestBook">
+              {t('GuestBook')}
+            </Dropdown.Item>
+          </Dropdown>
+        </Navbar.Collapse>
+      </div>
+      <div>{props.localeSwitcher}</div>
     </Navbar>
   );
 }
