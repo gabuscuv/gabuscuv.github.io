@@ -34,7 +34,7 @@ export function Types(props: {
   }
   return (
     <>
-      <div className={'flex flex-col pl-20 pt-10 mt-40 ' + props.className}>
+      <div className={'flex flex-col pl-20 pt-10 ' + props.className}>
         <h3 className="pb-5">Filter</h3>
         {categories.map(category => {
           tmp = getCurrentStack(props.projectsData)

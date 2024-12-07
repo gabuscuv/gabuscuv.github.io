@@ -75,7 +75,7 @@ export function ButtonGroup(props: {
 }) {
   return (
     <>
-      <div className="inline relative top-20 place-self-center">
+      <div className="inline relative top-4 place-self-center">
         <Button.Group outline>
           <Button
             color={

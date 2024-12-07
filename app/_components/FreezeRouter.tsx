@@ -1,6 +1,7 @@
 'use client';
 // https://github.com/vercel/next.js/issues/49279
 import React, {PropsWithChildren} from 'react';
+// eslint-disable-next-line n/no-extraneous-import
 import {motion, AnimatePresence} from 'framer-motion';
 import {usePathname} from 'next/navigation';
 import {LayoutRouterContext} from 'next/dist/shared/lib/app-router-context.shared-runtime';
@@ -19,20 +20,24 @@ export function FrozenRouter(props: PropsWithChildren<{}>) {
 }
 export default function Layout({children}: {children: React.ReactNode}) {
   const pathname = usePathname();
-
-  return (
+  const pathNameArray = pathname.split('/');
+  return !(
+    pathNameArray.includes('Notes') || pathNameArray.includes('Blog')
+  ) ? (
     <>
       <AnimatePresence mode={'wait'} initial={false}>
         <motion.div
           key={pathname}
-          initial={{opacity: 0}}
-          animate={{opacity: 1}}
-          exit={{opacity: 0}}
-          transition={{duration: 0.2, type: 'tween'}}
+          initial={{top: -1000, scale: 0, position: 'absolute'}}
+          animate={{top: 0, scale: 1, position: 'relative'}}
+          exit={{top: 1000, scale: 0, position: 'absolute'}}
+          transition={{duration: 0.4, type: 'tween'}}
         >
           <FrozenRouter>{children}</FrozenRouter>
         </motion.div>
       </AnimatePresence>
     </>
+  ) : (
+    <>{children}</>
   );
 }

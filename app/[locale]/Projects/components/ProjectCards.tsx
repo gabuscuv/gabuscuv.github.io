@@ -2,6 +2,7 @@
 
 import {ProjectData} from '@/src/data/ProjectDataTypes';
 import {Card} from 'flowbite-react';
+import {motion} from 'framer-motion';
 import {ReactNode} from 'react';
 import metaImages from '@/src/metaimages.json';
 import Image from 'next/image';
@@ -11,6 +12,27 @@ const prefix = '/img/stacks/';
 interface imageData {
   stackIcons: {[id: string]: string};
 }
+const list = {
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: 0.3,
+      when: 'beforeChildren',
+      staggerChildren: 0.2, // Stagger children by .3 seconds
+    },
+  },
+  hidden: {
+    opacity: 0,
+    transition: {
+      when: 'afterChildren',
+    },
+  },
+};
+
+const item = {
+  visible: {opacity: 1},
+  hidden: {opacity: 0},
+};
 
 const s = metaImages as imageData;
 
@@ -21,14 +43,16 @@ export function ProjectCards(props: {
   callback: (id: string) => void;
 }): ReactNode {
   return (
-    <>
-      <div
-        id="projectcardsid"
-        className="relative justify-center gap-2 mt-36 flex-wrap flex flex-row lg:m-100"
-      >
-        {props.projectdata.map(project => (
+    <motion.div
+      id="projectcardsid"
+      initial="hidden"
+      className="relative justify-center gap-2 mt-10 flex-wrap flex flex-row lg:m-100"
+      animate="visible"
+      variants={list}
+    >
+      {props.projectdata.map(project => (
+        <motion.div key={project.id} initial="hidden" variants={item}>
           <Card
-            key={project.id}
             className={commonSize + ' w-60 cursor-pointer'}
             onClick={() => props.callback(project.id)}
             // imgAlt={'Screenshot of' + project.name}
@@ -72,8 +96,8 @@ export function ProjectCards(props: {
               </p>
             </div>
           </Card>
-        ))}
-      </div>
-    </>
+        </motion.div>
+      ))}
+    </motion.div>
   );
 }
