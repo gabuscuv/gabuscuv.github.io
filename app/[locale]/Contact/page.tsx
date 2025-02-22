@@ -1,5 +1,4 @@
 import {getMessages} from 'next-intl/server';
-import {AwaitedReactNode} from 'react';
 import {ContactMe} from './Component';
 import {pick} from 'lodash';
 import {NextIntlClientProvider} from 'next-intl';
@@ -9,12 +8,11 @@ export async function generateStaticParams() {
   return ['en', 'es'].map(locale => ({locale}));
 }
 
-export default async function Contact({
-  // @ts-expect-error -- TypeScript will validate that only known `params`
-  // are used in combination with a given `pathname`. Since the two will
-  // always match for the current route, we can skip runtime checks.
-  params: locale,
-}): Promise<AwaitedReactNode> {
+// @ts-expect-error -- TypeScript will validate that only known `params`
+// are used in combination with a given `pathname`. Since the two will
+// always match for the current route, we can skip runtime checks.
+export default async function Contact(props): Awaited<ReactNode> {
+  const locale = await props.params;
   const messages = await getMessages(locale);
 
   return (

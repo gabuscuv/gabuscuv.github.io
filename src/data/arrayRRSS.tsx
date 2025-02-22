@@ -4,6 +4,8 @@ import {MdEmail} from 'react-icons/md';
 import {decrypt, ImportKey} from '../utils/decryptUtils';
 import {botChecker} from '../utils/antibot';
 
+import type {JSX} from 'react';
+
 export interface social {
   name: string;
   logo: JSX.Element;

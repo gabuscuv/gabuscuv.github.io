@@ -3,7 +3,8 @@ import {notFound} from 'next/navigation';
 import {getAllPages, getPageBySlug} from '@/src/lib/api';
 import markdownToHtml from '@/src/lib/markdownToHtml';
 
-export default async function Post({params}: Params) {
+export default async function Post(props: Params) {
+  const params = await props.params;
   const post = await getPageBySlug(params.slug);
 
   if (!post) {
@@ -20,12 +21,13 @@ export default async function Post({params}: Params) {
 }
 
 type Params = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export async function generateMetadata({params}: Params): Promise<Metadata> {
+export async function generateMetadata(props: Params): Promise<Metadata> {
+  const params = await props.params;
   const post = await getPageBySlug(params.slug);
 
   if (!post) {

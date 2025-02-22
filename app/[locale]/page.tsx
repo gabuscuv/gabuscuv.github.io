@@ -1,4 +1,3 @@
-import {useTranslations} from 'next-intl';
 import {ReferencesCarouselComponent} from './components/ratings';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
 import Image from 'next/image';
@@ -12,19 +11,28 @@ export function generateStaticParams() {
 // @ts-expect-error -- TypeScript will validate that only known `params`
 // are used in combination with a given `pathname`. Since the two will
 // always match for the current route, we can skip runtime checks.
-export async function generateMetadata({params: {locale}}) {
+export async function generateMetadata(props) {
+  const params = await props.params;
+
+  const {locale} = params;
+
   const t = await getTranslations({locale, namespace: 'Metadata'});
 
   return {
     title: t('Title'),
   };
 }
+
 // @ts-expect-error -- TypeScript will validate that only known `params`
 // are used in combination with a given `pathname`. Since the two will
 // always match for the current route, we can skip runtime checks.
-export default function Home({params: {locale}}) {
+export default async function Home(props): Promise<ReactNode> {
+  const params = await props.params;
+
+  const {locale} = params;
+
   setRequestLocale(locale);
-  const t = useTranslations('HomePage');
+  const t = await getTranslations('HomePage');
   return (
     <main className=" m-5 ">
       <div className="w-full justify-center grid gap-4 grid-cols-2 grid-flow-row">

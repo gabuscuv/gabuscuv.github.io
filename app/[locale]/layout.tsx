@@ -15,13 +15,21 @@ export const metadata: Metadata = {
   description: 'Software Developer/Jack Of the Trades IT',
 };
 
-export default async function RootLayout({
-  children,
-  params: {locale},
-}: Readonly<{
-  children: React.ReactNode;
-  params: {locale: string};
-}>) {
+export default async function RootLayout(
+  props: Readonly<{
+    children: React.ReactNode;
+    // @ts-expect-error -- TypeScript will validate that only known `params`
+    // are used in combination with a given `pathname`. Since the two will
+    // always match for the current route, we can skip runtime checks.
+    params;
+  }>
+) {
+  const params = await props.params;
+
+  const {locale} = params;
+
+  const {children} = props;
+
   setRequestLocale(locale);
   const messages = await getMessages({
     locale: typeof locale === 'string' ? locale : undefined,

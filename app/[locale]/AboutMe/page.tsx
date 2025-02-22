@@ -11,7 +11,8 @@ export async function generateStaticParams() {
 // @ts-expect-error -- TypeScript will validate that only known `params`
 // are used in combination with a given `pathname`. Since the two will
 // always match for the current route, we can skip runtime checks.
-export default async function AboutMe({params: locale}): Promise<ReactNode> {
+export default async function AboutMe(props): Promise<ReactNode> {
+  const locale = await props.params;
   setRequestLocale(locale);
   const messages = await getMessages(locale);
 

@@ -1,7 +1,7 @@
 import {getTranslations} from 'next-intl/server';
-import {AwaitedReactNode} from 'react';
+import {ReactNode} from 'react';
 
-export async function Sinopsis(): Promise<AwaitedReactNode> {
+export async function Sinopsis(): Promise<Awaited<ReactNode>> {
   const t = await getTranslations({namespace: 'AboutMe.Paragraphs'});
   // const t = useTranslations('AboutMe.Paragraphs');
 

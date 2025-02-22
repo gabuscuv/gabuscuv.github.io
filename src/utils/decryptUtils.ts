@@ -36,6 +36,7 @@ export function decrypt(key_encoded: CryptoKey, name: string): Promise<string> {
       )
       .then(string => {
         resolve(enc.decode(string));
-      });
+      })
+      .catch(() => resolve(''));
   });
 }

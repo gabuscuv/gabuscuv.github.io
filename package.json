@@ -20,8 +20,8 @@
   "dependencies": {
     "@mdx-js/loader": "^3",
     "@mdx-js/react": "^3",
-    "@next/mdx": "^14",
-    "@next/third-parties": "^14",
+    "@next/mdx": "^15",
+    "@next/third-parties": "^15",
     "@types/mdx": "^2",
     "eslint-plugin-n": "^17",
     "esrun": "^3",
@@ -29,10 +29,10 @@
     "framer-motion": "^11",
     "gray-matter": "^4",
     "lodash": "^4",
-    "next": "^14",
+    "next": "^15",
     "next-intl": "^3",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "remark": "^15",
     "remark-gfm": "^4",
     "remark-html": "^16"
@@ -43,11 +43,11 @@
     "@types/lodash": "^4",
     "@types/node": "^20",
     "@types/pdfkit": "^0",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
     "@typescript-eslint/eslint-plugin": "^7",
     "eslint": "^8",
-    "eslint-config-next": "^14",
+    "eslint-config-next": "^15",
     "eslint-plugin-node": "^11",
     "eslint-plugin-prettier": "^5",
     "gts": "^5",
@@ -56,5 +56,9 @@
     "tailwindcss": "^3",
     "typescript": "^5"
   },
-  "packageManager": "yarn@4.5.0"
+  "packageManager": "yarn@4.5.0",
+  "resolutions": {
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4"
+  }
 }

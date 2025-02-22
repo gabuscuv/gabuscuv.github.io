@@ -10,7 +10,11 @@ export async function generateStaticParams() {
 // @ts-expect-error -- TypeScript will validate that only known `params`
 // are used in combination with a given `pathname`. Since the two will
 // always match for the current route, we can skip runtime checks.
-export default async function GuestBook({params: {locale}}) {
+export default async function GuestBook(props) {
+  const params = await props.params;
+
+  const {locale} = params;
+
   setRequestLocale(locale);
   const messages = await getMessages(locale);
   return (
