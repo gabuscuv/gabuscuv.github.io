@@ -124,6 +124,14 @@
         },
         "e park": {
           "description": "Desarrollador de comunicación para el proyecto USV (Vehículo de superficie no tripulado) de Navantia: e-Park para el mantenimiento de energía eólica marina, subvencionado por la Unión Europea."
+        },
+        "cppusv": {
+          "bulletpoints": {
+            "Bridge": "Una pasarela Zeromq-DDS para el sonar. (con paradigma de Request-Reply)",
+            "Deploy": "Modificacion completa de los scripts de build & desplieuge  (para varios modulos) para pre-produccion y produccion.",
+            "Porting": "'Portear software actualizado para sistemas no soportados'",
+            "Simulators": "Desarrollo de dos simuladores (GPS, Waterspeed) a través de NMEA, DIS y un protocolo privativo"
+          }
         }
       },
       "itixo": {

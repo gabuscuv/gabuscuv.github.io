@@ -56,27 +56,52 @@ export async function ResumeContent(): Promise<ResumeType> {
   return {
     Jobs: [
       {
+        Title: 'Ghenova Digital',
+        Location: t('Locations.Puerto'),
+        Url: 'https://digital.ghenova.com/',
+        StartDate: Date.parse('2025/02/26'),
+        EndDate: 0,
+        typeOfHire: 'full',
+        typeOfPresence: 'hybrid',
+        Jobs: [
+          {
+            Title: 'DevOps Developer',
+            Description: '',
+            JobType: JobTypeEnum.Backend,
+            StartDate: Date.parse('2025/02/26'),
+            EndDate: 0,
+            techStack: ['cpp', 'qt', 'zmq', 'dds'],
+            BulletPoints: [],
+          },
+        ],
+      },
+      {
         Title: 'Abance',
         Location: t('Locations.Puerto'),
         Url: 'https://www.abance.es/',
         StartDate: Date.parse('2023/09/25'),
-        EndDate: 0,
+        EndDate: Date.parse('2025/02/25'),
         Jobs: [
           {
             Title: 'C++ Backend Developer',
             Description: t('Jobs.Abance.e park.description'),
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2024/10/15'),
-            EndDate: 0,
+            EndDate: Date.parse('2024/12/30'),
             techStack: ['cpp', 'qt', 'zmq', 'dds'],
-            BulletPoints: [],
+            BulletPoints: [
+              t('Jobs.Abance.cppusv.bulletpoints.Simulators'),
+              t('Jobs.Abance.cppusv.bulletpoints.Bridge'),
+              t('Jobs.Abance.cppusv.bulletpoints.Deploy'),
+              t('Jobs.Abance.cppusv.bulletpoints.Porting'),
+            ],
           },
           {
             Title: 'Lead Typescript / React / Next.JS Developer',
             Description: t('Jobs.Abance.nextreact.description'),
             JobType: JobTypeEnum.WebDev,
             StartDate: Date.parse('2024/05/15'),
-            EndDate: 0,
+            EndDate: Date.parse('2025/02/25'),
             techStack: ['typescript', 'react', 'nextjs'],
             BulletPoints: [
               t('Jobs.Abance.nextreact.bulletpoints.AbanceReact'),
@@ -101,7 +126,7 @@ export async function ResumeContent(): Promise<ResumeType> {
             Description: t('Jobs.Abance.csharpdev.Description'),
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2024/02/24'),
-            EndDate: 0,
+            EndDate: Date.parse('2025/02/25'),
             techStack: ['csharp', 'grpc'],
             BulletPoints: [
               t('Jobs.Abance.csharpdev.bulletpoints.ExcelParser'),
