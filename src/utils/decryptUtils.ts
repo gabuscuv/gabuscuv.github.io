@@ -1,10 +1,14 @@
-const cipherstring: Uint8Array = Uint8Array.from([
-  140, 27, 0, 173, 96, 5, 158, 202, 36, 231, 212, 24, 62, 84, 117, 167,
-]);
+const cipherstring: Uint8Array = Buffer.from(
+  Uint8Array.from([
+    140, 27, 0, 173, 96, 5, 158, 202, 36, 231, 212, 24, 62, 84, 117, 167,
+  ])
+);
 
-const ivConst: Uint8Array = Uint8Array.from([
-  48, 52, 131, 94, 42, 12, 228, 142, 17, 230, 205, 63, 232, 156, 119, 194,
-]);
+const ivConst: Uint8Array = Buffer.from(
+  Uint8Array.from([
+    48, 52, 131, 94, 42, 12, 228, 142, 17, 230, 205, 63, 232, 156, 119, 194,
+  ])
+);
 
 const enc = new TextDecoder('utf-8');
 
@@ -15,7 +19,7 @@ export const alghParam: AesCtrParams = {
 };
 
 export function ImportKey(): Promise<CryptoKey> {
-  return crypto.subtle.importKey('raw', cipherstring.buffer, 'AES-CTR', false, [
+  return crypto.subtle.importKey('raw', cipherstring, 'AES-CTR', false, [
     'decrypt',
   ]);
 }
