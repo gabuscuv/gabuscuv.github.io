@@ -7,8 +7,13 @@ import '../globals.css';
 import Layout from '../_components/FreezeRouter';
 import LocaleSwitcher from '../_components/localeSwitcher';
 import {pick} from 'lodash';
+import {locales} from '../_components/navigation';
 
 const inter = Inter({subsets: ['latin']});
+
+export async function generateStaticParams() {
+  return locales.map(locale => ({locale}));
+}
 
 export const metadata: Metadata = {
   title: 'Gabriel Bustillo del Cuvillo page',
@@ -40,7 +45,7 @@ export default async function RootLayout(
         <NextIntlClientProvider
           messages={pick(messages, ['NavBar', 'Metadata', 'LocaleSwitcher'])}
         >
-          <NavBar localeSwitcher={<LocaleSwitcher />} />
+          <NavBar localeSwitcher={<LocaleSwitcher locale={locale} />} />
           <Layout>{children}</Layout>
         </NextIntlClientProvider>
       </body>

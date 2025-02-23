@@ -1,8 +1,9 @@
 import {setRequestLocale} from 'next-intl/server';
 import {Sections} from './_Components/Sections';
+import {locales} from '@/app/_components/navigation';
 
 export async function generateStaticParams() {
-  return ['en', 'es'].map(locale => ({locale}));
+  return locales.map(locale => ({locale}));
 }
 
 export default async function BlogLayout(

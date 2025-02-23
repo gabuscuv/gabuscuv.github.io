@@ -1,11 +1,10 @@
 'use client';
-import {useLocale, useTranslations} from 'next-intl';
+import {useTranslations} from 'next-intl';
 
-import {useRouter, usePathname} from './navigation';
+import {useRouter, usePathname, locales} from './navigation';
 
-export default function LocaleSwitcher() {
+export default function LocaleSwitcher(props: {locale: string}) {
   const t = useTranslations('LocaleSwitcher');
-  const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -16,8 +15,8 @@ export default function LocaleSwitcher() {
   };
 
   return (
-    <select defaultValue={locale} onChange={onLocaleChange}>
-      {['en', 'es'].map(lang => (
+    <select defaultValue={props.locale} onChange={onLocaleChange}>
+      {locales.map(lang => (
         <option key={lang} value={lang}>
           {t('locale', {locale: lang})}
         </option>

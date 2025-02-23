@@ -3,7 +3,6 @@ import {Link, usePathname, useRouter} from './navigation';
 import {Dropdown, Navbar} from 'flowbite-react';
 import {useTranslations} from 'next-intl';
 import {ReactNode} from 'react';
-export const locales = ['en', 'es'] as const;
 export const localePrefix = 'always'; // Default
 
 export function NavBar(props: {localeSwitcher: ReactNode}) {

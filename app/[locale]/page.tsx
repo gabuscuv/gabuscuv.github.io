@@ -2,12 +2,6 @@ import {ReferencesCarouselComponent} from './components/ratings';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
 import Image from 'next/image';
 
-// Can be imported from a shared config
-const locales = ['en', 'es'];
-
-export function generateStaticParams() {
-  return locales.map(locale => ({locale}));
-}
 // @ts-expect-error -- TypeScript will validate that only known `params`
 // are used in combination with a given `pathname`. Since the two will
 // always match for the current route, we can skip runtime checks.
