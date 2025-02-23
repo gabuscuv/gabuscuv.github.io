@@ -49,8 +49,8 @@ export function GetSocials(): Promise<Array<social>> {
     if (botChecker()) {
       accept(arrayRRSS);
     }
-    ImportKey().then(e => {
-      decrypt(e, emailEncrypted).then(email => {
+    void ImportKey().then(e => {
+      void decrypt(e, emailEncrypted).then(email => {
         accept(arrayRRSS.toSpliced(0, 0, EmailTemplate(email)));
       });
     });

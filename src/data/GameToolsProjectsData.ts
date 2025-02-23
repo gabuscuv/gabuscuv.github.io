@@ -19,7 +19,7 @@ export async function GameToolProjectsList() {
       [],
       '#c10606',
       false,
-      false
+      false,
     ),
     new GameToolProjects(
       'project-17',
@@ -36,7 +36,7 @@ export async function GameToolProjectsList() {
       [],
       '#c10606',
       false,
-      false
+      false,
     ),
     new GameToolProjects(
       'project-6',
@@ -69,7 +69,7 @@ export async function GameToolProjectsList() {
       [],
       '#c10606',
       false,
-      false
+      false,
     ),
     new GameToolProjects(
       'project-7',
@@ -105,7 +105,7 @@ export async function GameToolProjectsList() {
 
       '#c10606',
       false,
-      false
+      false,
     ),
     new GameToolProjects(
       'project-8',
@@ -139,7 +139,7 @@ export async function GameToolProjectsList() {
       [],
       '#1ca1e2',
       false,
-      true
+      true,
     ),
   ];
 }

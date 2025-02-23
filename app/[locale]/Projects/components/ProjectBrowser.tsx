@@ -41,13 +41,13 @@ export default function ProjectBrowser(props: {
 }): ReactNode {
   const [projectsData, setProjectsData] = useState<Array<ProjectData>>([]);
   const [projectData, setProjectData] = useState<ProjectData | undefined>(
-    undefined
+    undefined,
   );
   const [openModalStatus, setOpenModal] = useState(false);
   const [openFilterSidebar, setOpenFilterSidebar] = useState(false);
   useEffect(() => {
     if (output.length === 0 || locale !== props.locale) {
-      GetProjects(props.projects).then(projects => {
+      void GetProjects(props.projects).then(projects => {
         output = projects;
         locale = props.locale;
         setProjectsData(output);
@@ -73,14 +73,14 @@ export default function ProjectBrowser(props: {
           );
         })
         .filter(project =>
-          [...filterStack].every(fs => project.stack.includes(fs))
+          [...filterStack].every(fs => project.stack.includes(fs)),
         )
         .toSorted((a, b) => b.year - a.year)
         .toSorted(
           (a, b) =>
             projectTypeFilter[a.projecttype].id -
-            projectTypeFilter[b.projecttype].id
-        )
+            projectTypeFilter[b.projecttype].id,
+        ),
     );
   }
 

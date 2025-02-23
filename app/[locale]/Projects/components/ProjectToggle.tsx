@@ -4,7 +4,7 @@ import {projectType} from '../projectType';
 
 function getStatusValue(
   projectTypeFilter: {[id: string]: projectType},
-  gameType: projectTypeEnum
+  gameType: projectTypeEnum,
 ): boolean {
   switch (gameType) {
     case projectTypeEnum.Game:
@@ -18,7 +18,7 @@ function getStatusValue(
 
 function setAllToggles(
   projectTypeFilter: {[id: string]: projectType},
-  status: boolean
+  status: boolean,
 ) {
   projectTypeFilter['Game'].activated = status;
   projectTypeFilter['GameTool'].activated = status;
@@ -38,7 +38,7 @@ function isAllToogleEnable(projectTypeFilter: {
 function ProjectChecker(
   projectTypeFilter: {[id: string]: projectType},
   callback: (output: {[id: string]: projectType}) => void,
-  gameType: projectTypeEnum
+  gameType: projectTypeEnum,
 ) {
   if (isAllToogleEnable(projectTypeFilter)) {
     setAllToggles(projectTypeFilter, false);
@@ -87,7 +87,7 @@ export function ButtonGroup(props: {
               ProjectChecker(
                 props.projectTypeFilter,
                 props.callback,
-                projectTypeEnum.Game
+                projectTypeEnum.Game,
               )
             }
           >
@@ -103,7 +103,7 @@ export function ButtonGroup(props: {
               ProjectChecker(
                 props.projectTypeFilter,
                 props.callback,
-                projectTypeEnum.GameTool
+                projectTypeEnum.GameTool,
               )
             }
           >
@@ -119,7 +119,7 @@ export function ButtonGroup(props: {
               ProjectChecker(
                 props.projectTypeFilter,
                 props.callback,
-                projectTypeEnum.Tool
+                projectTypeEnum.Tool,
               )
             }
           >

@@ -45,7 +45,7 @@ export function GuestFunctionMain() {
       Array<GuestBookEntries> | undefined
     >(undefined);
     useEffect(() => {
-      GetEntries().then(entries => setGuestBookEntries(entries));
+      void GetEntries().then(entries => setGuestBookEntries(entries));
     }, []);
     if (guestBookEntries === undefined) {
       return (

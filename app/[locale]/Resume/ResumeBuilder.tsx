@@ -18,7 +18,7 @@ export function ResumeBuilder(props: {
 }): ReactNode {
   const t = useTranslations('CommonWords');
   const [openSelectorModal, setOpenSelectorModal] = useState<boolean>(
-    JobEnum === undefined ? true : false
+    JobEnum === undefined ? true : false,
   );
   //const [openSelectorModal, setOpenSelectorModal] = useState<JobTypeEnum>(JobTypeEnum.None);
 
@@ -60,7 +60,7 @@ export function ResumeBuilder(props: {
                   (JobEnum === JobTypeEnum.All
                     ? 'dev'
                     : JobTypeEnum[JobEnum].toLocaleLowerCase()) +
-                  '.pdf'
+                  '.pdf',
               );
             }}
           >
