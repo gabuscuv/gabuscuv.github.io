@@ -643,15 +643,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/third-parties@npm:^14":
-  version: 14.2.24
-  resolution: "@next/third-parties@npm:14.2.24"
+"@next/third-parties@npm:^15":
+  version: 15.2.0
+  resolution: "@next/third-parties@npm:15.2.0"
   dependencies:
     third-party-capital: "npm:1.0.20"
   peerDependencies:
-    next: ^13.0.0 || ^14.0.0
-    react: ^18.2.0
-  checksum: 10c0/f210b60613bca4ea28522b3f03558d3ca5dd98662ba04552689adb2cc47bb7e8a73e52c936afa6bc03cc005babd963b63cc5808ab4542372e528745ab10aef2b
+    next: ^13.0.0 || ^14.0.0 || ^15.0.0
+    react: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
+  checksum: 10c0/71312691d16f0537a1d3b294829eca176cdd1531b509c4f551d5e6a51401502490111a0c02b4472846e7d91133db709a44de471c0e1e7eaad78e576f44e67635
   languageName: node
   linkType: hard
 
@@ -3812,7 +3812,7 @@ __metadata:
     "@mdx-js/loader": "npm:^3"
     "@mdx-js/react": "npm:^3"
     "@next/mdx": "npm:^14"
-    "@next/third-parties": "npm:^14"
+    "@next/third-parties": "npm:^15"
     "@react-pdf/renderer": "npm:^4"
     "@types/lodash": "npm:^4"
     "@types/mdx": "npm:^2"
