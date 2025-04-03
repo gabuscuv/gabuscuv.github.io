@@ -3,7 +3,6 @@ import {hasLocale, NextIntlClientProvider} from 'next-intl';
 import {getMessages, setRequestLocale} from 'next-intl/server';
 import {NavBar} from '../_components/NavBar';
 import {Inter} from 'next/font/google';
-import '../globals.css';
 import Layout from '../_components/FreezeRouter';
 import LocaleSwitcher from '../_components/LocaleSwitcher';
 import {pick} from 'lodash';
