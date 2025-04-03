@@ -3,7 +3,7 @@ import {getTranslations} from 'next-intl/server';
 import Image from 'next/image';
 
 export async function AssociationsAndOrganizations() {
-  const t = await getTranslations({namespace: 'AboutMe.Shorts'});
+  const t = await getTranslations('AboutMe.Shorts');
   // const t = useTranslations('AboutMe.Shorts');
   return (
     <div>

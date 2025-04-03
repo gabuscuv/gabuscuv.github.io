@@ -1,5 +1,5 @@
 'use client';
-import {ListGroup} from 'flowbite-react';
+import {ListGroup, ListGroupItem} from 'flowbite-react';
 import {useState} from 'react';
 import {VideoCarrousel} from './VideoCarrousel';
 import {favThings, hobbyTimes} from '@/src/data/aboutme';
@@ -57,13 +57,13 @@ export function HobbySections() {
         <div className="flex ">
           <ListGroup className="w-full md:w-48 pr-2">
             {elementsMenu.map(e => (
-              <ListGroup.Item
+              <ListGroupItem
                 key={e.title}
                 onClick={() => setSection(e.enum)}
                 active={section === e.enum}
               >
                 {e.title}
-              </ListGroup.Item>
+              </ListGroupItem>
             ))}
           </ListGroup>
         </div>

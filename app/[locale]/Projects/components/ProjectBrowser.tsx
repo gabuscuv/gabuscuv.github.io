@@ -2,15 +2,14 @@
 
 import {ReactNode, useEffect, useState} from 'react';
 import {ProjectCards} from './ProjectCards';
-// eslint-disable-next-line n/no-extraneous-import
 import {HiFilter} from 'react-icons/hi';
 import {ProjectData} from '@/src/data/ProjectDataTypes';
 import {GetProjects} from '@/src/middleware/ProjectDataArrayEncrypted';
 import ProjectModal from './ProjectModal';
 import {Types} from './ProjectFilter';
 import {projectType} from '../projectType';
-import {ButtonGroup} from './ProjectToggle';
-import {Button, Drawer} from 'flowbite-react';
+import {_ButtonGroup} from './ProjectToggle';
+import {Button, Drawer, DrawerHeader, DrawerItems} from 'flowbite-react';
 import {TrademarkNotice} from './TrademarkNotice';
 import {projects} from '@/src/middleware/Getter';
 
@@ -102,7 +101,7 @@ export default function ProjectBrowser(props: {
   return (
     <>
       <div className="flex flex-col">
-        <ButtonGroup
+        <_ButtonGroup
           projectTypeFilter={projectTypeFilter}
           callback={ToggleChanged}
         />
@@ -112,14 +111,14 @@ export default function ProjectBrowser(props: {
             open={openFilterSidebar}
             onClose={() => setOpenFilterSidebar(false)}
           >
-            <Drawer.Header title="Filter Drawer" />
-            <Drawer.Items>
+            <DrawerHeader title="Filter Drawer" />
+            <DrawerItems>
               <Types
                 projectsData={projectsData}
                 _filterStack={filterStack}
                 callback={ChangedFilter}
               />
-            </Drawer.Items>
+            </DrawerItems>
           </Drawer>
           <Types
             className="hidden lg:block"

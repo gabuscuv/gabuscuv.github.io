@@ -15,14 +15,17 @@
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
-    "posttest": "npm run lint"
+    "posttest": "npm run lint",
+    "postinstall": "flowbite-react patch"
   },
   "dependencies": {
     "@mdx-js/loader": "^3",
     "@mdx-js/react": "^3",
     "@next/mdx": "^15",
     "@next/third-parties": "^15",
+    "@tailwindcss/postcss": "^4",
     "@types/mdx": "^2",
+    "clsx": "^2",
     "eslint-plugin-n": "^17",
     "esrun": "^3",
     "flowbite-react": "^0",
@@ -30,19 +33,18 @@
     "gray-matter": "^4",
     "lodash": "^4",
     "next": "^15",
-    "next-intl": "^3",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "next-intl": "^4",
+    "react": "^19",
+    "react-dom": "^19",
+    "react-icons": "^5",
     "remark": "^15",
     "remark-gfm": "^4",
     "remark-html": "^16"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",
-    "@react-pdf/renderer": "^4",
     "@types/lodash": "^4",
     "@types/node": "^20",
-    "@types/pdfkit": "^0",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
     "@typescript-eslint/eslint-plugin": "^7",
@@ -51,12 +53,11 @@
     "eslint-plugin-node": "^11",
     "eslint-plugin-prettier": "^5",
     "gts": "^6",
-    "pdfkit": "^0.15.1",
     "postcss": "^8",
-    "tailwindcss": "^3",
+    "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "packageManager": "yarn@4.5.0",
+  "packageManager": "yarn@4.8.1",
   "resolutions": {
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4"

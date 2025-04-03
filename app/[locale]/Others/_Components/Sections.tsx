@@ -1,25 +1,25 @@
 'use client';
-import {useRouter} from '@/app/_components/navigation';
-import {ListGroup} from 'flowbite-react';
+import {useRouter} from '@/i18n/navigation';
+import {ListGroup, ListGroupItem} from 'flowbite-react';
 export function Sections() {
   const router = useRouter();
   return (
     <div>
       <ListGroup className="hidden md:block md:w-48">
-        <ListGroup.Item
+        <ListGroupItem
           onClick={() => {
             router.replace('/Others/Blog');
           }}
         >
           Blog
-        </ListGroup.Item>
-        <ListGroup.Item
+        </ListGroupItem>
+        <ListGroupItem
           onClick={() => {
             router.replace('/Others/Notes');
           }}
         >
           Notes
-        </ListGroup.Item>
+        </ListGroupItem>
       </ListGroup>
     </div>
   );

@@ -1,4 +1,4 @@
-import {Button} from 'flowbite-react';
+import {Button, ButtonGroup} from 'flowbite-react';
 import {projectTypeEnum} from '@/src/projectTypeEnum';
 import {projectType} from '../projectType';
 
@@ -69,14 +69,14 @@ function ProjectChecker(
   callback(projectTypeFilter);
 }
 
-export function ButtonGroup(props: {
+export function _ButtonGroup(props: {
   projectTypeFilter: {[id: string]: projectType};
   callback: (output: {[id: string]: projectType}) => void;
 }) {
   return (
     <>
       <div className="inline relative top-4 place-self-center">
-        <Button.Group outline>
+        <ButtonGroup outline>
           <Button
             color={
               getStatusValue(props.projectTypeFilter, projectTypeEnum.Game)
@@ -125,7 +125,7 @@ export function ButtonGroup(props: {
           >
             Tools
           </Button>
-        </Button.Group>
+        </ButtonGroup>
       </div>
     </>
   );

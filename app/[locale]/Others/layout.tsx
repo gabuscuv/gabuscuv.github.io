@@ -1,10 +1,6 @@
 import {setRequestLocale} from 'next-intl/server';
 import {Sections} from './_Components/Sections';
 
-export async function generateStaticParams() {
-  return ['en', 'es'].map(locale => ({locale}));
-}
-
 export default async function BlogLayout(
   props: Readonly<{
     children: React.ReactNode;
