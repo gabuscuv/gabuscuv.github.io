@@ -16,7 +16,7 @@ function getCurrentStack(projectsData: ProjectData[]): Array<string> {
     ...new Set(
       projectsData
         .map(item => item.stack.map(e => e))
-        .reduce((a, b) => a.concat(b))
+        .reduce((a, b) => a.concat(b)),
     ),
   ];
 }

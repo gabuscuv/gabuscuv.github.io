@@ -1,5 +1,5 @@
 import {ProjectData} from '@/src/data/ProjectDataTypes';
-import {Carousel, Modal} from 'flowbite-react';
+import {Carousel, Modal, ModalBody, ModalHeader} from 'flowbite-react';
 import Image from 'next/image';
 import '../../../oldcss.css';
 
@@ -16,8 +16,8 @@ export default function ProjectModal(props: {
         onClose={props.closeCallback}
         popup
       >
-        <Modal.Header />
-        <Modal.Body>
+        <ModalHeader />
+        <ModalBody>
           <div className="space-y-10">
             <h3 className="text-xl font-medium text-gray-900 dark:text-white">
               {props.projectData?.name}
@@ -53,7 +53,7 @@ export default function ProjectModal(props: {
               ''
             )}
           </div>
-        </Modal.Body>
+        </ModalBody>
       </Modal>
     </>
   );

@@ -4,6 +4,8 @@ import {MdEmail} from 'react-icons/md';
 import {decrypt, ImportKey} from '../utils/decryptUtils';
 import {botChecker} from '../utils/antibot';
 
+import type {JSX} from 'react';
+
 export interface social {
   name: string;
   logo: JSX.Element;
@@ -47,8 +49,8 @@ export function GetSocials(): Promise<Array<social>> {
     if (botChecker()) {
       accept(arrayRRSS);
     }
-    ImportKey().then(e => {
-      decrypt(e, emailEncrypted).then(email => {
+    void ImportKey().then(e => {
+      void decrypt(e, emailEncrypted).then(email => {
         accept(arrayRRSS.toSpliced(0, 0, EmailTemplate(email)));
       });
     });

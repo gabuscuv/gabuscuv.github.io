@@ -45,7 +45,7 @@ export function GuestFunctionMain() {
       Array<GuestBookEntries> | undefined
     >(undefined);
     useEffect(() => {
-      GetEntries().then(entries => setGuestBookEntries(entries));
+      void GetEntries().then(entries => setGuestBookEntries(entries));
     }, []);
     if (guestBookEntries === undefined) {
       return (
@@ -84,19 +84,19 @@ export function GuestFunctionMain() {
         <form className="flex max-w-md flex-col gap-4" action={Post}>
           <div>
             <div className="mb-2 block">
-              <Label htmlFor="name" value={t('Name')} />
+              <Label htmlFor="name">{t('Name')}</Label>
             </div>
             <TextInput id="name" name="name" type="text" sizing="sm" />
           </div>
           <div>
             <div className="mb-2 block">
-              <Label htmlFor="linkedin" value={t('LinkedinLink')} />
+              <Label htmlFor="linkedin">{t('LinkedinLink')}</Label>
             </div>
             <TextInput id="linkedin" name="linkedin" type="text" sizing="md" />
           </div>
           <div>
             <div className="mb-2 block">
-              <Label htmlFor="message" value={t('Description')} />
+              <Label htmlFor="message">{t('Description')}</Label>
             </div>
             <TextInput id="message" name="message" type="text" sizing="lg" />
           </div>

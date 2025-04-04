@@ -3,10 +3,10 @@ import {JobTypeEnum, CompanyType, JobsType} from '../data/Resume';
 
 export function totalPoints(
   jobTypeEnum: JobTypeEnum,
-  work: CompanyType
+  work: CompanyType,
 ): number {
   return work.Jobs.map<number>(a => points(jobTypeEnum, a)).reduce(
-    (a, z) => a + z
+    (a, z) => a + z,
   );
 }
 export function points(JobEnum: JobTypeEnum, b: JobsType): number {

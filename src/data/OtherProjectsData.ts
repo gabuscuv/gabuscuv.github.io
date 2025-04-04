@@ -18,7 +18,7 @@ export async function ToolsProjectsList() {
 `,
       '#c10606',
       false,
-      true
+      true,
     ),
     new ToolsProjects(
       'project-9',
@@ -51,7 +51,7 @@ export async function ToolsProjectsList() {
   `,
       '#c10606',
       false,
-      true
+      true,
     ),
     new ToolsProjects(
       'project-10',
@@ -85,7 +85,7 @@ export async function ToolsProjectsList() {
     `,
       '#c10606',
       false,
-      true
+      true,
     ),
     new ToolsProjects(
       'project-11',
@@ -110,7 +110,7 @@ export async function ToolsProjectsList() {
 `,
       '#1ca1e2',
       false,
-      false
+      false,
     ),
   ];
 }

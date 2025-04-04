@@ -1,10 +1,10 @@
-import {Button} from 'flowbite-react';
+import {Button, ButtonGroup} from 'flowbite-react';
 import {projectTypeEnum} from '@/src/projectTypeEnum';
 import {projectType} from '../projectType';
 
 function getStatusValue(
   projectTypeFilter: {[id: string]: projectType},
-  gameType: projectTypeEnum
+  gameType: projectTypeEnum,
 ): boolean {
   switch (gameType) {
     case projectTypeEnum.Game:
@@ -18,7 +18,7 @@ function getStatusValue(
 
 function setAllToggles(
   projectTypeFilter: {[id: string]: projectType},
-  status: boolean
+  status: boolean,
 ) {
   projectTypeFilter['Game'].activated = status;
   projectTypeFilter['GameTool'].activated = status;
@@ -38,7 +38,7 @@ function isAllToogleEnable(projectTypeFilter: {
 function ProjectChecker(
   projectTypeFilter: {[id: string]: projectType},
   callback: (output: {[id: string]: projectType}) => void,
-  gameType: projectTypeEnum
+  gameType: projectTypeEnum,
 ) {
   if (isAllToogleEnable(projectTypeFilter)) {
     setAllToggles(projectTypeFilter, false);
@@ -69,14 +69,14 @@ function ProjectChecker(
   callback(projectTypeFilter);
 }
 
-export function ButtonGroup(props: {
+export function _ButtonGroup(props: {
   projectTypeFilter: {[id: string]: projectType};
   callback: (output: {[id: string]: projectType}) => void;
 }) {
   return (
     <>
       <div className="inline relative top-4 place-self-center">
-        <Button.Group outline>
+        <ButtonGroup outline>
           <Button
             color={
               getStatusValue(props.projectTypeFilter, projectTypeEnum.Game)
@@ -87,7 +87,7 @@ export function ButtonGroup(props: {
               ProjectChecker(
                 props.projectTypeFilter,
                 props.callback,
-                projectTypeEnum.Game
+                projectTypeEnum.Game,
               )
             }
           >
@@ -103,7 +103,7 @@ export function ButtonGroup(props: {
               ProjectChecker(
                 props.projectTypeFilter,
                 props.callback,
-                projectTypeEnum.GameTool
+                projectTypeEnum.GameTool,
               )
             }
           >
@@ -119,13 +119,13 @@ export function ButtonGroup(props: {
               ProjectChecker(
                 props.projectTypeFilter,
                 props.callback,
-                projectTypeEnum.Tool
+                projectTypeEnum.Tool,
               )
             }
           >
             Tools
           </Button>
-        </Button.Group>
+        </ButtonGroup>
       </div>
     </>
   );

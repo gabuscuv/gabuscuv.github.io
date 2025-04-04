@@ -6,20 +6,20 @@ import {projects} from './Getter';
 
 export function GetProjects(_projects: projects): Promise<Array<ProjectData>> {
   return new Promise<Array<ProjectData>>(processed => {
-    ProjectDataArrayDescrypted(_projects[projectTypeEnum.Game]).then(
-      decryptedList => {
+    ProjectDataArrayDescrypted(_projects[projectTypeEnum.Game])
+      .then(decryptedList => {
         let output: Array<ProjectData> = [];
 
         output = decryptedList.toSorted((a, b) => b.year - a.year);
         output = output.concat(_projects[projectTypeEnum.GameTool]);
         output = output.concat(_projects[projectTypeEnum.Tool]);
         processed(output.filter(e => e !== undefined));
-      }
-    );
+      })
+      .catch(() => processed([]));
   });
 }
 function ProjectDataArrayDescrypted(
-  projectdata: Array<ProjectData>
+  projectdata: Array<ProjectData>,
 ): Promise<Array<ProjectData>> {
   return new Promise<Array<ProjectData>>(processed => {
     if (isABot()) {
@@ -27,18 +27,20 @@ function ProjectDataArrayDescrypted(
       return;
     }
 
-    ImportKey().then(key_encoded => {
+    void ImportKey().then(key_encoded => {
       const Cachedprojects: Array<ProjectData> = [];
 
       projectdata.forEach(project => {
         if (project.name.startsWith('t!')) {
-          decrypt(<CryptoKey>key_encoded, project.name).then(name => {
-            project.name = name;
-            Cachedprojects.push(project);
-            if (projectdata.length === Cachedprojects.length) {
-              processed(Cachedprojects);
-            }
-          });
+          decrypt(<CryptoKey>key_encoded, project.name)
+            .then(name => {
+              project.name = name;
+              Cachedprojects.push(project);
+              if (projectdata.length === Cachedprojects.length) {
+                processed(Cachedprojects);
+              }
+            })
+            .catch(() => processed([]));
         } else {
           Cachedprojects.push(project);
         }

@@ -10,7 +10,7 @@ export function ContactMe(): ReactNode {
     Array<social> | undefined
   >(undefined);
   useEffect(() => {
-    GetSocials().then(socials => setDecryptedSocial(socials));
+    void GetSocials().then(socials => setDecryptedSocial(socials));
   }, []);
   if (decryptedSNS === undefined) {
     return <></>;

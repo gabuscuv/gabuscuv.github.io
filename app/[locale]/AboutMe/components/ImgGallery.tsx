@@ -1,5 +1,5 @@
 import {hobbyTimes} from '@/src/data/aboutme';
-import {ListGroup} from 'flowbite-react';
+import {ListGroup, ListGroupItem} from 'flowbite-react';
 import Image from 'next/image';
 import {useState} from 'react';
 export function ImgGallery(props: {name: string; elements: hobbyTimes}) {
@@ -8,13 +8,13 @@ export function ImgGallery(props: {name: string; elements: hobbyTimes}) {
     <div className="md:flex md:h-80 md:w-5/6 ">
       <ListGroup className="static md:w-60">
         {props.elements.map((e, index) => (
-          <ListGroup.Item
+          <ListGroupItem
             key={e.title + index}
             onClick={() => setSection(index)}
             active={section === index}
           >
             {e.title}
-          </ListGroup.Item>
+          </ListGroupItem>
         ))}
       </ListGroup>
       <div

@@ -1,6 +1,24 @@
 {
-    "i18n-ally.localesPaths": [
-        "messages"
+  "i18n-ally.localesPaths": [
+    "messages"
+  ],
+  "i18n-ally.keystyle": "nested",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "theme"
+  ],
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "twMerge\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
     ],
-    "i18n-ally.keystyle": "nested"
+    [
+      "createTheme(?:<\\w+>)?\\s*\\(([^)]*)\\)",
+      "{?\\s?[\\w].*:\\s*?[\"'`]([^\"'`]*).*?,?\\s?}?"
+    ]
+  ]
 }
