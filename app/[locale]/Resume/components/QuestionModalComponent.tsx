@@ -1,6 +1,13 @@
 'use client';
 import {JobTypeEnum} from '@/src/data/Resume';
-import {Button, Modal} from 'flowbite-react';
+import {
+  Button,
+  ButtonGroup,
+  Modal,
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
+} from 'flowbite-react';
 import {useTranslations} from 'next-intl';
 import {ReactNode, useState} from 'react';
 
@@ -15,16 +22,14 @@ export function QuestionModal(props: {
       show={props.openModalStatus}
       onClose={() => props.closeModalCallback}
     >
-      <Modal.Header theme={{close: {base: 'hidden'}}}>
-        {t('Title')}
-      </Modal.Header>
-      <Modal.Body>
+      <ModalHeader theme={{close: {base: 'hidden'}}}>{t('Title')}</ModalHeader>
+      <ModalBody>
         <div className="space-y-6 p-6">
           <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
             {t('Description')}
           </p>
           <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-            <Button.Group>
+            <ButtonGroup>
               <Button
                 color="gray"
                 onClick={() => {
@@ -57,11 +62,11 @@ export function QuestionModal(props: {
               >
                 {t('backend')}
               </Button>
-            </Button.Group>
+            </ButtonGroup>
           </p>
         </div>
-      </Modal.Body>
-      <Modal.Footer>
+      </ModalBody>
+      <ModalFooter>
         <Button
           onClick={() => {
             if (jobeNum !== undefined) props.closeModalCallback(jobeNum);
@@ -70,7 +75,7 @@ export function QuestionModal(props: {
         >
           {t('Choose')}
         </Button>
-      </Modal.Footer>
+      </ModalFooter>
     </Modal>
   );
 }

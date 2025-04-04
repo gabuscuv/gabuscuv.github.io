@@ -2,15 +2,14 @@
 
 import {ReactNode, useEffect, useState} from 'react';
 import {ProjectCards} from './ProjectCards';
-// eslint-disable-next-line n/no-extraneous-import
 import {HiFilter} from 'react-icons/hi';
 import {ProjectData} from '@/src/data/ProjectDataTypes';
 import {GetProjects} from '@/src/middleware/ProjectDataArrayEncrypted';
 import ProjectModal from './ProjectModal';
 import {Types} from './ProjectFilter';
 import {projectType} from '../projectType';
-import {ButtonGroup} from './ProjectToggle';
-import {Button, Drawer} from 'flowbite-react';
+import {_ButtonGroup} from './ProjectToggle';
+import {Button, Drawer, DrawerHeader, DrawerItems} from 'flowbite-react';
 import {TrademarkNotice} from './TrademarkNotice';
 import {projects} from '@/src/middleware/Getter';
 
@@ -41,13 +40,13 @@ export default function ProjectBrowser(props: {
 }): ReactNode {
   const [projectsData, setProjectsData] = useState<Array<ProjectData>>([]);
   const [projectData, setProjectData] = useState<ProjectData | undefined>(
-    undefined
+    undefined,
   );
   const [openModalStatus, setOpenModal] = useState(false);
   const [openFilterSidebar, setOpenFilterSidebar] = useState(false);
   useEffect(() => {
     if (output.length === 0 || locale !== props.locale) {
-      GetProjects(props.projects).then(projects => {
+      void GetProjects(props.projects).then(projects => {
         output = projects;
         locale = props.locale;
         setProjectsData(output);
@@ -73,14 +72,14 @@ export default function ProjectBrowser(props: {
           );
         })
         .filter(project =>
-          [...filterStack].every(fs => project.stack.includes(fs))
+          [...filterStack].every(fs => project.stack.includes(fs)),
         )
         .toSorted((a, b) => b.year - a.year)
         .toSorted(
           (a, b) =>
             projectTypeFilter[a.projecttype].id -
-            projectTypeFilter[b.projecttype].id
-        )
+            projectTypeFilter[b.projecttype].id,
+        ),
     );
   }
 
@@ -102,7 +101,7 @@ export default function ProjectBrowser(props: {
   return (
     <>
       <div className="flex flex-col">
-        <ButtonGroup
+        <_ButtonGroup
           projectTypeFilter={projectTypeFilter}
           callback={ToggleChanged}
         />
@@ -112,14 +111,14 @@ export default function ProjectBrowser(props: {
             open={openFilterSidebar}
             onClose={() => setOpenFilterSidebar(false)}
           >
-            <Drawer.Header title="Filter Drawer" />
-            <Drawer.Items>
+            <DrawerHeader title="Filter Drawer" />
+            <DrawerItems>
               <Types
                 projectsData={projectsData}
                 _filterStack={filterStack}
                 callback={ChangedFilter}
               />
-            </Drawer.Items>
+            </DrawerItems>
           </Drawer>
           <Types
             className="hidden lg:block"

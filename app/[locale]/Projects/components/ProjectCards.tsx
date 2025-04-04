@@ -46,7 +46,7 @@ export function ProjectCards(props: {
     <motion.div
       id="projectcardsid"
       initial="hidden"
-      className="relative justify-center gap-2 mt-10 flex-wrap flex flex-row lg:m-100"
+      className="relative justify-center gap-2 mt-10 flex-wrap flex flex-row"
       animate="visible"
       variants={list}
     >

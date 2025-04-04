@@ -19,7 +19,7 @@ export function WorkExperience(props: {
   const workSorted = props.workExperience
     .toSorted(
       (e, z) =>
-        totalPoints(props.JobTypeEnum, z) - totalPoints(props.JobTypeEnum, e)
+        totalPoints(props.JobTypeEnum, z) - totalPoints(props.JobTypeEnum, e),
     )
     .slice(0, props.JobTypeEnum !== JobTypeEnum.All ? 2 : undefined);
   return (
@@ -37,7 +37,7 @@ export function WorkExperience(props: {
         .toSorted(
           (e, z) =>
             totalPoints(props.JobTypeEnum, z) -
-            totalPoints(props.JobTypeEnum, e)
+            totalPoints(props.JobTypeEnum, e),
         )
         .slice(0, props.JobTypeEnum !== JobTypeEnum.All ? 2 : undefined)
         .map(job => (
@@ -59,7 +59,7 @@ export function WorkExperience(props: {
               {' ' +
                 getYearLapse(
                   job.StartDate,
-                  job.EndDate !== 0 ? job.EndDate : Date.now()
+                  job.EndDate !== 0 ? job.EndDate : Date.now(),
                 )}{' '}
               {t('years') + ' '})
             </p>
@@ -72,7 +72,7 @@ export function WorkExperience(props: {
 function JobsItems(
   locale: string,
   jobTypeEnum: JobTypeEnum,
-  Jobs: Array<JobsType>
+  Jobs: Array<JobsType>,
 ): ReactNode {
   const t = useTranslations('CommonWords');
 
@@ -90,7 +90,7 @@ function JobsItems(
                   locale,
                   e.StartDate,
                   e.EndDate,
-                  t('OnGoing')
+                  t('OnGoing'),
                 )}
               </p>
             </h4>

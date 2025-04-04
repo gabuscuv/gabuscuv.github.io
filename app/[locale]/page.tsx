@@ -1,30 +1,36 @@
-import {useTranslations} from 'next-intl';
+import {hasLocale} from 'next-intl';
 import {ReferencesCarouselComponent} from './components/ratings';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
 import Image from 'next/image';
+import {routing} from '@/i18n/routing';
 
-// Can be imported from a shared config
-const locales = ['en', 'es'];
-
-export function generateStaticParams() {
-  return locales.map(locale => ({locale}));
-}
 // @ts-expect-error -- TypeScript will validate that only known `params`
 // are used in combination with a given `pathname`. Since the two will
 // always match for the current route, we can skip runtime checks.
-export async function generateMetadata({params: {locale}}) {
+export async function generateMetadata({params}) {
+  let {locale} = await params;
+  if (typeof locale !== 'string' || !hasLocale(routing.locales, locale)) {
+    locale = 'en';
+  }
+
   const t = await getTranslations({locale, namespace: 'Metadata'});
 
   return {
     title: t('Title'),
   };
 }
+
 // @ts-expect-error -- TypeScript will validate that only known `params`
 // are used in combination with a given `pathname`. Since the two will
 // always match for the current route, we can skip runtime checks.
-export default function Home({params: {locale}}) {
+export default async function Home({params}): Promise<ReactNode> {
+  let {locale} = await params;
+  if (typeof locale !== 'string' || !hasLocale(routing.locales, locale)) {
+    locale = 'en';
+  }
+
   setRequestLocale(locale);
-  const t = useTranslations('HomePage');
+  const t = await getTranslations('HomePage');
   return (
     <main className=" m-5 ">
       <div className="w-full justify-center grid gap-4 grid-cols-2 grid-flow-row">

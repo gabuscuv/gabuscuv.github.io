@@ -24,7 +24,7 @@ export function MainResumeBody(props: {
             props.resume.Jobs.map(
               e =>
                 ((e.EndDate !== 0 ? e.EndDate : Date.now()) - e.StartDate) /
-                1000
+                1000,
             ).reduce((a, b) => a + b) / 31536000
           ).toFixed(2) +
             ' ' +
@@ -35,7 +35,7 @@ export function MainResumeBody(props: {
           {': '}
           {getYearLapse(
             props.resume.Jobs[props.resume.Jobs.length - 1].StartDate,
-            Date.now()
+            Date.now(),
           ) +
             ' ' +
             t('years')}

@@ -25,7 +25,7 @@ export async function GameProjects() {
      </iframe>`,
       [],
       '#23bd69',
-      true
+      true,
     ),
     new GameProjectsType(
       'project-33',
@@ -63,7 +63,7 @@ Good luck finding a benevolent ending ;)
       `,
       [],
       '#23bd69',
-      true
+      true,
     ),
     new GameProjectsType(
       'project-32',
@@ -88,7 +88,7 @@ Good luck finding a benevolent ending ;)
       `,
       [],
       '#23bd69',
-      true
+      true,
     ),
     new GameProjectsType(
       'project-1',
@@ -122,7 +122,7 @@ Good luck finding a benevolent ending ;)
     `,
       [],
       '#23bd69',
-      true
+      true,
     ),
     new GameProjectsType(
       'project-2',
@@ -162,7 +162,7 @@ Good luck finding a benevolent ending ;)
         '/img/projects/Kubler/Shield.jpg',
         '/img/projects/Kubler/Boss.jpg',
       ],
-      '#5a78af'
+      '#5a78af',
     ),
     new GameProjectsType(
       'project-3',
@@ -211,7 +211,7 @@ Good luck finding a benevolent ending ;)
         '/img/projects/TestingGrounds/AmmoItem.jpg',
         '/img/projects/TestingGrounds/DeathScreen.jpg',
       ],
-      '#383838'
+      '#383838',
     ),
     new GameProjectsType(
       'project-4',
@@ -257,7 +257,7 @@ Good luck finding a benevolent ending ;)
         '/img/projects/4thof4th/VirtualBios.jpg',
         '/img/projects/4thof4th/InGame.jpg',
       ],
-      '#e80fb7'
+      '#e80fb7',
     ),
   ];
 }
