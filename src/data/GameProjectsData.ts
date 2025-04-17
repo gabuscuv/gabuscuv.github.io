@@ -7,6 +7,45 @@ export async function GameProjects() {
 
   return [
     new GameProjectsType(
+      'project-36',
+      't!W8Ho5pgJv9ApKQ==',
+      ['unity', 'csharp', 'fmod'],
+      2025,
+      '/img/projects/project-36-icon.png',
+      'MalagaJam 2025',
+      `
+      <iframe class="youtube" src="https://www.youtube-nocookie.com/embed/2O_kX139KnU" frameborder="0" allowfullscreen></iframe>
+      <iframe frameborder="0"
+      src="https://itch.io/embed/3269975"
+      width="552"
+      height="167">
+     </iframe>`,
+      [],
+      '#23bd69',
+      true,
+      true,
+    ),
+    new GameProjectsType(
+      'project-35',
+      't!Ttvm6I1Mzf0wKC0=',
+      ['unity', 'csharp'],
+      2024,
+      '/img/projects/project-35-icon.png',
+      'MalagaJam 2024 Summer',
+      `
+     </div>
+      <iframe frameborder="0"
+      src="https://itch.io/embed/2859049"
+      width="552"
+      height="167">
+     </iframe>`,
+      [],
+      '#23bd69',
+      true,
+      true,
+      true,
+    ),
+    new GameProjectsType(
       'project-34',
       't!Ut3h7YYFv9k1MDeaAhU=',
       ['unreal'],

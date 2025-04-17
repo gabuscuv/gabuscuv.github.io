@@ -5,6 +5,23 @@ export async function GameToolProjectsList() {
   const t = await getTranslations('Projects.gameTools');
   return [
     new GameToolProjects(
+      'project-17',
+      'AnimuImporterCpp',
+      ['unreal', 'cpp', 'python'],
+      2025,
+      '',
+      t('AIC.Description'),
+      `
+      <p>${t('WorkInProgressDescription')}</p>
+
+      <a href="https://github.com/gabuscuv/AnimuImporterCpp"><img src="https://opengraph.githubassets.com/a2ecbd5836e9df8799bc72db1eaf9432781e55f22b3da85036716adcf36a00b1/gabuscuv/AnimuImporterCpp" /> </a>
+      `,
+      [],
+      '#c10606',
+      false,
+      false,
+    ),
+    new GameToolProjects(
       'project-16',
       'Async Map Framework',
       ['unreal', 'cpp'],
