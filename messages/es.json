@@ -45,7 +45,10 @@
         "Description": "Un sistema de ilumnacion de Botones para Unreal"
       },
       "TranslationMissing": "(Contenido antiguo) Resumen pendiente de revisión",
-      "WorkInProgressDescription": "Descripción / Resumen en curso"
+      "WorkInProgressDescription": "Descripción / Resumen en curso",
+      "AIC": {
+        "Description": "WIP, Un Workflow Desantendido sin pantalla pensado para importar ficheros PMX y VRM."
+      }
     },
     "tools": {
       "PGL": {
@@ -79,7 +82,8 @@
       "Caceres": "Cáceres, España",
       "Prague": "Parga, Chequia",
       "London": "Londres, Inglaterra",
-      "Puerto": "El Puerto de Santa María, España"
+      "Puerto": "El Puerto de Santa María, España",
+      "SanFernando": "San Fernando, España"
     },
     "Jobs": {
       "Abance": {
@@ -129,7 +133,7 @@
           "bulletpoints": {
             "Bridge": "Una pasarela Zeromq-DDS para el sonar. (con paradigma de Request-Reply)",
             "Deploy": "Modificacion completa de los scripts de build & desplieuge  (para varios modulos) para pre-produccion y produccion.",
-            "Porting": "'Portear software actualizado para sistemas no soportados'",
+            "Porting": "BackPortear software actualizado para sistemas no soportados",
             "Simulators": "Desarrollo de dos simuladores (GPS, Waterspeed) a través de NMEA, DIS y un protocolo privativo"
           }
         }
@@ -152,6 +156,11 @@
           "improvements": "Mejorar la aplicación web que ofrece soporte e integración del servicio Microsoft Exchange como otros productos más nuevos de la empresa.",
           "redesign": "Rediseñar la portada",
           "rpm": "Embalaje RPM y configuración init.d"
+        }
+      },
+      "Ghenova": {
+        "defence": {
+          "description": "Para Navantia - Proyecto de Defensa"
         }
       }
     },

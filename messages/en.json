@@ -45,7 +45,10 @@
         "Description": "A Highlight Button System for Unreal"
       },
       "WorkInProgressDescription": "Description / Summary in progress ",
-      "TranslationMissing": "(Old Content) Summary pending to review"
+      "TranslationMissing": "(Old Content) Summary pending to review",
+      "AIC": {
+        "Description": "WIP, An Unattended headless workflow oriented to Import PMX and VRM files."
+      }
     },
     "tools": {
       "PGL": {
@@ -79,7 +82,8 @@
       "Caceres": "Cáceres, Spain",
       "Prague": "Prague, Czechia",
       "London": "London, England",
-      "Puerto": "El Puerto de Santa Maria, Spain"
+      "Puerto": "El Puerto de Santa Maria, Spain",
+      "SanFernando": "San Fernando, Spain"
     },
     "Jobs": {
       "Abance": {
@@ -132,7 +136,7 @@
             "Simulators": "Development of two simulators (GPS, WaterSpeed) via NMEA, DIS & a private protocol.",
             "Bridge": "A ZeroMQ-DDS Bridge for the Sonar. (with Request-Reply Paradigm)",
             "Deploy": "Overhaul of build & deployment scripts (for various modules) for pre-production & production.",
-            "Porting": "'Porting updated software for unsupported Software'"
+            "Porting": "BackPorting updated software for unsupported Operative Systems"
           }
         }
       },
@@ -154,6 +158,11 @@
           "improvements": "Improving WebApp offering Microsoft Exchange Service Support and Integration like other newer Company’s products.",
           "redesign": "Redesign Front Page",
           "rpm": "RPM Packing and init.d configuration"
+        }
+      },
+      "Ghenova": {
+        "defence": {
+          "description": "For Navantia - Defence Project"
         }
       }
     },

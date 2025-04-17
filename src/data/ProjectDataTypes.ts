@@ -16,6 +16,7 @@ export class ProjectData {
   id: string;
   name: string;
   projecttype: string;
+  hiddenbydefault: boolean;
   stack: Array<string> = [];
   year: number;
   summary: string;
@@ -38,6 +39,7 @@ export class ProjectData {
     accentColor = '#000000',
     isHigh = false,
     isWide = false,
+    hiddenByDefault = false,
   ) {
     this.id = id;
     this.name = name;
@@ -50,6 +52,7 @@ export class ProjectData {
     this.isHigh = isHigh;
     this.isWide = isWide;
     this.accentColor = accentColor;
+    this.hiddenbydefault = hiddenByDefault;
   }
 }
 
@@ -67,6 +70,7 @@ export class ProjectDataWithImages extends ProjectData {
     screenshots: Array<string>,
     isHigh = false,
     isWide = false,
+    hiddenByDefault = false,
   ) {
     super(
       id,
@@ -80,6 +84,7 @@ export class ProjectDataWithImages extends ProjectData {
       accentColor,
       isHigh,
       isWide,
+      hiddenByDefault,
     );
     this.screenshots = screenshots;
   }
@@ -98,6 +103,7 @@ export class GameProjects extends ProjectDataWithImages {
     accentColor = '#000000',
     isHigh = false,
     isWide = false,
+    hiddenByDefault = false,
   ) {
     super(
       id,
@@ -112,6 +118,7 @@ export class GameProjects extends ProjectDataWithImages {
       screenshots,
       isHigh,
       isWide,
+      hiddenByDefault,
     );
   }
 }
@@ -129,6 +136,7 @@ export class GameToolProjects extends ProjectDataWithImages {
     accentColor = '#000000',
     isHigh = false,
     isWide = false,
+    hiddenByDefault = false,
   ) {
     super(
       id,
@@ -143,6 +151,7 @@ export class GameToolProjects extends ProjectDataWithImages {
       screenshots,
       isHigh,
       isWide,
+      hiddenByDefault,
     );
   }
 }
