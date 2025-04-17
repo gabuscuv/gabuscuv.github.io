@@ -80,6 +80,7 @@ function JobsItems(
     <ul className="list-disc ">
       {Jobs.toSorted((a, b) => points(jobTypeEnum, b) - points(jobTypeEnum, a))
         .slice(0, jobTypeEnum !== JobTypeEnum.All ? 2 : undefined)
+        .toSorted((e, z) => z.EndDate - e.EndDate)
         .map(e => (
           <li key={e.Title} className="m-2">
             <h4 className="text-lg inline">
