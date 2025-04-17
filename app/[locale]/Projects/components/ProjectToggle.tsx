@@ -37,7 +37,11 @@ function isAllToogleEnable(projectTypeFilter: {
 
 function ProjectChecker(
   projectTypeFilter: {[id: string]: projectType},
-  callback: (output: {[id: string]: projectType}) => void,
+  showHiddenProjects: boolean,
+  callback: (
+    output: {[id: string]: projectType},
+    showHiddenProjects: boolean,
+  ) => void,
   gameType: projectTypeEnum,
 ) {
   if (isAllToogleEnable(projectTypeFilter)) {
@@ -66,13 +70,21 @@ function ProjectChecker(
   ) {
     setAllToggles(projectTypeFilter, true);
   }
-  callback(projectTypeFilter);
+  callback(projectTypeFilter, showHiddenProjects);
 }
 
 export function _ButtonGroup(props: {
   projectTypeFilter: {[id: string]: projectType};
-  callback: (output: {[id: string]: projectType}) => void;
+  showHiddenProjects: boolean;
+  callback: (
+    output: {[id: string]: projectType},
+    showHiddenProjects: boolean,
+  ) => void;
 }) {
+  function setShowHiddenProject(): void {
+    props.callback(props.projectTypeFilter, !props.showHiddenProjects);
+  }
+
   return (
     <>
       <div className="inline relative top-4 place-self-center">
@@ -86,6 +98,7 @@ export function _ButtonGroup(props: {
             onClick={() =>
               ProjectChecker(
                 props.projectTypeFilter,
+                props.showHiddenProjects,
                 props.callback,
                 projectTypeEnum.Game,
               )
@@ -102,6 +115,7 @@ export function _ButtonGroup(props: {
             onClick={() =>
               ProjectChecker(
                 props.projectTypeFilter,
+                props.showHiddenProjects,
                 props.callback,
                 projectTypeEnum.GameTool,
               )
@@ -118,12 +132,23 @@ export function _ButtonGroup(props: {
             onClick={() =>
               ProjectChecker(
                 props.projectTypeFilter,
+                props.showHiddenProjects,
                 props.callback,
                 projectTypeEnum.Tool,
               )
             }
           >
             Tools
+          </Button>
+        </ButtonGroup>
+        <ButtonGroup className="pl-5">
+          <Button
+            color={props.showHiddenProjects ? 'pink' : 'gray'}
+            outline={!props.showHiddenProjects}
+            className="margin-5"
+            onClick={setShowHiddenProject}
+          >
+            Show all
           </Button>
         </ButtonGroup>
       </div>

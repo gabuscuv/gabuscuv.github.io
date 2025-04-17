@@ -13,8 +13,10 @@ import {Button, Drawer, DrawerHeader, DrawerItems} from 'flowbite-react';
 import {TrademarkNotice} from './TrademarkNotice';
 import {projects} from '@/src/middleware/Getter';
 
+let visibleHiddenProject: boolean = false;
 const filterStack: Set<string> = new Set<string>();
 let output: Array<ProjectData> = [];
+
 let projectTypeFilter: {
   [id: string]: projectType;
 } = {
@@ -42,6 +44,7 @@ export default function ProjectBrowser(props: {
   const [projectData, setProjectData] = useState<ProjectData | undefined>(
     undefined,
   );
+
   const [openModalStatus, setOpenModal] = useState(false);
   const [openFilterSidebar, setOpenFilterSidebar] = useState(false);
   useEffect(() => {
@@ -49,7 +52,12 @@ export default function ProjectBrowser(props: {
       void GetProjects(props.projects).then(projects => {
         output = projects;
         locale = props.locale;
-        setProjectsData(output);
+        setProjectsData(
+          output.filter(
+            e =>
+              !e.hiddenbydefault || (e.hiddenbydefault && visibleHiddenProject),
+          ),
+        );
       });
     } else {
       if (projectsData.length === 0) {
@@ -63,6 +71,10 @@ export default function ProjectBrowser(props: {
   }): void {
     setProjectsData(
       output
+        .filter(
+          e =>
+            !e.hiddenbydefault || (e.hiddenbydefault && visibleHiddenProject),
+        )
         .filter(e => {
           return (
             (e.projecttype === 'Tool' && projectTypeFilter['Tool'].activated) ||
@@ -93,8 +105,12 @@ export default function ProjectBrowser(props: {
     ProjectCardBuilder(projectTypeFilter);
   }
 
-  function ToggleChanged(output: {[id: string]: projectType}) {
+  function ToggleChanged(
+    output: {[id: string]: projectType},
+    setValue: boolean,
+  ) {
     projectTypeFilter = output;
+    visibleHiddenProject = setValue;
     ProjectCardBuilder(projectTypeFilter);
   }
 
@@ -103,6 +119,7 @@ export default function ProjectBrowser(props: {
       <div className="flex flex-col">
         <_ButtonGroup
           projectTypeFilter={projectTypeFilter}
+          showHiddenProjects={visibleHiddenProject}
           callback={ToggleChanged}
         />
         <div className="flex flex-row">
