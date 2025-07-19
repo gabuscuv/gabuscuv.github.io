@@ -48,7 +48,7 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@typescript-eslint/eslint-plugin": "^7",
+    "@typescript-eslint/eslint-plugin": "^8",
     "eslint": "^8",
     "eslint-config-next": "^15",
     "eslint-plugin-node": "^11",
