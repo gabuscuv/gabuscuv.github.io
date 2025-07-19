@@ -7,11 +7,11 @@ permalink: /about/mycomputers/
 
 | Hostname      | Activity  | Case                 | CPU                      | Motherboard                                                | RAM   | GPU                            | Last OS                               | Notes                                                                                                      |
 | ------------- | --------- | -------------------- | ------------------------ | ---------------------------------------------------------- | ----- | ------------------------------ | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| Shironeko     | 2018-     | NCase M1 v5 (mITX)   | AMD Ryzen 7 5700x        | Asus ROG X470-I                                            | 32GB  | EVGA GeForce RTX 2070 XC       | Gentoo                                |
-| Shironeko 1.0 | 2018-2022 |                      | AMD Ryzen 7 2700X        |                                                            |       |                                |                                       |                                                                                                            |
+| Shironeko     | 2018-     | NCase M1 v5 (mITX)   | AMD Ryzen 7 5700X | Asus ROG X470-I | 32GB  | PowerColor Radeon RX 9070 XT Reaper | Gentoo |
+| Shironeko 1.0 | |  | AMD Ryzen 7 2700X (2022) | | | EVGA GeForce RTX 2070 XC  (2025)      |                                |                                       |                                                                                                            |
 | Kuroneko      | 2014-2018 | Nox Coolbay SX (ATX) | Intel Core i5 - 4670     | MSI B85-E43                                                | 8GB   | MSI GeForce GTX 960 Gaming 2GB | Gentoo                                | Lent to my ~~Best Friend~~ Father (without GPU and with Lubuntu), Also known as: Haxwell (Haswell+Maxwell) |
 | iMac*         | 2009-2016 |                      | Intel Core 2 Duo (E8135) |                                                            | 8GB   | Nvidia GeForce 9400            | Latest Supported Mac OS X + ArchLinux | Current Status: Motherboard Broken                                                                         |
-| -             | 2004-???? |                      | Intel Pentium 4 Unknown  | ECS P4S5A (North Bridge: SiS 645, South Bridge: SiS® 961 ) | 256MB | NVIDIA GeForce 2 MX/MX400      | Windows XP SP3                        |
+| -             | 2004-???? |                      | Intel Pentium 4 Unknown  | ECS P4S5A | 256MB | NVIDIA GeForce 2 MX/MX400      | Windows XP SP3                        |
 
 ## Laptops Owned
 
@@ -33,7 +33,6 @@ permalink: /about/mycomputers/
 |          | Huawei G510    | ~2013-2015  | Qualcomm Snapdragon S4 Play | 512MB | Adreno 203 |                           |
 |          | Huawei U8650   | ~2011-~2013 | Qualcomm Snapdragon S1      | 256MB | Adreno 200 |                           |
 |          | LG Arena KM900 | -           | -                           | 128MB |            |
-
 
 ## Tablets Owned
 
