@@ -3994,8 +3994,8 @@ __metadata:
   linkType: hard
 
 "flowbite-react@npm:^0":
-  version: 0.11.9
-  resolution: "flowbite-react@npm:0.11.9"
+  version: 0.12.5
+  resolution: "flowbite-react@npm:0.12.5"
   dependencies:
     "@floating-ui/core": "npm:1.6.9"
     "@floating-ui/react": "npm:0.27.3"
@@ -4017,7 +4017,7 @@ __metadata:
     tailwindcss: ^3 || ^4
   bin:
     flowbite-react: dist/cli/bin.js
-  checksum: 10c0/e988e44be4eda0859be5704bf0e95add94c15f68ddadd2dab81cd1a1d09fa73be56d5989eb11d565b111139255c716b6d4fab463a65fa14f3ad8484faab087a1
+  checksum: 10c0/d8883546f10c3f80564901976bf4289bd0c6b3a96c2eb9411ef1a1e474012dd0cfc425c455094a7621da47cc6e4fbd9a628ed5a12537785f61a55cda70a203e8
   languageName: node
   linkType: hard
 
