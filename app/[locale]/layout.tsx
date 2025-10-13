@@ -8,6 +8,7 @@ import LocaleSwitcher from '../_components/LocaleSwitcher';
 import {pick} from 'lodash';
 import {routing} from '@/i18n/routing';
 import {notFound} from 'next/navigation';
+import {SiteMap} from '@/src/sitemap';
 
 const inter = Inter({subsets: ['latin']});
 
@@ -45,7 +46,10 @@ export default async function RootLayout({
         <NextIntlClientProvider
           messages={pick(messages, ['NavBar', 'Metadata', 'LocaleSwitcher'])}
         >
-          <NavBar localeSwitcher={<LocaleSwitcher locale={locale} />} />
+          <NavBar
+            localeSwitcher={<LocaleSwitcher locale={locale} />}
+            siteMap={await SiteMap()}
+          />
           <Layout>{children}</Layout>
         </NextIntlClientProvider>
       </body>

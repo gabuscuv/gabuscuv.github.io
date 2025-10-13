@@ -2,6 +2,12 @@ import {Button, ButtonGroup} from 'flowbite-react';
 import {projectTypeEnum} from '@/src/projectTypeEnum';
 import {projectType} from '../projectType';
 
+const stuff = [
+  {enum: projectTypeEnum.Game, DisplayName: 'Games'},
+  {enum: projectTypeEnum.GameTool, DisplayName: 'GameTool'},
+  {enum: projectTypeEnum.Tool, DisplayName: 'Tools'},
+];
+
 function getStatusValue(
   projectTypeFilter: {[id: string]: projectType},
   gameType: projectTypeEnum,
@@ -89,57 +95,27 @@ export function _ButtonGroup(props: {
     <>
       <div className="inline relative top-4 place-self-center">
         <ButtonGroup outline>
-          <Button
-            color={
-              getStatusValue(props.projectTypeFilter, projectTypeEnum.Game)
-                ? 'pink'
-                : 'gray'
-            }
-            onClick={() =>
-              ProjectChecker(
-                props.projectTypeFilter,
-                props.showHiddenProjects,
-                props.callback,
-                projectTypeEnum.Game,
-              )
-            }
-          >
-            Games
-          </Button>
-          <Button
-            color={
-              getStatusValue(props.projectTypeFilter, projectTypeEnum.GameTool)
-                ? 'pink'
-                : 'gray'
-            }
-            onClick={() =>
-              ProjectChecker(
-                props.projectTypeFilter,
-                props.showHiddenProjects,
-                props.callback,
-                projectTypeEnum.GameTool,
-              )
-            }
-          >
-            Game Tools
-          </Button>
-          <Button
-            color={
-              getStatusValue(props.projectTypeFilter, projectTypeEnum.Tool)
-                ? 'pink'
-                : 'gray'
-            }
-            onClick={() =>
-              ProjectChecker(
-                props.projectTypeFilter,
-                props.showHiddenProjects,
-                props.callback,
-                projectTypeEnum.Tool,
-              )
-            }
-          >
-            Tools
-          </Button>
+          {stuff.map(e => (
+            <Button
+              key={e.DisplayName + 'Button'}
+              color={
+                getStatusValue(props.projectTypeFilter, e.enum)
+                  ? 'pink'
+                  : 'gray'
+              }
+              onClick={() =>
+                ProjectChecker(
+                  props.projectTypeFilter,
+                  props.showHiddenProjects,
+                  props.callback,
+                  e.enum,
+                )
+              }
+            >
+              {e.DisplayName}
+            </Button>
+          ))}
+          ;
         </ButtonGroup>
         <ButtonGroup className="pl-5">
           <Button
