@@ -15,8 +15,7 @@
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
-    "posttest": "npm run lint",
-    "postinstall": "flowbite-react patch"
+    "posttest": "npm run lint"
   },
   "dependencies": {
     "@mdx-js/loader": "^3",
@@ -58,5 +57,5 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "packageManager": "yarn@4.9.1"
+  "packageManager": "yarn@4.10.3"
 }
