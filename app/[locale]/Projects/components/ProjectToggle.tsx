@@ -1,47 +1,9 @@
 import {Button, ButtonGroup} from 'flowbite-react';
 import {projectTypeEnum} from '@/src/projectTypeEnum';
-import {projectType} from '../projectType';
-
-const stuff = [
-  {enum: projectTypeEnum.Game, DisplayName: 'Games'},
-  {enum: projectTypeEnum.GameTool, DisplayName: 'GameTool'},
-  {enum: projectTypeEnum.Tool, DisplayName: 'Tools'},
-];
-
-function getStatusValue(
-  projectTypeFilter: {[id: string]: projectType},
-  gameType: projectTypeEnum,
-): boolean {
-  switch (gameType) {
-    case projectTypeEnum.Game:
-      return projectTypeFilter['Game'].activated;
-    case projectTypeEnum.GameTool:
-      return projectTypeFilter['GameTool'].activated;
-    case projectTypeEnum.Tool:
-      return projectTypeFilter['Tool'].activated;
-  }
-}
-
-function setAllToggles(
-  projectTypeFilter: {[id: string]: projectType},
-  status: boolean,
-) {
-  projectTypeFilter['Game'].activated = status;
-  projectTypeFilter['GameTool'].activated = status;
-  projectTypeFilter['Tool'].activated = status;
-}
-
-function isAllToogleEnable(projectTypeFilter: {
-  [id: string]: projectType;
-}): Boolean {
-  return (
-    projectTypeFilter['Game'].activated &&
-    projectTypeFilter['GameTool'].activated &&
-    projectTypeFilter['Tool'].activated
-  );
-}
+import {CatProjects, projectType} from '../projectType';
 
 function ProjectChecker(
+  projectCatTypes: Array<CatProjects>,
   projectTypeFilter: {[id: string]: projectType},
   showHiddenProjects: boolean,
   callback: (
@@ -50,36 +12,38 @@ function ProjectChecker(
   ) => void,
   gameType: projectTypeEnum,
 ) {
+  function setAllToggles(
+    projectTypeFilter: {[id: string]: projectType},
+    status: boolean,
+  ) {
+    projectCatTypes.forEach(e => {
+      projectTypeFilter[e.idName].activated = status;
+    });
+  }
+
+  function isAllToogleEnable(projectTypeFilter: {
+    [id: string]: projectType;
+  }): Boolean {
+    return projectCatTypes.every(e => projectTypeFilter[e.idName].activated);
+  }
+
   if (isAllToogleEnable(projectTypeFilter)) {
     setAllToggles(projectTypeFilter, false);
   }
 
-  projectTypeFilter['Game'].activated =
-    gameType === projectTypeEnum.Game
-      ? !projectTypeFilter['Game'].activated
-      : false;
+  projectCatTypes.forEach((e, index) => {
+    projectTypeFilter[e.idName].activated =
+      gameType === index ? !projectTypeFilter[e.idName].activated : false;
+  });
 
-  projectTypeFilter['GameTool'].activated =
-    gameType === projectTypeEnum.GameTool
-      ? !projectTypeFilter['GameTool'].activated
-      : false;
-
-  projectTypeFilter['Tool'].activated =
-    gameType === projectTypeEnum.Tool
-      ? !projectTypeFilter['Tool'].activated
-      : false;
-
-  if (
-    !projectTypeFilter['Game'].activated &&
-    !projectTypeFilter['GameTool'].activated &&
-    !projectTypeFilter['Tool'].activated
-  ) {
+  if (projectCatTypes.every(e => !projectTypeFilter[e.idName].activated)) {
     setAllToggles(projectTypeFilter, true);
   }
   callback(projectTypeFilter, showHiddenProjects);
 }
 
 export function _ButtonGroup(props: {
+  projectCatTypes: Array<CatProjects>;
   projectTypeFilter: {[id: string]: projectType};
   showHiddenProjects: boolean;
   callback: (
@@ -87,6 +51,17 @@ export function _ButtonGroup(props: {
     showHiddenProjects: boolean,
   ) => void;
 }) {
+  function getStatusValue(
+    projectTypeFilter: {[id: string]: projectType},
+    gameType: projectTypeEnum,
+  ): boolean {
+    const find = props.projectCatTypes.find(e => e.enum === gameType);
+    if (find === undefined) {
+      return false;
+    }
+    return projectTypeFilter[find.idName].activated;
+  }
+
   function setShowHiddenProject(): void {
     props.callback(props.projectTypeFilter, !props.showHiddenProjects);
   }
@@ -95,7 +70,7 @@ export function _ButtonGroup(props: {
     <>
       <div className="inline relative top-4 place-self-center">
         <ButtonGroup outline>
-          {stuff.map(e => (
+          {props.projectCatTypes.map(e => (
             <Button
               key={e.DisplayName + 'Button'}
               color={
@@ -105,6 +80,7 @@ export function _ButtonGroup(props: {
               }
               onClick={() =>
                 ProjectChecker(
+                  props.projectCatTypes,
                   props.projectTypeFilter,
                   props.showHiddenProjects,
                   props.callback,

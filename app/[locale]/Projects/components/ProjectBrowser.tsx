@@ -12,10 +12,21 @@ import {_ButtonGroup} from './ProjectToggle';
 import {Button, Drawer, DrawerHeader, DrawerItems} from 'flowbite-react';
 import {TrademarkNotice} from './TrademarkNotice';
 import {projects} from '@/src/middleware/Getter';
+import {projectTypeEnum} from '@/src/projectTypeEnum';
 
 let visibleHiddenProject: boolean = false;
 const filterStack: Set<string> = new Set<string>();
 let output: Array<ProjectData> = [];
+
+const projectCatTypes = [
+  {enum: projectTypeEnum.Game, idName: 'Game', DisplayName: 'Games'},
+  {
+    enum: projectTypeEnum.GameTool,
+    idName: 'GameTool',
+    DisplayName: 'Game Tools',
+  },
+  {enum: projectTypeEnum.Tool, idName: 'Tool', DisplayName: 'Tools'},
+];
 
 let projectTypeFilter: {
   [id: string]: projectType;
@@ -121,6 +132,7 @@ export default function ProjectBrowser(props: {
           projectTypeFilter={projectTypeFilter}
           showHiddenProjects={visibleHiddenProject}
           callback={ToggleChanged}
+          projectCatTypes={projectCatTypes}
         />
         <div className="flex flex-row">
           <Drawer
