@@ -56,6 +56,9 @@
       },
       "WorkInProgressDescription": "Description / Summary in progress ",
       "TranslationMissing": "(Old Content) Summary pending to review"
+    },
+    "Types": {
+      "showall": "Show All"
     }
   },
   "VRProject": {
@@ -162,7 +165,7 @@
       },
       "Ghenova": {
         "defence": {
-          "description": "For Navantia - Defence Project"
+          "description": "For Navantia - Defence Project (F110 Series and Related)"
         }
       }
     },
