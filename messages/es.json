@@ -164,6 +164,12 @@
       "Ghenova": {
         "defence": {
           "description": "Para Navantia - Proyecto de Defensa (Serie F110 y relacionados)"
+        },
+        "cpp": {
+          "bulletpoints": {
+            "terminal": "Desarrollo de un sistema de autorización y control de terminales.",
+            "video": "Desarrollo de un sistema crítico para monitorear, visualizar y grabar transmisiones de video desde múltiples fuentes de video simultáneas y un sistema de redundancia."
+          }
         }
       }
     },

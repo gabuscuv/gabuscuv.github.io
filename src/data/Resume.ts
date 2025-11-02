@@ -72,8 +72,8 @@ export async function ResumeContent(): Promise<ResumeType> {
             EndDate: 0,
             techStack: ['cpp', 'qt', 'rhel', 'gst'],
             BulletPoints: [
-              'Development of a critical system for monitoring, displaying, and recording video streams from multiple simultaneous video sources and redundancy system.',
-              'Development of a terminal control and authorization system',
+              t('Jobs.Ghenova.cpp.bulletpoints.video'),
+              t('Jobs.Ghenova.cpp.bulletpoints.terminal'),
             ],
           },
         ],
@@ -329,6 +329,11 @@ export async function ResumeContent(): Promise<ResumeType> {
         Title: 'Domestic Motion Capture',
         location: 'Cadiz GameDev MeetUp',
         date: Date.parse('2023/12/15'),
+      },
+      {
+        Title: 'Audio Design through Audio Frameworks',
+        location: 'Cadiz GameDev MeetUp',
+        date: Date.parse('2025/08/05'),
       },
     ],
   };

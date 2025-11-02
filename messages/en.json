@@ -166,6 +166,12 @@
       "Ghenova": {
         "defence": {
           "description": "For Navantia - Defence Project (F110 Series and Related)"
+        },
+        "cpp": {
+          "bulletpoints": {
+            "video": "Development of a critical system for monitoring, displaying, and recording video streams from multiple simultaneous video sources and redundancy system.",
+            "terminal": "Development of an authorization and terminal control system."
+          }
         }
       }
     },
