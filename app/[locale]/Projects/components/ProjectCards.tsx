@@ -79,7 +79,11 @@ export function ProjectCards(props: {
                 <Image
                   key={project.name + 'img'}
                   className="w-full h-full object-cover"
-                  src={project.iconUrl}
+                  src={
+                    project.iconUrl.length
+                      ? project.iconUrl
+                      : '/img/No_Image_Available.jpg'
+                  }
                   width={238}
                   height={188}
                   alt={'Image Of' + project.name}

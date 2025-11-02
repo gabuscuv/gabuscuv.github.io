@@ -32,7 +32,13 @@ export default function ProjectModal(props: {
             {props.projectData?.screenshots &&
             props.projectData?.screenshots.length !== 0 ? (
               <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
-                <Carousel>
+                <Carousel
+                  theme={{
+                    item: {
+                      base: 'relative left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2',
+                    },
+                  }}
+                >
                   {props.projectData.screenshots?.map((screenshots, index) => (
                     <Image
                       width={512}

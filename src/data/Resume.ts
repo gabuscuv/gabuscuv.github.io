@@ -65,13 +65,16 @@ export async function ResumeContent(): Promise<ResumeType> {
         typeOfPresence: 'hybrid',
         Jobs: [
           {
-            Title: 'DevOps Developer',
+            Title: 'C++ Developer (Internally Called Software/Infra Developer)',
             Description: t('Jobs.Ghenova.defence.description'),
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2025/02/26'),
             EndDate: 0,
             techStack: ['cpp', 'qt', 'rhel', 'gst'],
-            BulletPoints: [],
+            BulletPoints: [
+              'Development of a critical system for monitoring, displaying, and recording video streams from multiple simultaneous video sources and redundancy system.',
+              'Development of a terminal control and authorization system',
+            ],
           },
         ],
       },

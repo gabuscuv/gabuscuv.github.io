@@ -43,6 +43,7 @@ function ProjectChecker(
 }
 
 export function _ButtonGroup(props: {
+  config: {primaryColor: string; showAllLabel: string};
   projectCatTypes: Array<CatProjects>;
   projectTypeFilter: {[id: string]: projectType};
   showHiddenProjects: boolean;
@@ -68,14 +69,14 @@ export function _ButtonGroup(props: {
 
   return (
     <>
-      <div className="inline relative top-4 place-self-center">
-        <ButtonGroup outline>
+      <div className="self-center flex flex-col md:flex-row relative top-4 place-self-center">
+        <ButtonGroup className="overflow-x-scroll w-5/6 md:w-full" outline>
           {props.projectCatTypes.map(e => (
             <Button
               key={e.DisplayName + 'Button'}
               color={
                 getStatusValue(props.projectTypeFilter, e.enum)
-                  ? 'pink'
+                  ? props.config.primaryColor
                   : 'gray'
               }
               onClick={() =>
@@ -91,7 +92,6 @@ export function _ButtonGroup(props: {
               {e.DisplayName}
             </Button>
           ))}
-          ;
         </ButtonGroup>
         <ButtonGroup className="pl-5">
           <Button
@@ -100,7 +100,7 @@ export function _ButtonGroup(props: {
             className="margin-5"
             onClick={setShowHiddenProject}
           >
-            Show all
+            {props.config.showAllLabel}
           </Button>
         </ButtonGroup>
       </div>

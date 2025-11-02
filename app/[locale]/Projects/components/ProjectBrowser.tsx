@@ -13,6 +13,7 @@ import {Button, Drawer, DrawerHeader, DrawerItems} from 'flowbite-react';
 import {TrademarkNotice} from './TrademarkNotice';
 import {projects} from '@/src/middleware/Getter';
 import {projectTypeEnum} from '@/src/projectTypeEnum';
+import {useTranslations} from 'next-intl';
 
 let visibleHiddenProject: boolean = false;
 const filterStack: Set<string> = new Set<string>();
@@ -55,6 +56,7 @@ export default function ProjectBrowser(props: {
   const [projectData, setProjectData] = useState<ProjectData | undefined>(
     undefined,
   );
+  const t = useTranslations('Projects.Types');
 
   const [openModalStatus, setOpenModal] = useState(false);
   const [openFilterSidebar, setOpenFilterSidebar] = useState(false);
@@ -133,6 +135,10 @@ export default function ProjectBrowser(props: {
           showHiddenProjects={visibleHiddenProject}
           callback={ToggleChanged}
           projectCatTypes={projectCatTypes}
+          config={{
+            primaryColor: 'pink',
+            showAllLabel: t('showall'),
+          }}
         />
         <div className="flex flex-row">
           <Drawer
