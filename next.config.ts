@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
 import createMDX from '@next/mdx';
 import remarkGfm from 'remark-gfm';
@@ -6,11 +6,16 @@ import withFlowbiteReact from "flowbite-react/plugin/nextjs";
 
 const withNextIntl = createNextIntlPlugin();
 
-const withMDX = createMDX({
-  options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [],
-  },
-});
+const withMDX = require('@next/mdx')()
 
-export default withFlowbiteReact(withMDX(withNextIntl({output:'export'})));
+const config: NextConfig = {
+  output: 'export',
+  images: { unoptimized: true },
+    pageExtensions: ['ts', 'tsx', 'mdx'],
+  experimental: {
+    mdxRs: true,
+  },
+}
+export default withFlowbiteReact(withNextIntl(withMDX(
+  config
+)));
