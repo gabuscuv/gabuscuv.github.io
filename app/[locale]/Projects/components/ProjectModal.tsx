@@ -14,6 +14,7 @@ export default function ProjectModal(props: {
         show={props.openModalStatus}
         size="3xl"
         onClose={props.closeCallback}
+        dismissible
         popup
       >
         <ModalHeader />
