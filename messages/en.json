@@ -48,6 +48,12 @@
       "TranslationMissing": "(Old Content) Summary pending to review",
       "AIC": {
         "Description": "WIP, An Unattended headless workflow oriented to Import PMX and VRM files."
+      },
+      "libnfc": {
+        "Description": "A Cross Engine NFC Reader Library (Unity, Godot & Unreal)"
+      },
+      "VRM2OpenUSD": {
+        "Description": "WIP - Pipeline from VRM Files to OpenUSD"
       }
     },
     "tools": {

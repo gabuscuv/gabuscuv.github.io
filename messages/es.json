@@ -48,6 +48,12 @@
       "WorkInProgressDescription": "Descripción / Resumen en curso",
       "AIC": {
         "Description": "WIP, Un Workflow Desantendido sin pantalla pensado para importar ficheros PMX y VRM."
+      },
+      "VRM2OpenUSD": {
+        "Description": "WIP: Procedimiento desde archivos VRM a OpenUSD"
+      },
+      "libnfc": {
+        "Description": "Una biblioteca de lectores NFC Cross Engine (Unity, Godot"
       }
     },
     "tools": {
