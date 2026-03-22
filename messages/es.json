@@ -48,6 +48,12 @@
       "WorkInProgressDescription": "Descripción / Resumen en curso",
       "AIC": {
         "Description": "WIP, Un Workflow Desantendido sin pantalla pensado para importar ficheros PMX y VRM."
+      },
+      "VRM2OpenUSD": {
+        "Description": "WIP: Procedimiento desde archivos VRM a OpenUSD"
+      },
+      "libnfc": {
+        "Description": "Una biblioteca de lectores NFC Cross Engine (Unity, Godot"
       }
     },
     "tools": {
@@ -167,8 +173,9 @@
         },
         "cpp": {
           "bulletpoints": {
-            "terminal": "Desarrollo de un sistema de autorización y control de terminales.",
-            "video": "Desarrollo de un sistema crítico para monitorear, visualizar y grabar transmisiones de video desde múltiples fuentes de video simultáneas y un sistema de redundancia."
+            "ServerManagementAndMonitoring": "Trabajar en sistemas de visualización y seguimiento en tiempo real para proyectos de defensa naval.",
+            "terminal": "Trabajo en Gestión de Terminales de Control y terminales propiamente dichos.",
+            "video": "Trabaje en Workflows de vídeo de múltiples fuentes y rendimiento a nivel de sistema."
           }
         }
       }

@@ -48,6 +48,12 @@
       "TranslationMissing": "(Old Content) Summary pending to review",
       "AIC": {
         "Description": "WIP, An Unattended headless workflow oriented to Import PMX and VRM files."
+      },
+      "libnfc": {
+        "Description": "A Cross Engine NFC Reader Library (Unity, Godot & Unreal)"
+      },
+      "VRM2OpenUSD": {
+        "Description": "WIP - Pipeline from VRM Files to OpenUSD"
       }
     },
     "tools": {
@@ -169,8 +175,9 @@
         },
         "cpp": {
           "bulletpoints": {
-            "video": "Development of a critical system for monitoring, displaying, and recording video streams from multiple simultaneous video sources and redundancy system.",
-            "terminal": "Development of an authorization and terminal control system."
+            "video": "Work on multi-source video pipelines and system-level performance.",
+            "terminal": "Work on Control Terminal Management and terminals itself.",
+            "ServerManagementAndMonitoring": "Work on real-time visualization and monitoring systems for naval defense projects."
           }
         }
       }

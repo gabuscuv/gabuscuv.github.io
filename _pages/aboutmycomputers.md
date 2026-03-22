@@ -3,7 +3,7 @@ layout: page
 title: My Computers
 permalink: /about/mycomputers/
 ---
-## Desktops Owned
+## Owned Desktops
 
 | Hostname      | Activity  | Case                 | CPU                      | Motherboard                                                | RAM   | GPU                            | Last OS                               | Notes                                                                                                      |
 | ------------- | --------- | -------------------- | ------------------------ | ---------------------------------------------------------- | ----- | ------------------------------ | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
@@ -13,28 +13,38 @@ permalink: /about/mycomputers/
 | iMac*         | 2009-2016 |                      | Intel Core 2 Duo (E8135) |                                                            | 8GB   | Nvidia GeForce 9400            | Latest Supported Mac OS X + ArchLinux | Current Status: Motherboard Broken                                                                         |
 | -             | 2004-???? |                      | Intel Pentium 4 Unknown  | ECS P4S5A | 256MB | NVIDIA GeForce 2 MX/MX400      | Windows XP SP3                        |
 
-## Laptops Owned
+## Owned Laptops
 
 | Hostname       | Model                       | Activity  | CPU                               | RAM               | GPU                              | Last OS             | Notes                                                                         |
 | -------------- | --------------------------- | --------- | --------------------------------- | ----------------- | -------------------------------- | ------------------- | ----------------------------------------------------------------------------- |
-| Rory           | Dell Inspiron 7567          | 2017-     | Intel Core i5-7300HQ              | 16GB              | Nvidia GeForce GTX1050 4GB       |  Fedora 41                   |
+| Victoriqu3     | Lenovo Legion 15AHP10       | 2026-     | AMD Ryzen 7 250                   | 32GB              | Nvidia Geforce RTX 5060          | NixOS/Windows 11 |   GameJams Machine |
+| Rory           | Dell Inspiron 7567          | 2017-     | Intel Core i5-7300HQ              | 16GB              | Nvidia GeForce GTX1050 4GB       | AlmaLinux 10.1 ~~Fedora 38-42~~ | NAS/Server/Docker, ~~GameJam Machine~~ (until 2025)             |
 | Victorique (2) | Lenovo B50-80               | 2014-2017 | Intel Celeron N2830               | 4GB               | iGPU Baytrail                    | Gentoo              | It was compiled via cross-compiling (distcc) with Kuroneko                    |
 | Netbook        | ASUS eeePC X101CH           | 2012-2013 | Intel® Atom <N2600@1.60Ghz>       | 1GB On-Board DDR3 | Intel GMA 3600 (PowerVR SGX 545) | Fedora LXDE Unknown | It was the worst netbook I have ever owned (No GPU Acceleration in GNU/Linux) |
-| Victorique (1) | Packard Bell Easynote MZ-36 | 2007-2014 | Intel Pentium <Dual-Core@1.60Ghz> | 1GB 667 mhz DDR2  | ATI Radeon Xpress 200M           | Lubuntu 14.04 LTS   |                                                                               |
-| -              | HP                          | -         | Intel Celeron                     |                   | Intel GMA950                     |                     | It's was destroyed by my father                                               |
+| Victorique (1) | Packard Bell Easynote MZ-36 | 2007-2014 | Intel Pentium <Dual-Core@1.60Ghz> | 1GB 667 mhz DDR2  | ATI Radeon Xpress 200M           | Lubuntu 14.04 LTS               |                                                                               |
+| -              | HP NX6110 (Or Similar)                          | -         | Intel Centrino Platform (idk)|                   | Intel GMA9XX                     |                     | It's was destroyed by my father                                               |
 
-## Mobiles Owned
-
+## Owned Phones
 | Hostname | Model          | Activity    | CPU                         | RAM   | GPU        | Last OS                   | Notes         |
 | -------- | -------------- | ----------- | --------------------------- | ----- | ---------- | ------------------------- | ------------- |
-|          | Pixel 7a       | 2024-       | Google Tensor G2            | 8GB   |          Mali-G710 MP7 | Android 15 |   |
+|          | Pixel 9a       | 2026-       | Google Tensor G4            | 8GB   |          Mali-G715 MC7 | Android 16 |   |
+|          | Pixel 7a       | 2024-2026       | Google Tensor G2            | 8GB   |          Mali-G710 MP7 | Android 16 | Broken Screen Twice  |
 |          | OnePlus 5T     | 2017-2024   | Qualcomm Snapdragon 835     | 8GB   | Adreno 540 | LineageOS 20 (Android 13) |
 |          | Moto G (2014)  | 2015-2017   | Qualcomm Snapdragon 400     | 1GB   | Adreno 305 |                           |
 |          | Huawei G510    | ~2013-2015  | Qualcomm Snapdragon S4 Play | 512MB | Adreno 203 |                           |
 |          | Huawei U8650   | ~2011-~2013 | Qualcomm Snapdragon S1      | 256MB | Adreno 200 |                           |
 |          | LG Arena KM900 | -           | -                           | 128MB |            |
 
-## Tablets Owned
+## Owned SoC/Servers
+
+| Role Machine    | Hostname | Model           | Activity | CPU        | RAM  | GPU     | Last OS                      | Notes                                                      |
+| --------------- | -------- | --------------- | -------- | ---------- | ---- | ------- | ---------------------------- | ---------------------------------------------------------- |
+| Karaoke Machine | Meruru   | Chuwi Larpbox X | (2024-)  | Intel N100 | 12GB | UHD 730 | Debian 13                    | It also has some Party Games                               |
+| Home Server     | blanc    | Raspberry Pi 3B | (2016-)  |            | 1GB  |         | FreeBSD (2026-) ~~Raspbian~~ | WireGuard + Git Server + ~~PiHole~~ AdGuard Home + UnBound |
+| HomeServer      | blanc    | Raspberry Pi 1B | (2012-2016?)  |            | 1GB  |         | Raspbian                     | Borken Capacitor                                                            |
+| MediaCenter     | blanc    | Raspberry Pi 1B | (2010-2016?)  |            | 1GB  |         | Raspbian                     | Borken Capacitor                                      |
+
+## Owned Tablets
 
 | Hostname | Model         | Activity  | CPU               | RAM   | GPU            | Last OS                                         | Notes                                                                                                                                                 |
 | -------- | ------------- | --------- | ----------------- | ----- | -------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |

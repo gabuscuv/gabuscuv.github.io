@@ -4,6 +4,40 @@ import {getTranslations} from 'next-intl/server';
 export async function GameToolProjectsList() {
   const t = await getTranslations('Projects.gameTools');
   return [
+      new GameToolProjects(
+      'project-21',
+      'VRM2OpenUSD',
+      ['cpp'],
+      2026,
+      '',
+      t('VRM2OpenUSD.Description'),
+      `
+      <p>${t('WorkInProgressDescription')}</p>
+      <a href="https://github.com/gabuscuv/vrm2openusd"><img src="https://opengraph.githubassets.com/5b032b783fdbd79921566406fd721ab79c029108f231effa616e6ebb0c02aa0a/gabuscuv/vrm2openusd" /> </a>
+      `,
+      [],
+      '#c10606',
+      false,
+      false,
+    ),
+        new GameToolProjects(
+      'project-19',
+      'libnfc-crossengine',
+      ['unreal', 'unity', 'godot','csharp', 'cpp', 'python'],
+      2026,
+      '',
+      t('libnfc.Description'),
+      `
+      <p>${t('WorkInProgressDescription')}</p>
+      <iframe class="youtube" src="https://www.youtube-nocookie.com/embed/fMQwZRW1wng" frameborder="0" allowfullscreen></iframe>
+
+      <a href="https://github.com/gabuscuv/libnfc-crossengine"><img src="https://opengraph.githubassets.com/1e33860348f777d3950debb1ecab1d36e25c3543675c8af2e84bfee15d2e2764/gabuscuv/libnfc-crossengine" /> </a>
+      `,
+      [],
+      '#c10606',
+      false,
+      false,
+    ),
     new GameToolProjects(
       'project-18',
       'AnimuImporterCpp',
