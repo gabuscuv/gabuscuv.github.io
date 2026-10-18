@@ -3,13 +3,8 @@ import path from 'node:path';
 import {renderToBuffer} from '@react-pdf/renderer';
 import {createTranslator} from 'use-intl/core';
 import {selectExperience} from '@/src/utils/resumeUtils';
-import {Font} from '@react-pdf/renderer';
 import {ResumePdf} from './ResumePdf';
-import {
-  JobTypeEnum,
-  type CompanyType,
-} from '../src/data/Resume';
-import {points} from '../src/utils/points';
+import {JobTypeEnum} from '@/src/data/Resume';
 import {ResumeContent} from '@/src/data/Resume';
 import enMessages from '../messages/en.json';
 import esMessages from '../messages/es.json';
@@ -28,53 +23,7 @@ const summaries: Record<Locale, string> = {
   es: 'Desarrollador de software con experiencia en C++, C#, sistemas de escritorio y backend, y aplicaciones interactivas en tiempo real.',
 };
 
-const candidateName = 'Your Name';
-
-function prepareExperience(
-  experience: CompanyType[],
-  role: JobTypeEnum,
-): CompanyType[] {
-  return experience
-    .map(company => {
-      const matchingJobs =
-        role === JobTypeEnum.All
-          ? company.Jobs
-          : company.Jobs.filter(job => job.JobType === role);
-
-      const jobs =
-        role === JobTypeEnum.All
-          ? matchingJobs
-          : matchingJobs
-              .toSorted(
-                (a, b) => points(role, b) - points(role, a),
-              )
-              .slice(0, 2)
-              .toSorted((a, b) => {
-                const endA =
-                  a.EndDate === 0 ? Infinity : a.EndDate;
-                const endB =
-                  b.EndDate === 0 ? Infinity : b.EndDate;
-
-                return endB - endA;
-              });
-
-      return {
-        company,
-        jobs,
-        score: jobs.length
-          ? Math.max(...jobs.map(job => points(role, job)))
-          : 0,
-      };
-    })
-    .filter(entry => entry.jobs.length > 0)
-    .toSorted((a, b) =>
-      role === JobTypeEnum.All ? 0 : b.score - a.score,
-    )
-    .map(({ company, jobs }) => ({
-      ...company,
-      Jobs: jobs,
-    }));
-}
+const candidateName = 'Gabriel Bustillo del Cuvillo';
 
 function parseArgs(args: string[]) {
   const options: Record<string, string> = {};
@@ -128,16 +77,14 @@ async function main() {
   });
   
   const workExperience = (await ResumeContent(t)).Jobs;
-  const experience = prepareExperience(
-    workExperience,
-    options.role,
-  );
+  const experience = selectExperience(workExperience, options.role);
 
   const buffer = await renderToBuffer(
     <ResumePdf
+      t={t}
       locale={options.locale}
       role={options.role}
-      workExperience={experience}
+      experience={experience}
       name={candidateName}
       summary={{
         en: summaries.en,

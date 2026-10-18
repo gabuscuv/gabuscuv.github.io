@@ -9,16 +9,20 @@ import {
 
 import {
   JobTypeEnum,
-  type CompanyType,
   type JobsType,
 } from '@/src/data/Resume';
+import {onGoingValue} from '@/src/utils/dates';
+import {type} from '@/src/data/type';
+import {ExperienceSelection, getWorkEntriesHeader} from '@/src/utils/resumeUtils';
+import {_Translator} from 'use-intl/core';
 
 type Locale = 'en' | 'es';
 
 type ResumePdfProps = {
+  t: _Translator<Record<string, any>>;
   locale: Locale;
   role: JobTypeEnum;
-  workExperience: CompanyType[];
+  experience: ExperienceSelection;
   name: string;
   summary: Record<Locale, string>;
 };
@@ -104,7 +108,7 @@ const styles = StyleSheet.create({
   jobTitle: {
     fontSize: 10,
     fontFamily: 'Helvetica-Bold',
-    marginBottom: 3,
+    marginBottom: 1,
   },
   description: {
     lineHeight: 1.4,
@@ -112,7 +116,7 @@ const styles = StyleSheet.create({
   },
   bullet: {
     marginLeft: 10,
-    marginBottom: 3,
+    marginBottom: 1,
     lineHeight: 1.35,
   },
   technologies: {
@@ -128,7 +132,7 @@ function formatYear(
   locale: Locale,
   ongoing: string,
 ): string {
-  if (timestamp === 0) return ongoing;
+  if (timestamp === onGoingValue) return ongoing;
 
   return new Date(timestamp).toLocaleDateString(locale, {
     year: 'numeric',
@@ -136,15 +140,14 @@ function formatYear(
 }
 
 export function ResumePdf({
+  t,
   locale,
   role,
-  workExperience,
+  experience,
   name,
   summary,
 }: ResumePdfProps) {
-  const t = labels[locale];
-
-  const companies = workExperience
+  const companies = experience.companies
     .map(company => {
       const jobs =
         role === JobTypeEnum.All
@@ -178,7 +181,7 @@ export function ResumePdf({
         </Text>
 
         <Text style={styles.sectionTitle}>
-          {t.experience}
+          {getWorkEntriesHeader(t, experience)}
         </Text>
 
         {companies.map(({ company, jobs }) => (
@@ -210,13 +213,13 @@ export function ResumePdf({
               {formatYear(
                 company.StartDate,
                 locale,
-                t.ongoing,
+                t("ongoing"),
               )}{' '}
               –{' '}
               {formatYear(
                 company.EndDate,
                 locale,
-                t.ongoing,
+                t("ongoing"),
               )}
             </Text>
 
@@ -225,7 +228,7 @@ export function ResumePdf({
                 key={`${job.Title}-${job.StartDate}`}
                 job={job}
                 locale={locale}
-                ongoing={t.ongoing}
+                ongoing={t("ongoing")}
               />
             ))}
           </View>
@@ -274,7 +277,7 @@ function JobEntry({
 
       {job.techStack.length > 0 && (
         <Text style={styles.technologies}>
-          {job.techStack.join(' · ')}
+          {job.techStack.map(tech => (type[tech]?.FullName ?? tech)).join(' · ')}
         </Text>
       )}
     </View>

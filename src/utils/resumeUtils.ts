@@ -6,6 +6,7 @@ import {
 } from '@/src/data/Resume';
 import {points} from '@/src/utils/points';
 import {onGoingValue} from '@/src/utils/dates';
+import { _Translator } from 'use-intl/core';
 
 export type ExperienceSelection = {
   companies: CompanyType[];
@@ -21,6 +22,10 @@ type CompanyWithSelectedJobs = {
   jobs: JobsType[];
   score: number;
 };
+
+export function getWorkEntriesHeader(t: _Translator<Record<string, any>, "CommonWords">, experience: ExperienceSelection): string {
+  return `${t('WorkExperience')} (${experience.matchingCompanyCount} ${t('of')} ${experience.totalCompanyCount} ${t('Companies')} - ${experience.matchingPositionCount} ${t('of')} ${experience.totalPositionCount} ${t('JobPositions')})`;
+}
 
 /** Most recent end date first; ongoing positions come first. */
 export function sortJobsChronologically(
@@ -95,9 +100,22 @@ export function selectExperience(
     })
     .filter(entry => isAll || entry.jobs.length > 0);
 
-  const rankedCompanies = isAll
-    ? entries
-    : entries.toSorted((a, b) => b.score - a.score);
+const rankedCompanies = isAll
+  ? entries
+  : entries.toSorted((a, b) => {
+      const aOngoing = a.jobs.some(
+        job => job.EndDate === onGoingValue,
+      );
+      const bOngoing = b.jobs.some(
+        job => job.EndDate === onGoingValue,
+      );
+
+      if (aOngoing !== bOngoing) {
+        return aOngoing ? -1 : 1;
+      }
+
+      return b.score - a.score;
+    });
 
   const selectedCompanies = isAll
     ? rankedCompanies
