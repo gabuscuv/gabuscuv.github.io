@@ -2,76 +2,94 @@
 import {JobTypeEnum} from '@/src/data/Resume';
 import {
   Button,
-  ButtonGroup,
   Modal,
   ModalBody,
   ModalFooter,
   ModalHeader,
 } from 'flowbite-react';
 import {useTranslations} from 'next-intl';
-import {ReactNode, useState} from 'react';
+import {useEffect, useState} from 'react';
 
 export function QuestionModal(props: {
   openModalStatus: boolean;
-  closeModalCallback: (jobeNum: JobTypeEnum) => void;
-}): ReactNode {
-  const [jobeNum, setJobEnum] = useState<JobTypeEnum | undefined>();
+  closeModalCallback: (jobType: JobTypeEnum) => void;
+}) {
+  const [selectedJobType, setSelectedJobType] =
+    useState<JobTypeEnum | undefined>();
+
   const t = useTranslations('Resume.QuestionModal');
+
+  useEffect(() => {
+    if (!props.openModalStatus) {
+      setSelectedJobType(undefined);
+    }
+  }, [props.openModalStatus]);
+
+  const options = [
+    {
+      value: JobTypeEnum.All,
+      label: t('all'),
+    },
+    {
+      value: JobTypeEnum.GameDev,
+      label: 'Game Developer / Interactive Apps / Virtual Production',
+    },
+    {
+      value: JobTypeEnum.WebDev,
+      label: t('web'),
+    },
+    {
+      value: JobTypeEnum.Backend,
+      label: t('backend'),
+    },
+  ];
+
   return (
     <Modal
       show={props.openModalStatus}
-      onClose={() => props.closeModalCallback}
+      size="lg"
     >
       <ModalHeader theme={{close: {base: 'hidden'}}}>{t('Title')}</ModalHeader>
       <ModalBody>
-        <div className="space-y-6 p-6">
+        <div className="space-y-5">
           <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
             {t('Description')}
           </p>
-          <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-            <ButtonGroup>
-              <Button
-                color="gray"
-                onClick={() => {
-                  setJobEnum(JobTypeEnum.All);
-                }}
-              >
-                {t('all')}
-              </Button>
-              <Button
-                color="gray"
-                onClick={() => {
-                  setJobEnum(JobTypeEnum.GameDev);
-                }}
-              >
-                Game Developer/Interative App/Virtual Production
-              </Button>
-              <Button
-                color="gray"
-                onClick={() => {
-                  setJobEnum(JobTypeEnum.WebDev);
-                }}
-              >
-                {t('web')}
-              </Button>
-              <Button
-                color="gray"
-                onClick={() => {
-                  setJobEnum(JobTypeEnum.Backend);
-                }}
-              >
-                {t('backend')}
-              </Button>
-            </ButtonGroup>
-          </p>
+          <div
+            className="grid grid-cols-1 gap-3 sm:grid-cols-2"
+            role="group"
+            aria-label={t('Title')}
+          >
+            {options.map(option => {
+              const selected =
+                selectedJobType === option.value;
+
+              return (
+                <Button
+                  key={option.value}
+                  color={selected ? 'blue' : 'gray'}
+                  outline={!selected}
+                  className="h-auto min-h-12 whitespace-normal text-center"
+                  aria-pressed={selected}
+                  onClick={() =>
+                    setSelectedJobType(option.value)
+                  }
+                >
+                  {option.label}
+                </Button>
+              );
+            })}
+          </div>
         </div>
       </ModalBody>
-      <ModalFooter>
+      <ModalFooter className="justify-end">
         <Button
           onClick={() => {
-            if (jobeNum !== undefined) props.closeModalCallback(jobeNum);
+            if (selectedJobType !== undefined) {
+              props.closeModalCallback(selectedJobType);
+            }
           }}
-          disabled={jobeNum === undefined}
+          disabled={selectedJobType === undefined}
         >
           {t('Choose')}
         </Button>
