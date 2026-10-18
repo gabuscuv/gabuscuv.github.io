@@ -15,13 +15,19 @@
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
-    "posttest": "npm run lint"
+    "posttest": "npm run lint",
+    "cv:pdf": "node --import tsx utils/generate-cv.tsx",
+    "cv:pdf:game-en": "node --import tsx utils/generate-cv.tsx --role GameDev --locale en",
+    "cv:pdf:game-es": "node --import tsx utils/generate-cv.tsx --role GameDev --locale es",
+    "cv:pdf:backend-en": "node --import tsx utils/generate-cv.tsx --role Backend --locale en",
+    "cv:pdf:web-en": "node --import tsx utils/generate-cv.tsx --role WebDev --locale en"
   },
   "dependencies": {
     "@mdx-js/loader": "^3",
     "@mdx-js/react": "^3",
     "@next/mdx": "^16",
     "@next/third-parties": "^16",
+    "@react-pdf/renderer": "4.6.1",
     "@tailwindcss/postcss": "^4",
     "@types/mdx": "^2",
     "clsx": "^2",
@@ -55,7 +61,14 @@
     "gts": "^6",
     "serve": "^14",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "use-intl": "^4.14.9"
+  },
+  "resolutions": {
+    "@react-pdf/render": "4.6.1",
+    "@react-pdf/layout": "4.6.1",
+    "@react-pdf/hyphenate@npm:^0.1.0": "patch:@react-pdf/hyphenate@npm%3A0.1.0#~/.yarn/patches/@react-pdf-hyphenate-npm-0.1.0-940b22b074.patch"
   },
   "packageManager": "yarn@4.10.3"
 }

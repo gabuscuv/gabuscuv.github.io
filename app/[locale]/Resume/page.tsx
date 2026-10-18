@@ -1,4 +1,4 @@
-import {getMessages, setRequestLocale} from 'next-intl/server';
+import {getMessages, getTranslations, setRequestLocale} from 'next-intl/server';
 import {ResumeBuilder} from './ResumeBuilder';
 import {ResumeContent} from '@/src/data/Resume';
 import {hasLocale, NextIntlClientProvider} from 'next-intl';
@@ -15,8 +15,8 @@ export default async function Resume({params}): Awaited<ReactNode> {
   }
   setRequestLocale(locale);
   const messages = await getMessages(locale);
-
-  const resume = await ResumeContent();
+  const t = await getTranslations('Resume');
+  const resume = await ResumeContent(t);
 
   return (
     <>

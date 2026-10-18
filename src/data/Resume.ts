@@ -1,5 +1,6 @@
 import {getTranslations} from 'next-intl/server';
 import {onGoingValue} from '../utils/dates';
+import {createTranslator} from 'use-intl/core';
 
 export enum JobTypeEnum {
   All,
@@ -51,8 +52,9 @@ export type ResumeType = {
   Talks: Array<{Title: string; location: string; date: number}>;
 };
 
-export async function ResumeContent(): Promise<ResumeType> {
-  const t = await getTranslations('Resume');
+type ResumeTranslator = ReturnType<typeof createTranslator>;
+
+export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
   // const t = useTranslations('Resume'); // for preview with i18n-ally
   return {
     Jobs: [
