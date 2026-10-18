@@ -1,4 +1,5 @@
 import {getTranslations} from 'next-intl/server';
+import {onGoingValue} from '../utils/dates';
 
 export enum JobTypeEnum {
   All,
@@ -60,7 +61,7 @@ export async function ResumeContent(): Promise<ResumeType> {
         Location: t('Locations.SanFernando'),
         Url: 'https://digital.ghenova.com/',
         StartDate: Date.parse('2025/02/26'),
-        EndDate: 0,
+        EndDate: onGoingValue,
         typeOfHire: 'full',
         typeOfPresence: 'hybrid',
         Jobs: [
@@ -69,13 +70,9 @@ export async function ResumeContent(): Promise<ResumeType> {
             Description: t('Jobs.Ghenova.defence.description'),
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2025/02/26'),
-            EndDate: 0,
+            EndDate: onGoingValue,
             techStack: ['cpp', 'qt', 'rhel', 'gst', 'dds'],
-            BulletPoints: [
-              t('Jobs.Ghenova.cpp.bulletpoints.video'),
-              t('Jobs.Ghenova.cpp.bulletpoints.terminal'),
-              t('Jobs.Ghenova.cpp.bulletpoints.ServerManagementAndMonitoring'),
-            ],
+            BulletPoints: t.raw('Jobs.Ghenova.cpp.bulletpoints') as string[]
           },
         ],
       },
@@ -88,17 +85,12 @@ export async function ResumeContent(): Promise<ResumeType> {
         Jobs: [
           {
             Title: 'C++ Backend Developer',
-            Description: t('Jobs.Abance.e park.description'),
+            Description: t('Jobs.Abance.cppusv.description'),
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2024/10/15'),
             EndDate: Date.parse('2024/12/30'),
             techStack: ['cpp', 'qt', 'zmq', 'dds'],
-            BulletPoints: [
-              t('Jobs.Abance.cppusv.bulletpoints.Simulators'),
-              t('Jobs.Abance.cppusv.bulletpoints.Bridge'),
-              t('Jobs.Abance.cppusv.bulletpoints.Deploy'),
-              t('Jobs.Abance.cppusv.bulletpoints.Porting'),
-            ],
+            BulletPoints: t.raw('Jobs.Abance.cppusv.bulletpoints') as string[]
           },
           {
             Title: 'Lead Typescript / React / Next.JS Developer',
@@ -107,56 +99,34 @@ export async function ResumeContent(): Promise<ResumeType> {
             StartDate: Date.parse('2024/05/15'),
             EndDate: Date.parse('2025/02/25'),
             techStack: ['typescript', 'react', 'nextjs'],
-            BulletPoints: [
-              t('Jobs.Abance.nextreact.bulletpoints.AbanceReact'),
-              t('Jobs.Abance.nextreact.bulletpoints.Magallanes'),
-            ],
+            BulletPoints: t.raw('Jobs.Abance.nextreact.bulletpoints') as string[]
           },
           {
             Title: 'Wordpress Developer',
-            Description: t('Jobs.Abance.wordpress.Description'),
+            Description: t('Jobs.Abance.wordpress.description'),
             JobType: JobTypeEnum.WebDev,
             StartDate: Date.parse('2024/03/10'),
             EndDate: Date.parse('2024/08/10'),
             techStack: ['oxygen'],
-            BulletPoints: [
-              t('Jobs.Abance.wordpress.bulletpoints.content'),
-              t('Jobs.Abance.wordpress.bulletpoints.redesign'),
-              t('Jobs.Abance.wordpress.bulletpoints.animations'),
-            ],
+            BulletPoints: t.raw('Jobs.Abance.wordpress.bulletpoints') as string[]
           },
           {
             Title: 'Lead C# Software Developer',
-            Description: t('Jobs.Abance.csharpdev.Description'),
+            Description: t('Jobs.Abance.csharpdev.description'),
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2024/02/24'),
             EndDate: Date.parse('2025/02/25'),
             techStack: ['csharp', 'grpc'],
-            BulletPoints: [
-              t('Jobs.Abance.csharpdev.bulletpoints.ExcelParser'),
-              t('Jobs.Abance.csharpdev.bulletpoints.HTMLScrapper'),
-              t('Jobs.Abance.csharpdev.bulletpoints.MultimediaConverter'),
-              t('Jobs.Abance.csharpdev.bulletpoints.DotNetConsultant'),
-              t('Jobs.Abance.csharpdev.bulletpoints.UnitTestDesigner'),
-            ],
+            BulletPoints: t.raw('Jobs.Abance.csharpdev.bulletpoints') as string[]
           },
           {
             Title: 'Lead Unreal Engine VR Developer',
-            Description: t('Jobs.Abance.unreal.Description'),
+            Description: t('Jobs.Abance.unreal.description'),
             StartDate: Date.parse('2023/09/25'),
             EndDate: Date.parse('2024/02/24'),
             JobType: JobTypeEnum.GameDev,
             techStack: ['unreal', 'csharp', 'cpp', 'python', 'grpc'],
-            BulletPoints: [
-              t('Jobs.Abance.unreal.bulletpoints.Networking'),
-              t('Jobs.Abance.unreal.bulletpoints.importOptimizations'),
-              t('Jobs.Abance.unreal.bulletpoints.buildPipeline'),
-              t('Jobs.Abance.unreal.bulletpoints.qtTools'),
-              t('Jobs.Abance.unreal.bulletpoints.ioOptimization'),
-              t('Jobs.Abance.unreal.bulletpoints.pythonAuto'),
-              t('Jobs.Abance.unreal.bulletpoints.accesibility'),
-              t('Jobs.Abance.unreal.bulletpoints.features'),
-            ],
+            BulletPoints: t.raw('Jobs.Abance.unreal.bulletpoints') as string[]
           },
         ],
         typeOfHire: 'full',
@@ -171,7 +141,7 @@ export async function ResumeContent(): Promise<ResumeType> {
         Jobs: [
           {
             Title: 'Backend Developer',
-            Description: t('Jobs.itixo.backend.Description'),
+            Description: t('Jobs.itixo.backend.description'),
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2018/02/27'),
             EndDate: Date.parse('2020/06/15'),
@@ -183,13 +153,7 @@ export async function ResumeContent(): Promise<ResumeType> {
               'xunit',
               'entity',
             ],
-            BulletPoints: [
-              t('Jobs.itixo.backend.bulletpoints.monitoring'),
-              t('Jobs.itixo.backend.bulletpoints.refactoring'),
-              t('Jobs.itixo.backend.bulletpoints.graphs'),
-              t('Jobs.itixo.backend.bulletpoints.tests'),
-              t('Jobs.itixo.backend.bulletpoints.azure'),
-            ],
+            BulletPoints: t.raw('Jobs.itixo.backend.bulletpoints') as string[]
           },
         ],
         typeOfHire: 'freelance',
@@ -204,7 +168,7 @@ export async function ResumeContent(): Promise<ResumeType> {
         Jobs: [
           {
             Title: 'WebApp Dev',
-            Description: t('Jobs.knowledgemill.webapp.Description'),
+            Description: t('Jobs.knowledgemill.webapp.description'),
             JobType: JobTypeEnum.WebDev,
             StartDate: Date.parse('2017/08/15'),
             EndDate: Date.parse('2017/12/15'),
@@ -215,11 +179,7 @@ export async function ResumeContent(): Promise<ResumeType> {
               'exchangeapi',
               'centos',
             ],
-            BulletPoints: [
-              t('Jobs.knowledgemill.webapp.improvements'),
-              t('Jobs.knowledgemill.webapp.redesign'),
-              t('Jobs.knowledgemill.webapp.rpm'),
-            ],
+            BulletPoints: t.raw('Jobs.knowledgemill.webapp.bulletpoints') as string[]
           },
           {
             Title: 'Apprenticeship WebApp Dev',

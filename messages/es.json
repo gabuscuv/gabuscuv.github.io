@@ -1,7 +1,7 @@
 {
   "HomePage": {
     "Greetings": "Hola!",
-    "Description": "Soy Gabriel Bustillo del Cuvillo, un experto en TI, pero oficialmente soy desarrollador de software (y ex técnico de TI)"
+    "description": "Soy Gabriel Bustillo del Cuvillo, un experto en TI, pero oficialmente soy desarrollador de software (y ex técnico de TI)"
   },
   "LocaleSwitcher": {
     "locale": "{locale, select, es {Español} en {Ingles} other {Unknown}}"
@@ -29,51 +29,51 @@
   "Projects": {
     "gameProjects": {
       "VRProject": {
-        "Description": "Mi Primer Gran Proyecto"
+        "description": "Mi Primer Gran Proyecto"
       },
       "TestingGround": {
-        "Description": "Una version mejorada de un ejercicio."
+        "description": "Una version mejorada de un ejercicio."
       },
       "TranslationMissing": "Traduccion Pendiente (Contenido migrado de origen monolingüe)",
-      "WorkInProgressDescription": "Descripción / Resumen en curso"
+      "WorkInProgressdescription": "Descripción / Resumen en curso"
     },
     "TestingGround": {
-      "Description": "Una version mejorada de un ejercicio."
+      "description": "Una version mejorada de un ejercicio."
     },
     "gameTools": {
       "OXI": {
-        "Description": "Un sistema de ilumnacion de Botones para Unreal"
+        "description": "Un sistema de ilumnacion de Botones para Unreal"
       },
       "TranslationMissing": "(Contenido antiguo) Resumen pendiente de revisión",
-      "WorkInProgressDescription": "Descripción / Resumen en curso",
+      "WorkInProgressdescription": "Descripción / Resumen en curso",
       "AIC": {
-        "Description": "WIP, Un Workflow Desantendido sin pantalla pensado para importar ficheros PMX y VRM."
+        "description": "WIP, Un Workflow Desantendido sin pantalla pensado para importar ficheros PMX y VRM."
       },
       "VRM2OpenUSD": {
-        "Description": "WIP: Procedimiento desde archivos VRM a OpenUSD"
+        "description": "WIP: Procedimiento desde archivos VRM a OpenUSD"
       },
       "libnfc": {
-        "Description": "Una biblioteca de lectores NFC Cross Engine (Unity, Godot"
+        "description": "Una biblioteca de lectores NFC Cross Engine (Unity, Godot"
       }
     },
     "tools": {
       "PGL": {
-        "Description": "Un lanzador de juegos según el periferico/pincho."
+        "description": "Un lanzador de juegos según el periferico/pincho."
       },
       "TranslationMissing": "(Contenido antiguo) Resumen pendiente de revisión",
-      "WorkInProgressDescription": "Descripción / Resumen en curso"
+      "WorkInProgressdescription": "Descripción / Resumen en curso"
     },
     "Types": {
       "showall": "Mostrar todo"
     }
   },
   "VRProject": {
-    "Description": "Mi Primer Gran Proyecto"
+    "description": "Mi Primer Gran Proyecto"
   },
   "Guestbook": {
     "Name": "Name/Nickname",
     "LinkedinLink": "Linkedin Link",
-    "Description": "Mensaje",
+    "description": "Mensaje",
     "Submit": "Enviar",
     "update": "Actualizar",
     "Loading": "Cargando"
@@ -97,74 +97,75 @@
     "Jobs": {
       "Abance": {
         "csharpdev": {
-          "Description": "Debido a una reestructuración de la Empresa, el proyecto anterior fue suspendido y soy de los pocos que permanece en la empresa debido a mis conocimientos generales de programación.",
-          "bulletpoints": {
-            "DotNetConsultant": "Consultor de ecosistemas .NET (migración de arquitectura)",
-            "ExcelParser": "Desarrollo de Analizadores de Excel (OpenXML) al Formato S1000D",
-            "HTMLScrapper": "Scrapper/Convertidor HTML a formato S1000D",
-            "MultimediaConverter": "Convertidor multimedia multiproceso automatizado",
-            "UnitTestDesigner": "Diseñador de automatización de pruebas"
-          }
+          "description": "Debido a una reestructuración de la Empresa, el proyecto anterior fue suspendido y soy de los pocos que permanece en la empresa debido a mis conocimientos generales de programación.",
+          "bulletpoints": [
+            "Consultor de ecosistemas .NET (migración de arquitectura)",
+            "Desarrollo de Analizadores de Excel (OpenXML) al Formato S1000D",
+            "Scrapper/Convertidor HTML a formato S1000D",
+            "Convertidor multimedia multiproceso automatizado",
+            "Diseñador de automatización de pruebas"
+          ]
         },
         "unreal": {
-          "bulletpoints": {
-            "qtTools": "Creacion de herramientas de automatizacion de procesamiento de contenido en QT y optimizaciones multiproceso)",
-            "importOptimizations": "Optimizaciones al Importar de Assets (de 40 minutos a 10 minutos)",
-            "Networking": "Multiusuario/Multijugador/Redes (replicación)",
-            "accesibility": "Opciones de accesibilidad",
-            "buildPipeline": "Pipeline de compilaciones desatendidas (compilaciones de servidor incluidas)",
-            "features": "Herramientas personalizadas en el juego (compatibles con múltiples usuarios)",
-            "ioOptimization": "Optimización de E/S (reducción de 10-15 minutos a unos pocos segundos en carga)",
-            "pythonAuto": "Automatización de Python (commandlet y en el editor)"
-          },
-          "Description": "Desarrollo, Optimizaciones de un Visor de Modelos 3D VR realizado con Unreal Engine 5.1 y actualizando a 5.3, Suspendido por reestructuración empresarial y reordenamiento de prioridades"
+          "description": "Desarrollo, Optimizaciones de un Visor de Modelos 3D VR realizado con Unreal Engine 5.1 y actualizando a 5.3, Suspendido por reestructuración empresarial y reordenamiento de prioridades",
+          "bulletpoints": [
+            "Creacion de herramientas de automatizacion de procesamiento de contenido en QT y optimizaciones multiproceso)",
+            "Optimizaciones al Importar de Assets (de 40 minutos a 10 minutos)",
+            "Multiusuario/Multijugador/Redes (replicación)",
+            "Opciones de accesibilidad",
+            "Pipeline de compilaciones desatendidas (compilaciones de servidor incluidas)",
+            "Herramientas personalizadas en el juego (compatibles con múltiples usuarios)",
+            "Optimización de E/S (reducción de 10-15 minutos a unos pocos segundos en carga)",
+            "Automatización de Python (commandlet y en el editor)"
+          ]
         },
         "nextjs": {},
         "nextreact": {
-          "bulletpoints": {
-            "AbanceReact": "Una versión rehecha de Abance Web en React (algunos trucos de PHP y .htaccess) migró desde Wordpress.",
-            "Magallanes": "Una base de datos interna para ILS"
-          },
-          "description": "Desarrollo de diversos proyectos internos."
+          "description": "Desarrollo de diversos proyectos internos.",
+          "bulletpoints": [
+            "Una versión rehecha de Abance Web en React (algunos trucos de PHP y .htaccess) migró desde Wordpress.",
+            "Una base de datos interna para ILS"
+          ]
         },
         "wordpress": {
-          "bulletpoints": {
-            "animations": "Mejorar animaciones",
-            "content": "Actualizar contenido",
-            "redesign": "Rediseñar el sitio web de la página principal."
-          },
-          "Description": "mantenedor"
-        },
-        "e park": {
-          "description": "Desarrollador de comunicación para el proyecto USV (Vehículo de superficie no tripulado) de Navantia: e-Park para el mantenimiento de energía eólica marina, subvencionado por la Unión Europea."
+          "description": "mantenedor",
+          "bulletpoints": [
+            "Mejorar animaciones",
+            "Actualizar contenido",
+            "Rediseñar el sitio web de la página principal."
+          ]
         },
         "cppusv": {
-          "bulletpoints": {
-            "Bridge": "Una pasarela Zeromq-DDS para el sonar. (con paradigma de Request-Reply)",
-            "Deploy": "Modificacion completa de los scripts de build & desplieuge  (para varios modulos) para pre-produccion y produccion.",
-            "Porting": "BackPortear software actualizado para sistemas no soportados",
-            "Simulators": "Desarrollo de dos simuladores (GPS, Waterspeed) a través de NMEA, DIS y un protocolo privativo"
-          }
+          "description": "Desarrollador de comunicación para el proyecto USV (Vehículo de superficie no tripulado) de Navantia: e-Park para el mantenimiento de energía eólica marina, subvencionado por la Unión Europea.",
+          "bulletpoints": [
+            "Una pasarela Zeromq-DDS para el sonar. (con paradigma de Request-Reply)",
+            "Modificacion completa de los scripts de build & desplieuge  (para varios modulos) para pre-produccion y produccion.",
+            "BackPortear software actualizado para sistemas no soportados",
+            "Desarrollo de dos simuladores (GPS, Waterspeed) a través de NMEA, DIS y un protocolo privativo"
+          ]
         }
       },
       "itixo": {
         "backend": {
-          "Description": "Creación, diseño, refactorización y mantenimiento de Software y pruebas unitarias en .NET Framework, Tareas de refactorización y migración a .NET Standard/Core para proyectos antiguos y nuevos",
-          "bulletpoints": {
-            "azure": "Creación de Software para Plataforma Azure",
-            "graphs": "Desarrollo de herramientas para visualización de gráficos de ventas en la parte de administración web.",
-            "monitoring": "Desarrollo de servicios/demonios modulares de monitorización y alarma.",
-            "refactoring": "Tareas de refactorización.",
-            "tests": "Creación y Diseño de Pruebas Unitarias para proyectos antiguos y nuevos."
-          }
+          "description": "Creación, diseño, refactorización y mantenimiento de Software y pruebas unitarias en .NET Framework, Tareas de refactorización y migración a .NET Standard/Core para proyectos antiguos y nuevos",
+          "bulletpoints": [
+            "Creación de Software para Plataforma Azure",
+            "Desarrollo de herramientas para visualización de gráficos de ventas en la parte de administración web.",
+            "Desarrollo de servicios/demonios modulares de monitorización y alarma.",
+            "Tareas de refactorización.",
+            "Creación y Diseño de Pruebas Unitarias para proyectos antiguos y nuevos."
+          ]
         }
       },
       "knowledgemill": {
         "webapp": {
-          "Description": "Rehecho una aplicación web originalmente creada con Microsoft Silverlight a Node.js con ingeniería inversa de API REST (por falta de documentación)",
-          "improvements": "Mejorar la aplicación web que ofrece soporte e integración del servicio Microsoft Exchange como otros productos más nuevos de la empresa.",
-          "redesign": "Rediseñar la portada",
-          "rpm": "Embalaje RPM y configuración init.d"
+          "description": "Rehecho una aplicación web originalmente creada con Microsoft Silverlight a Node.js con ingeniería inversa de API REST (por falta de documentación)",
+          "bulletpoints": [
+          "Mejorar la aplicación web que ofrece soporte e integración del servicio Microsoft Exchange como otros productos más nuevos de la empresa.",
+          "Rediseñar la portada",
+          "Embalaje RPM y configuración init.d"
+          ]
+          
         }
       },
       "Ghenova": {
@@ -172,11 +173,11 @@
           "description": "Para Navantia - Proyecto de Defensa (Serie F110 y relacionados)"
         },
         "cpp": {
-          "bulletpoints": {
-            "ServerManagementAndMonitoring": "Trabajar en sistemas de visualización y seguimiento en tiempo real para proyectos de defensa naval.",
-            "terminal": "Trabajo en Gestión de Terminales de Control y terminales propiamente dichos.",
-            "video": "Trabaje en Workflows de vídeo de múltiples fuentes y rendimiento a nivel de sistema."
-          }
+          "bulletpoints": [
+            "Trabajar en sistemas de visualización y seguimiento en tiempo real para proyectos de defensa naval.",
+            "Trabajo en Gestión de Terminales de Control y terminales propiamente dichos.",
+            "Trabaje en Workflows de vídeo de múltiples fuentes y rendimiento a nivel de sistema."
+          ]
         }
       }
     },

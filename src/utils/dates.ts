@@ -1,3 +1,5 @@
+export const onGoingValue = 0;
+
 export function getYearLapse(startDate: number, endDate: number): string {
   return ((endDate - startDate) / 1000 / 31536000).toFixed(2);
 }

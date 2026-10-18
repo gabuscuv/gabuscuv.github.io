@@ -1,7 +1,7 @@
 {
   "HomePage": {
     "Greetings": "Hi!",
-    "Description": "I'm Gabriel Bustillo del Cuvillo, a Jack-of-all-trades IT, But officially I'm a Software Developer (and former IT Technician)"
+    "description": "I'm Gabriel Bustillo del Cuvillo, a Jack-of-all-trades IT, But officially I'm a Software Developer (and former IT Technician)"
   },
   "LocaleSwitcher": {
     "locale": "{locale, select, es {Spanish} en {English} other {Unknown}}"
@@ -29,38 +29,38 @@
   "Projects": {
     "gameProjects": {
       "VRProject": {
-        "Description": "My First Big Project"
+        "description": "My First Big Project"
       },
       "TestingGround": {
-        "Description": "An Improved Exercise"
+        "description": "An Improved Exercise"
       },
-      "WorkInProgressDescription": "Description / Summary in progress ",
+      "WorkInProgressdescription": "description / Summary in progress ",
       "TranslationMissing": "(Old Content) Summary pending to review"
     },
     "TestingGround": {
-      "Description": "An improved version of an exercise"
+      "description": "An improved version of an exercise"
     },
     "gameTools": {
       "OXI": {
-        "Description": "A Highlight Button System for Unreal"
+        "description": "A Highlight Button System for Unreal"
       },
-      "WorkInProgressDescription": "Description / Summary in progress ",
+      "WorkInProgressdescription": "description / Summary in progress ",
       "TranslationMissing": "(Old Content) Summary pending to review",
       "AIC": {
-        "Description": "WIP, An Unattended headless workflow oriented to Import PMX and VRM files."
+        "description": "WIP, An Unattended headless workflow oriented to Import PMX and VRM files."
       },
       "libnfc": {
-        "Description": "A Cross Engine NFC Reader Library (Unity, Godot & Unreal)"
+        "description": "A Cross Engine NFC Reader Library (Unity, Godot & Unreal)"
       },
       "VRM2OpenUSD": {
-        "Description": "WIP - Pipeline from VRM Files to OpenUSD"
+        "description": "WIP - Pipeline from VRM Files to OpenUSD"
       }
     },
     "tools": {
       "PGL": {
-        "Description": "A Dongle/Gadget-based Game Launcher"
+        "description": "A Dongle/Gadget-based Game Launcher"
       },
-      "WorkInProgressDescription": "Description / Summary in progress ",
+      "WorkInProgressdescription": "description / Summary in progress ",
       "TranslationMissing": "(Old Content) Summary pending to review"
     },
     "Types": {
@@ -68,12 +68,12 @@
     }
   },
   "VRProject": {
-    "Description": "My First Big Project"
+    "description": "My First Big Project"
   },
   "Guestbook": {
     "Name": "Name/Nickname",
     "LinkedinLink": "Linkedin Link",
-    "Description": "Message",
+    "description": "Message",
     "Submit": "Send",
     "update": "Update",
     "Loading": "Loading"
@@ -100,85 +100,86 @@
           "bulletpoints": {}
         },
         "csharpdev": {
-          "Description": "Due to the suspension of the previous project, My role changed as a support tools maker for ILS and I was one of the few who remained in the software dept company because of my general programming knowledge.",
-          "bulletpoints": {
-            "DotNetConsultant": ".NET Ecosystem Consultant ( architecture migration)",
-            "MultimediaConverter": "Automatized Multiprocess Multimedia Converter",
-            "ExcelParser": "Development of Excel Parsers (OpenXML) to S1000D Format",
-            "HTMLScrapper": "HTML Scrapper/Converter to S1000D Format",
-            "UnitTestDesigner": "Testing Automatization Designer"
-          }
+          "description": "Due to the suspension of the previous project, My role changed as a support tools maker for ILS and I was one of the few who remained in the software dept company because of my general programming knowledge.",
+          "bulletpoints": [
+            ".NET Ecosystem Consultant ( architecture migration)",
+            "Automatized Multiprocess Multimedia Converter",
+            "Development of Excel Parsers (OpenXML) to S1000D Format",
+            "HTML Scrapper/Converter to S1000D Format",
+            "Testing Automatization Designer"
+          ]
         },
         "unreal": {
-          "Description": "Development, Optimizations of a VR 3D Model Viewer made with Unreal Engine 5.1 and upgrading to 5.3, Suspended due a business restructuring and reordering of priorities",
-          "bulletpoints": {
-            "ioOptimization": "I/O Optimization (reduction of 10-15 Min to a few seconds On Load)",
-            "pythonAuto": "Python Automatization (Commandlet and In-Editor)",
-            "accesibility": "Accessibility Options",
-            "importOptimizations": "Import Asset Optimizations (from 40 minutes to 10 minutes)",
-            "qtTools": "Automatized Content Build Pipeline with QT tools",
-            "Networking": "Multi-User/Multiplayer/Networking (replication)",
-            "buildPipeline": "Unattended builds pipeline (Server builds included)",
-            "features": "In-Game Customs Tools (Multi-User Supported)"
-          }
+          "description": "Development, Optimizations of a VR 3D Model Viewer made with Unreal Engine 5.1 and upgrading to 5.3, Suspended due a business restructuring and reordering of priorities",
+          "bulletpoints": [
+            "I/O Optimization (reduction of 10-15 Min to a few seconds On Load)",
+            "Python Automatization (Commandlet and In-Editor)",
+            "Accessibility Options",
+            "Import Asset Optimizations (from 40 minutes to 10 minutes)",
+            "Automatized Content Build Pipeline with QT tools",
+            "Multi-User/Multiplayer/Networking (replication)",
+            "Unattended builds pipeline (Server builds included)",
+            "In-Game Customs Tools (Multi-User Supported)"
+          ]
         },
         "wordpress": {
-          "Description": "Maintainer & Supervisor of Abance Web",
-          "bulletpoints": {
-            "content": "Update Content",
-            "redesign": "Redesign the frontpage website",
-            "animations": "Improve animations"
-          }
+          "description": "Maintainer & Supervisor of Abance Web",
+          "bulletpoints": [
+            "Update Content",
+            "Redesign the frontpage website",
+            "Improve animations"
+          ]
         },
         "nextreact": {
-          "bulletpoints": {
-            "AbanceReact": "A remade version of Abance Web in React (+ some PHP and .htaccess tricks) migrated from Wordpress.",
-            "Magallanes": "An Internal Database for ILS"
-          },
-          "description": "Development of various internal projects"
-        },
-        "e park": {
-          "description": "Communication Developer for USV (Unmanned surface vehicle) Navantia's project: e-Park for the maintenance of offshore wind, subsidized by the European Union."
+          "description": "Development of various internal projects",
+          "bulletpoints": [
+            "A remade version of Abance Web in React (+ some PHP and .htaccess tricks) migrated from Wordpress.",
+            "An Internal Database for ILS"
+          ]
         },
         "cppusv": {
-          "bulletpoints": {
-            "Simulators": "Development of two simulators (GPS, WaterSpeed) via NMEA, DIS & a private protocol.",
-            "Bridge": "A ZeroMQ-DDS Bridge for the Sonar. (with Request-Reply Paradigm)",
-            "Deploy": "Overhaul of build & deployment scripts (for various modules) for pre-production & production.",
-            "Porting": "BackPorting updated software for unsupported Operative Systems"
-          }
+          "description": "Communication Developer for USV (Unmanned surface vehicle) Navantia's project: e-Park for the maintenance of offshore wind, subsidized by the European Union.",
+          "bulletpoints": [
+            "Development of two simulators (GPS, WaterSpeed) via NMEA, DIS & a private protocol.",
+            "A ZeroMQ-DDS Bridge for the Sonar. (with Request-Reply Paradigm)",
+            "Overhaul of build & deployment scripts (for various modules) for pre-production & production.",
+            "BackPorting updated software for unsupported Operative Systems"
+          ]
         }
       },
       "itixo": {
         "backend": {
-          "Description": "Creation, design, refactoring and maintenance of Software and unit tests in .NET Framework, Refactoring and migration tasks to .NET Standard/Core for old and new projects",
-          "bulletpoints": {
-            "monitoring": "Development of modular monitoring and alarm services/daemons",
-            "graphs": "Development of tools for displaying sales graphics in the web administration side.",
-            "azure": "Creation of Software for Azure Platform",
-            "refactoring": "Refactoring Tasks.",
-            "tests": "Creation and Design of Unit Tests for old and new projects"
-          }
+          "description": "Creation, design, refactoring and maintenance of Software and unit tests in .NET Framework, Refactoring and migration tasks to .NET Standard/Core for old and new projects",
+          "bulletpoints": [
+            "Development of modular monitoring and alarm services/daemons",
+            "Development of tools for displaying sales graphics in the web administration side.",
+            "Creation of Software for Azure Platform",
+            "Refactoring Tasks.",
+            "Creation and Design of Unit Tests for old and new projects"
+          ]
         }
       },
       "knowledgemill": {
-        "webapp": {
-          "Description": "Remade a Web Application originally made with Microsoft Silverlight to Node.js with REST API reverse engineering (because lack of documentation)",
-          "improvements": "Improving WebApp offering Microsoft Exchange Service Support and Integration like other newer Company’s products.",
-          "redesign": "Redesign Front Page",
-          "rpm": "RPM Packing and init.d configuration"
-        }
+        "webapp":{ 
+          "description":"",
+          "bulletpoints": [
+          "Remade a Web Application originally made with Microsoft Silverlight to Node.js with REST API reverse engineering (because lack of documentation)",
+          "Improving WebApp offering Microsoft Exchange Service Support and Integration like other newer Company’s products.",
+          "Redesign Front Page",
+          "RPM Packing and init.d configuration"
+        ]
+      }
       },
       "Ghenova": {
         "defence": {
           "description": "For Navantia - Defence Project (F110 Series and Related)"
         },
         "cpp": {
-          "bulletpoints": {
-            "video": "Work on multi-source video pipelines and system-level performance.",
-            "terminal": "Work on Control Terminal Management and terminals itself.",
-            "ServerManagementAndMonitoring": "Work on real-time visualization and monitoring systems for naval defense projects."
-          }
+          "bulletpoints": [
+            "Work on multi-source video pipelines and system-level performance.",
+            "Work on Control Terminal Management and terminals itself.",
+            "Work on real-time visualization and monitoring systems for naval defense projects."
+          ]
         }
       }
     },
