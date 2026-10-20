@@ -60,7 +60,7 @@ export function ProjectCards(props: {
             renderImage={() => (
               <div className={commonSize + ' overflow-hidden'}>
                 <div className="absolute max-w-12 max-h-10 flex mt-40 ml-1 ">
-                  {project.stack.map(stack => {
+                  {project.techStack.map(stack => {
                     if (!Object.hasOwn(metaImages.stackIcons, stack)) {
                       return <div key={`${project.id}${stack}`}></div>;
                     }
