@@ -17,7 +17,7 @@ export class ProjectData {
   name: string;
   projecttype: string;
   hiddenbydefault: boolean;
-  stack: Array<string> = [];
+  techStack: Array<string> = [];
   year: number;
   summary: string;
   htmlDescription: string;
@@ -44,7 +44,7 @@ export class ProjectData {
     this.id = id;
     this.name = name;
     this.projecttype = projectType;
-    this.stack = stack as Array<string>;
+    this.techStack = stack as Array<string>;
     this.year = year;
     this.summary = summary;
     this.htmlDescription = html;

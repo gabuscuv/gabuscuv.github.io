@@ -1,15 +1,19 @@
 
 import {
+  CertificateType,
   type CompanyType,
   JobTypeEnum,
   type JobsType,
+  ResumeType,
 } from '@/src/data/Resume';
 import {points} from '@/src/utils/points';
-import {onGoingValue} from '@/src/utils/dates';
+import {getYearLapse, OnGoingValue} from '@/src/utils/dates';
 import { _Translator } from 'use-intl/core';
+import { ProjectData } from '../data/ProjectDataTypes';
 
 export type ExperienceSelection = {
   companies: CompanyType[];
+  workTimeExperience: String;
   matchingCompanyCount: number;
   matchingPositionCount: number;
   displayedPositionCount: number;
@@ -23,8 +27,23 @@ type CompanyWithSelectedJobs = {
   score: number;
 };
 
+export function filterCertificates(
+  certificates: Array<CertificateType>,
+  filter: JobTypeEnum,
+) {
+  if (filter === JobTypeEnum.All) {
+    return certificates;
+  }
+
+  const allowedTypes = JobTypeEnum[filter];
+
+  return certificates.filter(certificate =>
+    allowedTypes.includes(certificate.type.toLowerCase()),
+  );
+}
+
 export function getWorkEntriesHeader(t: _Translator<Record<string, any>, "CommonWords">, experience: ExperienceSelection): string {
-  return `${t('WorkExperience')} (${experience.matchingCompanyCount} ${t('of')} ${experience.totalCompanyCount} ${t('Companies')} - ${experience.matchingPositionCount} ${t('of')} ${experience.totalPositionCount} ${t('JobPositions')})`;
+  return `${t('WorkExperience')} (${experience.matchingCompanyCount} ${t('of')} ${experience.totalCompanyCount} ${t('Companies')} - ${experience.matchingPositionCount} ${t('of')} ${experience.totalPositionCount} ${t('JobPositions')}) - ${experience.workTimeExperience} ${t('years')}`;
 }
 
 /** Most recent end date first; ongoing positions come first. */
@@ -32,8 +51,8 @@ export function sortJobsChronologically(
   a: JobsType,
   b: JobsType,
 ): number {
-  const endA = a.EndDate === onGoingValue ? Infinity : a.EndDate;
-  const endB = b.EndDate === onGoingValue ? Infinity : b.EndDate;
+  const endA = a.EndDate === OnGoingValue ? Infinity : a.EndDate;
+  const endB = b.EndDate === OnGoingValue ? Infinity : b.EndDate;
 
   return endB - endA;
 }
@@ -64,6 +83,47 @@ export function selectJobs(
   return selectedJobs.toSorted(sortJobsChronologically);
 }
 
+export function selectProjects(
+  projects: ProjectData[],
+  role: JobTypeEnum,
+  maxProjects = 6,
+  includeHidden = false,
+): ProjectData[] {
+  const visibleProjects = projects.filter(
+    project => includeHidden || !project.hiddenbydefault,
+  );
+
+  if (role === JobTypeEnum.All) {
+    return visibleProjects.toSorted(sortProjectsChronologically);
+  }
+
+  return visibleProjects
+    .map(project => ({
+      project,
+      score: points(role, project),
+    }))
+    .filter(({ score }) => score > 0)
+    .toSorted((a, b) => b.score - a.score)
+    .slice(0, maxProjects)
+    .map(({ project }) => project)
+    .toSorted(sortProjectsChronologically);
+}
+
+function sortProjectsChronologically(
+  a: ProjectData,
+  b: ProjectData,
+): number {
+  return b.year - a.year || a.name.localeCompare(b.name);
+}
+
+
+export function getCodingTimeSinceFirstJob(resume: ResumeType) {
+  return getYearLapse(
+    resume.Jobs[resume.Jobs.length - 1].StartDate,
+    Date.now()
+  );
+}
+
 /**
  * Select, rank and sort companies and their jobs.
  *
@@ -74,7 +134,7 @@ export function selectJobs(
 export function selectExperience(
   workExperience: CompanyType[],
   role: JobTypeEnum,
-  maxCompanies = 2,
+  maxCompanies = 3,
   maxJobsPerCompany = 2,
 ): ExperienceSelection {
   const isAll = role === JobTypeEnum.All;
@@ -104,10 +164,10 @@ const rankedCompanies = isAll
   ? entries
   : entries.toSorted((a, b) => {
       const aOngoing = a.jobs.some(
-        job => job.EndDate === onGoingValue,
+        job => job.EndDate === OnGoingValue,
       );
       const bOngoing = b.jobs.some(
-        job => job.EndDate === onGoingValue,
+        job => job.EndDate === OnGoingValue,
       );
 
       if (aOngoing !== bOngoing) {
@@ -126,8 +186,11 @@ const rankedCompanies = isAll
     Jobs: jobs,
   }));
 
+  const workTimeExperience =  getCurrentWorkTime(workExperience)
+
   return {
     companies,
+    workTimeExperience: workTimeExperience,
     matchingCompanyCount: entries.length,
     matchingPositionCount: entries.reduce(
       (total, entry) =>
@@ -148,3 +211,11 @@ const rankedCompanies = isAll
     ),
   };
 }
+export function getCurrentWorkTime(workExperience: Array<CompanyType>) {
+  return (workExperience.map(
+    e => ((e.EndDate !== 0 ? e.EndDate : Date.now()) - e.StartDate) /
+      1000
+  ).reduce((a, b) => a + b) / 31536000)
+    .toFixed(2);
+}
+

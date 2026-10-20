@@ -9,12 +9,19 @@ import {
 
 import {
   JobTypeEnum,
+  ResumeType,
   type JobsType,
 } from '@/src/data/Resume';
-import {onGoingValue} from '@/src/utils/dates';
+import {getYearsMonthRange, OnGoingValue} from '@/src/utils/dates';
 import {type} from '@/src/data/type';
 import {ExperienceSelection, getWorkEntriesHeader} from '@/src/utils/resumeUtils';
 import {_Translator} from 'use-intl/core';
+import {social} from '@/src/data/arrayRRSS';
+import {ProjectData} from '@/src/data/ProjectDataTypes';
+import { ProjectSection } from './components/ProjectSection';
+import { CertificateSection } from './components/CertificateSection';
+import { TalksSection } from './components/TalksSection';
+import { EducationSection } from './components/EducationSection';
 
 type Locale = 'en' | 'es';
 
@@ -23,6 +30,9 @@ type ResumePdfProps = {
   locale: Locale;
   role: JobTypeEnum;
   experience: ExperienceSelection;
+  projects: ProjectData[]
+  rawResume : ResumeType;
+  contacts: Array<social>
   name: string;
   summary: Record<Locale, string>;
 };
@@ -32,25 +42,37 @@ const labels: Record<
   {
     experience: string;
     location: string;
-    ongoing: string;
+    OnGoing: string;
     technologies: string;
   }
 > = {
   en: {
     experience: 'Work Experience',
     location: 'Location',
-    ongoing: 'Present',
+    OnGoing: 'Present',
     technologies: 'Technologies',
   },
   es: {
     experience: 'Experiencia profesional',
     location: 'Ubicación',
-    ongoing: 'Actualidad',
+    OnGoing: 'Actualidad',
     technologies: 'Tecnologías',
   },
 };
-
-const styles = StyleSheet.create({
+const socialStyles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginBottom: 10,
+  },
+  link: {
+    fontSize: 8,
+    color: '#334fc5',
+    textDecoration: 'none',
+  }
+})
+export const styles = StyleSheet.create({
   page: {
     paddingTop: 38,
     paddingBottom: 38,
@@ -70,7 +92,7 @@ const styles = StyleSheet.create({
     marginBottom: 18,
   },
   sectionTitle: {
-    fontSize: 15,
+    fontSize: 12,
     fontFamily: 'Helvetica-Bold',
     marginBottom: 12,
     paddingBottom: 5,
@@ -102,7 +124,7 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   job: {
-    marginBottom: 9,
+    marginBottom: 6,
     paddingLeft: 8,
   },
   jobTitle: {
@@ -111,28 +133,50 @@ const styles = StyleSheet.create({
     marginBottom: 1,
   },
   description: {
-    lineHeight: 1.4,
-    marginBottom: 4,
+    lineHeight: 1,
+    marginBottom: 2,
   },
   bullet: {
     marginLeft: 10,
-    marginBottom: 1,
-    lineHeight: 1.35,
+    marginBottom: 0,
+    lineHeight: 1,
   },
   technologies: {
     fontSize: 8,
     color: '#59616d',
-    marginTop: 4,
-    lineHeight: 1.4,
+    marginTop: 2,
+    lineHeight: 1.2,
   },
+  educationItem: {
+  marginBottom: 6,
+},
+itemHeading: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'flex-start',
+},
+itemTitle: {
+  fontSize: 10,
+  fontFamily: 'Helvetica-Bold',
+},
+itemSubtitle: {
+  fontSize: 8,
+  color: '#59616d',
+  marginTop: 1,
+},
+itemDescription: {
+  fontSize: 9,
+  lineHeight: 1.2,
+  marginTop: 2,
+},
 });
 
-function formatYear(
+export function formatYear(
   timestamp: number,
   locale: Locale,
-  ongoing: string,
+  OnGoing: string,
 ): string {
-  if (timestamp === onGoingValue) return ongoing;
+  if (timestamp === OnGoingValue) return OnGoing;
 
   return new Date(timestamp).toLocaleDateString(locale, {
     year: 'numeric',
@@ -142,9 +186,12 @@ function formatYear(
 export function ResumePdf({
   t,
   locale,
+  contacts,
   role,
+  projects,
   experience,
   name,
+  rawResume,
   summary,
 }: ResumePdfProps) {
   const companies = experience.companies
@@ -175,13 +222,23 @@ export function ResumePdf({
     >
       <Page size="A4" style={styles.page} wrap>
         <Text style={styles.name}>{name}</Text>
-
+      <View style={socialStyles.container}>
+        {contacts.map(social => (
+          <Link
+            key={social.name}
+            src={social.url}
+            style={socialStyles.link}
+          >
+            {social.name}: {social.innerText}
+          </Link>
+        ))}
+      </View>
         <Text style={styles.summary}>
           {summary[locale]}
         </Text>
 
         <Text style={styles.sectionTitle}>
-          {getWorkEntriesHeader(t, experience)}
+          {getWorkEntriesHeader(t, experience)} - <Link src={`https://gabuscuv.dev/${locale}/Resume`}>More Information</Link>
         </Text>
 
         {companies.map(({ company, jobs }) => (
@@ -213,13 +270,13 @@ export function ResumePdf({
               {formatYear(
                 company.StartDate,
                 locale,
-                t("ongoing"),
+                t("OnGoing"),
               )}{' '}
               –{' '}
               {formatYear(
                 company.EndDate,
                 locale,
-                t("ongoing"),
+                t("OnGoing"),
               )}
             </Text>
 
@@ -228,11 +285,24 @@ export function ResumePdf({
                 key={`${job.Title}-${job.StartDate}`}
                 job={job}
                 locale={locale}
-                ongoing={t("ongoing")}
+                OnGoing={t("OnGoing")}
               />
             ))}
           </View>
         ))}
+        {projects.length > 0 && (
+          <ProjectSection projects={projects} role={role} />
+        )}
+        {rawResume.Education.length > 0 && (
+          <EducationSection items={rawResume.Education} />
+        )}
+        {rawResume.Certificate.length > 0 && (
+          <CertificateSection items={rawResume.Certificate} />
+        )}
+
+      {rawResume.Talks.length > 0 && (
+        <TalksSection items={rawResume.Talks} />
+      )}
       </Page>
     </Document>
   );
@@ -241,11 +311,11 @@ export function ResumePdf({
 function JobEntry({
   job,
   locale,
-  ongoing,
+  OnGoing,
 }: {
   job: JobsType;
   locale: Locale;
-  ongoing: string;
+  OnGoing: string;
 }) {
   const localized = job;
 
@@ -256,8 +326,7 @@ function JobEntry({
       </Text>
 
       <Text style={styles.dates}>
-        {formatYear(job.StartDate, locale, ongoing)} –{' '}
-        {formatYear(job.EndDate, locale, ongoing)}
+        {getYearsMonthRange(locale, job.StartDate, job.EndDate, OnGoing)}
       </Text>
 
       {localized.Description && (

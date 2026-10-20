@@ -1,4 +1,4 @@
-import {getMessages, setRequestLocale} from 'next-intl/server';
+import {getMessages, getTranslations, setRequestLocale} from 'next-intl/server';
 import ProjectBrowser from './components/ProjectBrowser';
 import {hasLocale, NextIntlClientProvider} from 'next-intl';
 import {pick} from 'lodash';
@@ -16,7 +16,6 @@ export default async function Project({params}): Awaited<ReactNode> {
   }
   setRequestLocale(locale);
   const messages = await getMessages(locale);
-
   return (
     <NextIntlClientProvider
       messages={
@@ -24,7 +23,7 @@ export default async function Project({params}): Awaited<ReactNode> {
         pick(messages, 'Projects')
       }
     >
-      <ProjectBrowser locale={locale} projects={await GetterProjects()} />
+      <ProjectBrowser locale={locale} projects={await GetterProjects(locale, messages)} />
     </NextIntlClientProvider>
   );
 }

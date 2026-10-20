@@ -1,9 +1,9 @@
 import {GameProjects as GameProjectsType} from '@/src/data/ProjectDataTypes';
-import {getTranslations} from 'next-intl/server';
+import {createTranslator} from 'use-intl/core';
 
-export async function GameProjects() {
-  const t = await getTranslations('Projects.gameProjects');
-  //   const t = useTranslations('Projects.gameProjects');
+type ResumeTranslator = ReturnType<typeof createTranslator>;
+export async function GameProjects(t: ResumeTranslator) {
+  
 
   return [
     new GameProjectsType(
@@ -135,7 +135,7 @@ Good luck finding a benevolent ending ;)
       ['unreal', 'fmod'],
       2022,
       '/img/projects/project-31-icon.png',
-      t('VRProject.Description'),
+      t('VRProject.description'),
       `
       <p>${t('TranslationMissing')}</p>
 
@@ -209,7 +209,7 @@ Good luck finding a benevolent ending ;)
       ['unreal', 'cpp'],
       2019,
       '/img/projects/project-3-icon.png',
-      t('TestingGround.Description'),
+      t('TestingGround.description'),
       `
       <p>${t('TranslationMissing')}</p>
     <div class="paragraph">

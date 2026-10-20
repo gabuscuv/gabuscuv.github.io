@@ -1,5 +1,5 @@
 import {getTranslations} from 'next-intl/server';
-import {onGoingValue} from '../utils/dates';
+import {OnGoingValue} from '../utils/dates';
 import {createTranslator} from 'use-intl/core';
 
 export enum JobTypeEnum {
@@ -40,15 +40,17 @@ export class EducationType extends CommonMinimumWithLocation {
   techStack: Array<string> = [];
 }
 
+export type CertificateType = {
+  Title: string;
+  type: string;
+  IssuerOrg: string;
+  date: number;
+};
+
 export type ResumeType = {
   Jobs: Array<CompanyType>;
   Education: Array<EducationType>;
-  Certificate: Array<{
-    Title: string;
-    type: string;
-    IssuerOrg: string;
-    date: number;
-  }>;
+  Certificate: Array<CertificateType>;
   Talks: Array<{Title: string; location: string; date: number}>;
 };
 
@@ -63,7 +65,7 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
         Location: t('Locations.SanFernando'),
         Url: 'https://digital.ghenova.com/',
         StartDate: Date.parse('2025/02/26'),
-        EndDate: onGoingValue,
+        EndDate: OnGoingValue,
         typeOfHire: 'full',
         typeOfPresence: 'hybrid',
         Jobs: [
@@ -72,7 +74,7 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
             Description: t('Jobs.Ghenova.defence.description'),
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2025/02/26'),
-            EndDate: onGoingValue,
+            EndDate: OnGoingValue,
             techStack: ['cpp', 'qt', 'rhel', 'gst', 'dds'],
             BulletPoints: t.raw('Jobs.Ghenova.cpp.bulletpoints') as string[]
           },
@@ -95,7 +97,7 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
             BulletPoints: t.raw('Jobs.Abance.cppusv.bulletpoints') as string[]
           },
           {
-            Title: 'Lead Typescript / React / Next.JS Developer',
+            Title: 'Main Typescript / React / Next.JS Developer',
             Description: t('Jobs.Abance.nextreact.description'),
             JobType: JobTypeEnum.WebDev,
             StartDate: Date.parse('2024/05/15'),
@@ -113,7 +115,7 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
             BulletPoints: t.raw('Jobs.Abance.wordpress.bulletpoints') as string[]
           },
           {
-            Title: 'Lead C# Software Developer',
+            Title: 'Main C# Software Developer',
             Description: t('Jobs.Abance.csharpdev.description'),
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2024/02/24'),
@@ -122,7 +124,7 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
             BulletPoints: t.raw('Jobs.Abance.csharpdev.bulletpoints') as string[]
           },
           {
-            Title: 'Lead Unreal Engine VR Developer',
+            Title: 'Main Unreal Engine VR Developer',
             Description: t('Jobs.Abance.unreal.description'),
             StartDate: Date.parse('2023/09/25'),
             EndDate: Date.parse('2024/02/24'),

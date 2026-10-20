@@ -1,9 +1,8 @@
 import {ToolsProjects} from '@/src/data/ProjectDataTypes';
-import {getTranslations} from 'next-intl/server';
 
-export async function ToolsProjectsList() {
-  const t = await getTranslations('Projects.tools');
-  // const t = useTranslations('Projects.tools'); preview for i18n-ally
+import {createTranslator} from 'use-intl/core';
+type ResumeTranslator = ReturnType<typeof createTranslator>;
+export async function ToolsProjectsList(t: ResumeTranslator) {
 
   return [
     new ToolsProjects(
@@ -12,7 +11,7 @@ export async function ToolsProjectsList() {
       ['c', 'raylib'],
       2024,
       '',
-      t('PGL.Description'),
+      t('PGL.description'),
       `<p>${t('WorkInProgressDescription')}</p>
       <a href="https://github.com/gabuscuv/PartyGameLauncher"><img src="https://opengraph.githubassets.com/05d4f663164deecec1ec769ac1c9fad9ca3fe326d28b85ea16ca8c79d5a5696b/gabuscuv/PartyGameLauncher" /> </a>
 `,

@@ -1,8 +1,8 @@
 import {GameToolProjects} from '@/src/data/ProjectDataTypes';
-import {getTranslations} from 'next-intl/server';
+import {createTranslator} from 'use-intl/core';
+type ResumeTranslator = ReturnType<typeof createTranslator>;
 
-export async function GameToolProjectsList() {
-  const t = await getTranslations('Projects.gameTools');
+export async function GameToolProjectsList(t: ResumeTranslator) {
   return [
       new GameToolProjects(
       'project-21',
@@ -10,7 +10,7 @@ export async function GameToolProjectsList() {
       ['cpp'],
       2026,
       '',
-      t('VRM2OpenUSD.Description'),
+      t('VRM2OpenUSD.description'),
       `
       <p>${t('WorkInProgressDescription')}</p>
       <a href="https://github.com/gabuscuv/vrm2openusd"><img src="https://opengraph.githubassets.com/5b032b783fdbd79921566406fd721ab79c029108f231effa616e6ebb0c02aa0a/gabuscuv/vrm2openusd" /> </a>
@@ -26,7 +26,7 @@ export async function GameToolProjectsList() {
       ['unreal', 'unity', 'godot','csharp', 'cpp', 'python'],
       2026,
       '',
-      t('libnfc.Description'),
+      t('libnfc.description'),
       `
       <p>${t('WorkInProgressDescription')}</p>
       <iframe class="youtube" src="https://www.youtube-nocookie.com/embed/fMQwZRW1wng" frameborder="0" allowfullscreen></iframe>
@@ -44,7 +44,7 @@ export async function GameToolProjectsList() {
       ['unreal', 'cpp', 'python'],
       2025,
       '',
-      t('AIC.Description'),
+      t('AIC.description'),
       `
       <p>${t('WorkInProgressDescription')}</p>
 
@@ -78,7 +78,7 @@ export async function GameToolProjectsList() {
       ['unreal', 'cpp'],
       2021,
       '/img/projects/project-17-icon.gif',
-      t('OXI.Description'),
+      t('OXI.description'),
       `
       <p>${t('WorkInProgressDescription')}</p>
         <a href="https://github.com/gabuscuv/CustomOpenXRControllerIntegration"><img src="https://opengraph.githubassets.com/79762130c9bbd1f90ef3b2fcc247eb55c37fea6dfbd7fb9aa27b0db43bbeb3e8/gabuscuv/CustomOpenXRControllerIntegration" /> </a>

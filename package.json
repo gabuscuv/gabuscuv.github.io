@@ -16,11 +16,11 @@
     "prepare": "npm run compile",
     "pretest": "npm run compile",
     "posttest": "npm run lint",
-    "cv:pdf": "node --import tsx utils/generate-cv.tsx",
-    "cv:pdf:game-en": "node --import tsx utils/generate-cv.tsx --role GameDev --locale en",
-    "cv:pdf:game-es": "node --import tsx utils/generate-cv.tsx --role GameDev --locale es",
-    "cv:pdf:backend-en": "node --import tsx utils/generate-cv.tsx --role Backend --locale en",
-    "cv:pdf:web-en": "node --import tsx utils/generate-cv.tsx --role WebDev --locale en"
+    "cv:pdf": "node --import tsx tools/generate-cv.tsx",
+    "cv:pdf:game-en": "node --import tsx tools/generate-cv.tsx --role GameDev --locale en",
+    "cv:pdf:game-es": "node --import tsx tools/generate-cv.tsx --role GameDev --locale es",
+    "cv:pdf:backend-en": "node --import tsx tools/generate-cv.tsx --role Backend --locale en",
+    "cv:pdf:web-en": "node --import tsx tools/generate-cv.tsx --role WebDev --locale en"
   },
   "dependencies": {
     "@mdx-js/loader": "^3",
