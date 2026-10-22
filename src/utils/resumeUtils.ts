@@ -1,5 +1,6 @@
 
 import {
+  CertificateEnumType,
   CertificateType,
   type CompanyType,
   JobTypeEnum,
@@ -10,6 +11,17 @@ import {points} from '@/src/utils/points';
 import {getYearLapse, OnGoingValue} from '@/src/utils/dates';
 import { _Translator } from 'use-intl/core';
 import { ProjectData } from '../data/ProjectDataTypes';
+
+
+
+const certificateTypesByRole: Partial<
+  Record<JobTypeEnum, readonly CertificateEnumType[]>
+> = {
+  [JobTypeEnum.Backend]: ['network'],
+  [JobTypeEnum.WebDev]: ['design'],
+  [JobTypeEnum.GameDev]: ['gamedev'],
+};
+
 
 export type ExperienceSelection = {
   companies: CompanyType[];
@@ -26,21 +38,6 @@ type CompanyWithSelectedJobs = {
   jobs: JobsType[];
   score: number;
 };
-
-export function filterCertificates(
-  certificates: Array<CertificateType>,
-  filter: JobTypeEnum,
-) {
-  if (filter === JobTypeEnum.All) {
-    return certificates;
-  }
-
-  const allowedTypes = JobTypeEnum[filter];
-
-  return certificates.filter(certificate =>
-    allowedTypes.includes(certificate.type.toLowerCase()),
-  );
-}
 
 export function getWorkEntriesHeader(t: _Translator<Record<string, any>, "CommonWords">, experience: ExperienceSelection): string {
   return `${t('WorkExperience')} (${experience.matchingCompanyCount} ${t('of')} ${experience.totalCompanyCount} ${t('Companies')} - ${experience.matchingPositionCount} ${t('of')} ${experience.totalPositionCount} ${t('JobPositions')}) - ${experience.workTimeExperience} ${t('years')}`;
@@ -124,6 +121,13 @@ export function getCodingTimeSinceFirstJob(resume: ResumeType) {
   );
 }
 
+
+export function selectCertificates(certificates : Array<CertificateType>, role: JobTypeEnum)
+{
+  return role === JobTypeEnum.All
+    ? certificates
+    : certificates.filter(certificate =>certificateTypesByRole[role]?.includes(certificate.type) ?? false);
+}
 /**
  * Select, rank and sort companies and their jobs.
  *

@@ -9,6 +9,12 @@ export enum JobTypeEnum {
   WebDev,
 }
 
+export type CertificateEnumType =
+  | 'network'
+  | 'design'
+  | 'gamedev'
+  | 'office';
+
 class CommonMinimum {
   Title = '';
   StartDate = 0;
@@ -42,8 +48,14 @@ export class EducationType extends CommonMinimumWithLocation {
 
 export type CertificateType = {
   Title: string;
-  type: string;
+  type: CertificateEnumType;
   IssuerOrg: string;
+  date: number;
+};
+
+export type TalksType = {
+  Title: string;
+  location: string;
   date: number;
 };
 
@@ -51,7 +63,7 @@ export type ResumeType = {
   Jobs: Array<CompanyType>;
   Education: Array<EducationType>;
   Certificate: Array<CertificateType>;
-  Talks: Array<{Title: string; location: string; date: number}>;
+  Talks: Array<TalksType>;
 };
 
 type ResumeTranslator = ReturnType<typeof createTranslator>;

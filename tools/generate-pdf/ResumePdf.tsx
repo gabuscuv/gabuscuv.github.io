@@ -8,13 +8,16 @@ import {
 } from '@react-pdf/renderer';
 
 import {
+  CertificateType,
+  EducationType,
   JobTypeEnum,
-  ResumeType,
+  TalksType,
   type JobsType,
 } from '@/src/data/Resume';
+
 import {getYearsMonthRange, OnGoingValue} from '@/src/utils/dates';
 import {type} from '@/src/data/type';
-import {ExperienceSelection, getWorkEntriesHeader} from '@/src/utils/resumeUtils';
+import {ExperienceSelection} from '@/src/utils/resumeUtils';
 import {_Translator} from 'use-intl/core';
 import {social} from '@/src/data/arrayRRSS';
 import {ProjectData} from '@/src/data/ProjectDataTypes';
@@ -22,6 +25,7 @@ import { ProjectSection } from './components/ProjectSection';
 import { CertificateSection } from './components/CertificateSection';
 import { TalksSection } from './components/TalksSection';
 import { EducationSection } from './components/EducationSection';
+import { WorkExperienceSection } from './components/WorkExperienceSection';
 
 type Locale = 'en' | 'es';
 
@@ -31,7 +35,9 @@ type ResumePdfProps = {
   role: JobTypeEnum;
   experience: ExperienceSelection;
   projects: ProjectData[]
-  rawResume : ResumeType;
+  certificates: CertificateType[];
+  talks: TalksType[];
+  education: EducationType[];
   contacts: Array<social>
   name: string;
   summary: Record<Locale, string>;
@@ -190,37 +196,19 @@ export function ResumePdf({
   role,
   projects,
   experience,
+  talks,
   name,
-  rawResume,
+  education,
+  certificates,
   summary,
 }: ResumePdfProps) {
-  const companies = experience.companies
-    .map(company => {
-      const jobs =
-        role === JobTypeEnum.All
-          ? company.Jobs
-          : company.Jobs.filter(
-              job => job.JobType === role,
-            );
-
-      // Keep up to two positions per company in a
-      // targeted CV, but all positions in the full CV.
-      const selectedJobs =
-        role === JobTypeEnum.All
-          ? jobs
-          : jobs.slice(0, 2);
-
-      return { company, jobs: selectedJobs };
-    })
-    .filter(entry => entry.jobs.length > 0);
-
   return (
     <Document
       title={`${name} - ${JobTypeEnum[role]} CV`}
       author={name}
       language={locale}
     >
-      <Page size="A4" style={styles.page} wrap>
+      <Page size="A4" style={styles.page} >
         <Text style={styles.name}>{name}</Text>
       <View style={socialStyles.container}>
         {contacts.map(social => (
@@ -236,72 +224,21 @@ export function ResumePdf({
         <Text style={styles.summary}>
           {summary[locale]}
         </Text>
-
-        <Text style={styles.sectionTitle}>
-          {getWorkEntriesHeader(t, experience)} - <Link src={`https://gabuscuv.dev/${locale}/Resume`}>More Information</Link>
-        </Text>
-
-        {companies.map(({ company, jobs }) => (
-          <View
-            key={`${company.Title}-${company.StartDate}`}
-            style={styles.company}
-            wrap={false}
-          >
-            <View style={styles.companyHeading}>
-              {company.Url ? (
-                <Link
-                  src={company.Url}
-                  style={styles.companyName}
-                >
-                  {company.Title}
-                </Link>
-              ) : (
-                <Text style={styles.companyName}>
-                  {company.Title}
-                </Text>
-              )}
-
-              <Text style={styles.location}>
-                {company.Location}
-              </Text>
-            </View>
-
-            <Text style={styles.dates}>
-              {formatYear(
-                company.StartDate,
-                locale,
-                t("OnGoing"),
-              )}{' '}
-              –{' '}
-              {formatYear(
-                company.EndDate,
-                locale,
-                t("OnGoing"),
-              )}
-            </Text>
-
-            {jobs.map(job => (
-              <JobEntry
-                key={`${job.Title}-${job.StartDate}`}
-                job={job}
-                locale={locale}
-                OnGoing={t("OnGoing")}
-              />
-            ))}
-          </View>
-        ))}
+        {experience.companies.length > 0 &&
+          <WorkExperienceSection t={t} locale={locale} role={role} experience={experience} />
+        }
         {projects.length > 0 && (
           <ProjectSection projects={projects} role={role} />
         )}
-        {rawResume.Education.length > 0 && (
-          <EducationSection items={rawResume.Education} />
+        {education.length > 0 && (
+          <EducationSection items={education} />
         )}
-        {rawResume.Certificate.length > 0 && (
-          <CertificateSection items={rawResume.Certificate} />
+        {certificates.length > 0 && (
+          <CertificateSection items={certificates} />
         )}
 
-      {rawResume.Talks.length > 0 && (
-        <TalksSection items={rawResume.Talks} />
+      {talks.length > 0 && (
+        <TalksSection items={talks} />
       )}
       </Page>
     </Document>

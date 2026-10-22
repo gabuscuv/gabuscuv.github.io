@@ -2,18 +2,17 @@ import {mkdir, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {renderToBuffer} from '@react-pdf/renderer';
 import {createTranslator} from 'use-intl/core';
-import {selectExperience, selectProjects} from '@/src/utils/resumeUtils';
+import {selectCertificates, selectExperience, selectProjects} from '@/src/utils/resumeUtils';
 import {ResumePdf} from './generate-pdf/ResumePdf';
 import {JobTypeEnum} from '@/src/data/Resume';
 import {ResumeContent} from '@/src/data/Resume';
 import enMessages from '@/messages/en.json';
 import esMessages from '@/messages/es.json';
-import { GetSocials } from '@/src/data/arrayRRSS';
-import { GetterProjects } from '@/src/middleware/Getter';
-import { GetProjects } from '@/src/middleware/ProjectDataArrayEncrypted';
+import {GetSocials} from '@/src/data/arrayRRSS';
+import {GetterProjects} from '@/src/middleware/Getter';
+import {GetProjects} from '@/src/middleware/ProjectDataArrayEncrypted';
 
 type Locale = 'en' | 'es';
-
 
 const socialNoList= ["Instagram"]
 
@@ -80,22 +79,23 @@ async function main() {
   const tResume = createTranslator({ locale: options.locale, messages: messages.Resume });
   
   const resume = (await ResumeContent(tResume));
-  const experience = selectExperience(resume.Jobs, options.role);
-  const social = (await GetSocials()).filter(e => !socialNoList.includes(e.name));
-  const projects = selectProjects(await GetProjects( await GetterProjects(options.locale, messages)), options.role);
-  
+    
   const buffer = await renderToBuffer(
     <ResumePdf
       t={createTranslator({ locale: options.locale, messages: messages.CommonWords })}
-      contacts={social}
       locale={options.locale}
       role={options.role}
-      experience={experience}
       name={candidateName}
+      projects={selectProjects(await GetProjects( await GetterProjects(options.locale, messages)), options.role, 3)}
+      contacts={(await GetSocials()).filter(e => !socialNoList.includes(e.name))}
+      certificates={selectCertificates(resume.Certificate, options.role)}
+      experience={selectExperience(resume.Jobs, options.role)}
+      education={resume.Education}
+      talks={resume.Talks}
       summary={{
         en: summaries.en,
         es: summaries.es,
-      }} rawResume={resume} projects={projects}
+      }}
     />,
   );
 
