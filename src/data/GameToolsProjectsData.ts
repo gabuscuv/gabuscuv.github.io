@@ -1,24 +1,55 @@
 import {GameToolProjects} from '@/src/data/ProjectDataTypes';
-import {getTranslations} from 'next-intl/server';
+import {createTranslator} from 'use-intl/core';
+type ResumeTranslator = ReturnType<typeof createTranslator>;
 
-export async function GameToolProjectsList() {
-  const t = await getTranslations('Projects.gameTools');
+export async function GameToolProjectsList(t: ResumeTranslator) {
   return [
+    new GameToolProjects(
+'project-22',
+'Castanets-ESP32',
+['embedded', 'esp32', 'cpp', 'c', 'csharp', 'godot', 'networking', 'gamedev'],
+2026,
+'',
+t('Castanets.description'),
+`
+<p>
+  A wireless rhythm-game controller system built with ESP32 and ESP-NOW,
+  featuring a C++ serial communication layer for PC and game-engine integration.
+</p>
+
+<a href="https://github.com/gabuscuv/Castanets-SerialComm">
+  <img src="https://opengraph.githubassets.com/1/gabuscuv/Castanets-SerialComm" />
+</a>
+
+<a href="https://github.com/gabuscuv/Castanets-SerialComm">
+  View Castanets Serial Communication on GitHub
+</a>
+
+`,
+[],
+      '#c10606',
+      false,
+      false,
+      false,
+      "https://github.com/gabuscuv/Castanets-SerialComm"
+),
       new GameToolProjects(
       'project-21',
       'VRM2OpenUSD',
       ['cpp'],
       2026,
       '',
-      t('VRM2OpenUSD.Description'),
+      t('VRM2OpenUSD.description'),
       `
       <p>${t('WorkInProgressDescription')}</p>
       <a href="https://github.com/gabuscuv/vrm2openusd"><img src="https://opengraph.githubassets.com/5b032b783fdbd79921566406fd721ab79c029108f231effa616e6ebb0c02aa0a/gabuscuv/vrm2openusd" /> </a>
       `,
       [],
-      '#c10606',
+'#c10606',
       false,
       false,
+      false,
+      "https://github.com/gabuscuv/vrm2openusd"
     ),
         new GameToolProjects(
       'project-19',
@@ -26,7 +57,7 @@ export async function GameToolProjectsList() {
       ['unreal', 'unity', 'godot','csharp', 'cpp', 'python'],
       2026,
       '',
-      t('libnfc.Description'),
+      t('libnfc.description'),
       `
       <p>${t('WorkInProgressDescription')}</p>
       <iframe class="youtube" src="https://www.youtube-nocookie.com/embed/fMQwZRW1wng" frameborder="0" allowfullscreen></iframe>
@@ -34,9 +65,11 @@ export async function GameToolProjectsList() {
       <a href="https://github.com/gabuscuv/libnfc-crossengine"><img src="https://opengraph.githubassets.com/1e33860348f777d3950debb1ecab1d36e25c3543675c8af2e84bfee15d2e2764/gabuscuv/libnfc-crossengine" /> </a>
       `,
       [],
-      '#c10606',
+'#c10606',
       false,
       false,
+      false,
+      "https://github.com/gabuscuv/libnfc-crossengine"
     ),
     new GameToolProjects(
       'project-18',
@@ -44,16 +77,18 @@ export async function GameToolProjectsList() {
       ['unreal', 'cpp', 'python'],
       2025,
       '',
-      t('AIC.Description'),
+      t('AIC.description'),
       `
       <p>${t('WorkInProgressDescription')}</p>
 
       <a href="https://github.com/gabuscuv/AnimuImporterCpp"><img src="https://opengraph.githubassets.com/a2ecbd5836e9df8799bc72db1eaf9432781e55f22b3da85036716adcf36a00b1/gabuscuv/AnimuImporterCpp" /> </a>
       `,
       [],
-      '#c10606',
+'#c10606',
       false,
       false,
+      false,
+      "https://github.com/gabuscuv/AnimuImporterCpp"
     ),
     new GameToolProjects(
       'project-16',
@@ -68,9 +103,11 @@ export async function GameToolProjectsList() {
       <a href="https://github.com/gabuscuv/AsyncMapFramework"><img src="https://opengraph.githubassets.com/a2ecbd5836e9df8799bc72db1eaf9432781e55f22b3da85036716adcf36a00b1/gabuscuv/AsyncMapFramework" /> </a>
       `,
       [],
-      '#c10606',
+'#c10606',
       false,
       false,
+      false,
+      "https://github.com/gabuscuv/AsyncMapFramework"
     ),
     new GameToolProjects(
       'project-17',
@@ -78,16 +115,18 @@ export async function GameToolProjectsList() {
       ['unreal', 'cpp'],
       2021,
       '/img/projects/project-17-icon.gif',
-      t('OXI.Description'),
+      t('OXI.description'),
       `
       <p>${t('WorkInProgressDescription')}</p>
         <a href="https://github.com/gabuscuv/CustomOpenXRControllerIntegration"><img src="https://opengraph.githubassets.com/79762130c9bbd1f90ef3b2fcc247eb55c37fea6dfbd7fb9aa27b0db43bbeb3e8/gabuscuv/CustomOpenXRControllerIntegration" /> </a>
 
       `,
       [],
-      '#c10606',
+'#c10606',
       false,
       false,
+      false,
+      "https://github.com/gabuscuv/CustomOpenXRControllerIntegration"
     ),
     new GameToolProjects(
       'project-6',
@@ -118,9 +157,11 @@ export async function GameToolProjectsList() {
 
     `,
       [],
-      '#c10606',
+'#c10606',
       false,
       false,
+      false,
+      "https://github.com/gabuscuv/ArrowDialogueParser"
     ),
     new GameToolProjects(
       'project-7',
@@ -154,9 +195,11 @@ export async function GameToolProjectsList() {
     `,
       [],
 
-      '#c10606',
+'#c10606',
       false,
       false,
+      false,
+      "https://github.com/gabuscuv/DialogueToTTS"
     ),
     new GameToolProjects(
       'project-8',
@@ -188,9 +231,11 @@ export async function GameToolProjectsList() {
 
 `,
       [],
-      '#1ca1e2',
+      '#c10606',
       false,
-      true,
+      false,
+      false,
+      "https://github.com/gabuscuv/UE4-Toolkit-Public"
     ),
   ];
 }

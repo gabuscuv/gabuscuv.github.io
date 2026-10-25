@@ -1,31 +1,34 @@
+
 export interface IProjectData {
   id: string;
   name: string;
+  url: string;
   projecttype: string;
   stack: Array<string>;
   year: number;
   summary: string;
   htmlDescription: string;
-  iconUrl: string; // used as thumnail
-  isWide: boolean; // thumbnail will take 2 cols in the grid view
-  isHigh: boolean; // thumbnail will take 2 rows in the grid view
-  accentColor: string; // color of title bar
+  iconUrl: string; // Used as thumbnail
+  isWide: boolean; // Thumbnail spans 2 columns
+  isHigh: boolean; // Thumbnail spans 2 rows
+  accentColor: string; // Color of title bar
 }
 
 export class ProjectData {
   id: string;
   name: string;
+  url: string;
   projecttype: string;
   hiddenbydefault: boolean;
-  stack: Array<string> = [];
+  techStack: Array<string> = [];
   year: number;
   summary: string;
   htmlDescription: string;
-  iconUrl: string; // used as thumnail
+  iconUrl: string;
   screenshots: Array<string> = [];
-  isWide: boolean; // thumbnail will take 2 cols in the grid view
-  isHigh: boolean; // thumbnail will take 2 rows in the grid view
-  accentColor: string; // color of title bar
+  isWide: boolean;
+  isHigh: boolean;
+  accentColor: string;
 
   constructor(
     id: string,
@@ -40,11 +43,13 @@ export class ProjectData {
     isHigh = false,
     isWide = false,
     hiddenByDefault = false,
+    url = '',
   ) {
     this.id = id;
     this.name = name;
+    this.url = url;
     this.projecttype = projectType;
-    this.stack = stack as Array<string>;
+    this.techStack = stack;
     this.year = year;
     this.summary = summary;
     this.htmlDescription = html;
@@ -71,6 +76,7 @@ export class ProjectDataWithImages extends ProjectData {
     isHigh = false,
     isWide = false,
     hiddenByDefault = false,
+    url: string
   ) {
     super(
       id,
@@ -85,6 +91,7 @@ export class ProjectDataWithImages extends ProjectData {
       isHigh,
       isWide,
       hiddenByDefault,
+      url
     );
     this.screenshots = screenshots;
   }
@@ -104,6 +111,7 @@ export class GameProjects extends ProjectDataWithImages {
     isHigh = false,
     isWide = false,
     hiddenByDefault = false,
+    url: string
   ) {
     super(
       id,
@@ -119,6 +127,7 @@ export class GameProjects extends ProjectDataWithImages {
       isHigh,
       isWide,
       hiddenByDefault,
+      url
     );
   }
 }
@@ -137,6 +146,7 @@ export class GameToolProjects extends ProjectDataWithImages {
     isHigh = false,
     isWide = false,
     hiddenByDefault = false,
+    url: string
   ) {
     super(
       id,
@@ -152,6 +162,7 @@ export class GameToolProjects extends ProjectDataWithImages {
       isHigh,
       isWide,
       hiddenByDefault,
+      url
     );
   }
 }
@@ -168,6 +179,7 @@ export class ToolsProjects extends ProjectData {
     accentColor = '#000000',
     isHigh = false,
     isWide = false,
+    url: string
   ) {
     super(
       id,
@@ -181,6 +193,8 @@ export class ToolsProjects extends ProjectData {
       accentColor,
       isHigh,
       isWide,
+      false,
+      url
     );
   }
 }
