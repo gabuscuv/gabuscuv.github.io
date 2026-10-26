@@ -1,12 +1,15 @@
-import {getTranslations} from 'next-intl/server';
-import {OnGoingValue} from '../utils/dates';
-import {createTranslator} from 'use-intl/core';
+import { OnGoingValue } from '../utils/dates';
+import { createTranslator } from 'use-intl/core';
 
 export enum JobTypeEnum {
   All,
+  Lite,
   GameDev,
+  GameDevTools,
   Backend,
   WebDev,
+  EmbeddedSystem,
+  Multimedia
 }
 
 export type CertificateEnumType =
@@ -26,16 +29,43 @@ class CommonMinimumWithLocation extends CommonMinimum {
   Url = '';
 }
 
-export class MultimediaContent
-{
+export class MultimediaContent {
   text = '';
   url = '';
- }
+}
+
+export enum BulletCategory {
+  Impact = 'impact',
+  Architecture = 'architecture',
+  Engineering = 'engineering',
+  Automation = 'automation',
+  Integration = 'integration',
+  Quality = 'quality',
+  Delivery = 'delivery',
+}
+
+export type CategoryWeights = Record<BulletCategory, number>;
+
+export const defaultCategoryWeights: CategoryWeights = {
+  [BulletCategory.Impact]: 0.9,
+  [BulletCategory.Architecture]: 1.0,
+  [BulletCategory.Engineering]: 1.0,
+  [BulletCategory.Automation]: 0.8,
+  [BulletCategory.Integration]: 0.9,
+  [BulletCategory.Quality]: 0.8,
+  [BulletCategory.Delivery]: 0.7,
+};
+
+export interface IExperienceBullet {
+  id: string;
+  translationKey: string;
+  categories: Partial<Record<BulletCategory, number>>;
+}
 
 export class JobsType extends CommonMinimum {
   Description = '';
   JobType = JobTypeEnum.All;
-  BulletPoints: Array<string> = [];
+  BulletPoints: Array<IExperienceBullet> = [];
   techStack: Array<string> = [];
   multimediaContent?: Array<MultimediaContent> = [];
 }
@@ -90,15 +120,105 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
         Jobs: [
           {
             Title: 'C++ Developer (Internally Called Software/Infra Developer)',
-            Description: t('Jobs.Ghenova.defence.description'),
+            Description: t('Jobs.ghenova.cpp.description'),
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2025/02/26'),
             EndDate: OnGoingValue,
             techStack: ['cpp', 'qt', 'rhel', 'gst', 'dds'],
-            BulletPoints: [
-              t('Jobs.Ghenova.cpp.bulletpoints.video'),
-              t('Jobs.Ghenova.cpp.bulletpoints.terminal'),
-              t('Jobs.Ghenova.cpp.bulletpoints.ServerManagementAndMonitoring'),
+            BulletPoints: [{
+              id: 'infrastructureMonitoring',
+              translationKey:
+                'Jobs.ghenova.cpp.bulletpoints.infrastructureMonitoring',
+              categories: {
+                [BulletCategory.Engineering]: 1.0,
+                [BulletCategory.Integration]: 1.0,
+                [BulletCategory.Impact]: 0.8,
+                [BulletCategory.Quality]: 0.7,
+              },
+            },
+            {
+              id: 'monitoringPlatformEvolution',
+              translationKey:
+                'Jobs.ghenova.cpp.bulletpoints.monitoringPlatformEvolution',
+              categories: {
+                [BulletCategory.Engineering]: 1.0,
+                [BulletCategory.Impact]: 0.9,
+                [BulletCategory.Architecture]: 0.8,
+                [BulletCategory.Integration]: 0.7,
+              },
+            },
+            {
+              id: 'reliabilityAndAuditing',
+              translationKey:
+                'Jobs.ghenova.cpp.bulletpoints.reliabilityAndAuditing',
+              categories: {
+                [BulletCategory.Quality]: 1.0,
+                [BulletCategory.Engineering]: 0.9,
+                [BulletCategory.Impact]: 0.9,
+                [BulletCategory.Automation]: 0.6,
+              },
+            },
+            {
+              id: 'stabilityAndMaintainability',
+              translationKey:
+                'Jobs.ghenova.cpp.bulletpoints.stabilityAndMaintainability',
+              categories: {
+                [BulletCategory.Architecture]: 1.0,
+                [BulletCategory.Quality]: 1.0,
+                [BulletCategory.Engineering]: 0.9,
+                [BulletCategory.Impact]: 0.8,
+                [BulletCategory.Delivery]: 0.7,
+              },
+            },
+            {
+              id: 'platformMigration',
+              translationKey:
+                'Jobs.ghenova.cpp.bulletpoints.platformMigration',
+              categories: {
+                [BulletCategory.Integration]: 1.0,
+                [BulletCategory.Engineering]: 0.9,
+                [BulletCategory.Delivery]: 0.9,
+                [BulletCategory.Quality]: 0.7,
+                [BulletCategory.Architecture]: 0.6,
+              },
+            },
+            {
+              id: 'hmiModernization',
+              translationKey:
+                'Jobs.ghenova.cpp.bulletpoints.hmiModernization',
+              categories: {
+                [BulletCategory.Engineering]: 1.0,
+                [BulletCategory.Impact]: 0.9,
+                [BulletCategory.Quality]: 0.9,
+                [BulletCategory.Architecture]: 0.7,
+                [BulletCategory.Integration]: 0.6,
+              },
+            },
+            {
+              id: 'videoWallSystems',
+              translationKey:
+                'Jobs.ghenova.cpp.bulletpoints.videoWallSystems',
+              categories: {
+                [BulletCategory.Engineering]: 1.0,
+                [BulletCategory.Integration]: 1.0,
+                [BulletCategory.Automation]: 0.9,
+                [BulletCategory.Quality]: 0.9,
+                [BulletCategory.Impact]: 0.9,
+                [BulletCategory.Architecture]: 0.7,
+              },
+            },
+            {
+              id: 'softwareLifecycle',
+              translationKey:
+                'Jobs.ghenova.cpp.bulletpoints.softwareLifecycle',
+              categories: {
+                [BulletCategory.Delivery]: 1.0,
+                [BulletCategory.Quality]: 0.9,
+                [BulletCategory.Integration]: 0.8,
+                [BulletCategory.Engineering]: 0.7,
+                [BulletCategory.Impact]: 0.6,
+              },
+            },
             ],
           },
         ],
@@ -112,76 +232,345 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
         Jobs: [
           {
             Title: 'C++ Backend Developer',
-            Description: t('Jobs.Abance.e park.description'),
+            Description: t('Jobs.abance.cppusv.description'),
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2024/10/15'),
             EndDate: Date.parse('2024/12/30'),
             techStack: ['cpp', 'qt', 'zmq', 'dds'],
-            BulletPoints: [
-              t('Jobs.Abance.cppusv.bulletpoints.Simulators'),
-              t('Jobs.Abance.cppusv.bulletpoints.Bridge'),
-              t('Jobs.Abance.cppusv.bulletpoints.Deploy'),
-              t('Jobs.Abance.cppusv.bulletpoints.Porting'),
+            BulletPoints: [{
+              id: 'navigationAndSensorSimulators',
+              translationKey:
+                'Jobs.abance.cppusv.bulletpoints.navigationAndSensorSimulators',
+              categories: {
+                [BulletCategory.Engineering]: 1.0,
+                [BulletCategory.Integration]: 1.0,
+                [BulletCategory.Automation]: 0.8,
+                [BulletCategory.Quality]: 0.8,
+                [BulletCategory.Impact]: 0.8,
+              },
+            },
+            {
+              id: 'zeromqDdsBridge',
+              translationKey:
+                'Jobs.abance.cppusv.bulletpoints.zeromqDdsBridge',
+              categories: {
+                [BulletCategory.Integration]: 1.0,
+                [BulletCategory.Architecture]: 1.0,
+                [BulletCategory.Engineering]: 1.0,
+                [BulletCategory.Impact]: 0.9,
+              },
+            },
+            {
+              id: 'heterogeneousSystemIntegration',
+              translationKey:
+                'Jobs.abance.cppusv.bulletpoints.heterogeneousSystemIntegration',
+              categories: {
+                [BulletCategory.Integration]: 1.0,
+                [BulletCategory.Engineering]: 0.9,
+                [BulletCategory.Architecture]: 0.8,
+                [BulletCategory.Impact]: 0.7,
+              },
+            },
+            {
+              id: 'buildAndDeploymentModernization',
+              translationKey:
+                'Jobs.abance.cppusv.bulletpoints.buildAndDeploymentModernization',
+              categories: {
+                [BulletCategory.Automation]: 1.0,
+                [BulletCategory.Delivery]: 1.0,
+                [BulletCategory.Quality]: 0.9,
+                [BulletCategory.Engineering]: 0.9,
+                [BulletCategory.Architecture]: 0.7,
+              },
+            },
+            {
+              id: 'timeConstrainedDelivery',
+              translationKey:
+                'Jobs.abance.cppusv.bulletpoints.timeConstrainedDelivery',
+              categories: {
+                [BulletCategory.Delivery]: 1.0,
+                [BulletCategory.Impact]: 0.9,
+                [BulletCategory.Engineering]: 0.8,
+              },
+            },
             ],
           },
           {
             Title: 'Main Typescript / React / Next.JS Developer',
-            Description: t('Jobs.Abance.nextreact.description'),
+            Description: t('Jobs.abance.nextreact.description'),
             JobType: JobTypeEnum.WebDev,
             StartDate: Date.parse('2024/05/15'),
             EndDate: Date.parse('2025/02/25'),
             techStack: ['typescript', 'react', 'nextjs'],
-          BulletPoints: [
-              t('Jobs.Abance.nextreact.bulletpoints.AbanceReact'),
-              t('Jobs.Abance.nextreact.bulletpoints.Magallanes'),
+            BulletPoints: [
+              {
+                id: 'wordpressToNextMigration',
+                translationKey:
+                  'Jobs.abance.nextreact.bulletpoints.wordpressToNextMigration',
+                categories: {
+                  [BulletCategory.Architecture]: 1.0,
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Impact]: 0.9,
+                  [BulletCategory.Quality]: 0.8,
+                  [BulletCategory.Delivery]: 0.8,
+                },
+              },
+              {
+                id: 'multilingualRouting',
+                translationKey:
+                  'Jobs.abance.nextreact.bulletpoints.multilingualRouting',
+                categories: {
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Quality]: 0.9,
+                  [BulletCategory.Impact]: 0.8,
+                },
+              },
+              {
+                id: 'customPhpIntegration',
+                translationKey:
+                  'Jobs.abance.nextreact.bulletpoints.customPhpIntegration',
+                categories: {
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Delivery]: 0.9,
+                  [BulletCategory.Impact]: 0.8,
+                },
+              },
+              {
+                id: 'fullStackApplication',
+                translationKey:
+                  'Jobs.abance.nextreact.bulletpoints.fullStackApplication',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Architecture]: 0.9,
+                  [BulletCategory.Impact]: 0.8,
+                  [BulletCategory.Delivery]: 0.8,
+                },
+              },
+              {
+                id: 'crossPlatformBackendIntegration',
+                translationKey:
+                  'Jobs.abance.nextreact.bulletpoints.crossPlatformBackendIntegration',
+                categories: {
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Architecture]: 0.9,
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Impact]: 0.9,
+                },
+              },
+              {
+                id: 'frontendEngineering',
+                translationKey:
+                  'Jobs.abance.nextreact.bulletpoints.frontendEngineering',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Quality]: 0.8,
+                  [BulletCategory.Impact]: 0.8,
+                },
+              },
+              {
+                id: 'codeQuality',
+                translationKey:
+                  'Jobs.abance.nextreact.bulletpoints.codeQuality',
+                categories: {
+                  [BulletCategory.Quality]: 1.0,
+                  [BulletCategory.Engineering]: 0.8,
+                  [BulletCategory.Architecture]: 0.6,
+                },
+              },
             ],
             multimediaContent: [{ text: "Wordpress To React (Video)", url: "https://www.youtube.com/watch?v=l_dvgEPhykQ" }]
-            
+
           },
           {
             Title: 'Wordpress Developer',
-            Description: t('Jobs.Abance.wordpress.Description'),
+            Description: t('Jobs.abance.wordpress.description'),
             JobType: JobTypeEnum.WebDev,
             StartDate: Date.parse('2024/03/10'),
             EndDate: Date.parse('2024/08/10'),
             techStack: ['oxygen'],
             BulletPoints: [
-              t('Jobs.Abance.wordpress.bulletpoints.content'),
-              t('Jobs.Abance.wordpress.bulletpoints.redesign'),
-              t('Jobs.Abance.wordpress.bulletpoints.animations'),
+              {
+                id: 'wordpressMaintenance',
+                translationKey:
+                  'Jobs.abance.wordpress.bulletpoints.wordpressMaintenance',
+                categories: {
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Delivery]: 0.9,
+                  [BulletCategory.Quality]: 0.8,
+                  [BulletCategory.Impact]: 0.7,
+                },
+              },
+              {
+                id: 'legacyPluginTroubleshooting',
+                translationKey:
+                  'Jobs.abance.wordpress.bulletpoints.legacyPluginTroubleshooting',
+                categories: {
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Quality]: 1.0,
+                  [BulletCategory.Integration]: 0.9,
+                  [BulletCategory.Impact]: 0.7,
+                },
+              },
+              {
+                id: 'websiteModernizationAssessment',
+                translationKey:
+                  'Jobs.abance.wordpress.bulletpoints.websiteModernizationAssessment',
+                categories: {
+                  [BulletCategory.Architecture]: 1.0,
+                  [BulletCategory.Impact]: 0.9,
+                  [BulletCategory.Quality]: 0.8,
+                  [BulletCategory.Engineering]: 0.7,
+                },
+              },
             ],
           },
           {
             Title: 'Main C# Software Developer',
-            Description: t('Jobs.Abance.csharpdev.description'),
+            Description: t('Jobs.abance.csharpdev.description'),
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2024/02/24'),
             EndDate: Date.parse('2025/02/25'),
             techStack: ['csharp', 'grpc'],
             BulletPoints: [
-              t('Jobs.Abance.csharpdev.bulletpoints.ExcelParser'),
-              t('Jobs.Abance.csharpdev.bulletpoints.HTMLScrapper'),
-              t('Jobs.Abance.csharpdev.bulletpoints.MultimediaConverter'),
-              t('Jobs.Abance.csharpdev.bulletpoints.DotNetConsultant'),
-              t('Jobs.Abance.csharpdev.bulletpoints.UnitTestDesigner'),
+              {
+                id: 's1000dAutomation',
+                translationKey:
+                  'Jobs.abance.csharpdev.bulletpoints.s1000dAutomation',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Automation]: 1.0,
+                  [BulletCategory.Impact]: 0.9,
+                  [BulletCategory.Integration]: 0.8,
+                  [BulletCategory.Delivery]: 0.8,
+                },
+              },
+              {
+                id: 'officeDocumentProcessing',
+                translationKey:
+                  'Jobs.abance.csharpdev.bulletpoints.officeDocumentProcessing',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Integration]: 0.9,
+                  [BulletCategory.Impact]: 0.8,
+                  [BulletCategory.Quality]: 0.7,
+                },
+              },
+              {
+                id: 'applicationQualityAndRefactoring',
+                translationKey:
+                  'Jobs.abance.csharpdev.bulletpoints.applicationQualityAndRefactoring',
+                categories: {
+                  [BulletCategory.Quality]: 1.0,
+                  [BulletCategory.Architecture]: 0.9,
+                  [BulletCategory.Automation]: 0.9,
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Impact]: 0.8,
+                },
+              },
+              {
+                id: 'crossProcessIntegration',
+                translationKey:
+                  'Jobs.abance.csharpdev.bulletpoints.crossProcessIntegration',
+                categories: {
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Architecture]: 0.9,
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Impact]: 0.7,
+                },
+              },
+              {
+                id: 'softwareArchitectureAndTechnologyDecisions',
+                translationKey:
+                  'Jobs.abance.csharpdev.bulletpoints.softwareArchitectureAndTechnologyDecisions',
+                categories: {
+                  [BulletCategory.Architecture]: 1.0,
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Impact]: 0.8,
+                  [BulletCategory.Integration]: 0.7,
+                  [BulletCategory.Delivery]: 0.7,
+                },
+              },
             ],
           },
           {
             Title: 'Main Unreal Engine VR Developer',
-            Description: t('Jobs.Abance.unreal.description'),
+            Description: t('Jobs.abance.unreal.description'),
             StartDate: Date.parse('2023/09/25'),
             EndDate: Date.parse('2024/02/24'),
             JobType: JobTypeEnum.GameDev,
             techStack: ['unreal', 'csharp', 'cpp', 'python', 'grpc'],
             BulletPoints: [
-              t('Jobs.Abance.unreal.bulletpoints.Networking'),
-              t('Jobs.Abance.unreal.bulletpoints.importOptimizations'),
-              t('Jobs.Abance.unreal.bulletpoints.buildPipeline'),
-              t('Jobs.Abance.unreal.bulletpoints.qtTools'),
-              t('Jobs.Abance.unreal.bulletpoints.ioOptimization'),
-              t('Jobs.Abance.unreal.bulletpoints.pythonAuto'),
-              t('Jobs.Abance.unreal.bulletpoints.accesibility'),
-              t('Jobs.Abance.unreal.bulletpoints.features'),
+              {
+                id: 'multiplayerReplication',
+                translationKey:
+                  'Jobs.abance.unreal.bulletpoints.multiplayerReplication',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Architecture]: 0.9,
+                  [BulletCategory.Impact]: 0.8,
+                },
+              },
+              {
+                id: 'assetPipelineOptimization',
+                translationKey:
+                  'Jobs.abance.unreal.bulletpoints.assetPipelineOptimization',
+                categories: {
+                  [BulletCategory.Impact]: 1.0,
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Architecture]: 0.9,
+                  [BulletCategory.Quality]: 0.9,
+                  [BulletCategory.Automation]: 0.8,
+                },
+              },
+              {
+                id: 'automatedBuildPipelines',
+                translationKey:
+                  'Jobs.abance.unreal.bulletpoints.automatedBuildPipelines',
+                categories: {
+                  [BulletCategory.Automation]: 1.0,
+                  [BulletCategory.Delivery]: 1.0,
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Quality]: 0.9,
+                  [BulletCategory.Integration]: 0.8,
+                },
+              },
+              {
+                id: 'editorAutomationTooling',
+                translationKey:
+                  'Jobs.abance.unreal.bulletpoints.editorAutomationTooling',
+                categories: {
+                  [BulletCategory.Automation]: 1.0,
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Impact]: 0.9,
+                  [BulletCategory.Delivery]: 0.8,
+                },
+              },
+              {
+                id: 'qtContentProcessingIntegration',
+                translationKey:
+                  'Jobs.abance.unreal.bulletpoints.qtContentProcessingIntegration',
+                categories: {
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Architecture]: 0.9,
+                  [BulletCategory.Automation]: 0.9,
+                  [BulletCategory.Impact]: 0.8,
+                },
+              },
+              {
+                id: 'nativeCppOptimization',
+                translationKey:
+                  'Jobs.abance.unreal.bulletpoints.nativeCppOptimization',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Impact]: 0.9,
+                  [BulletCategory.Architecture]: 0.9,
+                  [BulletCategory.Quality]: 0.8,
+                },
+              },
             ],
           },
         ],
@@ -197,7 +586,7 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
         Jobs: [
           {
             Title: 'Backend Developer',
-            Description: t('Jobs.itixo.backend.Description'),
+            Description: t('Jobs.itixo.backend.description'),
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2018/02/27'),
             EndDate: Date.parse('2020/06/15'),
@@ -210,11 +599,86 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
               'entity',
             ],
             BulletPoints: [
-              t('Jobs.itixo.backend.bulletpoints.monitoring'),
-              t('Jobs.itixo.backend.bulletpoints.refactoring'),
-              t('Jobs.itixo.backend.bulletpoints.graphs'),
-              t('Jobs.itixo.backend.bulletpoints.tests'),
-              t('Jobs.itixo.backend.bulletpoints.azure'),
+              {
+                id: 'dotnetModernization',
+                translationKey:
+                  'Jobs.itixo.backend.bulletpoints.dotnetModernization',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Architecture]: 1.0,
+                  [BulletCategory.Quality]: 0.9,
+                  [BulletCategory.Integration]: 0.9,
+                  [BulletCategory.Impact]: 0.9,
+                  [BulletCategory.Delivery]: 0.8,
+                },
+              },
+              {
+                id: 'modularArchitecture',
+                translationKey:
+                  'Jobs.itixo.backend.bulletpoints.modularArchitecture',
+                categories: {
+                  [BulletCategory.Architecture]: 1.0,
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Quality]: 0.9,
+                  [BulletCategory.Impact]: 0.8,
+                },
+              },
+              {
+                id: 'codeQualityAndTesting',
+                translationKey:
+                  'Jobs.itixo.backend.bulletpoints.codeQualityAndTesting',
+                categories: {
+                  [BulletCategory.Quality]: 1.0,
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Architecture]: 0.8,
+                  [BulletCategory.Impact]: 0.8,
+                },
+              },
+              {
+                id: 'businessMonitoringAndAlerting',
+                translationKey:
+                  'Jobs.itixo.backend.bulletpoints.businessMonitoringAndAlerting',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Automation]: 0.9,
+                  [BulletCategory.Quality]: 0.9,
+                  [BulletCategory.Impact]: 0.9,
+                  [BulletCategory.Architecture]: 0.8,
+                },
+              },
+              {
+                id: 'azureDevelopment',
+                translationKey:
+                  'Jobs.itixo.backend.bulletpoints.azureDevelopment',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Integration]: 0.9,
+                  [BulletCategory.Delivery]: 0.8,
+                  [BulletCategory.Impact]: 0.7,
+                },
+              },
+              {
+                id: 'salesReportingAndVisualization',
+                translationKey:
+                  'Jobs.itixo.backend.bulletpoints.salesReportingAndVisualization',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Impact]: 0.9,
+                  [BulletCategory.Integration]: 0.8,
+                  [BulletCategory.Quality]: 0.7,
+                },
+              },
+              {
+                id: 'developerToolingAndCodeGeneration',
+                translationKey:
+                  'Jobs.itixo.backend.bulletpoints.developerToolingAndCodeGeneration',
+                categories: {
+                  [BulletCategory.Automation]: 1.0,
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Impact]: 0.8,
+                  [BulletCategory.Delivery]: 0.8,
+                },
+              },
             ],
           },
         ],
@@ -230,7 +694,7 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
         Jobs: [
           {
             Title: 'WebApp Dev',
-            Description: t('Jobs.knowledgemill.webapp.Description'),
+            Description: t('Jobs.knowledgemill.webapp.description'),
             JobType: JobTypeEnum.WebDev,
             StartDate: Date.parse('2017/07/27'),
             EndDate: Date.parse('2017/12/15'),
@@ -242,20 +706,65 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
               'centos',
             ],
             BulletPoints: [
-              t('Jobs.knowledgemill.webapp.improvements'),
-              t('Jobs.knowledgemill.webapp.redesign'),
-              t('Jobs.knowledgemill.webapp.rpm'),
+              {
+                id: 'legacyApplicationModernization',
+                translationKey:
+                  'Jobs.knowledgemill.webapp.bulletpoints.legacyApplicationModernization',
+                categories: {
+                  [BulletCategory.Architecture]: 1.0,
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Integration]: 0.9,
+                  [BulletCategory.Impact]: 0.9,
+                  [BulletCategory.Delivery]: 0.8,
+                },
+              },
+              {
+                id: 'apiReverseEngineering',
+                translationKey:
+                  'Jobs.knowledgemill.webapp.bulletpoints.apiReverseEngineering',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Quality]: 0.8,
+                  [BulletCategory.Architecture]: 0.8,
+                  [BulletCategory.Impact]: 0.8,
+                },
+              },
+              {
+                id: 'exchangeIntegration',
+                translationKey:
+                  'Jobs.knowledgemill.webapp.bulletpoints.exchangeIntegration',
+                categories: {
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Impact]: 0.8,
+                  [BulletCategory.Delivery]: 0.7,
+                },
+              },
+              {
+                id: 'frontendDevelopment',
+                translationKey:
+                  'Jobs.knowledgemill.webapp.bulletpoints.frontendDevelopment',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Impact]: 0.8,
+                  [BulletCategory.Quality]: 0.7,
+                },
+              },
+              {
+                id: 'linuxBuildDeploymentAutomation',
+                translationKey:
+                  'Jobs.knowledgemill.webapp.bulletpoints.linuxBuildDeploymentAutomation',
+                categories: {
+                  [BulletCategory.Automation]: 1.0,
+                  [BulletCategory.Delivery]: 1.0,
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Integration]: 0.9,
+                  [BulletCategory.Quality]: 0.8,
+                },
+              },
             ],
-          },
-          {
-            Title: 'Apprenticeship WebApp Dev',
-            Description: '',
-            JobType: JobTypeEnum.WebDev,
-            StartDate: Date.parse('2017/07/27'),
-            EndDate: Date.parse('2017/08/15'),
-            techStack: ['nodejs', 'bootstrap', 'exchangeapi', 'centos'],
-            BulletPoints: [],
-          },
+          }
         ],
         typeOfHire: 'full',
         typeOfPresence: 'On-site',
@@ -274,7 +783,49 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
             StartDate: Date.parse('2017/03/01'),
             EndDate: Date.parse('2017/06/01'),
             techStack: [],
-            BulletPoints: [],
+            BulletPoints: [{
+              id: 'enterpriseIntegrationFlows',
+              translationKey:
+                'Jobs.viewnext.websphere.bulletpoints.enterpriseIntegrationFlows',
+              categories: {
+                [BulletCategory.Integration]: 1.0,
+                [BulletCategory.Engineering]: 0.8,
+                [BulletCategory.Architecture]: 0.8,
+                [BulletCategory.Impact]: 0.6,
+              },
+            },
+            {
+              id: 'enterpriseMessagingPatterns',
+              translationKey:
+                'Jobs.viewnext.websphere.bulletpoints.enterpriseMessagingPatterns',
+              categories: {
+                [BulletCategory.Integration]: 1.0,
+                [BulletCategory.Architecture]: 0.9,
+                [BulletCategory.Engineering]: 0.7,
+              },
+            },
+            {
+              id: 'ibmMiddlewareDevelopment',
+              translationKey:
+                'Jobs.viewnext.websphere.bulletpoints.ibmMiddlewareDevelopment',
+              categories: {
+                [BulletCategory.Integration]: 1.0,
+                [BulletCategory.Engineering]: 0.9,
+                [BulletCategory.Architecture]: 0.7,
+                [BulletCategory.Quality]: 0.6,
+              },
+            },
+            {
+              id: 'enterpriseDevelopmentTooling',
+              translationKey:
+                'Jobs.viewnext.websphere.bulletpoints.enterpriseDevelopmentTooling',
+              categories: {
+                [BulletCategory.Delivery]: 0.9,
+                [BulletCategory.Engineering]: 0.6,
+                [BulletCategory.Quality]: 0.6,
+              },
+            },
+            ],
           },
         ],
         typeOfHire: 'full',

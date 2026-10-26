@@ -105,7 +105,7 @@ function JobsItems(props: {
             <ul className="mt-2 list-disc space-y-1 pl-5">
               {job.BulletPoints.map((bulletPoint, index) => (
                 <li key={`${index}-${bulletPoint}`}>
-                  {bulletPoint}
+                  {bulletPoint.translationKey}
                 </li>
               ))}
             </ul>
