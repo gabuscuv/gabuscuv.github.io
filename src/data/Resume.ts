@@ -95,7 +95,11 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
             StartDate: Date.parse('2025/02/26'),
             EndDate: OnGoingValue,
             techStack: ['cpp', 'qt', 'rhel', 'gst', 'dds'],
-            BulletPoints: t.raw('Jobs.Ghenova.cpp.bulletpoints') as string[]
+            BulletPoints: [
+              t('Jobs.Ghenova.cpp.bulletpoints.video'),
+              t('Jobs.Ghenova.cpp.bulletpoints.terminal'),
+              t('Jobs.Ghenova.cpp.bulletpoints.ServerManagementAndMonitoring'),
+            ],
           },
         ],
       },
@@ -108,12 +112,17 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
         Jobs: [
           {
             Title: 'C++ Backend Developer',
-            Description: t('Jobs.Abance.cppusv.description'),
+            Description: t('Jobs.Abance.e park.description'),
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2024/10/15'),
             EndDate: Date.parse('2024/12/30'),
             techStack: ['cpp', 'qt', 'zmq', 'dds'],
-            BulletPoints: t.raw('Jobs.Abance.cppusv.bulletpoints') as string[]
+            BulletPoints: [
+              t('Jobs.Abance.cppusv.bulletpoints.Simulators'),
+              t('Jobs.Abance.cppusv.bulletpoints.Bridge'),
+              t('Jobs.Abance.cppusv.bulletpoints.Deploy'),
+              t('Jobs.Abance.cppusv.bulletpoints.Porting'),
+            ],
           },
           {
             Title: 'Main Typescript / React / Next.JS Developer',
@@ -122,17 +131,25 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
             StartDate: Date.parse('2024/05/15'),
             EndDate: Date.parse('2025/02/25'),
             techStack: ['typescript', 'react', 'nextjs'],
-            BulletPoints: t.raw('Jobs.Abance.nextreact.bulletpoints') as string[],
-            multimediaContent: [{text: "Wordpress To React (Video)",url: "https://www.youtube.com/watch?v=l_dvgEPhykQ"}]
+          BulletPoints: [
+              t('Jobs.Abance.nextreact.bulletpoints.AbanceReact'),
+              t('Jobs.Abance.nextreact.bulletpoints.Magallanes'),
+            ],
+            multimediaContent: [{ text: "Wordpress To React (Video)", url: "https://www.youtube.com/watch?v=l_dvgEPhykQ" }]
+            
           },
           {
             Title: 'Wordpress Developer',
-            Description: t('Jobs.Abance.wordpress.description'),
+            Description: t('Jobs.Abance.wordpress.Description'),
             JobType: JobTypeEnum.WebDev,
             StartDate: Date.parse('2024/03/10'),
             EndDate: Date.parse('2024/08/10'),
             techStack: ['oxygen'],
-            BulletPoints: t.raw('Jobs.Abance.wordpress.bulletpoints') as string[]
+            BulletPoints: [
+              t('Jobs.Abance.wordpress.bulletpoints.content'),
+              t('Jobs.Abance.wordpress.bulletpoints.redesign'),
+              t('Jobs.Abance.wordpress.bulletpoints.animations'),
+            ],
           },
           {
             Title: 'Main C# Software Developer',
@@ -141,7 +158,13 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
             StartDate: Date.parse('2024/02/24'),
             EndDate: Date.parse('2025/02/25'),
             techStack: ['csharp', 'grpc'],
-            BulletPoints: t.raw('Jobs.Abance.csharpdev.bulletpoints') as string[]
+            BulletPoints: [
+              t('Jobs.Abance.csharpdev.bulletpoints.ExcelParser'),
+              t('Jobs.Abance.csharpdev.bulletpoints.HTMLScrapper'),
+              t('Jobs.Abance.csharpdev.bulletpoints.MultimediaConverter'),
+              t('Jobs.Abance.csharpdev.bulletpoints.DotNetConsultant'),
+              t('Jobs.Abance.csharpdev.bulletpoints.UnitTestDesigner'),
+            ],
           },
           {
             Title: 'Main Unreal Engine VR Developer',
@@ -150,7 +173,16 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
             EndDate: Date.parse('2024/02/24'),
             JobType: JobTypeEnum.GameDev,
             techStack: ['unreal', 'csharp', 'cpp', 'python', 'grpc'],
-            BulletPoints: t.raw('Jobs.Abance.unreal.bulletpoints') as string[]
+            BulletPoints: [
+              t('Jobs.Abance.unreal.bulletpoints.Networking'),
+              t('Jobs.Abance.unreal.bulletpoints.importOptimizations'),
+              t('Jobs.Abance.unreal.bulletpoints.buildPipeline'),
+              t('Jobs.Abance.unreal.bulletpoints.qtTools'),
+              t('Jobs.Abance.unreal.bulletpoints.ioOptimization'),
+              t('Jobs.Abance.unreal.bulletpoints.pythonAuto'),
+              t('Jobs.Abance.unreal.bulletpoints.accesibility'),
+              t('Jobs.Abance.unreal.bulletpoints.features'),
+            ],
           },
         ],
         typeOfHire: 'full',
@@ -165,7 +197,7 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
         Jobs: [
           {
             Title: 'Backend Developer',
-            Description: t('Jobs.itixo.backend.description'),
+            Description: t('Jobs.itixo.backend.Description'),
             JobType: JobTypeEnum.Backend,
             StartDate: Date.parse('2018/02/27'),
             EndDate: Date.parse('2020/06/15'),
@@ -177,7 +209,13 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
               'xunit',
               'entity',
             ],
-            BulletPoints: t.raw('Jobs.itixo.backend.bulletpoints') as string[]
+            BulletPoints: [
+              t('Jobs.itixo.backend.bulletpoints.monitoring'),
+              t('Jobs.itixo.backend.bulletpoints.refactoring'),
+              t('Jobs.itixo.backend.bulletpoints.graphs'),
+              t('Jobs.itixo.backend.bulletpoints.tests'),
+              t('Jobs.itixo.backend.bulletpoints.azure'),
+            ],
           },
         ],
         typeOfHire: 'freelance',
@@ -192,7 +230,7 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
         Jobs: [
           {
             Title: 'WebApp Dev',
-            Description: t('Jobs.knowledgemill.webapp.description'),
+            Description: t('Jobs.knowledgemill.webapp.Description'),
             JobType: JobTypeEnum.WebDev,
             StartDate: Date.parse('2017/07/27'),
             EndDate: Date.parse('2017/12/15'),
@@ -203,8 +241,21 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
               'exchangeapi',
               'centos',
             ],
-            BulletPoints: t.raw('Jobs.knowledgemill.webapp.bulletpoints') as string[]
-          }
+            BulletPoints: [
+              t('Jobs.knowledgemill.webapp.improvements'),
+              t('Jobs.knowledgemill.webapp.redesign'),
+              t('Jobs.knowledgemill.webapp.rpm'),
+            ],
+          },
+          {
+            Title: 'Apprenticeship WebApp Dev',
+            Description: '',
+            JobType: JobTypeEnum.WebDev,
+            StartDate: Date.parse('2017/07/27'),
+            EndDate: Date.parse('2017/08/15'),
+            techStack: ['nodejs', 'bootstrap', 'exchangeapi', 'centos'],
+            BulletPoints: [],
+          },
         ],
         typeOfHire: 'full',
         typeOfPresence: 'On-site',
