@@ -60,6 +60,7 @@ export interface IExperienceBullet {
   id: string;
   translationKey: string;
   categories: Partial<Record<BulletCategory, number>>;
+  translation?: string;
 }
 
 export class JobsType extends CommonMinimum {
@@ -106,6 +107,16 @@ export type ResumeType = {
 type ResumeTranslator = ReturnType<typeof createTranslator>;
 
 export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
+  const translate = (company: CompanyType) => ({
+  ...company,
+  Jobs: company.Jobs.map(job => ({
+    ...job,
+    BulletPoints: job.BulletPoints.map(bullet => ({
+      ...bullet,
+      translation: t(bullet.translationKey),
+    })),
+  })),
+});
   // const t = useTranslations('Resume'); // for preview with i18n-ally
   return {
     Jobs: [
@@ -831,7 +842,7 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
         typeOfHire: 'full',
         typeOfPresence: 'On-site',
       },
-    ],
+    ].map(translate),
     Education: [
       {
         Title: t('Education.DAM.Title'),
