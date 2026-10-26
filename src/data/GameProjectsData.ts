@@ -1,9 +1,9 @@
 import {GameProjects as GameProjectsType} from '@/src/data/ProjectDataTypes';
-import {getTranslations} from 'next-intl/server';
+import {createTranslator} from 'use-intl/core';
 
-export async function GameProjects() {
-  const t = await getTranslations('Projects.gameProjects');
-  //   const t = useTranslations('Projects.gameProjects');
+type ResumeTranslator = ReturnType<typeof createTranslator>;
+export async function GameProjects(t: ResumeTranslator) {
+  
 
   return [
     new GameProjectsType(
@@ -24,6 +24,8 @@ export async function GameProjects() {
       '#23bd69',
       true,
       true,
+      false,
+      "https://itch.io/embed/3269975"
     ),
     new GameProjectsType(
       'project-35',
@@ -43,7 +45,8 @@ export async function GameProjects() {
       '#23bd69',
       true,
       true,
-      true,
+      false,
+      "https://itch.io/embed/2859049"
     ),
     new GameProjectsType(
       'project-34',
@@ -65,6 +68,9 @@ export async function GameProjects() {
       [],
       '#23bd69',
       true,
+      true,
+      false,
+      "https://itch.io/embed/2494020"
     ),
     new GameProjectsType(
       'project-33',
@@ -103,6 +109,9 @@ Good luck finding a benevolent ending ;)
       [],
       '#23bd69',
       true,
+      true,
+      false,
+      "https://itch.io/embed/2274926"
     ),
     new GameProjectsType(
       'project-32',
@@ -128,6 +137,9 @@ Good luck finding a benevolent ending ;)
       [],
       '#23bd69',
       true,
+      true,
+      false,
+      "https://itch.io/embed/2194730"
     ),
     new GameProjectsType(
       'project-1',
@@ -135,7 +147,7 @@ Good luck finding a benevolent ending ;)
       ['unreal', 'fmod'],
       2022,
       '/img/projects/project-31-icon.png',
-      t('VRProject.Description'),
+      t('VRProject.description'),
       `
       <p>${t('TranslationMissing')}</p>
 
@@ -162,6 +174,10 @@ Good luck finding a benevolent ending ;)
       [],
       '#23bd69',
       true,
+      true,
+      false,
+      "https://cutt.ly/LHTkwEH"
+      
     ),
     new GameProjectsType(
       'project-2',
@@ -201,7 +217,11 @@ Good luck finding a benevolent ending ;)
         '/img/projects/Kubler/Shield.jpg',
         '/img/projects/Kubler/Boss.jpg',
       ],
-      '#5a78af',
+      '#23bd69',
+      true,
+      true,
+      false,
+      "https://juanjosalvador.itch.io/kubler"
     ),
     new GameProjectsType(
       'project-3',
@@ -209,7 +229,7 @@ Good luck finding a benevolent ending ;)
       ['unreal', 'cpp'],
       2019,
       '/img/projects/project-3-icon.png',
-      t('TestingGround.Description'),
+      t('TestingGround.description'),
       `
       <p>${t('TranslationMissing')}</p>
     <div class="paragraph">
@@ -250,7 +270,11 @@ Good luck finding a benevolent ending ;)
         '/img/projects/TestingGrounds/AmmoItem.jpg',
         '/img/projects/TestingGrounds/DeathScreen.jpg',
       ],
-      '#383838',
+      '#23bd69',
+      true,
+      true,
+      false,
+      "https://github.com/gabuscuv/TestingGrounds-Public"
     ),
     new GameProjectsType(
       'project-4',
@@ -296,7 +320,11 @@ Good luck finding a benevolent ending ;)
         '/img/projects/4thof4th/VirtualBios.jpg',
         '/img/projects/4thof4th/InGame.jpg',
       ],
-      '#e80fb7',
+      '#23bd69',
+      true,
+      true,
+      false,
+      ""
     ),
   ];
 }

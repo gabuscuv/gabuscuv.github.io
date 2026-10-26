@@ -1,23 +1,60 @@
+
 import {jobTypeFilter} from '../data/JobTypePoints';
+import {ProjectData} from '../data/ProjectDataTypes';
 import {JobTypeEnum, CompanyType, JobsType} from '../data/Resume';
+
+const JOB_TYPE_MATCH_BONUS = 100;
+
+export function points(role: JobTypeEnum, item: JobsType): number;
+
+export function points(role: JobTypeEnum, item: ProjectData): number;
+
+export function points(role: JobTypeEnum, item: JobsType | ProjectData,
+): number {
+  if (role === JobTypeEnum.All) {
+    return 0;
+  }
+
+  const weights = jobTypeFilter[role] ?? {};
+  const isJob = 'JobType' in item;
+
+  const technologies = item.techStack
+
+  const technologyScore = [...new Set(technologies)].reduce(
+    (total, technology) => total + (weights[technology] ?? 0),
+    0,
+  );
+
+  if (isJob) {
+    return (
+      (item.JobType === role ? JOB_TYPE_MATCH_BONUS : 0) +
+      technologyScore
+    );
+  }
+
+  const projectTypeBonus =
+    role === JobTypeEnum.GameDev
+      ? item.projecttype === 'Game'
+        ? JOB_TYPE_MATCH_BONUS
+        : item.projecttype === 'GameTools'
+          ? JOB_TYPE_MATCH_BONUS / 2
+          : 0
+      : 0;
+
+  return technologyScore + projectTypeBonus;
+}
 
 export function totalPoints(
   jobTypeEnum: JobTypeEnum,
-  work: CompanyType,
+  company: CompanyType,
 ): number {
-  return work.Jobs.map<number>(a => points(jobTypeEnum, a)).reduce(
-    (a, z) => a + z,
-  );
-}
-export function points(JobEnum: JobTypeEnum, b: JobsType): number {
-  let points = 0;
-  if (JobEnum === undefined || JobEnum === JobTypeEnum.All) {
-    return points;
+  if (jobTypeEnum === JobTypeEnum.All) {
+    return 0;
   }
-  b.techStack.forEach(az => {
-    return (points += jobTypeFilter[JobEnum][az]
-      ? jobTypeFilter[JobEnum][az]
-      : 0);
-  });
-  return points;
+
+  const scores = company.Jobs.map((job) =>
+    points(jobTypeEnum, job),
+  );
+
+  return Math.max(0, ...scores);
 }
