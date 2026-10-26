@@ -184,21 +184,39 @@ export function selectJobs(
   jobs: JobsType[],
   role: JobTypeEnum,
   maxJobsPerCompany = 2,
+  maxBulletPoints = 3,
 ): JobsType[] {
+  const selectRelevantBullets = (job: JobsType): JobsType => ({
+    ...job,
+    BulletPoints: job.BulletPoints
+      .map((bullet, index) => ({
+        bullet,
+        index,
+        score: pointsForBullet(role, bullet),
+      }))
+      .filter(({ score }) => score > 0)
+      .toSorted((a, b) => {
+        const scoreDifference = b.score - a.score;
+
+        // Preserve original order for equal scores.
+        return scoreDifference !== 0
+          ? scoreDifference
+          : a.index - b.index;
+      })
+      .slice(0, maxBulletPoints)
+      .map(({ bullet }) => bullet),
+  });
+
   if (role === JobTypeEnum.All) {
-    return jobs;
+    return jobs.map(selectRelevantBullets);
   }
 
   return jobs
     .map((job, index) => {
       const jobScore = points(role, job);
 
-      const bulletScores = job.BulletPoints.map(bullet =>
-        pointsForBullet(role, bullet),
-      );
-
-      // Use the strongest bullet scores as supporting evidence.
-      const relevantBullets = bulletScores
+      const relevantBullets = job.BulletPoints
+        .map(bullet => pointsForBullet(role, bullet))
         .filter(score => score > 0)
         .toSorted((a, b) => b - a);
 
@@ -210,19 +228,12 @@ export function selectJobs(
               .reduce((sum, score) => sum + score, 0) /
             Math.min(relevantBullets.length, 3);
 
-      // Keep job relevance primary; bullets refine close comparisons.
       const score = jobScore * 0.75 + bulletScore * 0.25;
 
-      return {
-        job,
-        index,
-        score,
-        jobScore,
-      };
+      return { job, index, score, jobScore };
     })
     .filter(({ jobScore }) => jobScore >= MIN_JOB_SCORE[role])
     .toSorted((a, b) => {
-      // Prefer an exact role match when scores are equal.
       const aExact = a.job.JobType === role;
       const bExact = b.job.JobType === role;
 
@@ -230,18 +241,14 @@ export function selectJobs(
         return aExact ? -1 : 1;
       }
 
-      // Highest combined relevance first.
       const scoreDifference = b.score - a.score;
 
-      if (scoreDifference !== 0) {
-        return scoreDifference;
-      }
-
-      // Preserve original order for remaining ties.
-      return a.index - b.index;
+      return scoreDifference !== 0
+        ? scoreDifference
+        : a.index - b.index;
     })
     .slice(0, maxJobsPerCompany)
-    .map(({ job }) => job);
+    .map(({ job }) => selectRelevantBullets(job));
 }
 
 
