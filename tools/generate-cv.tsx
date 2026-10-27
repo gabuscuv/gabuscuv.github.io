@@ -1,11 +1,12 @@
+
 import {mkdir, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {renderToBuffer} from '@react-pdf/renderer';
 import {createTranslator} from 'use-intl/core';
+
 import {selectCertificates, selectExperience, selectProjects} from '@/src/utils/resumeUtils';
 import {ResumePdf} from './generate-pdf/ResumePdf';
-import {JobTypeEnum} from '@/src/data/Resume';
-import {ResumeContent} from '@/src/data/Resume';
+import {JobTypeEnum, ResumeContent} from '@/src/data/Resume';
 import enMessages from '@/messages/en.json';
 import esMessages from '@/messages/es.json';
 import {GetSocials} from '@/src/data/arrayRRSS';
@@ -14,14 +15,20 @@ import {GetProjects} from '@/src/middleware/ProjectDataArrayEncrypted';
 
 type Locale = 'en' | 'es';
 
-const socialNoList= ["Instagram"]
+const socialNoList = ['Instagram'];
 
 const roles: Record<string, JobTypeEnum> = {
   All: JobTypeEnum.All,
   GameDev: JobTypeEnum.GameDev,
+  GameDevTools: JobTypeEnum.GameDevTools,
+  Multimedia: JobTypeEnum.Multimedia,
   Backend: JobTypeEnum.Backend,
   WebDev: JobTypeEnum.WebDev,
+  EmbeddedSystem: JobTypeEnum.EmbeddedSystem,
+  Lite: JobTypeEnum.Lite
 };
+
+const allRoles = Object.values(roles);
 
 const summaries: Record<JobTypeEnum, Record<Locale, string>> = {
   [JobTypeEnum.All]: {
@@ -47,7 +54,14 @@ const summaries: Record<JobTypeEnum, Record<Locale, string>> = {
 
 const candidateName = 'Gabriel Bustillo del Cuvillo';
 
-function parseArgs(args: string[]) {
+interface Options {
+  roleName?: string;
+  role?: JobTypeEnum;
+  locale: Locale;
+  output?: string;
+}
+
+function parseArgs(args: string[]): Options {
   const options: Record<string, string> = {};
 
   for (let i = 0; i < args.length; i++) {
@@ -58,6 +72,11 @@ function parseArgs(args: string[]) {
     }
 
     const key = arg.slice(2);
+
+    if (!['role', 'locale', 'output'].includes(key)) {
+      throw new Error(`Unknown option: --${key}`);
+    }
+
     const value = args[++i];
 
     if (!value || value.startsWith('--')) {
@@ -67,10 +86,10 @@ function parseArgs(args: string[]) {
     options[key] = value;
   }
 
-  const roleName = options.role ?? 'All';
+  const roleName = options.role;
   const locale = options.locale ?? 'en';
 
-  if (!(roleName in roles)) {
+  if (roleName && !(roleName in roles)) {
     throw new Error(
       `Invalid role "${roleName}". Use: ${Object.keys(roles).join(', ')}`,
     );
@@ -80,54 +99,107 @@ function parseArgs(args: string[]) {
     throw new Error('Invalid locale. Use en or es.');
   }
 
+  if (options.output && !roleName) {
+    throw new Error(
+      '--output can only be used with --role because multiple PDFs may be generated.',
+    );
+  }
+
   return {
     roleName,
-    role: roles[roleName],
+    role: roleName ? roles[roleName] : undefined,
     locale: locale as Locale,
     output: options.output,
   };
 }
 
-async function main() {
-  const options = parseArgs(process.argv.slice(2));
+async function generateResume(
+  roleName: string,
+  role: JobTypeEnum,
+  locale: Locale,
+  output?: string,
+): Promise<void> {
+  const messages = locale === 'es' ? esMessages : enMessages;
 
-  const messages = options.locale === 'es' ? esMessages : enMessages;
-  const tResume = createTranslator({ locale: options.locale, messages: messages.Resume });
+  const tResume = createTranslator({
+    locale,
+    messages: messages.Resume,
+  });
 
-  const resume = (await ResumeContent(tResume));
-    
+  const resume = await ResumeContent(tResume);
+
+  const projects = await GetProjects(await GetterProjects(locale, messages),);
+
+  const contacts = [
+    ...(await GetSocials()).filter(
+      e => !socialNoList.includes(e.name),
+    ),
+    {
+      name: 'Website',
+      innerText: 'gabuscuv.dev',
+      url: 'https://gabuscuv.dev/',
+      logo: <div />,
+    },
+  ];
+
   const buffer = await renderToBuffer(
     <ResumePdf
-      t={createTranslator({ locale: options.locale, messages: messages.CommonWords })}
-      locale={options.locale}
-      role={options.role}
+      t={createTranslator({locale, messages: messages.CommonWords})}
+      locale={locale}
+      role={role}
       name={candidateName}
-      projects={selectProjects(Date.parse('2017'), await GetProjects(await GetterProjects(options.locale, messages)), options.role, 3)}
-      contacts={[...(await GetSocials()).filter(e => !socialNoList.includes(e.name)), {name: "Website", innerText: "gabuscuv.dev",url:"https://gabuscuv.dev/",logo: <div />}]}
-      certificates={selectCertificates(resume.Certificate, options.role)}
-      experience={selectExperience(resume.Jobs, options.role)}
+      projects={selectProjects(Date.parse('2017'), projects, role, 3)}
+      contacts={contacts}
+      certificates={selectCertificates(resume.Certificate, role)}
+      experience={selectExperience(resume.Jobs, role)}
       education={resume.Education}
       talks={resume.Talks}
-      summary={summaries[options.role]}
+      summary={summaries[role] && summaries[role][locale] ? summaries[role][locale] : "" }
     />,
   );
 
   const filename =
-    options.output ??
-    `resume-${options.roleName.toLowerCase()}-${options.locale}.pdf`;
+    output ?? `resume-${roleName.toLowerCase()}-${locale}.pdf`;
 
-  // Only accept a filename, not a path, to keep output inside dist/cv.
-  if (path.basename(filename) !== filename || !filename.endsWith('.pdf')) {
+  // Only accept a filename, not a path.
+  if (
+    path.basename(filename) !== filename ||
+    !filename.endsWith('.pdf')
+  ) {
     throw new Error('--output must be a filename ending in .pdf');
   }
 
   const outputDir = path.resolve('dist/cv');
+
   await mkdir(outputDir, { recursive: true });
 
   const outputPath = path.join(outputDir, filename);
+
   await writeFile(outputPath, buffer);
 
   console.log(`Generated: ${outputPath}`);
+}
+
+async function main() {
+  const options = parseArgs(process.argv.slice(2));
+
+  // If --role is omitted, generate every role.
+  const selectedRoles = options.role
+    ? [[options.roleName!, options.role] as const]
+    : Object.entries(roles).map(([name, role]) => [name, role] as const);
+
+  for (const [roleName, role] of selectedRoles) {
+    console.log(`Building ${roleName} resume (${options.locale})...`);
+
+    await generateResume(
+      roleName,
+      role,
+      options.locale,
+      options.output,
+    );
+  }
+
+  console.log('Resume generation complete.');
 }
 
 main().catch(error => {
