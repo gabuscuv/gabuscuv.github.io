@@ -15,7 +15,8 @@
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
-    "posttest": "npm run lint"
+    "posttest": "npm run lint",
+    "cv:pdf": "node --import tsx tools/generate-cv.tsx"
   },
   "dependencies": {
     "@mdx-js/loader": "^3",
@@ -42,6 +43,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.1.0",
+    "@react-pdf/renderer": "4.9.0",
     "@tailwindcss/postcss": "^4",
     "@types/lodash": "^4",
     "@types/node": "^22",
@@ -55,7 +57,12 @@
     "gts": "^6",
     "serve": "^14",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.23.15",
+    "typescript": "^5",
+    "use-intl": "^4.14.9"
+  },
+  "resolutions": {
+    "@react-pdf/hyphenate@npm:^0.1.0": "patch:@react-pdf/hyphenate@npm%3A0.1.0#~/.yarn/patches/@react-pdf-hyphenate-npm-0.1.0-940b22b074.patch"
   },
   "packageManager": "yarn@4.10.3"
 }
