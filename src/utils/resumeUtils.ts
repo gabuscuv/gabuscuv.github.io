@@ -1,8 +1,11 @@
 
 import {
+  BulletCategory,
+  CategoryWeights,
   CertificateEnumType,
   CertificateType,
   type CompanyType,
+  IExperienceBullet,
   JobTypeEnum,
   type JobsType,
   ResumeType,
@@ -11,12 +14,17 @@ import {points} from '@/src/utils/points';
 import {getYearLapse, OnGoingValue} from '@/src/utils/dates';
 import {_Translator} from 'use-intl/core';
 import {ProjectData} from '../data/ProjectDataTypes';
+import { bulletCategoryWeights } from '../data/BulletpointsTypePoints';
 
 const MIN_JOB_SCORE: Record<JobTypeEnum, number> = {
   [JobTypeEnum.All]: 0,
   [JobTypeEnum.GameDev]: 4,
   [JobTypeEnum.Backend]: 4,
   [JobTypeEnum.WebDev]: 4,
+  [JobTypeEnum.EmbeddedSystem]: 4,
+  [JobTypeEnum.Lite]: 4,
+  [JobTypeEnum.GameDevTools]: 4,
+  [JobTypeEnum.Multimedia]: 4
 };
 
 const certificateTypesByRole: Partial<
@@ -168,25 +176,64 @@ export function selectExperience(
  *
  * All: preserve the original order and include every job.
  * Specific role: filter by relevance, rank by score, and limit results.
+ *
+ * Bullet categories describe the strength of evidence for each competency,
+ * not the relevance of a job to a particular role.
  */
 export function selectJobs(
   jobs: JobsType[],
   role: JobTypeEnum,
   maxJobsPerCompany = 2,
+  maxBulletPoints = 3,
 ): JobsType[] {
+  const selectRelevantBullets = (job: JobsType): JobsType => ({
+    ...job,
+    BulletPoints: job.BulletPoints
+      .map((bullet, index) => ({
+        bullet,
+        index,
+        score: pointsForBullet(role, bullet),
+      }))
+      .filter(({ score }) => score > 0)
+      .toSorted((a, b) => {
+        const scoreDifference = b.score - a.score;
+
+        // Preserve original order for equal scores.
+        return scoreDifference !== 0
+          ? scoreDifference
+          : a.index - b.index;
+      })
+      .slice(0, maxBulletPoints)
+      .map(({ bullet }) => bullet),
+  });
+
   if (role === JobTypeEnum.All) {
-    return jobs;
+    return jobs.map(selectRelevantBullets);
   }
 
   return jobs
-    .map((job, index) => ({
-      job,
-      index,
-      score: points(role, job),
-    }))
-    .filter(({ score }) => score >= MIN_JOB_SCORE[role])
+    .map((job, index) => {
+      const jobScore = points(role, job);
+
+      const relevantBullets = job.BulletPoints
+        .map(bullet => pointsForBullet(role, bullet))
+        .filter(score => score > 0)
+        .toSorted((a, b) => b - a);
+
+      const bulletScore =
+        relevantBullets.length === 0
+          ? 0
+          : relevantBullets
+              .slice(0, 3)
+              .reduce((sum, score) => sum + score, 0) /
+            Math.min(relevantBullets.length, 3);
+
+      const score = jobScore * 0.75 + bulletScore * 0.25;
+
+      return { job, index, score, jobScore };
+    })
+    .filter(({ jobScore }) => jobScore >= MIN_JOB_SCORE[role])
     .toSorted((a, b) => {
-      // Prefer an exact role match when scores are equal.
       const aExact = a.job.JobType === role;
       const bExact = b.job.JobType === role;
 
@@ -194,18 +241,14 @@ export function selectJobs(
         return aExact ? -1 : 1;
       }
 
-      // Highest relevance first.
       const scoreDifference = b.score - a.score;
 
-      if (scoreDifference !== 0) {
-        return scoreDifference;
-      }
-
-      // Preserve original order for remaining ties.
-      return a.index - b.index;
+      return scoreDifference !== 0
+        ? scoreDifference
+        : a.index - b.index;
     })
     .slice(0, maxJobsPerCompany)
-    .map(({ job }) => job);
+    .map(({ job }) => selectRelevantBullets(job));
 }
 
 
@@ -246,6 +289,37 @@ export function selectProjects(
     matchingProjectCount: selectedProjects.length,
     totalProjectCount: visibleProjects.length,
   };
+}
+
+function pointsForBullet(
+  role: JobTypeEnum,
+  bullet: IExperienceBullet,
+): number {
+  const weights = bulletCategoryWeights[role];
+
+  if (!weights) {
+    return 0;
+  }
+
+  const entries = Object.entries(bullet.categories) as [
+    BulletCategory,
+    number,
+  ][];
+
+  const totalWeight = entries.reduce(
+    (sum, [category]) => sum + (weights[category] ?? 0),
+    0,
+  );
+
+  if (totalWeight === 0) {
+    return 0;
+  }
+
+  return entries.reduce(
+    (sum, [category, strength]) =>
+      sum + strength * (weights[category] ?? 0),
+    0,
+  ) / totalWeight;
 }
 
 function sortProjectsChronologically(
