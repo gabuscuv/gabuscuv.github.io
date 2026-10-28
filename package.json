@@ -64,5 +64,5 @@
   "resolutions": {
     "@react-pdf/hyphenate@npm:^0.1.0": "patch:@react-pdf/hyphenate@npm%3A0.1.0#~/.yarn/patches/@react-pdf-hyphenate-npm-0.1.0-940b22b074.patch"
   },
-  "packageManager": "yarn@4.10.3"
+  "packageManager": "yarn@4.18.1"
 }
