@@ -62,7 +62,7 @@ type CompanyWithSelectedJobs = {
 };
 
 export function getWorkEntriesHeader(t: _Translator<Record<string, any>, "CommonWords">, experience: ExperienceSelection): string {
-  return `${t('WorkExperience')} (${experience.matchingCompanyCount} ${t('of')} ${experience.totalCompanyCount} ${t('Companies')} - ${experience.matchingPositionCount} ${t('of')} ${experience.totalPositionCount} ${t('JobPositions')}) - ${experience.workTimeExperience} ${t('years')}`;
+  return `${t('Work Experience')} (${experience.matchingCompanyCount} ${t('of')} ${experience.totalCompanyCount} ${t('Companies')} - ${experience.matchingPositionCount} ${t('of')} ${experience.totalPositionCount} ${t('JobPositions')}) - ${experience.workTimeExperience} ${t('years')}`;
 }
 
 export function getProjectEntriesHeader(t: _Translator<Record<string, any>, "CommonWords">, experience: ProjectSelection): string {
