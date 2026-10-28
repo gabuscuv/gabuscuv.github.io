@@ -1,7 +1,7 @@
 {
   "HomePage": {
     "Greetings": "Hola!",
-    "Description": "Soy Gabriel Bustillo del Cuvillo, un experto en TI, pero oficialmente soy desarrollador de software (y ex técnico de TI)"
+    "description": "Soy Gabriel Bustillo del Cuvillo, un experto en TI, pero oficialmente soy desarrollador de software (y ex técnico de TI)"
   },
   "LocaleSwitcher": {
     "locale": "{locale, select, es {Español} en {Ingles} other {Unknown}}"
@@ -11,8 +11,8 @@
   },
   "CommonWords": {
     "years": "Años",
+    "Projects": "Proyectos",
     "Work Experience": "Experiencia Laboral",
-    "WorkExperience": "Experiencia Laboral",
     "Coding Experience": "Experiencia Programando",
     "Education": "Educacion",
     "Certificates": "Certificados",
@@ -29,36 +29,36 @@
   "Projects": {
     "gameProjects": {
       "VRProject": {
-        "Description": "Mi Primer Gran Proyecto"
+        "description": "Un juego de misterio en realidad virtual centrado en la narrativa, desarrollado con Unreal Engine y OpenXR."
       },
       "TestingGround": {
-        "Description": "Una version mejorada de un ejercicio."
+        "description": "Un proyecto en Unreal Engine en tercera persona que explora mecánicas de juego y diseño de niveles."
       },
       "TranslationMissing": "Traduccion Pendiente (Contenido migrado de origen monolingüe)",
       "WorkInProgressDescription": "Descripción / Resumen en curso"
     },
-    "TestingGround": {
-      "Description": "Una version mejorada de un ejercicio."
-    },
     "gameTools": {
       "OXI": {
-        "Description": "Un sistema de ilumnacion de Botones para Unreal"
+        "description": "Un plugin reutilizable para Unreal Engine destinado a resaltar elementos interactivos y entradas de mando en realidad virtual (VR)."
       },
       "TranslationMissing": "(Contenido antiguo) Resumen pendiente de revisión",
       "WorkInProgressDescription": "Descripción / Resumen en curso",
       "AIC": {
-        "Description": "WIP, Un Workflow Desantendido sin pantalla pensado para importar ficheros PMX y VRM."
+        "description": "Un pipeline en desarrollo, de tipo «headless» (sin interfaz gráfica), para la importación automatizada de recursos PMX y VRM."
       },
       "VRM2OpenUSD": {
-        "Description": "WIP: Procedimiento desde archivos VRM a OpenUSD"
+        "description": "Un conversor en C++ —actualmente en desarrollo— que sirve de puente entre avatares VRM 1.0 y flujos de trabajo de activos basados ​​en OpenUSD."
       },
       "libnfc": {
-        "Description": "Una biblioteca de lectores NFC Cross Engine (Unity, Godot"
+        "description": "Una biblioteca NFC en C++ compatible con varios motores, que ofrece una API compartida para Unreal Engine, Unity y Godot."
+      },
+      "Castanets": {
+        "description": "Un sistema de control para juegos de ritmo basado en ESP32, que utiliza ESP-NOW para la comunicación inalámbrica entre un nodo central y controladores satélite."
       }
     },
     "tools": {
       "PGL": {
-        "Description": "Un lanzador de juegos según el periferico/pincho."
+        "description": "Un lanzador de juegos activado por hardware que utiliza un dispositivo USB o un periférico personalizado para iniciar juegos."
       },
       "TranslationMissing": "(Contenido antiguo) Resumen pendiente de revisión",
       "WorkInProgressDescription": "Descripción / Resumen en curso"
@@ -67,13 +67,10 @@
       "showall": "Mostrar todo"
     }
   },
-  "VRProject": {
-    "Description": "Mi Primer Gran Proyecto"
-  },
   "Guestbook": {
     "Name": "Name/Nickname",
     "LinkedinLink": "Linkedin Link",
-    "Description": "Mensaje",
+    "description": "Mensaje",
     "Submit": "Enviar",
     "update": "Actualizar",
     "Loading": "Cargando"
@@ -95,87 +92,107 @@
       "SanFernando": "San Fernando, España"
     },
     "Jobs": {
-      "Abance": {
-        "csharpdev": {
-          "Description": "Debido a una reestructuración de la Empresa, el proyecto anterior fue suspendido y soy de los pocos que permanece en la empresa debido a mis conocimientos generales de programación.",
+      "viewnext": {
+        "websphere": {
           "bulletpoints": {
-            "DotNetConsultant": "Consultor de ecosistemas .NET (migración de arquitectura)",
-            "ExcelParser": "Desarrollo de Analizadores de Excel (OpenXML) al Formato S1000D",
-            "HTMLScrapper": "Scrapper/Convertidor HTML a formato S1000D",
-            "MultimediaConverter": "Convertidor multimedia multiproceso automatizado",
-            "UnitTestDesigner": "Diseñador de automatización de pruebas"
-          }
-        },
-        "unreal": {
-          "bulletpoints": {
-            "qtTools": "Creacion de herramientas de automatizacion de procesamiento de contenido en QT y optimizaciones multiproceso)",
-            "importOptimizations": "Optimizaciones al Importar de Assets (de 40 minutos a 10 minutos)",
-            "Networking": "Multiusuario/Multijugador/Redes (replicación)",
-            "accesibility": "Opciones de accesibilidad",
-            "buildPipeline": "Pipeline de compilaciones desatendidas (compilaciones de servidor incluidas)",
-            "features": "Herramientas personalizadas en el juego (compatibles con múltiples usuarios)",
-            "ioOptimization": "Optimización de E/S (reducción de 10-15 minutos a unos pocos segundos en carga)",
-            "pythonAuto": "Automatización de Python (commandlet y en el editor)"
-          },
-          "Description": "Desarrollo, Optimizaciones de un Visor de Modelos 3D VR realizado con Unreal Engine 5.1 y actualizando a 5.3, Suspendido por reestructuración empresarial y reordenamiento de prioridades"
-        },
-        "nextjs": {},
-        "nextreact": {
-          "bulletpoints": {
-            "AbanceReact": "Una versión rehecha de Abance Web en React (algunos trucos de PHP y .htaccess) migró desde Wordpress.",
-            "Magallanes": "Una base de datos interna para ILS"
-          },
-          "description": "Desarrollo de diversos proyectos internos."
-        },
-        "wordpress": {
-          "bulletpoints": {
-            "animations": "Mejorar animaciones",
-            "content": "Actualizar contenido",
-            "redesign": "Rediseñar el sitio web de la página principal."
-          },
-          "Description": "mantenedor"
-        },
-        "e park": {
-          "description": "Desarrollador de comunicación para el proyecto USV (Vehículo de superficie no tripulado) de Navantia: e-Park para el mantenimiento de energía eólica marina, subvencionado por la Unión Europea."
-        },
-        "cppusv": {
-          "bulletpoints": {
-            "Bridge": "Una pasarela Zeromq-DDS para el sonar. (con paradigma de Request-Reply)",
-            "Deploy": "Modificacion completa de los scripts de build & desplieuge  (para varios modulos) para pre-produccion y produccion.",
-            "Porting": "BackPortear software actualizado para sistemas no soportados",
-            "Simulators": "Desarrollo de dos simuladores (GPS, Waterspeed) a través de NMEA, DIS y un protocolo privativo"
-          }
-        }
-      },
-      "itixo": {
-        "backend": {
-          "Description": "Creación, diseño, refactorización y mantenimiento de Software y pruebas unitarias en .NET Framework, Tareas de refactorización y migración a .NET Standard/Core para proyectos antiguos y nuevos",
-          "bulletpoints": {
-            "azure": "Creación de Software para Plataforma Azure",
-            "graphs": "Desarrollo de herramientas para visualización de gráficos de ventas en la parte de administración web.",
-            "monitoring": "Desarrollo de servicios/demonios modulares de monitorización y alarma.",
-            "refactoring": "Tareas de refactorización.",
-            "tests": "Creación y Diseño de Pruebas Unitarias para proyectos antiguos y nuevos."
+            "enterpriseIntegrationFlows": "Worked with IBM WebSphere Message Broker to develop and maintain integration flows between enterprise systems.",
+            "enterpriseMessagingPatterns": "Gained practical experience with SOAP-based web services and enterprise messaging patterns, including publish-subscribe communication.",
+            "ibmMiddlewareDevelopment": "Implemented integration logic and message processing using ESQL and the IBM WebSphere ecosystem.",
+            "enterpriseDevelopmentTooling": "Used IBM Jazz for work-item tracking and enterprise software development process management."
           }
         }
       },
       "knowledgemill": {
         "webapp": {
-          "Description": "Rehecho una aplicación web originalmente creada con Microsoft Silverlight a Node.js con ingeniería inversa de API REST (por falta de documentación)",
-          "improvements": "Mejorar la aplicación web que ofrece soporte e integración del servicio Microsoft Exchange como otros productos más nuevos de la empresa.",
-          "redesign": "Rediseñar la portada",
-          "rpm": "Embalaje RPM y configuración init.d"
+          "description": "Modernización de una aplicación web heredada desarrollada originalmente con Microsoft Silverlight, continuando su migración a Node.js e integrándola con API REST existentes y servicios de Microsoft Exchange.",
+          "bulletpoints": {
+            "legacyApplicationModernization": "Modernización de aplicaciones heredadas: Continuación de la migración de una aplicación web basada en Silverlight mediante Node.js, JavaScript, Express.js y API REST existentes.",
+            "apiReverseEngineering": "Ingeniería inversa de API: Análisis del comportamiento de API REST sin documentación mediante Fiddler e inspección del tráfico de red, con el fin de comprender las integraciones existentes y facilitar el desarrollo de la aplicación.",
+            "exchangeIntegration": "Integración con Microsoft Exchange: Implementación de funcionalidades de gestión del correo electrónico mediante la API administrada de Exchange Web Services (EWS), adaptando la aplicación para integrarla con las versiones más recientes de los productos de la empresa.",
+            "frontendDevelopment": "Desarrollo frontend: Rediseño de la página principal de la aplicación e implementación de funcionalidades de interfaz web mediante JavaScript, HTML, CSS y Bootstrap.",
+            "linuxBuildDeploymentAutomation": "Automatización de compilación y despliegue: Creación de scripts para generar paquetes RPM y configuración de servicios mediante `init.d` para facilitar el despliegue en sistemas Linux."
+          }
         }
       },
-      "Ghenova": {
-        "defence": {
-          "description": "Para Navantia - Proyecto de Defensa (Serie F110 y relacionados)"
-        },
-        "cpp": {
+      "itixo": {
+        "backend": {
+          "description": "Modernización y mantenimiento de aplicaciones C#/.NET para una empresa británica del sector de venta de entradas para espectáculos teatrales, trabajando en remoto como desarrollador de software freelance.",
           "bulletpoints": {
-            "ServerManagementAndMonitoring": "Trabajar en sistemas de visualización y seguimiento en tiempo real para proyectos de defensa naval.",
-            "terminal": "Trabajo en Gestión de Terminales de Control y terminales propiamente dichos.",
-            "video": "Trabaje en Workflows de vídeo de múltiples fuentes y rendimiento a nivel de sistema."
+            "dotnetModernization": "Modernización de .NET: Refactorización y migración de código heredado de .NET Framework a .NET Standard y .NET Core, resolviendo problemas de compatibilidad y carencias funcionales entre versiones del framework.",
+            "modularArchitecture": "Arquitectura modular: Diseño y desarrollo de componentes modulares mediante inyección de dependencias y la arquitectura de plugins del framework Prism.",
+            "codeQualityAndTesting": "Calidad del código y pruebas: Aplicación de estándares de codificación y reglas de análisis estático, refactorización de código heredado e implementación de pruebas unitarias en proyectos existentes y nuevos.",
+            "businessMonitoringAndAlerting": "Monitorización y alertas de negocio: Desarrollo de servicios en segundo plano y procesos residentes modulares para supervisar procesos de negocio y gestionar alertas.",
+            "azureDevelopment": "Microsoft Azure: Desarrollo de aplicaciones y servicios para la plataforma Azure.",
+            "salesReportingAndVisualization": "Informes y visualización de datos: Desarrollo de herramientas web para visualizar estadísticas de ventas mediante ASP.NET clásico, JavaScript nativo y gráficos interactivos.",
+            "developerToolingAndCodeGeneration": "- Herramientas de desarrollo: Gestión de paquetes mediante NuGet y generación automatizada de código mediante plantillas T4."
+          }
+        }
+      },
+      "abance": {
+        "csharpdev": {
+          "description": "Desarrollo de herramientas de software internas y flujos de procesamiento de datos para proyectos de ingeniería y documentación técnica.",
+          "bulletpoints": {
+            "s1000dAutomation": "Desarrollo de herramientas en C#/.NET para la transformación de XML, la extracción de datos web y la automatización de procesos de documentación conforme al estándar S1000D.",
+            "officeDocumentProcessing": "Integración del procesamiento de hojas de cálculo Excel y documentos de Office mediante OpenXML.",
+            "applicationQualityAndRefactoring": "Mejora de aplicaciones existentes mediante pruebas unitarias, refactorización de código y automatización de flujos de procesamiento.",
+            "crossProcessIntegration": "Desarrollo de funcionalidades backend reutilizables e investigación de mecanismos de integración entre procesos mediante gRPC y Protocol Buffers.",
+            "softwareArchitectureAndTechnologyDecisions": "Participación en decisiones de arquitectura de software y selección de tecnologías para aplicaciones de escritorio y web."
+          }
+        },
+        "unreal": {
+          "description": "Desarrollo de una herramienta colaborativa de visualización de buques para flujos de trabajo de ingeniería, utilizando Unreal Engine 5.",
+          "bulletpoints": {
+            "multiplayerReplication": "Desarrollo de funcionalidades multijugador y replicación de datos en red para permitir el trabajo colaborativo.",
+            "assetPipelineOptimization": "Optimización de los procesos de entrada/salida e importación de recursos, reduciendo la carga parcial de escenas de 10–15 minutos a unos pocos segundos y el tiempo de importación completa de aproximadamente 40 a 10 minutos.",
+            "automatedBuildPipelines": "Desarrollo de procesos automatizados de compilación de Unreal Engine para clientes y servidores dedicados, incluidas compilaciones desatendidas.",
+            "editorAutomationTooling": "Desarrollo de herramientas de automatización del editor mediante Python, Commandlets y utilidades internas.",
+            "qtContentProcessingIntegration": "Integración de herramientas de escritorio Qt/C++ con flujos automatizados de procesamiento de contenidos.",
+            "nativeCppOptimization": "Implementación de funcionalidades en C++ para mejorar el rendimiento y reducir la dependencia de la lógica basada en Blueprints."
+          }
+        },
+        "wordpress": {
+          "description": "Mantenimiento y actualización de la web corporativa en WordPress, trabajando con una infraestructura heredada condicionada por plugins obsoletos, limitaciones de licencias y un editor visual básico.",
+          "bulletpoints": {
+            "wordpressMaintenance": "Mantenimiento del sitio web y actualización de contenidos dentro de las limitaciones del entorno WordPress existente.",
+            "legacyPluginTroubleshooting": "Diagnóstico y resolución de problemas de compatibilidad derivados de plugins heredados y componentes de terceros.",
+            "websiteModernizationAssessment": "Evaluación de alternativas de modernización para mejorar la mantenibilidad, el rendimiento y la flexibilidad a largo plazo."
+          }
+        },
+        "nextreact": {
+          "description": "Desarrollo de aplicaciones web y modernización de infraestructuras web heredadas mediante TypeScript, React y Next.js, abarcando desarrollo frontend, integración backend y arquitectura de aplicaciones.",
+          "bulletpoints": {
+            "wordpressToNextMigration": "Migración de WordPress a Next.js: Reconstrucción de la web corporativa con React y Next.js, sustituyendo la infraestructura heredada de WordPress por un sitio web generado estáticamente para reducir el procesamiento en servidor y los requisitos de alojamiento.",
+            "multilingualRouting": "Navegación multilingüe y gestión de URL heredadas: Implementación de detección automática del idioma del navegador mediante la cabecera HTTP Accept-Language, junto con reglas de reescritura y redirecciones en Apache .htaccess para facilitar la navegación multilingüe y mantener la compatibilidad con las URL existentes.",
+            "customPhpIntegration": "Integración personalizada con PHP: Adaptación de código PHP para gestionar el envío de currículums y la entrega de correos electrónicos, manteniendo los procesos de selección dentro de las limitaciones del alojamiento heredado.",
+            "fullStackApplication": "Desarrollo de aplicaciones full-stack: Diseño e implementación de una aplicación CRUD para gestionar datos estructurados y procesos de negocio.",
+            "crossPlatformBackendIntegration": "Integración de backends multiplataforma: Integración de aplicaciones Node.js con funcionalidades existentes en C#/.NET mediante gRPC y Protocol Buffers, facilitando la reutilización de código entre aplicaciones web y de escritorio.",
+            "frontendEngineering": "Desarrollo frontend: Creación de interfaces interactivas y componentes reutilizables con React, TypeScript y Flowbite React, incluidos componentes de formularios personalizados.",
+            "codeQuality": "Calidad del código: Aplicación de criterios homogéneos de análisis estático y formato mediante ESLint, Prettier y reglas compartidas de estilo de código."
+          }
+        },
+        "cppusv": {
+          "description": "Desarrollo de software de comunicaciones para un vehículo de superficie no tripulado (USV), destinado a apoyar las tareas de mantenimiento de parques eólicos marinos.",
+          "bulletpoints": {
+            "navigationAndSensorSimulators": "Implementación de dos simuladores para datos GPS y de velocidad sobre el agua, utilizando NMEA, DIS y protocolos propietarios.",
+            "zeromqDdsBridge": "Desarrollo de un puente de comunicación ZeroMQ–DDS para sistemas de sonar, mediante un patrón de mensajería de solicitud y respuesta (request–reply).",
+            "heterogeneousSystemIntegration": "Integración de sistemas heterogéneos mediante Qt/C++ y Protocol Buffers.",
+            "buildAndDeploymentModernization": "Reestructuración y mejora de scripts de compilación y despliegue para múltiples módulos, dando soporte a entornos de preproducción y producción.",
+            "timeConstrainedDelivery": "Implementación de funcionalidades esenciales de comunicación en un plazo de dos meses, contribuyendo al cumplimiento de los plazos del proyecto."
+          }
+        }
+      },
+      "ghenova": {
+        "cpp": {
+          "description": "Ingeniero de software especializado en desarrollo C++ para sistemas distribuidos, monitorización de infraestructura, aplicaciones embebidas e interfaces de control operativo.",
+          "bulletpoints": {
+            "infrastructureMonitoring": "Diseño e implementación de soluciones de monitorización de infraestructura, incluyendo almacenamiento SAN, equipos de red, sensores IPMI y componentes hardware.",
+            "monitoringPlatformEvolution": "Evolución de plataformas de monitorización mediante desarrollo backend y frontend, visualización de métricas de rendimiento, gestión de eventos y capacidades avanzadas de diagnóstico.",
+            "reliabilityAndAuditing": "Implementación de mecanismos de fiabilidad, supervisión del estado de servicios, gestión de alarmas y trazabilidad de operaciones.",
+            "stabilityAndMaintainability": "- Mejora de la estabilidad y mantenibilidad del software mediante resolución de problemas de memoria, optimización de recursos, refactorización y modernización de herramientas de compilación.",
+            "platformMigration": "Migración y adaptación de aplicaciones a nuevas versiones de Linux y middleware, incluyendo RHEL 8.10 y RTI DDS.",
+            "hmiModernization": "Desarrollo y modernización de aplicaciones HMI con Qt/QML, mejorando la usabilidad, la adaptación a distintas resoluciones y el rendimiento de las interfaces.",
+            "videoWallSystems": "Desarrollo de software para sistemas de gestión remota de videowalls, incluyendo coordinación de layouts de visualización, programación de contenidos y grabaciones, reproducción multimedia, supervisión del estado de los flujos de vídeo y detección de fallos.",
+            "softwareLifecycle": "Participación en el ciclo completo de desarrollo de software, desde el análisis de requisitos hasta las pruebas, el diagnóstico de incidencias y la colaboración técnica."
           }
         }
       }
