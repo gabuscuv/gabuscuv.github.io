@@ -63,6 +63,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          cp output/cv/*.pdf public/cv/
 
           echo "Generated CVs:"
           ls -lh public/cv/*.pdf
