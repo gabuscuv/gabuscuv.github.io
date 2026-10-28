@@ -16,7 +16,7 @@
     "prepare": "npm run compile",
     "pretest": "npm run compile",
     "posttest": "npm run lint",
-    "cv:pdf": "node --import tsx tools/generate-cv.tsx"
+    "cv": "node --import tsx tools/generate-cv.tsx"
   },
   "dependencies": {
     "@mdx-js/loader": "^3",

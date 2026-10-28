@@ -12,7 +12,6 @@ import {
   EducationType,
   JobTypeEnum,
   TalksType,
-  type JobsType,
 } from '@/src/data/Resume';
 
 import {OnGoingValue} from '@/src/utils/dates';
@@ -38,7 +37,7 @@ type ResumePdfProps = {
   education: EducationType[];
   contacts: Array<social>
   name: string;
-  summary: Record<Locale, string>;
+  summary: string;
 };
 
 const labels: Record<
@@ -219,7 +218,7 @@ export function ResumePdf({
         ))}
       </View>
         <Text style={styles.summary}>
-          {summary[locale]}
+          {summary}
         </Text>
         {experience.companies.length > 0 &&
           <WorkExperienceSection t={t} locale={locale} role={role} experience={experience} />

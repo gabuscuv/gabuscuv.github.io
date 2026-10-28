@@ -28,8 +28,6 @@ const roles: Record<string, JobTypeEnum> = {
   Lite: JobTypeEnum.Lite
 };
 
-const allRoles = Object.values(roles);
-
 const summaries: Record<JobTypeEnum, Record<Locale, string>> = {
   [JobTypeEnum.All]: {
     en: 'Software developer experienced in C++, C#, desktop and backend systems, and real-time interactive applications.',
@@ -159,7 +157,7 @@ async function generateResume(
   );
 
   const filename =
-    output ?? `resume-${roleName.toLowerCase()}-${locale}.pdf`;
+    output ?? `${locale == 'en' ? "resume" : "cv"}-BustilloDelCuvilloGabriel-${roleName.toLowerCase()}-${locale}.pdf`;
 
   // Only accept a filename, not a path.
   if (
@@ -169,7 +167,7 @@ async function generateResume(
     throw new Error('--output must be a filename ending in .pdf');
   }
 
-  const outputDir = path.resolve('dist/cv');
+  const outputDir = path.resolve('output/cv');
 
   await mkdir(outputDir, { recursive: true });
 
