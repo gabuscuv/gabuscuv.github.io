@@ -97,7 +97,7 @@ export default function ProjectBrowser(props: {
           );
         })
         .filter(project =>
-          [...filterStack].every(fs => project.stack.includes(fs)),
+          [...filterStack].every(fs => project.techStack.includes(fs)),
         )
         .toSorted((a, b) => b.year - a.year)
         .toSorted(

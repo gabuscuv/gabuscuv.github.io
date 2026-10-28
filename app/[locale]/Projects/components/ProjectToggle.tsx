@@ -67,13 +67,15 @@ export function _ButtonGroup(props: {
     props.callback(props.projectTypeFilter, !props.showHiddenProjects);
   }
 
-  return (
-    <>
-      <div className="self-center flex flex-col md:flex-row relative top-4 place-self-center">
-        <ButtonGroup className="overflow-x-scroll w-5/6 md:w-full" outline>
+
+return (
+  <div className="flex w-full justify-center px-4 py-4">
+    <div className="flex max-w-full items-center justify-center gap-3">
+      <div className="min-w-0 overflow-x-auto">
+        <ButtonGroup outline className="w-max whitespace-nowrap">
           {props.projectCatTypes.map(e => (
             <Button
-              key={e.DisplayName + 'Button'}
+              key={`${e.idName}-button`}
               color={
                 getStatusValue(props.projectTypeFilter, e.enum)
                   ? props.config.primaryColor
@@ -93,17 +95,16 @@ export function _ButtonGroup(props: {
             </Button>
           ))}
         </ButtonGroup>
-        <ButtonGroup className="pl-5">
-          <Button
-            color={props.showHiddenProjects ? 'pink' : 'gray'}
-            outline={!props.showHiddenProjects}
-            className="margin-5"
-            onClick={setShowHiddenProject}
-          >
-            {props.config.showAllLabel}
-          </Button>
-        </ButtonGroup>
       </div>
-    </>
-  );
+      <Button
+        className="shrink-0"
+        color={props.showHiddenProjects ? 'pink' : 'gray'}
+        outline={!props.showHiddenProjects}
+        onClick={setShowHiddenProject}
+      >
+        {props.config.showAllLabel}
+      </Button>
+    </div>
+  </div>
+);
 }

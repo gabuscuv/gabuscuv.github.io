@@ -1,4 +1,3 @@
-import {getYearLapse} from '@/src/utils/dates';
 import {Certificate} from './components/CertificateComponent';
 import {Education} from './components/EducationComponent';
 import {ResumeSection} from './components/layout/ResumeSection';
@@ -7,6 +6,7 @@ import {JobTypeEnum, ResumeType} from '@/src/data/Resume';
 import {ReactNode} from 'react';
 import {Talks} from './components/TalksComponent';
 import {useTranslations} from 'next-intl';
+import {getCodingTimeSinceFirstJob, getCurrentWorkTime} from '@/src/utils/resumeUtils';
 
 export function MainResumeBody(props: {
   locale: string;
@@ -18,28 +18,8 @@ export function MainResumeBody(props: {
   return (
     <div>
       <ResumeSection title={t('TechExperience')}>
-        <p>
-          {t('Work Experience')}:{' '}
-          {(
-            props.resume.Jobs.map(
-              e =>
-                ((e.EndDate !== 0 ? e.EndDate : Date.now()) - e.StartDate) /
-                1000,
-            ).reduce((a, b) => a + b) / 31536000
-          ).toFixed(2) +
-            ' ' +
-            t('years')}
-        </p>
-        <p>
-          {t('Coding Experience')}
-          {': '}
-          {getYearLapse(
-            props.resume.Jobs[props.resume.Jobs.length - 1].StartDate,
-            Date.now(),
-          ) +
-            ' ' +
-            t('years')}
-        </p>
+        <p>{t('Work Experience')}:{' '}{getCurrentWorkTime(props.resume.Jobs) + ' ' +t('years')}</p>
+        <p>{t('Coding Experience')}{': '}{getCodingTimeSinceFirstJob() + ' ' +t('years')}</p>
       </ResumeSection>
       <WorkExperience
         locale={props.locale}

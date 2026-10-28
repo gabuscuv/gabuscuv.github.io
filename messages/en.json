@@ -11,9 +11,9 @@
   },
   "CommonWords": {
     "years": "Years",
-    "OnGoing": "On-Going",
+    "OnGoing": "Present",
+    "Projects": "Projects",
     "Work Experience": "Work Experience",
-    "WorkExperience": "Work Experience",
     "Coding Experience": "Coding Experience",
     "Education": "Education",
     "Certificates": "Certificates",
@@ -29,46 +29,43 @@
   "Projects": {
     "gameProjects": {
       "VRProject": {
-        "Description": "My First Big Project"
+        "description": "A narrative-driven VR mystery game built with Unreal Engine and OpenXR."
       },
       "TestingGround": {
-        "Description": "An Improved Exercise"
+        "description": "A third-person Unreal Engine project exploring gameplay mechanics,  and level design."
       },
-      "WorkInProgressDescription": "Description / Summary in progress ",
-      "TranslationMissing": "(Old Content) Summary pending to review"
-    },
-    "TestingGround": {
-      "Description": "An improved version of an exercise"
+      "WorkInProgressdescription": "Project description coming soon.",
+      "TranslationMissing": "(Legacy content — description pending review)"
     },
     "gameTools": {
       "OXI": {
-        "Description": "A Highlight Button System for Unreal"
+        "description": "A reusable Unreal Engine plugin for highlighting interactive elements and controller inputs in VR."
       },
-      "WorkInProgressDescription": "Description / Summary in progress ",
-      "TranslationMissing": "(Old Content) Summary pending to review",
+      "WorkInProgressDescription": "Tool description coming soon.",
+      "TranslationMissing": "(Legacy content — description pending review)",
       "AIC": {
-        "Description": "WIP, An Unattended headless workflow oriented to Import PMX and VRM files."
+        "description": "A work-in-progress headless pipeline for automated PMX and VRM asset importing."
       },
       "libnfc": {
-        "Description": "A Cross Engine NFC Reader Library (Unity, Godot & Unreal)"
+        "description": "A cross-engine C++ NFC library providing a shared API for Unreal Engine, Unity and Godot."
       },
       "VRM2OpenUSD": {
-        "Description": "WIP - Pipeline from VRM Files to OpenUSD"
+        "description": "A work-in-progress C++ converter bridging VRM 1.0 avatars and OpenUSD-based asset pipelines."
+      },
+      "Castanets": {
+        "description": "An ESP32-based rhythm-game controller system using ESP-NOW for wireless communication between a central hub and satellite controllers."
       }
     },
     "tools": {
       "PGL": {
-        "Description": "A Dongle/Gadget-based Game Launcher"
+        "description": "A hardware-triggered game launcher that uses a USB dongle or custom gadget to launch games."
       },
-      "WorkInProgressDescription": "Description / Summary in progress ",
-      "TranslationMissing": "(Old Content) Summary pending to review"
+      "WorkInProgressDescription": "Tool description coming soon.",
+      "TranslationMissing": "(Legacy content — description pending review)"
     },
     "Types": {
       "showall": "Show All"
     }
-  },
-  "VRProject": {
-    "Description": "My First Big Project"
   },
   "Guestbook": {
     "Name": "Name/Nickname",
@@ -95,89 +92,107 @@
       "SanFernando": "San Fernando, Spain"
     },
     "Jobs": {
-      "Abance": {
-        "nextjs": {
-          "bulletpoints": {}
-        },
-        "csharpdev": {
-          "Description": "Due to the suspension of the previous project, My role changed as a support tools maker for ILS and I was one of the few who remained in the software dept company because of my general programming knowledge.",
+      "viewnext": {
+        "websphere": {
           "bulletpoints": {
-            "DotNetConsultant": ".NET Ecosystem Consultant ( architecture migration)",
-            "MultimediaConverter": "Automatized Multiprocess Multimedia Converter",
-            "ExcelParser": "Development of Excel Parsers (OpenXML) to S1000D Format",
-            "HTMLScrapper": "HTML Scrapper/Converter to S1000D Format",
-            "UnitTestDesigner": "Testing Automatization Designer"
-          }
-        },
-        "unreal": {
-          "Description": "Development, Optimizations of a VR 3D Model Viewer made with Unreal Engine 5.1 and upgrading to 5.3, Suspended due a business restructuring and reordering of priorities",
-          "bulletpoints": {
-            "ioOptimization": "I/O Optimization (reduction of 10-15 Min to a few seconds On Load)",
-            "pythonAuto": "Python Automatization (Commandlet and In-Editor)",
-            "accesibility": "Accessibility Options",
-            "importOptimizations": "Import Asset Optimizations (from 40 minutes to 10 minutes)",
-            "qtTools": "Automatized Content Build Pipeline with QT tools",
-            "Networking": "Multi-User/Multiplayer/Networking (replication)",
-            "buildPipeline": "Unattended builds pipeline (Server builds included)",
-            "features": "In-Game Customs Tools (Multi-User Supported)"
-          }
-        },
-        "wordpress": {
-          "Description": "Maintainer & Supervisor of Abance Web",
-          "bulletpoints": {
-            "content": "Update Content",
-            "redesign": "Redesign the frontpage website",
-            "animations": "Improve animations"
-          }
-        },
-        "nextreact": {
-          "bulletpoints": {
-            "AbanceReact": "A remade version of Abance Web in React (+ some PHP and .htaccess tricks) migrated from Wordpress.",
-            "Magallanes": "An Internal Database for ILS"
-          },
-          "description": "Development of various internal projects"
-        },
-        "e park": {
-          "description": "Communication Developer for USV (Unmanned surface vehicle) Navantia's project: e-Park for the maintenance of offshore wind, subsidized by the European Union."
-        },
-        "cppusv": {
-          "bulletpoints": {
-            "Simulators": "Development of two simulators (GPS, WaterSpeed) via NMEA, DIS & a private protocol.",
-            "Bridge": "A ZeroMQ-DDS Bridge for the Sonar. (with Request-Reply Paradigm)",
-            "Deploy": "Overhaul of build & deployment scripts (for various modules) for pre-production & production.",
-            "Porting": "BackPorting updated software for unsupported Operative Systems"
-          }
-        }
-      },
-      "itixo": {
-        "backend": {
-          "Description": "Creation, design, refactoring and maintenance of Software and unit tests in .NET Framework, Refactoring and migration tasks to .NET Standard/Core for old and new projects",
-          "bulletpoints": {
-            "monitoring": "Development of modular monitoring and alarm services/daemons",
-            "graphs": "Development of tools for displaying sales graphics in the web administration side.",
-            "azure": "Creation of Software for Azure Platform",
-            "refactoring": "Refactoring Tasks.",
-            "tests": "Creation and Design of Unit Tests for old and new projects"
+            "enterpriseIntegrationFlows": "Worked with IBM WebSphere Message Broker to develop and maintain integration flows between enterprise systems.",
+            "enterpriseMessagingPatterns": "Gained practical experience with SOAP-based web services and enterprise messaging patterns, including publish-subscribe communication.",
+            "ibmMiddlewareDevelopment": "Implemented integration logic and message processing using ESQL and the IBM WebSphere ecosystem.",
+            "enterpriseDevelopmentTooling": "Used IBM Jazz for work-item tracking and enterprise software development process management."
           }
         }
       },
       "knowledgemill": {
         "webapp": {
-          "Description": "Remade a Web Application originally made with Microsoft Silverlight to Node.js with REST API reverse engineering (because lack of documentation)",
-          "improvements": "Improving WebApp offering Microsoft Exchange Service Support and Integration like other newer Company’s products.",
-          "redesign": "Redesign Front Page",
-          "rpm": "RPM Packing and init.d configuration"
+          "description": "Modernised a legacy web application originally built with Microsoft Silverlight, continuing its migration to Node.js and integrating it with existing REST APIs and Microsoft Exchange services.",
+          "bulletpoints": {
+            "legacyApplicationModernization": "Continued the redevelopment of a legacy Silverlight-based web application using Node.js, JavaScript, Express.js and existing REST APIs.",
+            "apiReverseEngineering": "Investigated undocumented REST API behaviour using Fiddler and network traffic analysis to understand existing integrations and support application development.",
+            "exchangeIntegration": "Implemented email management functionality using the Exchange Web Services (EWS) Managed API, aligning the application with the company's newer products.",
+            "frontendDevelopment": "Redesigned the application's landing page and implemented web interface functionality using JavaScript, HTML, CSS and Bootstrap.",
+            "linuxBuildDeploymentAutomation": "Created RPM packaging scripts and configured init.d services to support application deployment on Linux systems."
+          }
         }
       },
-      "Ghenova": {
-        "defence": {
-          "description": "For Navantia - Defence Project (F110 Series and Related)"
-        },
-        "cpp": {
+      "itixo": {
+        "backend": {
+          "description": "Modernised and maintained C#/.NET applications for a UK-based theatre ticketing business, working remotely as a freelance software developer.",
           "bulletpoints": {
-            "video": "Work on multi-source video pipelines and system-level performance.",
-            "terminal": "Work on Control Terminal Management and terminals itself.",
-            "ServerManagementAndMonitoring": "Work on real-time visualization and monitoring systems for naval defense projects."
+            "dotnetModernization": ".NET modernisation: Refactored and migrated legacy code from .NET Framework to .NET Standard and .NET Core, addressing compatibility issues and missing framework functionality.",
+            "modularArchitecture": "Designed and developed modular application components using dependency injection and the Prism framework's plugin architecture.",
+            "codeQualityAndTesting": "Applied coding standards and linting rules, refactored legacy code, and implemented unit tests for existing and new projects.",
+            "businessMonitoringAndAlerting": "Developed modular background services and daemons for monitoring business processes and managing alarms.",
+            "azureDevelopment": "Developed applications and services for the Microsoft Azure platform.",
+            "salesReportingAndVisualization": "Built web-based sales statistics tools using classic ASP.NET, vanilla JavaScript and chart visualisations.",
+            "developerToolingAndCodeGeneration": "Used NuGet for package management and T4 templates for code generation."
+          }
+        }
+      },
+      "abance": {
+        "csharpdev": {
+          "description": "Developed internal software tools and data-processing workflows across engineering and technical documentation projects.",
+          "bulletpoints": {
+            "s1000dAutomation": "Developed C#/.NET tools for XML transformation, web data extraction and automated S1000D documentation workflows.",
+            "officeDocumentProcessing": "Integrated Excel and Office document processing using OpenXML.",
+            "applicationQualityAndRefactoring": "Improved existing applications through unit testing, code refactoring and automated processing pipelines.",
+            "crossProcessIntegration": "Developed reusable backend functionality and investigated cross-process integration using gRPC and Protocol Buffers.",
+            "softwareArchitectureAndTechnologyDecisions": "Contributed to software architecture and technology decisions across desktop and web applications."
+          }
+        },
+        "unreal": {
+          "description": "Developed a collaborative ship visualisation vr tool for engineering workflows using Unreal Engine 5.",
+          "bulletpoints": {
+            "multiplayerReplication": "Developed multiplayer functionality and network replication to support collaborative engineering workflows.",
+            "assetPipelineOptimization": "Optimised asset I/O and import pipelines, reducing partial scene loading from 10–15 minutes to seconds and full scene imports from approximately 40 to 10 minutes.",
+            "automatedBuildPipelines": "Built automated Unreal Engine build pipelines for client applications and dedicated servers, including unattended builds.",
+            "editorAutomationTooling": "Developed Python-based editor automation, Unreal Engine Commandlets and internal development tools.",
+            "qtContentProcessingIntegration": "Integrated Qt/C++ desktop tools with automated content-processing workflows.",
+            "nativeCppOptimization": "Implemented native C++ functionality to improve performance and reduce reliance on Blueprint-based logic."
+          }
+        },
+        "wordpress": {
+          "description": "Maintained and updated the corporate WordPress website, working with a legacy setup constrained by outdated plugins, licensing limitations and a basic visual page builder.",
+          "bulletpoints": {
+            "wordpressMaintenance": "Maintained the corporate WordPress website and updated content within the limitations of the existing environment.",
+            "legacyPluginTroubleshooting": "Troubleshot compatibility issues and limitations involving legacy WordPress plugins and third-party components.",
+            "websiteModernizationAssessment": "Evaluated website modernisation options to improve maintainability, performance and long-term flexibility."
+          }
+        },
+        "nextreact": {
+          "description": "Developed web applications and modernised legacy web infrastructure using TypeScript, React and Next.js, covering frontend development, backend integration and application architecture.",
+          "bulletpoints": {
+            "wordpressToNextMigration": "Rebuilt the corporate website using React and Next.js, replacing a legacy WordPress setup with a statically generated website to reduce server-side processing and hosting requirements.",
+            "multilingualRouting": "Implemented browser language detection using the Accept-Language HTTP header and configured Apache .htaccess rewrite rules and redirects to support multilingual navigation and preserve access to legacy URLs.",
+            "customPhpIntegration": "Adapted PHP code to handle CV submissions and email delivery, maintaining recruitment workflows within the constraints of the legacy hosting environment.",
+            "fullStackApplication": "Designed and implemented a CRUD application for managing structured data and business workflows.",
+            "crossPlatformBackendIntegration": "Integrated Node.js applications with existing C#/.NET functionality through gRPC and Protocol Buffers, enabling code reuse across web and desktop applications.",
+            "frontendEngineering": "Built interactive interfaces and reusable components using React, TypeScript and Flowbite React, including custom form components.",
+            "codeQuality": "Applied consistent linting and formatting conventions using ESLint, Prettier and shared code-style rules."
+          }
+        },
+        "cppusv": {
+          "description": "Developed communication software for an unmanned surface vehicle (USV) supporting offshore wind farm maintenance.",
+          "bulletpoints": {
+            "navigationAndSensorSimulators": "Implemented GPS and water-speed data simulators using NMEA, DIS and proprietary protocols.",
+            "zeromqDdsBridge": "Developed a ZeroMQ–DDS bridge for sonar communications using a request–reply messaging pattern.",
+            "heterogeneousSystemIntegration": "Integrated heterogeneous systems using Qt/C++ and Protocol Buffers.",
+            "buildAndDeploymentModernization": "Overhauled build and deployment scripts across multiple modules to support pre-production and production environments.",
+            "timeConstrainedDelivery": "Delivered core communication functionality within a two-month development window, contributing to on-time project delivery."
+          }
+        }
+      },
+      "ghenova": {
+        "cpp": {
+          "description": "Software Engineer specializing in C++ development for distributed systems, infrastructure monitoring, embedded applications, and operational control interfaces.",
+          "bulletpoints": {
+            "infrastructureMonitoring": "Designing and implementing infrastructure monitoring solutions for SAN storage, network equipment, IPMI sensors, and hardware components.",
+            "monitoringPlatformEvolution": "Evolving monitoring platforms through backend and frontend development, performance visualization, event management, and advanced diagnostic capabilities.",
+            "reliabilityAndAuditing": "Implementing reliability mechanisms, service health monitoring, alarm management, and operational audit trails.",
+            "stabilityAndMaintainability": "Improving software stability and maintainability through memory management fixes, resource optimization, architectural refactoring, and build system modernization.",
+            "platformMigration": "Migrating and adapting software to updated Linux platforms and middleware, including RHEL 8.10 and RTI DDS.",
+            "hmiModernization": "Developing and modernizing Qt/QML/QWidgets HMI applications, focusing on responsive interfaces, usability, and performance across different display configurations.",
+            "videoWallSystems": "Developing software for remotely managed video wall systems, including layout orchestration, scheduled content and recordings, multimedia playback, video stream health monitoring, and fault detection.",
+            "softwareLifecycle": "Supporting the full software development lifecycle through requirements analysis, testing, incident investigation, and technical collaboration."
           }
         }
       }
@@ -209,13 +224,13 @@
       "MemberOf": "Member Of:",
       "FavouriteMedia": "Favourite Media"
     },
-    "Paragraphs": {
-      "Paragraph1": "Hi! I’m Gabriel Bustillo del Cuvillo, a versatile IT professional and software developer from El Puerto de Santa Maria, Spain. With a background as an IT technician, I bring a wealth of knowledge and a hands-on approach to every project I undertake.",
-      "Paragraph2": "Since my childhood I had a special interest in Computer, I kind remember using DosBox to run Windows 3.1 when I was 8 y/o (in 2003!), Running Ubuntu 6.04 in an external HDD (one year later), Takedown Computers, helping to fix computers for family & friends, Opening Ports (for servers).",
-      "Paragraph3": "As a Jack-of-all-trades in IT, I thrive on tackling diverse challenges and continuously expanding my skill set. My journey in the tech world has seen me delve into various domains, from software development to IT support, always with a focus on delivering innovative solutions.",
-      "Paragraph4": "I specialize in full-stack development and am keenly interested in virtual reality (VR) game development. My portfolio includes a range of projects, such as a mystery VR game developed with Unreal Engine, various games developed with Unity, and several custom plugins and frameworks designed to enhance VR experiences.",
-      "Paragraph5": "I’m passionate about leveraging technology to create impactful and user-friendly applications. Whether it’s developing a new feature, optimizing existing systems, or exploring cutting-edge technologies, I am committed to excellence and continuous learning.",
-      "Paragraph6": "In my free time, you can find me exploring new tech trends, participating in GameJams, contributing to open-source projects, doing some improvisation in my guitars, making documentation about software history in Spain (2000s), or enjoying a game or anime."
-    }
+    "Paragraphs": [
+      "Hi! I’m Gabriel Bustillo del Cuvillo, a versatile IT professional and software developer from El Puerto de Santa Maria, Spain. With a background as an IT technician, I bring a wealth of knowledge and a hands-on approach to every project I undertake.",
+      "Since my childhood I had a special interest in Computer, I kind remember using DosBox to run Windows 3.1 when I was 8 y/o (in 2003!), Running Ubuntu 6.04 in an external HDD (one year later), Takedown Computers, helping to fix computers for family & friends, Opening Ports (for servers).",
+      "As a Jack-of-all-trades in IT, I thrive on tackling diverse challenges and continuously expanding my skill set. My journey in the tech world has seen me delve into various domains, from software development to IT support, always with a focus on delivering innovative solutions.",
+      "I specialize in full-stack development and am keenly interested in virtual reality (VR) game development. My portfolio includes a range of projects, such as a mystery VR game developed with Unreal Engine, various games developed with Unity, and several custom plugins and frameworks designed to enhance VR experiences.",
+      "I’m passionate about leveraging technology to create impactful and user-friendly applications. Whether it’s developing a new feature, optimizing existing systems, or exploring cutting-edge technologies, I am committed to excellence and continuous learning.",
+      "In my free time, you can find me exploring new tech trends, participating in GameJams, contributing to open-source projects, doing some improvisation in my guitars, making documentation about software history in Spain (2000s), or enjoying a game or anime."
+    ]
   }
 }

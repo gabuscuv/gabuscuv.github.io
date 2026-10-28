@@ -24,7 +24,7 @@ export default async function Project({params}): Awaited<ReactNode> {
         pick(messages, 'Projects')
       }
     >
-      <ProjectBrowser locale={locale} projects={await GetterProjects()} />
+      <ProjectBrowser locale={locale} projects={await GetterProjects(locale, messages)} />
     </NextIntlClientProvider>
   );
 }
