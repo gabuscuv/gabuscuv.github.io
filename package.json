@@ -54,7 +54,7 @@
     "eslint-config-next": "^16",
     "eslint-plugin-node": "^11",
     "eslint-plugin-prettier": "^5",
-    "gts": "^6",
+    "gts": "^7",
     "serve": "^14",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
