@@ -54,10 +54,10 @@ jobs:
           rm -f public/cv/*.pdf
 
       - name: Generate English CVs
-        run: yarn tsx tools/generate-resume.tsx
+        run: yarn cv
 
       - name: Generate Spanish CVs
-        run: yarn tsx tools/generate-resume.tsx --locale es
+        run: yarn cv --locale es
 
       - name: Copy CVs to Next.js public directory
         shell: bash
