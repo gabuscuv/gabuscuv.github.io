@@ -1,7 +1,7 @@
 {
   "HomePage": {
     "Greetings": "Hola!",
-    "description": "Soy Gabriel Bustillo del Cuvillo, un experto en TI, pero oficialmente soy desarrollador de software (y ex técnico de TI)"
+    "Description": "Soy Gabriel Bustillo del Cuvillo, un experto en TI, pero oficialmente soy desarrollador de software (y ex técnico de TI)"
   },
   "LocaleSwitcher": {
     "locale": "{locale, select, es {Español} en {Ingles} other {Unknown}}"
@@ -70,7 +70,7 @@
   "Guestbook": {
     "Name": "Name/Nickname",
     "LinkedinLink": "Linkedin Link",
-    "description": "Mensaje",
+    "Description": "Mensaje",
     "Submit": "Enviar",
     "update": "Actualizar",
     "Loading": "Cargando"

@@ -1,7 +1,7 @@
 {
   "HomePage": {
     "Greetings": "Hi!",
-    "description": "I'm Gabriel Bustillo del Cuvillo, a Jack-of-all-trades IT, But officially I'm a Software Developer (and former IT Technician)"
+    "Description": "I'm Gabriel Bustillo del Cuvillo, a Jack-of-all-trades IT, But officially I'm a Software Developer (and former IT Technician)"
   },
   "LocaleSwitcher": {
     "locale": "{locale, select, es {Spanish} en {English} other {Unknown}}"
@@ -70,7 +70,7 @@
   "Guestbook": {
     "Name": "Name/Nickname",
     "LinkedinLink": "Linkedin Link",
-    "description": "Message",
+    "Description": "Message",
     "Submit": "Send",
     "update": "Update",
     "Loading": "Loading"
