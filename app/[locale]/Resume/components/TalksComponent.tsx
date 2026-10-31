@@ -10,19 +10,33 @@ export function Talks(props: {
 }): ReactNode {
   const t = useTranslations('CommonWords');
 
+  const talks = props.talks.slice(
+    0,
+    props.JobTypeEnum !== JobTypeEnum.All ? 3 : undefined,
+  );
+
   return (
     <ResumeSection title={t('Talks')}>
-      {props.talks
-        .map(cert => (
-          <div className={'m-3 '} key={cert.Title}>
-            <div className="flex">
-              <h3 className="text-xl">{cert.Title}</h3>&nbsp;-&nbsp;
-              <h4 className="text-lg">{cert.location}</h4>
-            </div>
-            <h4 className="text-mg">{new Date(cert.date).getFullYear()}</h4>
+      {talks.map(talk => (
+        <article
+          className="m-3"
+          key={`${talk.Title}-${talk.location}`}
+        >
+          <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+            <h3 className="text-xl font-semibold">
+              {talk.Title}
+            </h3>
+
+            <p className="text-sm text-gray-500 dark:text-gray-400 md:text-right">
+              {talk.location}
+            </p>
           </div>
-        ))
-        .slice(0, props.JobTypeEnum !== JobTypeEnum.All ? 3 : undefined)}
+
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            {new Date(talk.date).getFullYear()}
+          </p>
+        </article>
+      ))}
     </ResumeSection>
   );
 }
