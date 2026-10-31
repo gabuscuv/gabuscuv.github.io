@@ -1,4 +1,3 @@
-'use client';
 import {GameProjects as GameProjectsType} from './types';
 import {createTranslator} from 'use-intl/core';
 

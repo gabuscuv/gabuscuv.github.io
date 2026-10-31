@@ -1,4 +1,3 @@
-'use client';
 import {createTranslator} from 'use-intl/core';
 import GameProjectsData from '../data/projects/GameProjectsData';
 import {GameToolProjectsList} from '../data/projects/GameToolsProjectsData';
