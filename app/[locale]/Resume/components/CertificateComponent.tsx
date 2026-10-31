@@ -15,19 +15,34 @@ export function Certificate(props: {
   }>;
 }): ReactNode {
   const t = useTranslations('CommonWords');
+
+  const certificates = props.certificate.slice(
+    0,
+    props.JobTypeEnum !== JobTypeEnum.All ? 3 : undefined,
+  );
+
   return (
     <ResumeSection title={t('Certificates')}>
-      {props.certificate
-        .map(cert => (
-          <div className={'m-3 '} key={cert.Title}>
-            <div className="flex">
-              <h3 className="text-xl">{cert.Title}</h3>&nbsp;-&nbsp;
-              <h4 className="text-lg">{cert.IssuerOrg}</h4>
-            </div>
-            <h4 className="text-mg">{new Date(cert.date).getFullYear()}</h4>
+      {certificates.map(cert => (
+        <article
+          className="m-3"
+          key={`${cert.Title}-${cert.IssuerOrg}`}
+        >
+          <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+            <h3 className="text-xl font-semibold">
+              {cert.Title}
+            </h3>
+
+            <p className="text-sm text-gray-500 dark:text-gray-400 md:text-right">
+              {cert.IssuerOrg}
+            </p>
           </div>
-        ))
-        .slice(0, props.JobTypeEnum !== JobTypeEnum.All ? 3 : undefined)}
+
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            {new Date(cert.date).getFullYear()}
+          </p>
+        </article>
+      ))}
     </ResumeSection>
   );
 }

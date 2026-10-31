@@ -1,5 +1,5 @@
 'use client';
-import {JobTypeEnum} from '@/src/data/Resume';
+import {JobTypeEnum, roles} from '@/src/data/Resume';
 import {
   Button,
   Modal,
@@ -25,24 +25,11 @@ export function QuestionModal(props: {
     }
   }, [props.openModalStatus]);
 
-  const options = [
-    {
-      value: JobTypeEnum.All,
-      label: t('all'),
-    },
-    {
-      value: JobTypeEnum.GameDev,
-      label: 'Game Developer / Interactive Apps / Virtual Production',
-    },
-    {
-      value: JobTypeEnum.WebDev,
-      label: t('web'),
-    },
-    {
-      value: JobTypeEnum.Backend,
-      label: t('backend'),
-    },
-  ];
+
+const options = roles.map(({value, label}) => ({
+  value,
+  label: t(`Roles.${label}`),
+}));
 
   return (
     <Modal

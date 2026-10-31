@@ -61,6 +61,16 @@ type CompanyWithSelectedJobs = {
   score: number;
 };
 
+export function getResumeFileName(locale: string, JobEnum : JobTypeEnum)
+{
+  return (locale === 'es' ? 'cv' : 'resume') +
+                    `-BustilloDelCuvilloGabriel-${locale}-` +
+                    (JobEnum === JobTypeEnum.All
+                      ? 'dev'
+                      : JobTypeEnum[JobEnum].toLocaleLowerCase()) +
+                    '.pdf'
+}
+
 export function getWorkEntriesHeader(t: _Translator<Record<string, any>, "CommonWords">, experience: ExperienceSelection): string {
   return `${t('Work Experience')} (${experience.matchingCompanyCount} ${t('of')} ${experience.totalCompanyCount} ${t('Companies')} - ${experience.matchingPositionCount} ${t('of')} ${experience.totalPositionCount} ${t('JobPositions')}) - ${experience.workTimeExperience} ${t('years')}`;
 }

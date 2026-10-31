@@ -198,9 +198,16 @@
       }
     },
     "QuestionModal": {
-      "web": "Web",
-      "backend": "Backend",
-      "all": "Todos",
+      "Roles": {
+        "all": "Todos",
+        "lite": "Simplificado",
+        "gameDev": "Desarrollo de videojuegos",
+        "gameDevTools": "Herramientas para videojuegos",
+        "backend": "Desarrollo backend",
+        "web": "Desarrollo web",
+        "embeddedSystem": "Sistemas embebidos",
+        "multimedia": "Multimedia"
+      },
       "Description": "¡Hola! Gracias por interesarte en mí. Como soy un desarrollador multidisciplinario, estoy obligado a optimizar algunos currículums para cada rol. Elige uno de estos roles para continuar.",
       "Choose": "Elegir",
       "Title": "Selector de rol tecnologico"
