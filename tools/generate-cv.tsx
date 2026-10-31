@@ -4,7 +4,7 @@ import path from 'node:path';
 import {renderToBuffer} from '@react-pdf/renderer';
 import {createTranslator} from 'use-intl/core';
 
-import {selectCertificates, selectExperience, selectProjects} from '@/src/utils/resumeUtils';
+import {getResumeFileName, selectCertificates, selectExperience, selectProjects} from '@/src/utils/resumeUtils';
 import {ResumePdf} from './generate-pdf/ResumePdf';
 import {JobTypeEnum, ResumeContent} from '@/src/data/Resume';
 import enMessages from '@/messages/en.json';
@@ -176,8 +176,7 @@ async function generateResume(
     />,
   );
 
-  const filename =
-    output ?? `${locale == 'en' ? "resume" : "cv"}-BustilloDelCuvilloGabriel-${roleName.toLowerCase()}-${locale}.pdf`;
+  const filename = output ?? getResumeFileName(locale, role);
 
   // Only accept a filename, not a path.
   if (

@@ -5,6 +5,7 @@ import {ReactNode, useState} from 'react';
 import {QuestionModal} from './components/QuestionModalComponent';
 import {Button} from 'flowbite-react';
 import {MainResumeBody} from './MainBody';
+import {getResumeFileName} from '@/src/utils/resumeUtils';
 
 let JobEnum: JobTypeEnum;
 
@@ -54,13 +55,7 @@ export function ResumeBuilder(props: {
             onClick={() => {
               open(
                 //'https://gabuscuv.dev' +
-                '/misc/resume/' +
-                  (props.locale === 'es' ? 'cv' : 'resume') +
-                  `-BustilloDelCuvilloGabriel-${props.locale}-` +
-                  (JobEnum === JobTypeEnum.All
-                    ? 'dev'
-                    : JobTypeEnum[JobEnum].toLocaleLowerCase()) +
-                  '.pdf',
+                '/cv/' + getResumeFileName(props.locale, JobEnum),
               );
             }}
           >
