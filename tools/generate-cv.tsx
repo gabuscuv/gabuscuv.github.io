@@ -6,7 +6,7 @@ import {createTranslator} from 'use-intl/core';
 
 import {getResumeFileName, selectCertificates, selectExperience, selectProjects} from '@/src/utils/resumeUtils';
 import {ResumePdf} from './generate-pdf/ResumePdf';
-import {JobTypeEnum, ResumeContent} from '@/src/data/Resume';
+import {JobTypeEnum, ResumeContent, roles} from '@/src/data/Resume';
 import enMessages from '@/messages/en.json';
 import esMessages from '@/messages/es.json';
 import {GetSocials} from '@/src/data/arrayRRSS';
@@ -16,17 +16,6 @@ import {GetProjects} from '@/src/middleware/ProjectDataArrayEncrypted';
 type Locale = 'en' | 'es';
 
 const socialNoList = ['Instagram'];
-
-const roles: Record<string, JobTypeEnum> = {
-  All: JobTypeEnum.All,
-  GameDev: JobTypeEnum.GameDev,
-  GameDevTools: JobTypeEnum.GameDevTools,
-  Multimedia: JobTypeEnum.Multimedia,
-  Backend: JobTypeEnum.Backend,
-  WebDev: JobTypeEnum.WebDev,
-  EmbeddedSystem: JobTypeEnum.EmbeddedSystem,
-  Lite: JobTypeEnum.Lite
-};
 
 const summaries: Record<JobTypeEnum, Record<Locale, string>> = {
   [JobTypeEnum.All]: {
@@ -125,7 +114,7 @@ function parseArgs(args: string[]): Options {
 
   return {
     roleName,
-    role: roleName ? roles[roleName] : undefined,
+    role: roles.find(({label}) => label === roleName)?.value,
     locale: locale as Locale,
     output: options.output,
   };
@@ -202,10 +191,10 @@ async function main() {
 
   // If --role is omitted, generate every role.
   const selectedRoles = options.role
-    ? [[options.roleName!, options.role] as const]
-    : Object.entries(roles).map(([name, role]) => [name, role] as const);
+    ? roles.filter(({value}) => value === options.role)
+    : roles;
 
-  for (const [roleName, role] of selectedRoles) {
+  for (const {value: role, label: roleName} of selectedRoles) {
     console.log(`Building ${roleName} resume (${options.locale})...`);
 
     await generateResume(

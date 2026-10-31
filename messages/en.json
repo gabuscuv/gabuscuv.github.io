@@ -198,9 +198,16 @@
       }
     },
     "QuestionModal": {
-      "web": "Web",
-      "backend": "Backend",
-      "all": "All",
+      "Roles": {
+        "all": "All",
+        "lite": "Lite",
+        "gameDev": "Game Development",
+        "gameDevTools": "Game Development Tools",
+        "backend": "Backend Development",
+        "web": "Web Development",
+        "embeddedSystem": "Embedded Systems",
+        "multimedia": "Multimedia"
+      },
       "Description": "Hi!, Thanks for getting interested in me, As I am a multi-disciplined developer, I am obligated to get some resumes optimized for each role, Choose one of these roles to continue.",
       "Choose": "Choose",
       "Title": "Tech Role Chooser"
