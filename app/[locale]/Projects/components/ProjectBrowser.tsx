@@ -3,7 +3,7 @@
 import {ReactNode, useEffect, useState} from 'react';
 import {ProjectCards} from './ProjectCards';
 import {HiFilter} from 'react-icons/hi';
-import {ProjectData} from '@/src/data/ProjectDataTypes';
+import {ProjectData} from '@/src/data/projects/types';
 import {GetProjects} from '@/src/middleware/ProjectDataArrayEncrypted';
 import ProjectModal from './ProjectModal';
 import {Types} from './ProjectFilter';
@@ -12,7 +12,7 @@ import {_ButtonGroup} from './ProjectToggle';
 import {Button, Drawer, DrawerHeader, DrawerItems} from 'flowbite-react';
 import {TrademarkNotice} from './TrademarkNotice';
 import {projects} from '@/src/middleware/Getter';
-import {projectTypeEnum} from '@/src/projectTypeEnum';
+import {projectTypeEnum} from '@/src/data/projects/types';
 import {useTranslations} from 'next-intl';
 
 let visibleHiddenProject: boolean = false;

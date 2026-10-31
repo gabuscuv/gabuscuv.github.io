@@ -1,4 +1,4 @@
-import {hobbyTimes} from '@/src/data/aboutme';
+import {hobbyTimes} from '@/src/data/about/aboutme';
 import {ListGroup, ListGroupItem} from 'flowbite-react';
 import Image from 'next/image';
 import {useState} from 'react';

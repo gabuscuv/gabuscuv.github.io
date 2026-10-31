@@ -2,7 +2,7 @@
 import {ListGroup, ListGroupItem} from 'flowbite-react';
 import {useState} from 'react';
 import {VideoCarrousel} from './VideoCarrousel';
-import {favThings, hobbyTimes} from '@/src/data/aboutme';
+import {favThings, hobbyTimes} from '@/src/data/about/aboutme';
 import {ImgGallery} from './ImgGallery';
 import {useTranslations} from 'next-intl';
 

@@ -1,7 +1,7 @@
 
-import {jobTypeFilter} from '../data/JobTypePoints';
-import {ProjectData} from '../data/ProjectDataTypes';
-import {JobTypeEnum, CompanyType, JobsType} from '../data/Resume';
+import {jobTypeFilter} from '../data/resume/JobTypePoints';
+import {ProjectData} from '../data/projects/types';
+import {JobTypeEnum, CompanyType, JobsType} from '../data/resume/types';
 
 const JOB_TYPE_MATCH_BONUS = 100;
 

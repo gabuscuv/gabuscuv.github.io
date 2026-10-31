@@ -1,10 +1,10 @@
 'use client';
 
-import {ProjectData} from '@/src/data/ProjectDataTypes';
+import {ProjectData} from '@/src/data/projects/types';
 // eslint-disable-next-line n/no-extraneous-import
 import {motion} from 'framer-motion';
 import {ReactNode} from 'react';
-import metaImages from '@/src/metaimages.json';
+import metaImages from '@/src/config/techstack_icons.json';
 import Image from 'next/image';
 
 const prefix = '/img/stacks/';

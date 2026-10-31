@@ -1,6 +1,6 @@
 'use client';
 import {useTranslations} from 'next-intl';
-import {JobTypeEnum} from '@/src/data/Resume';
+import {JobTypeEnum} from '@/src/data/resume/types';
 import {ReactNode} from 'react';
 import {ResumeSection} from './layout/ResumeSection';
 

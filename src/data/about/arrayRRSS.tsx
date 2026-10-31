@@ -1,8 +1,8 @@
 /* eslint-disable n/no-extraneous-import */
 import {FaLinkedin, FaInstagram, FaGithub} from 'react-icons/fa';
 import {MdEmail} from 'react-icons/md';
-import {decrypt, ImportKey} from '../utils/decryptUtils';
-import {botChecker} from '../utils/antibot';
+import {decrypt, ImportKey} from '@/src/utils/security/decryptUtils';
+import {botChecker} from '@/src/utils/security/antibot';
 
 import type {JSX} from 'react';
 

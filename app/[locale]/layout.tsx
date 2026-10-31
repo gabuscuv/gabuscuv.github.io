@@ -8,7 +8,7 @@ import LocaleSwitcher from '../_components/LocaleSwitcher';
 import {pick} from 'lodash';
 import {routing} from '@/i18n/routing';
 import {notFound} from 'next/navigation';
-import {SiteMap} from '@/src/sitemap';
+import {SiteMap} from '@/src/config/sitemap';
 
 const inter = Inter({subsets: ['latin']});
 

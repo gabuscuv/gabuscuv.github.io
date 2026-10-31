@@ -5,9 +5,9 @@ import {
   Link,
 } from '@react-pdf/renderer';
 
-import type {ProjectData} from '@/src/data/ProjectDataTypes';
+import type {ProjectData} from '@/src/data/projects/types';
 import {getProjectEntriesHeader, Locale, ProjectSelection, selectProjects} from '@/src/utils/resumeUtils';
-import {type} from '@/src/data/type';
+import {techStack} from '@/src/data/techStack';
 import {_Translator} from 'use-intl/core';
 
 type ProjectSectionProps = {
@@ -116,7 +116,7 @@ export function ProjectSection({
           {project.techStack.length > 0 && (
             <Text style={styles.technologies}>
               {project.techStack
-                .map(tech => type[tech]?.FullName ?? tech)
+                .map(tech => techStack[tech]?.fullName ?? tech)
                 .join(' · ')}
             </Text>
           )}

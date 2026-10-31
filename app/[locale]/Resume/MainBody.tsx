@@ -2,7 +2,7 @@ import {Certificate} from './components/CertificateComponent';
 import {Education} from './components/EducationComponent';
 import {ResumeSection} from './components/layout/ResumeSection';
 import {WorkExperience} from './components/WorkExperienceComponent';
-import {JobTypeEnum, ResumeType} from '@/src/data/Resume';
+import {JobTypeEnum, ResumeType} from '@/src/data/resume/types';
 import {ReactNode} from 'react';
 import {Talks} from './components/TalksComponent';
 import {useTranslations} from 'next-intl';

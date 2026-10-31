@@ -1,6 +1,6 @@
-import { ResumeType } from '@/src/data/Resume';
-import { View, Text } from '@react-pdf/renderer';
-import { styles, formatYear } from '../ResumePdf';
+import {ResumeType} from '@/src/data/resume/types';
+import {View, Text} from '@react-pdf/renderer';
+import {styles, formatYear} from '../ResumePdf';
 
 export function CertificateSection({
   items,

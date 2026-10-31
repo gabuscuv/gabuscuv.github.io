@@ -1,7 +1,7 @@
 'use client';
 /* eslint-disable n/no-extraneous-import */
 import {ReactNode, useEffect, useState} from 'react';
-import {GetSocials, social} from '@/src/data/arrayRRSS';
+import {GetSocials, social} from '@/src/data/about/arrayRRSS';
 import {useTranslations} from 'next-intl';
 
 export function ContactMe(): ReactNode {

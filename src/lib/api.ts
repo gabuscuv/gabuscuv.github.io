@@ -1,6 +1,7 @@
-import {Post} from '@/src/interfaces/post';
+import {Post} from '@/src/blog/type';
 import fs from 'fs';
 import matter from 'gray-matter';
+
 import {join} from 'path';
 
 const postsDirectory = join(process.cwd(), '_posts');

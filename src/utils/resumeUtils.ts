@@ -1,39 +1,19 @@
 
 import {
   BulletCategory,
-  CategoryWeights,
-  CertificateEnumType,
   CertificateType,
   type CompanyType,
   IExperienceBullet,
   JobTypeEnum,
   type JobsType,
-  ResumeType,
-} from '@/src/data/Resume';
+} from '../data/resume/types';
 import {points} from '@/src/utils/points';
 import {getYearLapse, OnGoingValue} from '@/src/utils/dates';
 import {_Translator} from 'use-intl/core';
-import {ProjectData} from '../data/ProjectDataTypes';
-import { bulletCategoryWeights } from '../data/BulletpointsTypePoints';
-
-const MIN_JOB_SCORE: Record<JobTypeEnum, number> = {
-  [JobTypeEnum.All]: 0,
-  [JobTypeEnum.GameDev]: 4,
-  [JobTypeEnum.Backend]: 4,
-  [JobTypeEnum.WebDev]: 4,
-  [JobTypeEnum.EmbeddedSystem]: 4,
-  [JobTypeEnum.Lite]: 4,
-  [JobTypeEnum.GameDevTools]: 4,
-  [JobTypeEnum.Multimedia]: 4
-};
-
-const certificateTypesByRole: Partial<
-  Record<JobTypeEnum, readonly CertificateEnumType[]>
-> = {
-  [JobTypeEnum.Backend]: ['network'],
-  [JobTypeEnum.WebDev]: ['design'],
-  [JobTypeEnum.GameDev]: ['gamedev'],
-};
+import {ProjectData} from '../data/projects/types';
+import {bulletCategoryWeights} from '../data/resume/BulletpointsTypePoints';
+import {certificateTypesByRole} from '../data/resume/CertificatesCategory';
+import {MIN_JOB_SCORE} from '../data/resume/JobTypePoints';
 
 export type Locale = 'en' | 'es';
 

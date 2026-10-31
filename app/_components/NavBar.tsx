@@ -1,6 +1,6 @@
 'use client';
 import {Link, usePathname, useRouter} from '@/i18n/navigation';
-import {navbarsites, navbarsubSectionSites} from '@/src/sitemap';
+import {navbarsites, navbarsubSectionSites} from '@/src/config/sitemap';
 import {
   Dropdown,
   DropdownItem,

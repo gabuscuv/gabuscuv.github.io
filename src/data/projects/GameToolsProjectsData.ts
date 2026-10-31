@@ -1,4 +1,4 @@
-import {GameToolProjects} from '@/src/data/ProjectDataTypes';
+import {GameToolProjects} from './types';
 import {createTranslator} from 'use-intl/core';
 type ResumeTranslator = ReturnType<typeof createTranslator>;
 

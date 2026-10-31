@@ -1,8 +1,9 @@
+'use client';
 import {createTranslator} from 'use-intl/core';
-import GameProjectsData from '../data/GameProjectsData';
-import {GameToolProjectsList} from '../data/GameToolsProjectsData';
-import ToolsProjectsList from '../data/OtherProjectsData';
-import type {ProjectData} from '../data/ProjectDataTypes';
+import GameProjectsData from '../data/projects/GameProjectsData';
+import {GameToolProjectsList} from '../data/projects/GameToolsProjectsData';
+import ToolsProjectsList from '../data/projects/OtherProjectsData';
+import type {ProjectData} from '../data/projects/types';
 
 export interface projects {
   [id: number]: Array<ProjectData>;

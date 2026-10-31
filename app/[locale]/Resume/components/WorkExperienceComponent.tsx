@@ -4,8 +4,8 @@ import {ReactNode} from 'react';
 
 import {ResumeSection} from './layout/ResumeSection';
 
-import {type} from '@/src/data/type';
-import {CompanyType, JobTypeEnum, JobsType} from '@/src/data/Resume';
+import {techStack} from '@/src/data/techStack';
+import {CompanyType, JobTypeEnum, JobsType} from '@/src/data/resume/types';
 import {getYearLapse, getYearsMonthRange, OnGoingValue} from '@/src/utils/dates';
 import {getWorkEntriesHeader, selectExperience} from '@/src/utils/resumeUtils';
 
@@ -115,7 +115,7 @@ function JobsItems(props: {
             <ul className="mt-2 flex flex-wrap gap-x-2 gap-y-1 text-xs text-gray-500 dark:text-gray-400">
               {job.techStack.map(tech => (
                 <li key={tech}>
-                  {type[tech]?.FullName ?? tech}
+                  {techStack[tech]?.fullName ?? tech}
                 </li>
               ))}
             </ul>
