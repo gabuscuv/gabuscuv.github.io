@@ -54,23 +54,24 @@ jobs:
           rm -f public/cv/*.pdf
 
       - name: Generate English CVs
-        run: yarn tsx tools/generate-resume.tsx
+        run: yarn cv
 
       - name: Generate Spanish CVs
-        run: yarn tsx tools/generate-resume.tsx --locale es
+        run: yarn cv --locale es
 
       - name: Copy CVs to Next.js public directory
         shell: bash
         run: |
           set -euo pipefail
+          cp output/cv/*.pdf public/cv/
 
           echo "Generated CVs:"
           ls -lh public/cv/*.pdf
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-        with:
-          static_site_generator: next
+       # with:
+       #  static_site_generator: next
 
       - name: Restore Next.js build cache
         uses: actions/cache@v4
