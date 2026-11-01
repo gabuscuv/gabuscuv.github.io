@@ -1,13 +1,13 @@
 {
   "HomePage": {
-    "Greetings": "Hola!",
-    "Description": "Soy Gabriel Bustillo del Cuvillo, un experto en TI, pero oficialmente soy desarrollador de software (y ex técnico de TI)"
+  "Greetings": "¡Hola, soy Gabriel!",
+  "Description": "Desarrollador de software apasionado por crear sistemas robustos y experiencias interactivas. Desde la programación de bajo nivel hasta las aplicaciones en tiempo real, disfruto explorando las distintas facetas de la ingeniería de software."
   },
   "LocaleSwitcher": {
     "locale": "{locale, select, es {Español} en {Ingles} other {Unknown}}"
   },
   "Metadata": {
-    "Title": "Gabriel Bustillo del Cuvillo - Desarrollador multidisciplinar"
+    "Title": "Gabriel Bustillo del Cuvillo | Desarrollador de Software"
   },
   "CommonWords": {
     "years": "Años",
@@ -208,8 +208,7 @@
         "embeddedSystem": "Sistemas embebidos",
         "multimedia": "Multimedia"
       },
-      "Description": "¡Hola! Gracias por interesarte en mí. Como soy un desarrollador multidisciplinario, estoy obligado a optimizar algunos currículums para cada rol. Elige uno de estos roles para continuar.",
-      "Choose": "Elegir",
+      "Description": "¡Gracias por interesarte en mi trabajo! Como desarrollador multidisciplinar, trabajo en distintas áreas de la ingeniería de software. He adaptado mi currículum a diferentes especializaciones para destacar las habilidades y la experiencia más relevantes en cada caso. Elige un perfil para consultar el currículum correspondiente.",      "Choose": "Elegir",
       "Title": "Selector de rol tecnologico"
     }
   },

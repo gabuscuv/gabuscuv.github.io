@@ -17,8 +17,8 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: 'Gabriel Bustillo del Cuvillo page',
-  description: 'Software Developer/Jack Of the Trades IT',
+  title: 'Gabriel Bustillo del Cuvillo | Software Developer',
+  description: 'Software engineering, real-time systems, and interactive experiences. C++, C#, Unreal Engine, VR/XR.'
 };
 
 export default async function RootLayout({

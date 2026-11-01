@@ -1,13 +1,13 @@
 {
   "HomePage": {
-    "Greetings": "Hi!",
-    "Description": "I'm Gabriel Bustillo del Cuvillo, a Jack-of-all-trades IT, But officially I'm a Software Developer (and former IT Technician)"
+  "Greetings": "Hello, I'm Gaby!",
+  "Description": "Software Developer passionate about building reliable systems and interactive experiences. From low-level programming to real-time applications, I enjoy exploring the many layers of software engineering."
   },
   "LocaleSwitcher": {
     "locale": "{locale, select, es {Spanish} en {English} other {Unknown}}"
   },
   "Metadata": {
-    "Title": "Gabriel Bustillo del Cuvillo - Jack of the Trades Dev/IT"
+    "Title": "Gabriel Bustillo del Cuvllo | Software Developer"
   },
   "CommonWords": {
     "years": "Years",
@@ -208,7 +208,7 @@
         "embeddedSystem": "Embedded Systems",
         "multimedia": "Multimedia"
       },
-      "Description": "Hi!, Thanks for getting interested in me, As I am a multi-disciplined developer, I am obligated to get some resumes optimized for each role, Choose one of these roles to continue.",
+      "Description": "Thanks for taking an interest in my work! As a multidisciplinary developer, I work across several areas of software engineering. I've tailored my resume to different specializations to highlight the most relevant skills and experience. Choose a role below to explore the corresponding profile.",
       "Choose": "Choose",
       "Title": "Tech Role Chooser"
     }
