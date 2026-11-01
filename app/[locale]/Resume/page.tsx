@@ -1,6 +1,6 @@
 import {getMessages, getTranslations, setRequestLocale} from 'next-intl/server';
 import {ResumeBuilder} from './ResumeBuilder';
-import {ResumeContent} from '@/src/data/Resume';
+import {ResumeContent} from '@/src/data/resume/Resume';
 import {hasLocale, NextIntlClientProvider} from 'next-intl';
 import {pick} from 'lodash';
 import {routing} from '@/i18n/routing';

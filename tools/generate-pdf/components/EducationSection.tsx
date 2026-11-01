@@ -1,6 +1,6 @@
-import { EducationType } from '@/src/data/Resume';
-import { View, Text } from '@react-pdf/renderer';
-import { styles } from '../ResumePdf';
+import {EducationType} from '@/src/data/resume/types';
+import {View, Text} from '@react-pdf/renderer';
+import {styles} from '../ResumePdf';
 
 export function EducationSection({ items, }: { items: EducationType[]; }) {
   return (

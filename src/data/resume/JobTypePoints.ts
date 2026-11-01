@@ -1,7 +1,18 @@
 
-import {JobTypeEnum} from './Resume';
+import {JobTypeEnum} from './types';
 
 type TechnologyWeights = Record<string, number>;
+
+export const MIN_JOB_SCORE: Record<JobTypeEnum, number> = {
+  [JobTypeEnum.All]: 0,
+  [JobTypeEnum.GameDev]: 4,
+  [JobTypeEnum.Backend]: 4,
+  [JobTypeEnum.WebDev]: 4,
+  [JobTypeEnum.EmbeddedSystem]: 4,
+  [JobTypeEnum.Lite]: 4,
+  [JobTypeEnum.GameDevTools]: 4,
+  [JobTypeEnum.Multimedia]: 4
+};
 
 export const jobTypeFilter: Partial<
   Record<JobTypeEnum, TechnologyWeights>

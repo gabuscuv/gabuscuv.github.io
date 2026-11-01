@@ -1,15 +1,7 @@
-import {ProjectData} from '@/src/data/ProjectDataTypes';
+import {ProjectData} from '@/src/data/projects/types';
 import {Checkbox, Label} from 'flowbite-react';
 import {ReactNode} from 'react';
-import {type} from '@/src/data/type';
-
-const categories: Array<{FullName: string; type: string}> = [
-  {FullName: 'Language', type: 'language'},
-  {FullName: 'Game Engine', type: 'gameEngine'},
-  {FullName: 'Game Lib', type: 'gameLib'},
-  {FullName: 'Middleware', type: 'middleware'},
-  {FullName: 'Web Framework', type: 'webFramework'},
-];
+import {techStack, techStackCategories} from '@/src/data/techStack';
 
 function getCurrentStack(projectsData: ProjectData[]): Array<string> {
   return [
@@ -36,9 +28,9 @@ export function Types(props: {
     <>
       <div className={'flex flex-col pl-20 pt-10 ' + props.className}>
         <h3 className="pb-5">Filter</h3>
-        {categories.map(category => {
+        {techStackCategories.map(category => {
           tmp = getCurrentStack(props.projectsData)
-            .filter(_category => type[_category]?.type === category.type)
+            .filter(_category => techStack[_category]?.category === category.type)
             .toSorted((a, b) => (a > b ? 1 : 0));
           if (tmp.length === 0) {
             return <div key={category.FullName}></div>;
@@ -57,7 +49,7 @@ export function Types(props: {
                     key={`${Math.floor(Math.random() * 1000)}-min`}
                     defaultChecked={props._filterStack.has(e)}
                   />
-                  <Label htmlFor={e}>{type[e]?.FullName}</Label>
+                  <Label htmlFor={e}>{techStack[e]?.fullName}</Label>
                 </div>
               ))}
             </div>

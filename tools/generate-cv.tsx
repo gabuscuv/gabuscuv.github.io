@@ -6,10 +6,12 @@ import {createTranslator} from 'use-intl/core';
 
 import {getResumeFileName, selectCertificates, selectExperience, selectProjects} from '@/src/utils/resumeUtils';
 import {ResumePdf} from './generate-pdf/ResumePdf';
-import {JobTypeEnum, ResumeContent, roles} from '@/src/data/Resume';
+import {ResumeContent} from '@/src/data/resume/Resume';
+import {JobTypeEnum} from '@/src/data/resume/types';
+import {roles} from "@/src/config/roles";
 import enMessages from '@/messages/en.json';
 import esMessages from '@/messages/es.json';
-import {GetSocials} from '@/src/data/arrayRRSS';
+import {GetSocials} from '@/src/data/about/arrayRRSS';
 import {GetterProjects} from '@/src/middleware/Getter';
 import {GetProjects} from '@/src/middleware/ProjectDataArrayEncrypted';
 

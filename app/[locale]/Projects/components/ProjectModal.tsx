@@ -1,4 +1,4 @@
-import {ProjectData} from '@/src/data/ProjectDataTypes';
+import {ProjectData} from '@/src/data/projects/types';
 import {Carousel, Modal, ModalBody, ModalHeader} from 'flowbite-react';
 import Image from 'next/image';
 import '../../../oldcss.css';

@@ -6,9 +6,9 @@ import {
 } from '@react-pdf/renderer';
 import type { _Translator} from 'use-intl/core';
 
-import {JobTypeEnum, type JobsType} from '@/src/data/Resume';
-import {type} from '@/src/data/type';
-import {getYearsMonthRange,OnGoingValue,} from '@/src/utils/dates';
+import {JobTypeEnum, type JobsType} from '@/src/data/resume/types';
+import {techStack} from '@/src/data/techStack';
+import {getYearsMonthRange,OnGoingValue} from '@/src/utils/dates';
 import {type ExperienceSelection, getWorkEntriesHeader, Locale} from '@/src/utils/resumeUtils';
 
 
@@ -232,7 +232,7 @@ function JobEntry({
       {job.techStack.length > 0 && (
         <Text style={styles.technologies}>
           {job.techStack
-            .map(tech => type[tech]?.FullName ?? tech)
+            .map(tech => techStack[tech]?.fullName ?? tech)
             .join(' · ')}
         </Text>
       )}

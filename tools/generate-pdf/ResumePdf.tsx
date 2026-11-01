@@ -11,13 +11,13 @@ import {
   CertificateType,
   EducationType,
   JobTypeEnum,
-  TalksType,
-} from '@/src/data/Resume';
+  TalksType
+} from '@/src/data/resume/types';
 
 import {OnGoingValue} from '@/src/utils/dates';
 import {ExperienceSelection, ProjectSelection} from '@/src/utils/resumeUtils';
 import {_Translator} from 'use-intl/core';
-import {social} from '@/src/data/arrayRRSS';
+import {social} from '@/src/data/about/arrayRRSS';
 import {ProjectSection} from './components/ProjectSection';
 import {CertificateSection} from './components/CertificateSection';
 import {TalksSection} from './components/TalksSection';

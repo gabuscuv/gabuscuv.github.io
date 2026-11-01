@@ -1,5 +1,5 @@
 import {Button, ButtonGroup} from 'flowbite-react';
-import {projectTypeEnum} from '@/src/projectTypeEnum';
+import {projectTypeEnum} from '@/src/data/projects/types';
 import {CatProjects, projectType} from '../projectType';
 
 function ProjectChecker(

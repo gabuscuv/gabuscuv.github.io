@@ -1,4 +1,4 @@
-import {hobbyTimes} from '@/src/data/aboutme';
+import {hobbyTimes} from '@/src/data/about/aboutme';
 import {YouTubeEmbed} from '@next/third-parties/google';
 import {Carousel} from 'flowbite-react';
 
