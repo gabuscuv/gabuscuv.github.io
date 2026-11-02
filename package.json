@@ -47,7 +47,7 @@
     "@typescript-eslint/eslint-plugin": "^8",
     "eslint": "^10",
     "eslint-config-next": "^16",
-    "eslint-plugin-n": "^17",
+    "eslint-plugin-n": "^18",
     "eslint-plugin-node": "^11",
     "eslint-plugin-prettier": "^5",
     "esrun": "^3",
