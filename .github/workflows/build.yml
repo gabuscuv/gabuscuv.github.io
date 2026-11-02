@@ -48,6 +48,11 @@ jobs:
           key: ${{ runner.os }}-nextjs-${{ hashFiles('yarn.lock') }}-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('yarn.lock') }}-
+      - name: Lint
+        run: yarn lint
 
+      - name: Typecheck
+        run: yarn typecheck
+        
       - name: Build with Next.js
         run: yarn build
