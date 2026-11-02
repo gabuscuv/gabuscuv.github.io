@@ -21,7 +21,7 @@ export default async function Project({params}): Awaited<ReactNode> {
     <NextIntlClientProvider
       messages={
         // … and provide the relevant messages
-        pick(messages, 'Projects')
+        pick(messages, 'Projects.Types')
       }
     >
       <ProjectBrowser locale={locale} projects={await GetterProjects(locale, messages)} />

@@ -24,7 +24,7 @@ export default async function Resume({params}): Awaited<ReactNode> {
       <NextIntlClientProvider
         messages={
           // … and provide the relevant messages
-          pick(messages, ['Resume', 'CommonWords'])
+          pick(messages, ['Resume.QuestionModal', 'CommonWords'])
         }
       >
         <ResumeBuilder locale={locale} resume={resume} />
