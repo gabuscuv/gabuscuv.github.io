@@ -8,15 +8,18 @@ export function ReferencesCarouselComponent(): ReactNode {
   return (
     <Carousel
       className="rounded-md bg-gray-400 dark:bg-gray-700"
-      slideInterval={5000}>
-      {References.map((reference) => (
+      slideInterval={5000}
+    >
+      {References.map(reference => (
         <ReferenceComponent key={reference.name} reference={reference} />
       ))}
     </Carousel>
   );
 }
 
-export function ReferenceComponent(props: {reference: ReferenceClass}): ReactNode {
+export function ReferenceComponent(props: {
+  reference: ReferenceClass;
+}): ReactNode {
   return (
     <figure className="flex h-full flex-col justify-center px-6 py-8 text-center md:px-12">
       <Blockquote className="mx-auto max-w-4xl">

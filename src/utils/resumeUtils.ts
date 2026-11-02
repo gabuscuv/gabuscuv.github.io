@@ -1,4 +1,3 @@
-
 import {
   BulletCategory,
   CertificateType,
@@ -19,7 +18,7 @@ export type Locale = 'en' | 'es';
 
 export type ExperienceSelection = {
   companies: CompanyType[];
-  workTimeExperience: String;
+  workTimeExperience: string;
   matchingCompanyCount: number;
   matchingPositionCount: number;
   displayedPositionCount: number;
@@ -29,11 +28,10 @@ export type ExperienceSelection = {
 
 export type ProjectSelection = {
   projects: ProjectData[];
-  careerTimeExperience: String;
+  careerTimeExperience: string;
   matchingProjectCount: number;
   totalProjectCount: number;
 };
-
 
 type CompanyWithSelectedJobs = {
   company: CompanyType;
@@ -41,29 +39,35 @@ type CompanyWithSelectedJobs = {
   score: number;
 };
 
-export function getResumeFileName(locale: string, JobEnum : JobTypeEnum)
-{
-  return (locale === 'es' ? 'cv' : 'resume') +
-                    `-BustilloDelCuvilloGabriel-${locale}-` +
-                    (JobEnum === JobTypeEnum.All
-                      ? 'dev'
-                      : JobTypeEnum[JobEnum].toLocaleLowerCase()) +
-                    '.pdf'
+export function getResumeFileName(locale: string, JobEnum: JobTypeEnum) {
+  return (
+    (locale === 'es' ? 'cv' : 'resume') +
+    `-BustilloDelCuvilloGabriel-${locale}-` +
+    (JobEnum === JobTypeEnum.All
+      ? 'dev'
+      : JobTypeEnum[JobEnum].toLocaleLowerCase()) +
+    '.pdf'
+  );
 }
 
-export function getWorkEntriesHeader(t: _Translator<Record<string, any>, "CommonWords">, experience: ExperienceSelection): string {
+export function getWorkEntriesHeader(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  t: _Translator<Record<string, any>, 'CommonWords'>,
+  experience: ExperienceSelection,
+): string {
   return `${t('Work Experience')} (${experience.matchingCompanyCount} ${t('of')} ${experience.totalCompanyCount} ${t('Companies')} - ${experience.matchingPositionCount} ${t('of')} ${experience.totalPositionCount} ${t('JobPositions')}) - ${experience.workTimeExperience} ${t('years')}`;
 }
 
-export function getProjectEntriesHeader(t: _Translator<Record<string, any>, "CommonWords">, experience: ProjectSelection): string {
+export function getProjectEntriesHeader(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  t: _Translator<Record<string, any>, 'CommonWords'>,
+  experience: ProjectSelection,
+): string {
   return `${t('Projects')} (${experience.matchingProjectCount} ${t('of')} ${experience.totalProjectCount} ${t('Projects')}) - ${experience.careerTimeExperience} ${t('years')}`;
 }
 
 /** Most recent end date first; ongoing positions come first. */
-export function sortJobsChronologically(
-  a: JobsType,
-  b: JobsType,
-): number {
+export function sortJobsChronologically(a: JobsType, b: JobsType): number {
   const endA = a.EndDate === OnGoingValue ? Infinity : a.EndDate;
   const endB = b.EndDate === OnGoingValue ? Infinity : b.EndDate;
 
@@ -88,29 +92,21 @@ export function selectExperience(
 
   const entries: CompanyWithSelectedJobs[] = workExperience
     .map(company => {
-      const jobs = selectJobs(
-        company.Jobs,
-        role,
-        maxJobsPerCompany,
-      );
+      const jobs = selectJobs(company.Jobs, role, maxJobsPerCompany);
 
       const score = jobs.length
         ? Math.max(...jobs.map(job => points(role, job)))
         : 0;
 
-      return { company, jobs, score };
+      return {company, jobs, score};
     })
     .filter(entry => isAll || entry.jobs.length > 0);
 
   const rankedCompanies = isAll
     ? entries
     : entries.toSorted((a, b) => {
-        const aOngoing = a.jobs.some(
-          job => job.EndDate === OnGoingValue,
-        );
-        const bOngoing = b.jobs.some(
-          job => job.EndDate === OnGoingValue,
-        );
+        const aOngoing = a.jobs.some(job => job.EndDate === OnGoingValue);
+        const bOngoing = b.jobs.some(job => job.EndDate === OnGoingValue);
 
         // Keep current experience first.
         if (aOngoing !== bOngoing) {
@@ -125,16 +121,13 @@ export function selectExperience(
     ? rankedCompanies
     : rankedCompanies.slice(0, maxCompanies);
 
-  const companies = selectedEntries.map(({ company, jobs }) => ({
+  const companies = selectedEntries.map(({company, jobs}) => ({
     ...company,
     Jobs: jobs,
   }));
 
   const matchingPositionCount = isAll
-    ? workExperience.reduce(
-        (total, company) => total + company.Jobs.length,
-        0,
-      )
+    ? workExperience.reduce((total, company) => total + company.Jobs.length, 0)
     : entries.reduce(
         (total, entry) =>
           total +
@@ -178,23 +171,20 @@ export function selectJobs(
 ): JobsType[] {
   const selectRelevantBullets = (job: JobsType): JobsType => ({
     ...job,
-    BulletPoints: job.BulletPoints
-      .map((bullet, index) => ({
-        bullet,
-        index,
-        score: pointsForBullet(role, bullet),
-      }))
-      .filter(({ score }) => score > 0)
+    BulletPoints: job.BulletPoints.map((bullet, index) => ({
+      bullet,
+      index,
+      score: pointsForBullet(role, bullet),
+    }))
+      .filter(({score}) => score > 0)
       .toSorted((a, b) => {
         const scoreDifference = b.score - a.score;
 
         // Preserve original order for equal scores.
-        return scoreDifference !== 0
-          ? scoreDifference
-          : a.index - b.index;
+        return scoreDifference !== 0 ? scoreDifference : a.index - b.index;
       })
       .slice(0, maxBulletPoints)
-      .map(({ bullet }) => bullet),
+      .map(({bullet}) => bullet),
   });
 
   if (role === JobTypeEnum.All) {
@@ -205,24 +195,23 @@ export function selectJobs(
     .map((job, index) => {
       const jobScore = points(role, job);
 
-      const relevantBullets = job.BulletPoints
-        .map(bullet => pointsForBullet(role, bullet))
+      const relevantBullets = job.BulletPoints.map(bullet =>
+        pointsForBullet(role, bullet),
+      )
         .filter(score => score > 0)
         .toSorted((a, b) => b - a);
 
       const bulletScore =
         relevantBullets.length === 0
           ? 0
-          : relevantBullets
-              .slice(0, 3)
-              .reduce((sum, score) => sum + score, 0) /
+          : relevantBullets.slice(0, 3).reduce((sum, score) => sum + score, 0) /
             Math.min(relevantBullets.length, 3);
 
       const score = jobScore * 0.75 + bulletScore * 0.25;
 
-      return { job, index, score, jobScore };
+      return {job, index, score, jobScore};
     })
-    .filter(({ jobScore }) => jobScore >= MIN_JOB_SCORE[role])
+    .filter(({jobScore}) => jobScore >= MIN_JOB_SCORE[role])
     .toSorted((a, b) => {
       const aExact = a.job.JobType === role;
       const bExact = b.job.JobType === role;
@@ -233,14 +222,11 @@ export function selectJobs(
 
       const scoreDifference = b.score - a.score;
 
-      return scoreDifference !== 0
-        ? scoreDifference
-        : a.index - b.index;
+      return scoreDifference !== 0 ? scoreDifference : a.index - b.index;
     })
     .slice(0, maxJobsPerCompany)
-    .map(({ job }) => selectRelevantBullets(job));
+    .map(({job}) => selectRelevantBullets(job));
 }
-
 
 export function selectProjects(
   initialDate: number,
@@ -249,10 +235,14 @@ export function selectProjects(
   maxProjects = 6,
   includeHidden = false,
 ): ProjectSelection {
-  if (role == JobTypeEnum.WebDev)
-  {
-    return {careerTimeExperience: getCodingTimeSinceFirstJob(), projects : [], matchingProjectCount:0 , totalProjectCount: projects.length }
-   }
+  if (role === JobTypeEnum.WebDev) {
+    return {
+      careerTimeExperience: getCodingTimeSinceFirstJob(),
+      projects: [],
+      matchingProjectCount: 0,
+      totalProjectCount: projects.length,
+    };
+  }
   const visibleProjects = projects.filter(
     project => includeHidden || !project.hiddenbydefault,
   );
@@ -265,9 +255,9 @@ export function selectProjects(
             project,
             score: points(role, project),
           }))
-          .filter(({ score }) => score > 0)
+          .filter(({score}) => score > 0)
           .toSorted((a, b) => b.score - a.score)
-          .map(({ project }) => project);
+          .map(({project}) => project);
 
   const selectedProjects = matchingProjects
     .slice(0, maxProjects)
@@ -281,10 +271,7 @@ export function selectProjects(
   };
 }
 
-function pointsForBullet(
-  role: JobTypeEnum,
-  bullet: IExperienceBullet,
-): number {
+function pointsForBullet(role: JobTypeEnum, bullet: IExperienceBullet): number {
   const weights = bulletCategoryWeights[role];
 
   if (!weights) {
@@ -305,39 +292,40 @@ function pointsForBullet(
     return 0;
   }
 
-  return entries.reduce(
-    (sum, [category, strength]) =>
-      sum + strength * (weights[category] ?? 0),
-    0,
-  ) / totalWeight;
+  return (
+    entries.reduce(
+      (sum, [category, strength]) => sum + strength * (weights[category] ?? 0),
+      0,
+    ) / totalWeight
+  );
 }
 
-function sortProjectsChronologically(
-  a: ProjectData,
-  b: ProjectData,
-): number {
+function sortProjectsChronologically(a: ProjectData, b: ProjectData): number {
   return b.year - a.year || a.name.localeCompare(b.name);
 }
 
 export function getCodingTimeSinceFirstJob() {
-  return getYearLapse(
-    Date.parse("2017"),
-    Date.now()
-  );
+  return getYearLapse(Date.parse('2017'), Date.now());
 }
 
-export function selectCertificates(certificates : Array<CertificateType>, role: JobTypeEnum)
-{
+export function selectCertificates(
+  certificates: Array<CertificateType>,
+  role: JobTypeEnum,
+) {
   return role === JobTypeEnum.All
     ? certificates
-    : certificates.filter(certificate =>certificateTypesByRole[role]?.includes(certificate.type) ?? false);
+    : certificates.filter(
+        certificate =>
+          certificateTypesByRole[role]?.includes(certificate.type) ?? false,
+      );
 }
 
 export function getCurrentWorkTime(workExperience: Array<CompanyType>) {
-  return (workExperience.map(
-    e => ((e.EndDate !== 0 ? e.EndDate : Date.now()) - e.StartDate) /
-      1000
-  ).reduce((a, b) => a + b) / 31536000)
-    .toFixed(2);
+  return (
+    workExperience
+      .map(
+        e => ((e.EndDate !== 0 ? e.EndDate : Date.now()) - e.StartDate) / 1000,
+      )
+      .reduce((a, b) => a + b) / 31536000
+  ).toFixed(2);
 }
-

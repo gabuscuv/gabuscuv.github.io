@@ -11,7 +11,7 @@ import {
   CertificateType,
   EducationType,
   JobTypeEnum,
-  TalksType
+  TalksType,
 } from '@/src/data/resume/types';
 
 import {OnGoingValue} from '@/src/utils/dates';
@@ -27,6 +27,7 @@ import {WorkExperienceSection} from './components/WorkExperienceSection';
 type Locale = 'en' | 'es';
 
 type ResumePdfProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   t: _Translator<Record<string, any>>;
   locale: Locale;
   role: JobTypeEnum;
@@ -35,33 +36,11 @@ type ResumePdfProps = {
   certificates: CertificateType[];
   talks: TalksType[];
   education: EducationType[];
-  contacts: Array<social>
+  contacts: Array<social>;
   name: string;
   summary: string;
 };
 
-const labels: Record<
-  Locale,
-  {
-    experience: string;
-    location: string;
-    OnGoing: string;
-    technologies: string;
-  }
-> = {
-  en: {
-    experience: 'Work Experience',
-    location: 'Location',
-    OnGoing: 'Present',
-    technologies: 'Technologies',
-  },
-  es: {
-    experience: 'Experiencia profesional',
-    location: 'Ubicación',
-    OnGoing: 'Actualidad',
-    technologies: 'Tecnologías',
-  },
-};
 const socialStyles = StyleSheet.create({
   container: {
     flexDirection: 'row',
@@ -72,8 +51,8 @@ const socialStyles = StyleSheet.create({
     fontSize: 8,
     color: '#334fc5',
     textDecoration: 'none',
-  }
-})
+  },
+});
 export const styles = StyleSheet.create({
   page: {
     paddingTop: 38,
@@ -150,27 +129,27 @@ export const styles = StyleSheet.create({
     lineHeight: 1.2,
   },
   educationItem: {
-  marginBottom: 6,
-},
-itemHeading: {
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  alignItems: 'flex-start',
-},
-itemTitle: {
-  fontSize: 10,
-  fontFamily: 'Helvetica-Bold',
-},
-itemSubtitle: {
-  fontSize: 8,
-  color: '#59616d',
-  marginTop: 1,
-},
-itemDescription: {
-  fontSize: 9,
-  lineHeight: 1.2,
-  marginTop: 2,
-},
+    marginBottom: 6,
+  },
+  itemHeading: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+  },
+  itemTitle: {
+    fontSize: 10,
+    fontFamily: 'Helvetica-Bold',
+  },
+  itemSubtitle: {
+    fontSize: 8,
+    color: '#59616d',
+    marginTop: 1,
+  },
+  itemDescription: {
+    fontSize: 9,
+    lineHeight: 1.2,
+    marginTop: 2,
+  },
 });
 
 export function formatYear(
@@ -204,36 +183,29 @@ export function ResumePdf({
       author={name}
       language={locale}
     >
-      <Page size="A4" style={styles.page} >
+      <Page size="A4" style={styles.page}>
         <Text style={styles.name}>{name}</Text>
-      <View style={socialStyles.container}>
-        {contacts.map(social => (
-          <Link
-            key={social.name}
-            src={social.url}
-            style={socialStyles.link}
-          >
-            {social.name}: {social.innerText}
-          </Link>
-        ))}
-      </View>
-        <Text style={styles.summary}>
-          {summary}
-        </Text>
-        {experience.companies.length > 0 &&
-          <WorkExperienceSection t={t} locale={locale} role={role} experience={experience} />
-        }
+        <View style={socialStyles.container}>
+          {contacts.map(social => (
+            <Link key={social.name} src={social.url} style={socialStyles.link}>
+              {social.name}: {social.innerText}
+            </Link>
+          ))}
+        </View>
+        <Text style={styles.summary}>{summary}</Text>
+        {experience.companies.length > 0 && (
+          <WorkExperienceSection
+            t={t}
+            locale={locale}
+            role={role}
+            experience={experience}
+          />
+        )}
         <ProjectSection t={t} locale={locale} projects={projects} />
-        {education.length > 0 && (
-          <EducationSection items={education} />
-        )}
-        {certificates.length > 0 && (
-          <CertificateSection items={certificates} />
-        )}
+        {education.length > 0 && <EducationSection items={education} />}
+        {certificates.length > 0 && <CertificateSection items={certificates} />}
 
-      {talks.length > 0 && (
-        <TalksSection items={talks} />
-      )}
+        {talks.length > 0 && <TalksSection items={talks} />}
       </Page>
     </Document>
   );

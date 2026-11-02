@@ -20,11 +20,12 @@ export function ResumeBuilder(props: {
   const [jobEnum, setJobEnum] = useState<JobTypeEnum | null>(null);
   const [openSelectorModal, setOpenSelectorModal] = useState(true);
 
-  const currentProfile = jobEnum !== null
-    ? Object.entries(JobTypeEnum).find(
-        ([, value]) => value === jobEnum,
-      )?.[0] ?? String(jobEnum)
-    : '';
+  const currentProfile =
+    jobEnum !== null
+      ? (Object.entries(JobTypeEnum).find(
+          ([, value]) => value === jobEnum,
+        )?.[0] ?? String(jobEnum))
+      : '';
 
   const handleProfileSelect = (selectedJob: JobTypeEnum): void => {
     setJobEnum(selectedJob);
@@ -58,16 +59,11 @@ export function ResumeBuilder(props: {
         </p>
 
         <div className="flex gap-2">
-          <Button
-            color="light"
-            onClick={() => setOpenSelectorModal(true)}
-          >
+          <Button color="light" onClick={() => setOpenSelectorModal(true)}>
             {t('ChangeProfile')}
           </Button>
 
-          <Button onClick={handleDownload}>
-            {t('Download')}
-          </Button>
+          <Button onClick={handleDownload}>{t('Download')}</Button>
         </div>
       </div>
 

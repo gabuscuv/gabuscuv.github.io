@@ -1,7 +1,7 @@
 'use client';
 // https://github.com/vercel/next.js/issues/49279
 import React, {PropsWithChildren} from 'react';
-// eslint-disable-next-line n/no-extraneous-import
+
 import {motion, AnimatePresence} from 'framer-motion';
 import {usePathname} from 'next/navigation';
 import {LayoutRouterContext} from 'next/dist/shared/lib/app-router-context.shared-runtime';

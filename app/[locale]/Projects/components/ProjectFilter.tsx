@@ -30,7 +30,9 @@ export function Types(props: {
         <h3 className="pb-5">Filter</h3>
         {techStackCategories.map(category => {
           tmp = getCurrentStack(props.projectsData)
-            .filter(_category => techStack[_category]?.category === category.type)
+            .filter(
+              _category => techStack[_category]?.category === category.type,
+            )
             .toSorted((a, b) => (a > b ? 1 : 0));
           if (tmp.length === 0) {
             return <div key={category.FullName}></div>;

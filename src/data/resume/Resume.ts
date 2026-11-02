@@ -6,15 +6,15 @@ export type ResumeTranslator = ReturnType<typeof createTranslator>;
 
 export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
   const translate = (company: CompanyType) => ({
-  ...company,
-  Jobs: company.Jobs.map(job => ({
-    ...job,
-    BulletPoints: job.BulletPoints.map(bullet => ({
-      ...bullet,
-      translation: t(bullet.translationKey),
+    ...company,
+    Jobs: company.Jobs.map(job => ({
+      ...job,
+      BulletPoints: job.BulletPoints.map(bullet => ({
+        ...bullet,
+        translation: t(bullet.translationKey),
+      })),
     })),
-  })),
-});
+  });
   // const t = useTranslations('Resume'); // for preview with i18n-ally
   return {
     Jobs: [
@@ -34,100 +34,101 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
             StartDate: Date.parse('2025/02/26'),
             EndDate: OnGoingValue,
             techStack: ['cpp', 'qt', 'rhel', 'gst', 'dds'],
-            BulletPoints: [{
-              id: 'infrastructureMonitoring',
-              translationKey:
-                'Jobs.ghenova.cpp.bulletpoints.infrastructureMonitoring',
-              categories: {
-                [BulletCategory.Engineering]: 1.0,
-                [BulletCategory.Integration]: 1.0,
-                [BulletCategory.Impact]: 0.8,
-                [BulletCategory.Quality]: 0.7,
+            BulletPoints: [
+              {
+                id: 'infrastructureMonitoring',
+                translationKey:
+                  'Jobs.ghenova.cpp.bulletpoints.infrastructureMonitoring',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Impact]: 0.8,
+                  [BulletCategory.Quality]: 0.7,
+                },
               },
-            },
-            {
-              id: 'monitoringPlatformEvolution',
-              translationKey:
-                'Jobs.ghenova.cpp.bulletpoints.monitoringPlatformEvolution',
-              categories: {
-                [BulletCategory.Engineering]: 1.0,
-                [BulletCategory.Impact]: 0.9,
-                [BulletCategory.Architecture]: 0.8,
-                [BulletCategory.Integration]: 0.7,
+              {
+                id: 'monitoringPlatformEvolution',
+                translationKey:
+                  'Jobs.ghenova.cpp.bulletpoints.monitoringPlatformEvolution',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Impact]: 0.9,
+                  [BulletCategory.Architecture]: 0.8,
+                  [BulletCategory.Integration]: 0.7,
+                },
               },
-            },
-            {
-              id: 'reliabilityAndAuditing',
-              translationKey:
-                'Jobs.ghenova.cpp.bulletpoints.reliabilityAndAuditing',
-              categories: {
-                [BulletCategory.Quality]: 1.0,
-                [BulletCategory.Engineering]: 0.9,
-                [BulletCategory.Impact]: 0.9,
-                [BulletCategory.Automation]: 0.6,
+              {
+                id: 'reliabilityAndAuditing',
+                translationKey:
+                  'Jobs.ghenova.cpp.bulletpoints.reliabilityAndAuditing',
+                categories: {
+                  [BulletCategory.Quality]: 1.0,
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Impact]: 0.9,
+                  [BulletCategory.Automation]: 0.6,
+                },
               },
-            },
-            {
-              id: 'stabilityAndMaintainability',
-              translationKey:
-                'Jobs.ghenova.cpp.bulletpoints.stabilityAndMaintainability',
-              categories: {
-                [BulletCategory.Architecture]: 1.0,
-                [BulletCategory.Quality]: 1.0,
-                [BulletCategory.Engineering]: 0.9,
-                [BulletCategory.Impact]: 0.8,
-                [BulletCategory.Delivery]: 0.7,
+              {
+                id: 'stabilityAndMaintainability',
+                translationKey:
+                  'Jobs.ghenova.cpp.bulletpoints.stabilityAndMaintainability',
+                categories: {
+                  [BulletCategory.Architecture]: 1.0,
+                  [BulletCategory.Quality]: 1.0,
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Impact]: 0.8,
+                  [BulletCategory.Delivery]: 0.7,
+                },
               },
-            },
-            {
-              id: 'platformMigration',
-              translationKey:
-                'Jobs.ghenova.cpp.bulletpoints.platformMigration',
-              categories: {
-                [BulletCategory.Integration]: 1.0,
-                [BulletCategory.Engineering]: 0.9,
-                [BulletCategory.Delivery]: 0.9,
-                [BulletCategory.Quality]: 0.7,
-                [BulletCategory.Architecture]: 0.6,
+              {
+                id: 'platformMigration',
+                translationKey:
+                  'Jobs.ghenova.cpp.bulletpoints.platformMigration',
+                categories: {
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Delivery]: 0.9,
+                  [BulletCategory.Quality]: 0.7,
+                  [BulletCategory.Architecture]: 0.6,
+                },
               },
-            },
-            {
-              id: 'hmiModernization',
-              translationKey:
-                'Jobs.ghenova.cpp.bulletpoints.hmiModernization',
-              categories: {
-                [BulletCategory.Engineering]: 1.0,
-                [BulletCategory.Impact]: 0.9,
-                [BulletCategory.Quality]: 0.9,
-                [BulletCategory.Architecture]: 0.7,
-                [BulletCategory.Integration]: 0.6,
+              {
+                id: 'hmiModernization',
+                translationKey:
+                  'Jobs.ghenova.cpp.bulletpoints.hmiModernization',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Impact]: 0.9,
+                  [BulletCategory.Quality]: 0.9,
+                  [BulletCategory.Architecture]: 0.7,
+                  [BulletCategory.Integration]: 0.6,
+                },
               },
-            },
-            {
-              id: 'videoWallSystems',
-              translationKey:
-                'Jobs.ghenova.cpp.bulletpoints.videoWallSystems',
-              categories: {
-                [BulletCategory.Engineering]: 1.0,
-                [BulletCategory.Integration]: 1.0,
-                [BulletCategory.Automation]: 0.9,
-                [BulletCategory.Quality]: 0.9,
-                [BulletCategory.Impact]: 0.9,
-                [BulletCategory.Architecture]: 0.7,
+              {
+                id: 'videoWallSystems',
+                translationKey:
+                  'Jobs.ghenova.cpp.bulletpoints.videoWallSystems',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Automation]: 0.9,
+                  [BulletCategory.Quality]: 0.9,
+                  [BulletCategory.Impact]: 0.9,
+                  [BulletCategory.Architecture]: 0.7,
+                },
               },
-            },
-            {
-              id: 'softwareLifecycle',
-              translationKey:
-                'Jobs.ghenova.cpp.bulletpoints.softwareLifecycle',
-              categories: {
-                [BulletCategory.Delivery]: 1.0,
-                [BulletCategory.Quality]: 0.9,
-                [BulletCategory.Integration]: 0.8,
-                [BulletCategory.Engineering]: 0.7,
-                [BulletCategory.Impact]: 0.6,
+              {
+                id: 'softwareLifecycle',
+                translationKey:
+                  'Jobs.ghenova.cpp.bulletpoints.softwareLifecycle',
+                categories: {
+                  [BulletCategory.Delivery]: 1.0,
+                  [BulletCategory.Quality]: 0.9,
+                  [BulletCategory.Integration]: 0.8,
+                  [BulletCategory.Engineering]: 0.7,
+                  [BulletCategory.Impact]: 0.6,
+                },
               },
-            },
             ],
           },
         ],
@@ -146,62 +147,63 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
             StartDate: Date.parse('2024/10/15'),
             EndDate: Date.parse('2024/12/30'),
             techStack: ['cpp', 'qt', 'zmq', 'dds'],
-            BulletPoints: [{
-              id: 'navigationAndSensorSimulators',
-              translationKey:
-                'Jobs.abance.cppusv.bulletpoints.navigationAndSensorSimulators',
-              categories: {
-                [BulletCategory.Engineering]: 1.0,
-                [BulletCategory.Integration]: 1.0,
-                [BulletCategory.Automation]: 0.8,
-                [BulletCategory.Quality]: 0.8,
-                [BulletCategory.Impact]: 0.8,
+            BulletPoints: [
+              {
+                id: 'navigationAndSensorSimulators',
+                translationKey:
+                  'Jobs.abance.cppusv.bulletpoints.navigationAndSensorSimulators',
+                categories: {
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Automation]: 0.8,
+                  [BulletCategory.Quality]: 0.8,
+                  [BulletCategory.Impact]: 0.8,
+                },
               },
-            },
-            {
-              id: 'zeromqDdsBridge',
-              translationKey:
-                'Jobs.abance.cppusv.bulletpoints.zeromqDdsBridge',
-              categories: {
-                [BulletCategory.Integration]: 1.0,
-                [BulletCategory.Architecture]: 1.0,
-                [BulletCategory.Engineering]: 1.0,
-                [BulletCategory.Impact]: 0.9,
+              {
+                id: 'zeromqDdsBridge',
+                translationKey:
+                  'Jobs.abance.cppusv.bulletpoints.zeromqDdsBridge',
+                categories: {
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Architecture]: 1.0,
+                  [BulletCategory.Engineering]: 1.0,
+                  [BulletCategory.Impact]: 0.9,
+                },
               },
-            },
-            {
-              id: 'heterogeneousSystemIntegration',
-              translationKey:
-                'Jobs.abance.cppusv.bulletpoints.heterogeneousSystemIntegration',
-              categories: {
-                [BulletCategory.Integration]: 1.0,
-                [BulletCategory.Engineering]: 0.9,
-                [BulletCategory.Architecture]: 0.8,
-                [BulletCategory.Impact]: 0.7,
+              {
+                id: 'heterogeneousSystemIntegration',
+                translationKey:
+                  'Jobs.abance.cppusv.bulletpoints.heterogeneousSystemIntegration',
+                categories: {
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Architecture]: 0.8,
+                  [BulletCategory.Impact]: 0.7,
+                },
               },
-            },
-            {
-              id: 'buildAndDeploymentModernization',
-              translationKey:
-                'Jobs.abance.cppusv.bulletpoints.buildAndDeploymentModernization',
-              categories: {
-                [BulletCategory.Automation]: 1.0,
-                [BulletCategory.Delivery]: 1.0,
-                [BulletCategory.Quality]: 0.9,
-                [BulletCategory.Engineering]: 0.9,
-                [BulletCategory.Architecture]: 0.7,
+              {
+                id: 'buildAndDeploymentModernization',
+                translationKey:
+                  'Jobs.abance.cppusv.bulletpoints.buildAndDeploymentModernization',
+                categories: {
+                  [BulletCategory.Automation]: 1.0,
+                  [BulletCategory.Delivery]: 1.0,
+                  [BulletCategory.Quality]: 0.9,
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Architecture]: 0.7,
+                },
               },
-            },
-            {
-              id: 'timeConstrainedDelivery',
-              translationKey:
-                'Jobs.abance.cppusv.bulletpoints.timeConstrainedDelivery',
-              categories: {
-                [BulletCategory.Delivery]: 1.0,
-                [BulletCategory.Impact]: 0.9,
-                [BulletCategory.Engineering]: 0.8,
+              {
+                id: 'timeConstrainedDelivery',
+                translationKey:
+                  'Jobs.abance.cppusv.bulletpoints.timeConstrainedDelivery',
+                categories: {
+                  [BulletCategory.Delivery]: 1.0,
+                  [BulletCategory.Impact]: 0.9,
+                  [BulletCategory.Engineering]: 0.8,
+                },
               },
-            },
             ],
           },
           {
@@ -289,8 +291,12 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
                 },
               },
             ],
-            multimediaContent: [{ text: "Wordpress To React (Video)", url: "https://www.youtube.com/watch?v=l_dvgEPhykQ" }]
-
+            multimediaContent: [
+              {
+                text: 'Wordpress To React (Video)',
+                url: 'https://www.youtube.com/watch?v=l_dvgEPhykQ',
+              },
+            ],
           },
           {
             Title: 'Wordpress Developer',
@@ -673,7 +679,7 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
                 },
               },
             ],
-          }
+          },
         ],
         typeOfHire: 'full',
         typeOfPresence: 'On-site',
@@ -692,48 +698,49 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
             StartDate: Date.parse('2017/03/01'),
             EndDate: Date.parse('2017/06/01'),
             techStack: [],
-            BulletPoints: [{
-              id: 'enterpriseIntegrationFlows',
-              translationKey:
-                'Jobs.viewnext.websphere.bulletpoints.enterpriseIntegrationFlows',
-              categories: {
-                [BulletCategory.Integration]: 1.0,
-                [BulletCategory.Engineering]: 0.8,
-                [BulletCategory.Architecture]: 0.8,
-                [BulletCategory.Impact]: 0.6,
+            BulletPoints: [
+              {
+                id: 'enterpriseIntegrationFlows',
+                translationKey:
+                  'Jobs.viewnext.websphere.bulletpoints.enterpriseIntegrationFlows',
+                categories: {
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Engineering]: 0.8,
+                  [BulletCategory.Architecture]: 0.8,
+                  [BulletCategory.Impact]: 0.6,
+                },
               },
-            },
-            {
-              id: 'enterpriseMessagingPatterns',
-              translationKey:
-                'Jobs.viewnext.websphere.bulletpoints.enterpriseMessagingPatterns',
-              categories: {
-                [BulletCategory.Integration]: 1.0,
-                [BulletCategory.Architecture]: 0.9,
-                [BulletCategory.Engineering]: 0.7,
+              {
+                id: 'enterpriseMessagingPatterns',
+                translationKey:
+                  'Jobs.viewnext.websphere.bulletpoints.enterpriseMessagingPatterns',
+                categories: {
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Architecture]: 0.9,
+                  [BulletCategory.Engineering]: 0.7,
+                },
               },
-            },
-            {
-              id: 'ibmMiddlewareDevelopment',
-              translationKey:
-                'Jobs.viewnext.websphere.bulletpoints.ibmMiddlewareDevelopment',
-              categories: {
-                [BulletCategory.Integration]: 1.0,
-                [BulletCategory.Engineering]: 0.9,
-                [BulletCategory.Architecture]: 0.7,
-                [BulletCategory.Quality]: 0.6,
+              {
+                id: 'ibmMiddlewareDevelopment',
+                translationKey:
+                  'Jobs.viewnext.websphere.bulletpoints.ibmMiddlewareDevelopment',
+                categories: {
+                  [BulletCategory.Integration]: 1.0,
+                  [BulletCategory.Engineering]: 0.9,
+                  [BulletCategory.Architecture]: 0.7,
+                  [BulletCategory.Quality]: 0.6,
+                },
               },
-            },
-            {
-              id: 'enterpriseDevelopmentTooling',
-              translationKey:
-                'Jobs.viewnext.websphere.bulletpoints.enterpriseDevelopmentTooling',
-              categories: {
-                [BulletCategory.Delivery]: 0.9,
-                [BulletCategory.Engineering]: 0.6,
-                [BulletCategory.Quality]: 0.6,
+              {
+                id: 'enterpriseDevelopmentTooling',
+                translationKey:
+                  'Jobs.viewnext.websphere.bulletpoints.enterpriseDevelopmentTooling',
+                categories: {
+                  [BulletCategory.Delivery]: 0.9,
+                  [BulletCategory.Engineering]: 0.6,
+                  [BulletCategory.Quality]: 0.6,
+                },
               },
-            },
             ],
           },
         ],

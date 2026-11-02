@@ -1,12 +1,16 @@
 'use client';
-import {_Translator, useTranslations} from 'next-intl';
+import {useTranslations} from 'next-intl';
 import {ReactNode} from 'react';
 
 import {ResumeSection} from './layout/ResumeSection';
 
 import {techStack} from '@/src/data/techStack';
 import {CompanyType, JobTypeEnum, JobsType} from '@/src/data/resume/types';
-import {getYearLapse, getYearsMonthRange, OnGoingValue} from '@/src/utils/dates';
+import {
+  getYearLapse,
+  getYearsMonthRange,
+  OnGoingValue,
+} from '@/src/utils/dates';
 import {getWorkEntriesHeader, selectExperience} from '@/src/utils/resumeUtils';
 
 export function WorkExperience(props: {
@@ -19,7 +23,7 @@ export function WorkExperience(props: {
 
   return (
     <ResumeSection title={getWorkEntriesHeader(t, experience)}>
-      {experience.companies.map((company) => (
+      {experience.companies.map(company => (
         <article className="m-3" key={`${company.Title}-${company.Url}`}>
           <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
             <h3 className="text-xl font-semibold">
@@ -50,9 +54,7 @@ export function WorkExperience(props: {
             (
             {getYearLapse(
               company.StartDate,
-              company.EndDate !== OnGoingValue
-                ? company.EndDate
-                : Date.now(),
+              company.EndDate !== OnGoingValue ? company.EndDate : Date.now(),
             )}{' '}
             {t('years')})
           </p>
@@ -68,12 +70,10 @@ export function WorkExperience(props: {
   );
 }
 
-
-
 function JobsItems(props: {
-  locale: string,
-  jobTypeEnum: JobTypeEnum,
-  jobs: Array<JobsType>,
+  locale: string;
+  jobTypeEnum: JobTypeEnum;
+  jobs: Array<JobsType>;
 }): ReactNode {
   const t = useTranslations('CommonWords');
 
@@ -85,9 +85,7 @@ function JobsItems(props: {
           className="pl-1"
         >
           <div className="flex flex-wrap items-baseline gap-x-2">
-            <h4 className="text-lg font-medium">
-              {job.Title}
-            </h4>
+            <h4 className="text-lg font-medium">{job.Title}</h4>
 
             <span className="text-sm text-gray-500 dark:text-gray-400">
               {getYearsMonthRange(
@@ -114,9 +112,7 @@ function JobsItems(props: {
           {job.techStack.length > 0 && (
             <ul className="mt-2 flex flex-wrap gap-x-2 gap-y-1 text-xs text-gray-500 dark:text-gray-400">
               {job.techStack.map(tech => (
-                <li key={tech}>
-                  {techStack[tech]?.fullName ?? tech}
-                </li>
+                <li key={tech}>{techStack[tech]?.fullName ?? tech}</li>
               ))}
             </ul>
           )}

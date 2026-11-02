@@ -1,4 +1,3 @@
-
 import {JobTypeEnum} from './types';
 
 type TechnologyWeights = Record<string, number>;
@@ -11,12 +10,10 @@ export const MIN_JOB_SCORE: Record<JobTypeEnum, number> = {
   [JobTypeEnum.EmbeddedSystem]: 4,
   [JobTypeEnum.Lite]: 4,
   [JobTypeEnum.GameDevTools]: 4,
-  [JobTypeEnum.Multimedia]: 4
+  [JobTypeEnum.Multimedia]: 4,
 };
 
-export const jobTypeFilter: Partial<
-  Record<JobTypeEnum, TechnologyWeights>
-> = {
+export const jobTypeFilter: Partial<Record<JobTypeEnum, TechnologyWeights>> = {
   [JobTypeEnum.All]: {},
 
   [JobTypeEnum.GameDev]: {

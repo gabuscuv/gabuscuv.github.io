@@ -17,14 +17,14 @@ export default async function Resume({params}): Awaited<ReactNode> {
   const messages = await getMessages(locale);
   const t = await getTranslations('Resume');
   const resume = await ResumeContent(t);
-  
+
   return (
     <>
       {/* eslint:ignore */}
       <NextIntlClientProvider
         messages={
           // … and provide the relevant messages
-          pick(messages, ['Resume', 'CommonWords'])
+          pick(messages, ['Resume.QuestionModal', 'CommonWords'])
         }
       >
         <ResumeBuilder locale={locale} resume={resume} />

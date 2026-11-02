@@ -1,9 +1,8 @@
-import {ToolsProjects} from './types'
+import {ToolsProjects} from './types';
 
 import {createTranslator} from 'use-intl/core';
 type ResumeTranslator = ReturnType<typeof createTranslator>;
 export async function ToolsProjectsList(t: ResumeTranslator) {
-
   return [
     new ToolsProjects(
       'project-40',
@@ -15,10 +14,10 @@ export async function ToolsProjectsList(t: ResumeTranslator) {
       `<p>${t('WorkInProgressDescription')}</p>
       <a href="https://github.com/gabuscuv/PartyGameLauncher"><img src="https://opengraph.githubassets.com/05d4f663164deecec1ec769ac1c9fad9ca3fe326d28b85ea16ca8c79d5a5696b/gabuscuv/PartyGameLauncher" /> </a>
 `,
-'#c10606',
+      '#c10606',
       false,
       true,
-      ""
+      '',
     ),
     new ToolsProjects(
       'project-9',
@@ -52,7 +51,7 @@ export async function ToolsProjectsList(t: ResumeTranslator) {
       '#c10606',
       true,
       true,
-      ""
+      '',
     ),
     new ToolsProjects(
       'project-10',
@@ -84,10 +83,10 @@ export async function ToolsProjectsList(t: ResumeTranslator) {
         </div>
 
     `,
-'#c10606',
+      '#c10606',
       false,
       true,
-      ""
+      '',
     ),
     new ToolsProjects(
       'project-11',
@@ -110,10 +109,10 @@ export async function ToolsProjectsList(t: ResumeTranslator) {
           </div>
 
 `,
-  '#c10606',
+      '#c10606',
       false,
       true,
-      ""
+      '',
     ),
   ];
 }
