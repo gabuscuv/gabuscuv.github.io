@@ -1,18 +1,17 @@
-import {
-  Link,
-  StyleSheet,
-  Text,
-  View,
-} from '@react-pdf/renderer';
-import type { _Translator} from 'use-intl/core';
+import {Link, StyleSheet, Text, View} from '@react-pdf/renderer';
+import type {_Translator} from 'use-intl/core';
 
 import {JobTypeEnum, type JobsType} from '@/src/data/resume/types';
 import {techStack} from '@/src/data/techStack';
-import {getYearsMonthRange,OnGoingValue} from '@/src/utils/dates';
-import {type ExperienceSelection, getWorkEntriesHeader, Locale} from '@/src/utils/resumeUtils';
-
+import {getYearsMonthRange, OnGoingValue} from '@/src/utils/dates';
+import {
+  type ExperienceSelection,
+  getWorkEntriesHeader,
+  Locale,
+} from '@/src/utils/resumeUtils';
 
 type WorkExperienceSectionProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   t: _Translator<Record<string, any>>;
   locale: Locale;
   role: JobTypeEnum;
@@ -82,18 +81,18 @@ const styles = StyleSheet.create({
     lineHeight: 1.2,
   },
   multimediaSection: {
-  marginTop: 0,
-},
+    marginTop: 0,
+  },
 
-multimediaTitle: {
-  fontSize: 7,
-  fontWeight: 'bold',
-},
+  multimediaTitle: {
+    fontSize: 7,
+    fontWeight: 'bold',
+  },
 
-multimediaItem: {
-  fontSize:6,
-  color: '#2563eb',
-},
+  multimediaItem: {
+    fontSize: 6,
+    color: '#2563eb',
+  },
 });
 
 export function formatYear(
@@ -107,7 +106,6 @@ export function formatYear(
     year: 'numeric',
   });
 }
-
 
 export function WorkExperienceSection({
   t,
@@ -139,26 +137,18 @@ export function WorkExperienceSection({
         >
           <View style={styles.companyHeading}>
             {company.Url ? (
-              <Link
-                src={company.Url}
-                style={styles.companyName}
-              >
+              <Link src={company.Url} style={styles.companyName}>
                 {company.Title}
               </Link>
             ) : (
-              <Text style={styles.companyName}>
-                {company.Title}
-              </Text>
+              <Text style={styles.companyName}>{company.Title}</Text>
             )}
 
-            <Text style={styles.location}>
-              {company.Location}
-            </Text>
+            <Text style={styles.location}>{company.Location}</Text>
           </View>
 
           <Text style={styles.dates}>
-            {formatYear(company.StartDate, locale, ongoing)}{' '}
-            –{' '}
+            {formatYear(company.StartDate, locale, ongoing)} –{' '}
             {formatYear(company.EndDate, locale, ongoing)}
           </Text>
 
@@ -187,30 +177,18 @@ function JobEntry({
 }) {
   return (
     <View style={styles.job} wrap>
-      <Text style={styles.jobTitle}>
-        {job.Title}
-      </Text>
+      <Text style={styles.jobTitle}>{job.Title}</Text>
 
       <Text style={styles.dates}>
-        {getYearsMonthRange(
-          locale,
-          job.StartDate,
-          job.EndDate,
-          ongoing,
-        )}
+        {getYearsMonthRange(locale, job.StartDate, job.EndDate, ongoing)}
       </Text>
 
       {job.Description && (
-        <Text style={styles.description}>
-          {job.Description}
-        </Text>
+        <Text style={styles.description}>{job.Description}</Text>
       )}
 
       {job.BulletPoints.map((bullet, index) => (
-        <Text
-          key={`${index}-${bullet.translationKey}`}
-          style={styles.bullet}
-        >
+        <Text key={`${index}-${bullet.translationKey}`} style={styles.bullet}>
           • {bullet.translation}
         </Text>
       ))}

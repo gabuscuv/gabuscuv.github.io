@@ -11,7 +11,8 @@ export const techStack: Record<
   {
     fullName: string;
     category: string;
-  }> = {
+  }
+> = {
   c: {fullName: 'C', category: 'language'},
   cpp: {fullName: 'C++', category: 'language'},
   csharp: {fullName: 'C#', category: 'language'},

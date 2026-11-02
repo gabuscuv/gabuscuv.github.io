@@ -48,9 +48,9 @@ export default async function Home({params}): Promise<ReactNode> {
             />
           </div>
         </div>
-      <section className="col-span-full mx-auto w-full max-w-5xl">
-        <ReferencesCarouselComponent />
-      </section>
+        <section className="col-span-full mx-auto w-full max-w-5xl">
+          <ReferencesCarouselComponent />
+        </section>
       </div>
     </main>
   );

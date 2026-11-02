@@ -17,9 +17,7 @@ export function CertificateSection({
           style={styles.educationItem}
           wrap={false}
         >
-          <Text style={styles.itemTitle}>
-            {item.Title}
-          </Text>
+          <Text style={styles.itemTitle}>{item.Title}</Text>
 
           <Text style={styles.itemSubtitle}>
             {item.IssuerOrg} · {item.type}

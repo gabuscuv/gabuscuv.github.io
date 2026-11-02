@@ -23,7 +23,7 @@ function ProjectChecker(
 
   function isAllToogleEnable(projectTypeFilter: {
     [id: string]: projectType;
-  }): Boolean {
+  }): boolean {
     return projectCatTypes.every(e => projectTypeFilter[e.idName].activated);
   }
 
@@ -67,44 +67,43 @@ export function _ButtonGroup(props: {
     props.callback(props.projectTypeFilter, !props.showHiddenProjects);
   }
 
-
-return (
-  <div className="flex w-full justify-center px-4 py-4">
-    <div className="flex max-w-full items-center justify-center gap-3">
-      <div className="min-w-0 overflow-x-auto">
-        <ButtonGroup outline className="w-max whitespace-nowrap">
-          {props.projectCatTypes.map(e => (
-            <Button
-              key={`${e.idName}-button`}
-              color={
-                getStatusValue(props.projectTypeFilter, e.enum)
-                  ? props.config.primaryColor
-                  : 'gray'
-              }
-              onClick={() =>
-                ProjectChecker(
-                  props.projectCatTypes,
-                  props.projectTypeFilter,
-                  props.showHiddenProjects,
-                  props.callback,
-                  e.enum,
-                )
-              }
-            >
-              {e.DisplayName}
-            </Button>
-          ))}
-        </ButtonGroup>
+  return (
+    <div className="flex w-full justify-center px-4 py-4">
+      <div className="flex max-w-full items-center justify-center gap-3">
+        <div className="min-w-0 overflow-x-auto">
+          <ButtonGroup outline className="w-max whitespace-nowrap">
+            {props.projectCatTypes.map(e => (
+              <Button
+                key={`${e.idName}-button`}
+                color={
+                  getStatusValue(props.projectTypeFilter, e.enum)
+                    ? props.config.primaryColor
+                    : 'gray'
+                }
+                onClick={() =>
+                  ProjectChecker(
+                    props.projectCatTypes,
+                    props.projectTypeFilter,
+                    props.showHiddenProjects,
+                    props.callback,
+                    e.enum,
+                  )
+                }
+              >
+                {e.DisplayName}
+              </Button>
+            ))}
+          </ButtonGroup>
+        </div>
+        <Button
+          className="shrink-0"
+          color={props.showHiddenProjects ? 'pink' : 'gray'}
+          outline={!props.showHiddenProjects}
+          onClick={setShowHiddenProject}
+        >
+          {props.config.showAllLabel}
+        </Button>
       </div>
-      <Button
-        className="shrink-0"
-        color={props.showHiddenProjects ? 'pink' : 'gray'}
-        outline={!props.showHiddenProjects}
-        onClick={setShowHiddenProject}
-      >
-        {props.config.showAllLabel}
-      </Button>
     </div>
-  </div>
-);
+  );
 }

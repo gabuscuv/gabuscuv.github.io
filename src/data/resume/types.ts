@@ -1,6 +1,4 @@
-import {roles} from "../../config/roles";
-
-
+import {roles} from '../../config/roles';
 
 export enum JobTypeEnum {
   All,
@@ -10,15 +8,12 @@ export enum JobTypeEnum {
   Backend,
   WebDev,
   EmbeddedSystem,
-  Multimedia
+  Multimedia,
 }
 
 export type RoleDefinition = (typeof roles)[number];
 
-export type CertificateEnumType = 'network' |
-  'design' |
-  'gamedev' |
-  'office';
+export type CertificateEnumType = 'network' | 'design' | 'gamedev' | 'office';
 class CommonMinimum {
   Title = '';
   StartDate = 0;
@@ -41,7 +36,7 @@ export enum BulletCategory {
   Automation = 'automation',
   Integration = 'integration',
   Quality = 'quality',
-  Delivery = 'delivery'
+  Delivery = 'delivery',
 }
 
 export type CategoryWeights = Record<BulletCategory, number>;
@@ -103,4 +98,3 @@ export type ResumeType = {
   Certificate: Array<CertificateType>;
   Talks: Array<TalksType>;
 };
-

@@ -3,7 +3,6 @@ import {createTranslator} from 'use-intl/core';
 
 type ResumeTranslator = ReturnType<typeof createTranslator>;
 export async function GameProjects(t: ResumeTranslator) {
-  
   return [
     new GameProjectsType(
       'project-36',
@@ -24,7 +23,7 @@ export async function GameProjects(t: ResumeTranslator) {
       true,
       true,
       false,
-      "https://itch.io/embed/3269975"
+      'https://itch.io/embed/3269975',
     ),
     new GameProjectsType(
       'project-35',
@@ -45,7 +44,7 @@ export async function GameProjects(t: ResumeTranslator) {
       true,
       true,
       false,
-      "https://itch.io/embed/2859049"
+      'https://itch.io/embed/2859049',
     ),
     new GameProjectsType(
       'project-34',
@@ -69,7 +68,7 @@ export async function GameProjects(t: ResumeTranslator) {
       true,
       true,
       false,
-      "https://itch.io/embed/2494020"
+      'https://itch.io/embed/2494020',
     ),
     new GameProjectsType(
       'project-33',
@@ -110,7 +109,7 @@ Good luck finding a benevolent ending ;)
       true,
       true,
       false,
-      "https://itch.io/embed/2274926"
+      'https://itch.io/embed/2274926',
     ),
     new GameProjectsType(
       'project-32',
@@ -138,7 +137,7 @@ Good luck finding a benevolent ending ;)
       true,
       true,
       false,
-      "https://itch.io/embed/2194730"
+      'https://itch.io/embed/2194730',
     ),
     new GameProjectsType(
       'project-1',
@@ -175,8 +174,7 @@ Good luck finding a benevolent ending ;)
       true,
       true,
       false,
-      "https://cutt.ly/LHTkwEH"
-      
+      'https://cutt.ly/LHTkwEH',
     ),
     new GameProjectsType(
       'project-2',
@@ -220,7 +218,7 @@ Good luck finding a benevolent ending ;)
       true,
       true,
       false,
-      "https://juanjosalvador.itch.io/kubler"
+      'https://juanjosalvador.itch.io/kubler',
     ),
     new GameProjectsType(
       'project-3',
@@ -273,7 +271,7 @@ Good luck finding a benevolent ending ;)
       true,
       true,
       false,
-      "https://github.com/gabuscuv/TestingGrounds-Public"
+      'https://github.com/gabuscuv/TestingGrounds-Public',
     ),
     new GameProjectsType(
       'project-4',
@@ -323,7 +321,7 @@ Good luck finding a benevolent ending ;)
       true,
       true,
       false,
-      ""
+      '',
     ),
   ];
 }

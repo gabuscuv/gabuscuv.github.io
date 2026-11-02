@@ -114,7 +114,11 @@ export default function ProjectBrowser(props: {
   }
 
   function ChangedFilter(e: string) {
-    filterStack.has(e) ? filterStack.delete(e) : filterStack.add(e);
+    if (filterStack.has(e)) {
+      filterStack.delete(e);
+    } else {
+      filterStack.add(e);
+    }
     ProjectCardBuilder(projectTypeFilter);
   }
 

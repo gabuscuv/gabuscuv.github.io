@@ -2,7 +2,7 @@ import {EducationType} from '@/src/data/resume/types';
 import {View, Text} from '@react-pdf/renderer';
 import {styles} from '../ResumePdf';
 
-export function EducationSection({ items, }: { items: EducationType[]; }) {
+export function EducationSection({items}: {items: EducationType[]}) {
   return (
     <View>
       <Text style={styles.sectionTitle}>Education</Text>
@@ -13,9 +13,7 @@ export function EducationSection({ items, }: { items: EducationType[]; }) {
           style={styles.educationItem}
           wrap={false}
         >
-          <Text style={styles.itemTitle}>
-            {item.Title}
-          </Text>
+          <Text style={styles.itemTitle}>{item.Title}</Text>
 
           <Text style={styles.itemSubtitle}>
             {item.IssuerOrg}
@@ -23,15 +21,11 @@ export function EducationSection({ items, }: { items: EducationType[]; }) {
           </Text>
 
           {item.originalTitle && (
-            <Text style={styles.itemDescription}>
-              {item.originalTitle}
-            </Text>
+            <Text style={styles.itemDescription}>{item.originalTitle}</Text>
           )}
 
           {item.EFramework && (
-            <Text style={styles.itemSubtitle}>
-              {item.EFramework}
-            </Text>
+            <Text style={styles.itemSubtitle}>{item.EFramework}</Text>
           )}
 
           {item.techStack.length > 0 && (

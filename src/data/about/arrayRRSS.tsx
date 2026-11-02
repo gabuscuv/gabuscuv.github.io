@@ -1,4 +1,3 @@
-/* eslint-disable n/no-extraneous-import */
 import {FaLinkedin, FaInstagram, FaGithub} from 'react-icons/fa';
 import {MdEmail} from 'react-icons/md';
 import {decrypt, ImportKey} from '@/src/utils/security/decryptUtils';

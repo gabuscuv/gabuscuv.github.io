@@ -17,7 +17,7 @@ export default async function Resume({params}): Awaited<ReactNode> {
   const messages = await getMessages(locale);
   const t = await getTranslations('Resume');
   const resume = await ResumeContent(t);
-  
+
   return (
     <>
       {/* eslint:ignore */}

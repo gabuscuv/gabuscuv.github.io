@@ -5,13 +5,22 @@ type ResumeTranslator = ReturnType<typeof createTranslator>;
 export async function GameToolProjectsList(t: ResumeTranslator) {
   return [
     new GameToolProjects(
-'project-22',
-'Castanets-ESP32',
-['embedded', 'esp32', 'cpp', 'c', 'csharp', 'godot', 'networking', 'gamedev'],
-2026,
-'',
-t('Castanets.description'),
-`
+      'project-22',
+      'Castanets-ESP32',
+      [
+        'embedded',
+        'esp32',
+        'cpp',
+        'c',
+        'csharp',
+        'godot',
+        'networking',
+        'gamedev',
+      ],
+      2026,
+      '',
+      t('Castanets.description'),
+      `
 <p>
   A wireless rhythm-game controller system built with ESP32 and ESP-NOW,
   featuring a C++ serial communication layer for PC and game-engine integration.
@@ -26,14 +35,14 @@ t('Castanets.description'),
 </a>
 
 `,
-[],
+      [],
       '#c10606',
       false,
       false,
       false,
-      "https://github.com/gabuscuv/Castanets-SerialComm"
-),
-      new GameToolProjects(
+      'https://github.com/gabuscuv/Castanets-SerialComm',
+    ),
+    new GameToolProjects(
       'project-21',
       'VRM2OpenUSD',
       ['cpp'],
@@ -45,16 +54,16 @@ t('Castanets.description'),
       <a href="https://github.com/gabuscuv/vrm2openusd"><img src="https://opengraph.githubassets.com/5b032b783fdbd79921566406fd721ab79c029108f231effa616e6ebb0c02aa0a/gabuscuv/vrm2openusd" /> </a>
       `,
       [],
-'#c10606',
+      '#c10606',
       false,
       false,
       false,
-      "https://github.com/gabuscuv/vrm2openusd"
+      'https://github.com/gabuscuv/vrm2openusd',
     ),
-        new GameToolProjects(
+    new GameToolProjects(
       'project-19',
       'libnfc-crossengine',
-      ['unreal', 'unity', 'godot','csharp', 'cpp', 'python'],
+      ['unreal', 'unity', 'godot', 'csharp', 'cpp', 'python'],
       2026,
       '',
       t('libnfc.description'),
@@ -65,11 +74,11 @@ t('Castanets.description'),
       <a href="https://github.com/gabuscuv/libnfc-crossengine"><img src="https://opengraph.githubassets.com/1e33860348f777d3950debb1ecab1d36e25c3543675c8af2e84bfee15d2e2764/gabuscuv/libnfc-crossengine" /> </a>
       `,
       [],
-'#c10606',
+      '#c10606',
       false,
       false,
       false,
-      "https://github.com/gabuscuv/libnfc-crossengine"
+      'https://github.com/gabuscuv/libnfc-crossengine',
     ),
     new GameToolProjects(
       'project-18',
@@ -84,11 +93,11 @@ t('Castanets.description'),
       <a href="https://github.com/gabuscuv/AnimuImporterCpp"><img src="https://opengraph.githubassets.com/a2ecbd5836e9df8799bc72db1eaf9432781e55f22b3da85036716adcf36a00b1/gabuscuv/AnimuImporterCpp" /> </a>
       `,
       [],
-'#c10606',
+      '#c10606',
       false,
       false,
       false,
-      "https://github.com/gabuscuv/AnimuImporterCpp"
+      'https://github.com/gabuscuv/AnimuImporterCpp',
     ),
     new GameToolProjects(
       'project-16',
@@ -103,11 +112,11 @@ t('Castanets.description'),
       <a href="https://github.com/gabuscuv/AsyncMapFramework"><img src="https://opengraph.githubassets.com/a2ecbd5836e9df8799bc72db1eaf9432781e55f22b3da85036716adcf36a00b1/gabuscuv/AsyncMapFramework" /> </a>
       `,
       [],
-'#c10606',
+      '#c10606',
       false,
       false,
       false,
-      "https://github.com/gabuscuv/AsyncMapFramework"
+      'https://github.com/gabuscuv/AsyncMapFramework',
     ),
     new GameToolProjects(
       'project-17',
@@ -122,11 +131,11 @@ t('Castanets.description'),
 
       `,
       [],
-'#c10606',
+      '#c10606',
       false,
       false,
       false,
-      "https://github.com/gabuscuv/CustomOpenXRControllerIntegration"
+      'https://github.com/gabuscuv/CustomOpenXRControllerIntegration',
     ),
     new GameToolProjects(
       'project-6',
@@ -157,11 +166,11 @@ t('Castanets.description'),
 
     `,
       [],
-'#c10606',
+      '#c10606',
       false,
       false,
       false,
-      "https://github.com/gabuscuv/ArrowDialogueParser"
+      'https://github.com/gabuscuv/ArrowDialogueParser',
     ),
     new GameToolProjects(
       'project-7',
@@ -195,11 +204,11 @@ t('Castanets.description'),
     `,
       [],
 
-'#c10606',
+      '#c10606',
       false,
       false,
       false,
-      "https://github.com/gabuscuv/DialogueToTTS"
+      'https://github.com/gabuscuv/DialogueToTTS',
     ),
     new GameToolProjects(
       'project-8',
@@ -235,7 +244,7 @@ t('Castanets.description'),
       false,
       false,
       false,
-      "https://github.com/gabuscuv/UE4-Toolkit-Public"
+      'https://github.com/gabuscuv/UE4-Toolkit-Public',
     ),
   ];
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import {ProjectData} from '@/src/data/projects/types';
-// eslint-disable-next-line n/no-extraneous-import
+
 import {motion} from 'framer-motion';
 import {ReactNode} from 'react';
 import metaImages from '@/src/config/techstack_icons.json';
@@ -63,7 +63,9 @@ export function ProjectCards(props: {
             onClick={() => props.callback(project.id)}
             className="flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-lg border border-gray-200 bg-white text-left shadow-md transition-shadow hover:shadow-lg dark:border-gray-700 dark:bg-gray-800"
           >
-            <div className={`${imageHeight} relative w-full shrink-0 overflow-hidden`}>
+            <div
+              className={`${imageHeight} relative w-full shrink-0 overflow-hidden`}
+            >
               <Image
                 className="h-full w-full object-cover"
                 src={

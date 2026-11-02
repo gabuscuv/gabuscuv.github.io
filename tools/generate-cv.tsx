@@ -1,14 +1,18 @@
-
 import {mkdir, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {renderToBuffer} from '@react-pdf/renderer';
 import {createTranslator} from 'use-intl/core';
 
-import {getResumeFileName, selectCertificates, selectExperience, selectProjects} from '@/src/utils/resumeUtils';
+import {
+  getResumeFileName,
+  selectCertificates,
+  selectExperience,
+  selectProjects,
+} from '@/src/utils/resumeUtils';
 import {ResumePdf} from './generate-pdf/ResumePdf';
 import {ResumeContent} from '@/src/data/resume/Resume';
 import {JobTypeEnum} from '@/src/data/resume/types';
-import {roles} from "@/src/config/roles";
+import {roles} from '@/src/config/roles';
 import enMessages from '@/messages/en.json';
 import esMessages from '@/messages/es.json';
 import {GetSocials} from '@/src/data/about/arrayRRSS';
@@ -137,12 +141,10 @@ async function generateResume(
 
   const resume = await ResumeContent(tResume);
 
-  const projects = await GetProjects(await GetterProjects(locale, messages),);
+  const projects = await GetProjects(await GetterProjects(locale, messages));
 
   const contacts = [
-    ...(await GetSocials()).filter(
-      e => !socialNoList.includes(e.name),
-    ),
+    ...(await GetSocials()).filter(e => !socialNoList.includes(e.name)),
     {
       name: 'Website',
       innerText: 'gabuscuv.dev',
@@ -163,23 +165,24 @@ async function generateResume(
       experience={selectExperience(resume.Jobs, role)}
       education={resume.Education}
       talks={resume.Talks}
-      summary={summaries[role] && summaries[role][locale] ? summaries[role][locale] : "" }
+      summary={
+        summaries[role] && summaries[role][locale]
+          ? summaries[role][locale]
+          : ''
+      }
     />,
   );
 
   const filename = output ?? getResumeFileName(locale, role);
 
   // Only accept a filename, not a path.
-  if (
-    path.basename(filename) !== filename ||
-    !filename.endsWith('.pdf')
-  ) {
+  if (path.basename(filename) !== filename || !filename.endsWith('.pdf')) {
     throw new Error('--output must be a filename ending in .pdf');
   }
 
   const outputDir = path.resolve('output/cv');
 
-  await mkdir(outputDir, { recursive: true });
+  await mkdir(outputDir, {recursive: true});
 
   const outputPath = path.join(outputDir, filename);
 
@@ -199,12 +202,7 @@ async function main() {
   for (const {value: role, label: roleName} of selectedRoles) {
     console.log(`Building ${roleName} resume (${options.locale})...`);
 
-    await generateResume(
-      roleName,
-      role,
-      options.locale,
-      options.output,
-    );
+    await generateResume(roleName, role, options.locale, options.output);
   }
 
   console.log('Resume generation complete.');

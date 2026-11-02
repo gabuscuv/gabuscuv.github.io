@@ -1,6 +1,6 @@
 'use client';
 import {JobTypeEnum} from '@/src/data/resume/types';
-import {roles} from "@/src/config/roles";
+import {roles} from '@/src/config/roles';
 import {
   Button,
   Modal,
@@ -15,8 +15,9 @@ export function QuestionModal(props: {
   openModalStatus: boolean;
   closeModalCallback: (jobType: JobTypeEnum) => void;
 }) {
-  const [selectedJobType, setSelectedJobType] =
-    useState<JobTypeEnum | undefined>();
+  const [selectedJobType, setSelectedJobType] = useState<
+    JobTypeEnum | undefined
+  >();
 
   const t = useTranslations('Resume.QuestionModal');
 
@@ -26,17 +27,13 @@ export function QuestionModal(props: {
     }
   }, [props.openModalStatus]);
 
-
-const options = roles.map(({value, label}) => ({
-  value,
-  label: t(`Roles.${label}`),
-}));
+  const options = roles.map(({value, label}) => ({
+    value,
+    label: t(`Roles.${label}`),
+  }));
 
   return (
-    <Modal
-      show={props.openModalStatus}
-      size="lg"
-    >
+    <Modal show={props.openModalStatus} size="lg">
       <ModalHeader theme={{close: {base: 'hidden'}}}>{t('Title')}</ModalHeader>
       <ModalBody>
         <div className="space-y-5">
@@ -49,8 +46,7 @@ const options = roles.map(({value, label}) => ({
             aria-label={t('Title')}
           >
             {options.map(option => {
-              const selected =
-                selectedJobType === option.value;
+              const selected = selectedJobType === option.value;
 
               return (
                 <Button
@@ -59,9 +55,7 @@ const options = roles.map(({value, label}) => ({
                   outline={!selected}
                   className="h-auto min-h-12 whitespace-normal text-center"
                   aria-pressed={selected}
-                  onClick={() =>
-                    setSelectedJobType(option.value)
-                  }
+                  onClick={() => setSelectedJobType(option.value)}
                 >
                   {option.label}
                 </Button>

@@ -6,7 +6,10 @@ import {JobTypeEnum, ResumeType} from '@/src/data/resume/types';
 import {ReactNode} from 'react';
 import {Talks} from './components/TalksComponent';
 import {useTranslations} from 'next-intl';
-import {getCodingTimeSinceFirstJob, getCurrentWorkTime} from '@/src/utils/resumeUtils';
+import {
+  getCodingTimeSinceFirstJob,
+  getCurrentWorkTime,
+} from '@/src/utils/resumeUtils';
 
 export function MainResumeBody(props: {
   locale: string;
@@ -18,8 +21,15 @@ export function MainResumeBody(props: {
   return (
     <div>
       <ResumeSection title={t('TechExperience')}>
-        <p>{t('Work Experience')}:{' '}{getCurrentWorkTime(props.resume.Jobs) + ' ' +t('years')}</p>
-        <p>{t('Coding Experience')}{': '}{getCodingTimeSinceFirstJob() + ' ' +t('years')}</p>
+        <p>
+          {t('Work Experience')}:{' '}
+          {getCurrentWorkTime(props.resume.Jobs) + ' ' + t('years')}
+        </p>
+        <p>
+          {t('Coding Experience')}
+          {': '}
+          {getCodingTimeSinceFirstJob() + ' ' + t('years')}
+        </p>
       </ResumeSection>
       <WorkExperience
         locale={props.locale}

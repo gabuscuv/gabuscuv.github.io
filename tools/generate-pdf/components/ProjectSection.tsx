@@ -1,16 +1,15 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Link,
-} from '@react-pdf/renderer';
+import {View, Text, StyleSheet, Link} from '@react-pdf/renderer';
 
-import type {ProjectData} from '@/src/data/projects/types';
-import {getProjectEntriesHeader, Locale, ProjectSelection, selectProjects} from '@/src/utils/resumeUtils';
+import {
+  getProjectEntriesHeader,
+  Locale,
+  ProjectSelection,
+} from '@/src/utils/resumeUtils';
 import {techStack} from '@/src/data/techStack';
 import {_Translator} from 'use-intl/core';
 
 type ProjectSectionProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   t: _Translator<Record<string, any>>;
   projects: ProjectSelection;
   locale: Locale;
@@ -19,7 +18,7 @@ type ProjectSectionProps = {
 };
 
 const styles = StyleSheet.create({
-    sectionTitle: {
+  sectionTitle: {
     fontSize: 12,
     fontFamily: 'Helvetica-Bold',
     marginBottom: 12,
@@ -27,12 +26,12 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#aab0b8',
   },
-    sectionLink: {
+  sectionLink: {
     fontSize: 8,
     color: '#334fc5',
     textDecoration: 'none',
   },
-    section: {
+  section: {
     marginBottom: 8,
   },
   project: {
@@ -67,50 +66,35 @@ const styles = StyleSheet.create({
   },
 });
 
-export function ProjectSection({
-  t,
-  locale,
-  projects
-}: ProjectSectionProps) {
-
+export function ProjectSection({t, locale, projects}: ProjectSectionProps) {
   return (
     <View style={styles.section}>
-            <Text style={styles.sectionTitle}>
+      <Text style={styles.sectionTitle}>
         {getProjectEntriesHeader(t, projects)} -{' '}
-              <Link
-                src={`https://gabuscuv.dev/${locale}/Projects`}
-                style={styles.sectionLink}
-              >
-                More Information
-              </Link>
-            </Text>
-      
-      {projects.projects.map(project => (
-        <View
-          key={project.id}
-          style={styles.project}
-          wrap={false}
+        <Link
+          src={`https://gabuscuv.dev/${locale}/Projects`}
+          style={styles.sectionLink}
         >
-        <View style={styles.heading}>
-            {project.url ? (
-            <Link style={styles.title} src={project.url} >
-              {project.name}
-            </Link>
-        ) : (
-          <Text style={styles.title}>
-            {project.name}
-          </Text>
-          )}
+          More Information
+        </Link>
+      </Text>
 
-            <Text style={styles.year}>
-              {project.year}
-            </Text>
+      {projects.projects.map(project => (
+        <View key={project.id} style={styles.project} wrap={false}>
+          <View style={styles.heading}>
+            {project.url ? (
+              <Link style={styles.title} src={project.url}>
+                {project.name}
+              </Link>
+            ) : (
+              <Text style={styles.title}>{project.name}</Text>
+            )}
+
+            <Text style={styles.year}>{project.year}</Text>
           </View>
 
           {project.summary && (
-            <Text style={styles.summary}>
-              {project.summary}
-            </Text>
+            <Text style={styles.summary}>{project.summary}</Text>
           )}
 
           {project.techStack.length > 0 && (
