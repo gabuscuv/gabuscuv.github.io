@@ -1,3 +1,8 @@
+export enum projectTypeEnum {
+  Game,
+  GameTool,
+  Tool,
+}
 
 export interface IProjectData {
   id: string;

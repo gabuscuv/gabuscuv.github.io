@@ -1,0 +1,51 @@
+export const techStackCategories: Array<{FullName: string; type: string}> = [
+  {FullName: 'Language', type: 'language'},
+  {FullName: 'Game Engine', type: 'gameEngine'},
+  {FullName: 'Game Lib', type: 'gameLib'},
+  {FullName: 'Middleware', type: 'middleware'},
+  {FullName: 'Web Framework', type: 'webFramework'},
+];
+
+export const techStack: Record<
+  string,
+  {
+    fullName: string;
+    category: string;
+  }> = {
+  c: {fullName: 'C', category: 'language'},
+  cpp: {fullName: 'C++', category: 'language'},
+  csharp: {fullName: 'C#', category: 'language'},
+  categoryscript: {fullName: 'Typescript', category: 'language'},
+  nextjs: {fullName: 'NextJS', category: 'webFramework'},
+  react: {fullName: 'React', category: 'webFramework'},
+  golang: {fullName: 'Golang', category: 'language'},
+  unreal: {fullName: 'Unreal Engine', category: 'gameEngine'},
+  monogame: {fullName: 'Monogame', category: 'gameLib'},
+  love2d: {fullName: 'Love2D', category: 'gameLib'},
+  raylib: {fullName: 'Raylib', category: 'gameLib'},
+  unity: {fullName: 'Unity', category: 'gameEngine'},
+  js: {fullName: 'JavaScript', category: 'language'},
+  fmod: {fullName: 'FMOD', category: 'middleware'},
+  python: {fullName: 'Python', category: 'language'},
+  wwise: {fullName: 'Wwise', category: 'middleware'},
+  bash: {fullName: 'Bash', category: 'language'},
+  powershell: {fullName: 'PowerShell', category: 'language'},
+  sqlserver: {fullName: 'Microsoft SQL Server', category: 'database'},
+  azure: {fullName: 'Microsoft Azure', category: 'SaaS'},
+  entity: {fullName: 'Entity Framework', category: 'ORM'},
+  msTests: {fullName: 'MSTest', category: 'testFramework'},
+  xunit: {fullName: 'XUnit', category: 'testFramework'},
+  exchangeapi: {fullName: 'Microsoft Exchange API', category: 'api'},
+  nodejs: {fullName: 'node.js', category: 's'},
+  expressjs: {fullName: 'Express.js', category: 'apiBuilder'},
+  centos: {fullName: 'CentOS', category: 'OS'},
+  bootstrap: {fullName: 'Bootstrap', category: 'CSSFramework'},
+  grpc: {fullName: 'GRPC/Protobuf', category: 'Protocol'},
+  wordpress: {fullName: 'Wordpress', category: 'CMS'},
+  oxygen: {fullName: 'Oxygen Site Builder', category: 'CMS'},
+  qt: {fullName: 'QT', category: 'framework'},
+  zmq: {fullName: 'ZeroMQ', category: 'library'},
+  dds: {fullName: 'DDS', category: 'library'},
+  gst: {fullName: 'GStreamer', category: 'library'},
+  rhel: {fullName: 'Red Hat Enterprise Linux', category: 'OS'},
+};

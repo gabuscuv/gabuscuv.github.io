@@ -1,10 +1,9 @@
-import {GameProjects as GameProjectsType} from '@/src/data/ProjectDataTypes';
+import {GameProjects as GameProjectsType} from './types';
 import {createTranslator} from 'use-intl/core';
 
 type ResumeTranslator = ReturnType<typeof createTranslator>;
 export async function GameProjects(t: ResumeTranslator) {
   
-
   return [
     new GameProjectsType(
       'project-36',

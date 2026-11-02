@@ -1,4 +1,4 @@
-import { BulletCategory, JobTypeEnum } from "./Resume";
+import {BulletCategory, JobTypeEnum} from "./types";
 
 export const bulletCategoryWeights: Record<
   JobTypeEnum,

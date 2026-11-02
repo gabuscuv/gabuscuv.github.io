@@ -1,7 +1,7 @@
-import {ProjectData} from '../data/ProjectDataTypes';
-import {botChecker as isABot} from '../utils/antibot';
-import {decrypt, ImportKey} from '../utils/decryptUtils';
-import {projectTypeEnum} from '../projectTypeEnum';
+import {ProjectData} from '../data/projects/types';
+import {botChecker as isABot} from '../utils/security/antibot';
+import {decrypt, ImportKey} from '../utils/security/decryptUtils';
+import {projectTypeEnum} from '../data/projects/types';
 import {projects} from './Getter';
 
 export function GetProjects(_projects: projects): Promise<Array<ProjectData>> {

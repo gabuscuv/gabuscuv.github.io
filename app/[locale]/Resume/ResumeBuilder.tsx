@@ -1,6 +1,6 @@
 'use client';
 import {useTranslations} from 'next-intl';
-import {JobTypeEnum, ResumeType} from '@/src/data/Resume';
+import {JobTypeEnum, ResumeType} from '@/src/data/resume/types';
 import {ReactNode, useState} from 'react';
 import {QuestionModal} from './components/QuestionModalComponent';
 import {Button} from 'flowbite-react';

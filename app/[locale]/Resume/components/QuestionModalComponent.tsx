@@ -1,5 +1,6 @@
 'use client';
-import {JobTypeEnum, roles} from '@/src/data/Resume';
+import {JobTypeEnum} from '@/src/data/resume/types';
+import {roles} from "@/src/config/roles";
 import {
   Button,
   Modal,

@@ -1,5 +1,5 @@
 import * as readline from 'node:readline/promises';
-import { stdin as input, stdout as output } from 'node:process';
+import {stdin as input, stdout as output} from 'node:process';
 
 // I mean, If you really want the encryptation key, Here you go.
 const cipherstring : Uint8Array = new Uint8Array([140, 27, 0, 173, 96, 5, 158, 202, 36, 231, 212, 24, 62, 84, 117, 167]);

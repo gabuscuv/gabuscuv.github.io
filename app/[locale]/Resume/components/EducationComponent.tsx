@@ -2,7 +2,7 @@
 import {useTranslations} from 'next-intl';
 import {ReactNode} from 'react';
 import {ResumeSection} from './layout/ResumeSection';
-import {EducationType} from '@/src/data/Resume';
+import {EducationType} from '@/src/data/resume/types';
 import {getYearLapse, OnGoingValue} from '@/src/utils/dates';
 
 export function Education(props: {
