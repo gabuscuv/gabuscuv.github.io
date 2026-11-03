@@ -54,5 +54,8 @@ jobs:
       - name: Typecheck
         run: yarn typecheck
         
+      - name: Unit Tests
+        run: yarn test
+        
       - name: Build with Next.js
         run: yarn build
