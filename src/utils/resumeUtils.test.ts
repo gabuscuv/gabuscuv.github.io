@@ -60,7 +60,6 @@ function makeProject(
   year: number,
   projectType = 'Tool',
   stack: string[] = [],
-  hidden = false,
 ): ProjectData {
   return new ProjectData(id, name, projectType, stack, year, '', '', '');
 }
