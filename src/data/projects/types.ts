@@ -1,3 +1,5 @@
+import {TechStackKey} from '../techStack';
+
 export enum projectTypeEnum {
   Game,
   GameTool,
@@ -9,7 +11,7 @@ export interface IProjectData {
   name: string;
   url: string;
   projecttype: string;
-  stack: Array<string>;
+  stack: TechStackKey[];
   year: number;
   summary: string;
   htmlDescription: string;

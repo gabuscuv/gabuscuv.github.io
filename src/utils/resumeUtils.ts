@@ -29,6 +29,7 @@ export type ExperienceSelection = {
 export type ProjectSelection = {
   projects: ProjectData[];
   careerTimeExperience: string;
+  selectedProjectCount: number;
   matchingProjectCount: number;
   totalProjectCount: number;
 };
@@ -63,7 +64,7 @@ export function getProjectEntriesHeader(
   t: _Translator<Record<string, any>, 'CommonWords'>,
   experience: ProjectSelection,
 ): string {
-  return `${t('Projects')} (${experience.matchingProjectCount} ${t('of')} ${experience.totalProjectCount} ${t('Projects')}) - ${experience.careerTimeExperience} ${t('years')}`;
+  return `${t('Projects')} (${experience.selectedProjectCount} ${t('of')} ${experience.totalProjectCount} ${t('Projects')}) - ${experience.careerTimeExperience} ${t('years')}`;
 }
 
 /** Most recent end date first; ongoing positions come first. */
@@ -188,7 +189,7 @@ export function selectJobs(
   });
 
   if (role === JobTypeEnum.All) {
-    return jobs.map(selectRelevantBullets);
+    return jobs;
   }
 
   return jobs
@@ -239,6 +240,7 @@ export function selectProjects(
     return {
       careerTimeExperience: getCodingTimeSinceFirstJob(),
       projects: [],
+      selectedProjectCount: 0,
       matchingProjectCount: 0,
       totalProjectCount: projects.length,
     };
@@ -266,7 +268,8 @@ export function selectProjects(
   return {
     projects: selectedProjects,
     careerTimeExperience: getCodingTimeSinceFirstJob(),
-    matchingProjectCount: selectedProjects.length,
+    selectedProjectCount: selectedProjects.length,
+    matchingProjectCount: matchingProjects.length,
     totalProjectCount: visibleProjects.length,
   };
 }
@@ -320,12 +323,12 @@ export function selectCertificates(
       );
 }
 
-export function getCurrentWorkTime(workExperience: Array<CompanyType>) {
+export function getCurrentWorkTime(workExperience: Array<CompanyType>): string {
   return (
     workExperience
       .map(
         e => ((e.EndDate !== 0 ? e.EndDate : Date.now()) - e.StartDate) / 1000,
       )
-      .reduce((a, b) => a + b) / 31536000
+      .reduce((a, b) => a + b, 0) / 31536000
   ).toFixed(2);
 }

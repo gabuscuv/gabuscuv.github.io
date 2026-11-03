@@ -41,6 +41,12 @@ export const techStack: Record<
   expressjs: {fullName: 'Express.js', category: 'apiBuilder'},
   centos: {fullName: 'CentOS', category: 'OS'},
   bootstrap: {fullName: 'Bootstrap', category: 'CSSFramework'},
+  embedded: {fullName: 'Embedded Systems', category: 'specialty'},
+  esp32: {fullName: 'ESP32', category: 'hardware'},
+  godot: {fullName: 'Godot', category: 'gameEngine'},
+  networking: {fullName: 'Networking', category: 'specialty'},
+  gamedev: {fullName: 'Game Development', category: 'specialty'},
+  lua: {fullName: 'Lua', category: 'language'},
   grpc: {fullName: 'GRPC/Protobuf', category: 'Protocol'},
   wordpress: {fullName: 'Wordpress', category: 'CMS'},
   oxygen: {fullName: 'Oxygen Site Builder', category: 'CMS'},
@@ -50,3 +56,5 @@ export const techStack: Record<
   gst: {fullName: 'GStreamer', category: 'library'},
   rhel: {fullName: 'Red Hat Enterprise Linux', category: 'OS'},
 };
+
+export type TechStackKey = keyof typeof techStack;
