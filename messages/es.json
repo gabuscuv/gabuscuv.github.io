@@ -1,7 +1,7 @@
 {
   "HomePage": {
-  "Greetings": "¡Hola, soy Gabriel!",
-  "Description": "Desarrollador de software apasionado por crear sistemas robustos y experiencias interactivas. Desde la programación de bajo nivel hasta las aplicaciones en tiempo real, disfruto explorando las distintas facetas de la ingeniería de software."
+    "Greetings": "¡Hola, soy Gaby!",
+    "Description": "Desarrollador de software apasionado por crear sistemas robustos y experiencias interactivas. Desde la programación de bajo nivel hasta las aplicaciones en tiempo real, disfruto explorando las distintas facetas de la ingeniería de software."
   },
   "LocaleSwitcher": {
     "locale": "{locale, select, es {Español} en {Ingles} other {Unknown}}"
@@ -38,6 +38,18 @@
       "WorkInProgressDescription": "Descripción / Resumen en curso"
     },
     "gameTools": {
+      "UET": {
+        "description": "Herramienta de línea de comandos para simplificar la compilación y el empaquetado de proyectos de Unreal Engine."
+      },
+      "DTT": {
+        "description": "Generación automatizada de voz sintética (text-to-speech) para diálogos de videojuegos."
+      },
+      "ADP": {
+        "description": "Convierte diálogos de Arrow a archivos CSV listos para su integración en motores de videojuegos."
+      },
+      "AMF": {
+        "description": "Framework de carga asíncrona de niveles diseñado para aplicaciones de realidad virtual."
+      },
       "OXI": {
         "description": "Un plugin reutilizable para Unreal Engine destinado a resaltar elementos interactivos y entradas de mando en realidad virtual (VR)."
       },
@@ -57,6 +69,15 @@
       }
     },
     "tools": {
+      "H2G": {
+        "description": "Script en Python que permite recuperar y procesar datos de videojuegos de HowLongToBeat."
+      },
+      "BDU": {
+        "description": "Conjunto de herramientas de línea de comandos en C# para automatizar la gestión de bases de datos de videojuegos."
+      },
+      "BG": {
+        "description": "Aplicación web de página única (SPA) desarrollada con React para consultar un catálogo de videojuegos completados, organizado por año y enriquecido con datos de IGDB."
+      },
       "PGL": {
         "description": "Un lanzador de juegos activado por hardware que utiliza un dispositivo USB o un periférico personalizado para iniciar juegos."
       },
@@ -208,7 +229,8 @@
         "embeddedSystem": "Sistemas embebidos",
         "multimedia": "Multimedia"
       },
-      "Description": "¡Gracias por interesarte en mi trabajo! Como desarrollador multidisciplinar, trabajo en distintas áreas de la ingeniería de software. He adaptado mi currículum a diferentes especializaciones para destacar las habilidades y la experiencia más relevantes en cada caso. Elige un perfil para consultar el currículum correspondiente.",      "Choose": "Elegir",
+      "Description": "¡Gracias por interesarte en mi trabajo! Como desarrollador multidisciplinar, trabajo en distintas áreas de la ingeniería de software. He adaptado mi currículum a diferentes especializaciones para destacar las habilidades y la experiencia más relevantes en cada caso. Elige un perfil para consultar el currículum correspondiente.",
+      "Choose": "Elegir",
       "Title": "Selector de rol tecnologico"
     }
   },

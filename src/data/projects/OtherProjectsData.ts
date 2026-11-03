@@ -17,7 +17,7 @@ export async function ToolsProjectsList(t: ResumeTranslator) {
       '#c10606',
       false,
       true,
-      '',
+      'https://github.com/gabuscuv/PartyGameLauncher',
     ),
     new ToolsProjects(
       'project-9',
@@ -25,7 +25,7 @@ export async function ToolsProjectsList(t: ResumeTranslator) {
       ['react'],
       2023,
       '/img/projects/BeatenGames-icon.png',
-      '',
+      t('BG.description'),
       `
   <div class="paragraph">
     <strong>BeatenGames</strong> is a SPA (single-page application) written in JS/React.JS<br />
@@ -51,7 +51,7 @@ export async function ToolsProjectsList(t: ResumeTranslator) {
       '#c10606',
       true,
       true,
-      '',
+      'https://github.com/gabuscuv/BeatenGames-Source',
     ),
     new ToolsProjects(
       'project-10',
@@ -59,7 +59,7 @@ export async function ToolsProjectsList(t: ResumeTranslator) {
       ['csharp'],
       2023,
       '/img/projects/HLTB2GameList-icon.png',
-      '',
+      t('BDU.description'),
       `
       <p>${t('TranslationMissing')}</p>
 
@@ -86,7 +86,7 @@ export async function ToolsProjectsList(t: ResumeTranslator) {
       '#c10606',
       false,
       true,
-      '',
+      'https://github.com/gabuscuv/BacklogDatabase-Utils',
     ),
     new ToolsProjects(
       'project-11',
@@ -94,7 +94,7 @@ export async function ToolsProjectsList(t: ResumeTranslator) {
       ['python'],
       2023,
       '/img/projects/toolkit/cmd.jpg',
-      '',
+      t('H2G.description'),
       `
     <p>${t('TranslationMissing')}</p>
     <div class="paragraph">
@@ -112,7 +112,7 @@ export async function ToolsProjectsList(t: ResumeTranslator) {
       '#c10606',
       false,
       true,
-      '',
+      'https://github.com/gabuscuv/HLTB2GameList',
     ),
   ];
 }

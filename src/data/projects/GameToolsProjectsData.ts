@@ -105,7 +105,7 @@ export async function GameToolProjectsList(t: ResumeTranslator) {
       ['unreal', 'cpp'],
       2021,
       '',
-      '',
+      t('AMF.description'),
       `
       <p>${t('WorkInProgressDescription')}</p>
 
@@ -143,7 +143,7 @@ export async function GameToolProjectsList(t: ResumeTranslator) {
       ['golang'],
       2021,
       '/img/projects/project-6-icon.png',
-      '',
+      t('ADP.description'),
       `
     <div class="paragraph">
       <strong>ArrowDialogueParse</strong> is a simple & quick format converter program/script written in golang. <br />
@@ -178,7 +178,7 @@ export async function GameToolProjectsList(t: ResumeTranslator) {
       ['csharp'],
       2021,
       '/img/projects/DialogueToTTS-icon.png',
-      '',
+      t('DTT.description'),
       `
     <div class="paragraph">
       <strong>DialogueToTTS</strong> is a program written in C#/.NETCore<br />
@@ -216,7 +216,7 @@ export async function GameToolProjectsList(t: ResumeTranslator) {
       ['powershell', 'bash'],
       2020,
       '/img/projects/toolkit/cmd.jpg',
-      '',
+      t('UET.description'),
       `
     <div class="paragraph">
                 <strong>UE4 Toolkit</strong> is a set of scripts written in Powershell & Bash that helps about automatization compiling and cooking UE4 Games since CLI. <br />
