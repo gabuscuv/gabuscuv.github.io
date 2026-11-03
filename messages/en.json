@@ -1,7 +1,7 @@
 {
   "HomePage": {
-  "Greetings": "Hello, I'm Gaby!",
-  "Description": "Software Developer passionate about building reliable systems and interactive experiences. From low-level programming to real-time applications, I enjoy exploring the many layers of software engineering."
+    "Greetings": "Hello, I'm Gaby!",
+    "Description": "Software Developer passionate about building reliable systems and interactive experiences. From low-level programming to real-time applications, I enjoy exploring the many layers of software engineering."
   },
   "LocaleSwitcher": {
     "locale": "{locale, select, es {Spanish} en {English} other {Unknown}}"
@@ -46,6 +46,15 @@
       "AIC": {
         "description": "A work-in-progress headless pipeline for automated PMX and VRM asset importing."
       },
+      "UET": {
+        "description": "Streamlined command-line builds and packaging for Unreal Engine."
+      },
+      "DTT": {
+        "description": "Automated text-to-speech generation for game dialogue."
+      },
+      "ADP": {
+        "description": "Seamlessly convert Arrow dialogues into engine-ready CSV files."
+      },
       "libnfc": {
         "description": "A cross-engine C++ NFC library providing a shared API for Unreal Engine, Unity and Godot."
       },
@@ -54,9 +63,21 @@
       },
       "Castanets": {
         "description": "An ESP32-based rhythm-game controller system using ESP-NOW for wireless communication between a central hub and satellite controllers."
+      },
+      "AMF": {
+        "description": "Async Level Streaming framework focused on VR applications."
       }
     },
     "tools": {
+      "H2G": {
+        "description": "A Python workaround for retrieving and processing HowLongToBeat game data."
+      },
+      "BDU": {
+        "description": "A C# command-line toolkit for automating video game database management"
+      },
+      "BG": {
+        "description": "A React-based single-page application for browsing a catalogue of completed games, organized by year and powered by IGDB data."
+      },
       "PGL": {
         "description": "A hardware-triggered game launcher that uses a USB dongle or custom gadget to launch games."
       },

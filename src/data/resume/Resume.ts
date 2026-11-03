@@ -612,7 +612,7 @@ export async function ResumeContent(t: ResumeTranslator): Promise<ResumeType> {
             Description: t('Jobs.knowledgemill.webapp.description'),
             JobType: JobTypeEnum.WebDev,
             StartDate: Date.parse('2017/07/27'),
-            EndDate: Date.parse('2017/12/15'),
+            EndDate: Date.parse('2017/12/04'),
             techStack: [
               'nodejs',
               'expressjs',

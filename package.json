@@ -18,7 +18,10 @@
     "prepare": "yarn run compile",
     "pretest": "yarn run compile",
     "posttest": "yarn run lint",
-    "cv": "node --import tsx tools/generate-cv.tsx"
+    "cv": "node --import tsx tools/generate-cv.tsx",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@mdx-js/react": "^3",
@@ -34,29 +37,38 @@
     "react-icons": "^5"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/eslintrc": "^3",
     "@mdx-js/loader": "^3",
     "@next/mdx": "^16",
-    "@react-pdf/renderer": "4.9.0",
+    "@react-pdf/renderer": "4",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^7",
+    "@testing-library/react": "^16",
+    "@types/jsdom": "^30",
     "@types/lodash": "^4",
     "@types/mdx": "^2",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@typescript-eslint/eslint-plugin": "^8",
+    "@vitejs/plugin-react": "^6",
+    "@vitest/coverage-v8": "5.1.0",
     "eslint": "^10",
     "eslint-config-next": "^16",
     "esrun": "^3",
     "gray-matter": "^4",
     "gts": "^7",
+    "jsdom": "^30",
     "remark": "^15",
     "remark-gfm": "^4",
     "remark-html": "^16",
     "serve": "^14",
     "tailwindcss": "^4",
-    "tsx": "^4.23.15",
-    "typescript": "^6"
+    "tsx": "^4",
+    "typescript": "^6",
+    "vite": "^8.3.5",
+    "vite-tsconfig-paths": "^6",
+    "vitest": "^5"
   },
   "resolutions": {
     "@react-pdf/hyphenate@npm:^0.1.0": "patch:@react-pdf/hyphenate@npm%3A0.1.0#~/.yarn/patches/@react-pdf-hyphenate-npm-0.1.0-940b22b074.patch"
