@@ -9,6 +9,7 @@ import {pick} from 'lodash';
 import {routing} from '@/i18n/routing';
 import {notFound} from 'next/navigation';
 import {SiteMap} from '@/src/config/sitemap';
+import Script from 'next/script';
 
 const inter = Inter({subsets: ['latin']});
 
@@ -53,6 +54,13 @@ export default async function RootLayout({
           />
           <Layout>{children}</Layout>
         </NextIntlClientProvider>
+        {'/* Cloudflare Web Analytics */'}
+        <Script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "ded3d9c0297f4901b40edb9a35c9e80f"}'
+        ></Script>
+        {'/* End Cloudflare Web Analytics */'}
       </body>
     </html>
   );
