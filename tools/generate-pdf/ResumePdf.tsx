@@ -14,7 +14,6 @@ import {
   TalksType,
 } from '@/src/data/resume/types';
 
-import {OnGoingValue} from '@/src/utils/dates';
 import {ExperienceSelection, ProjectSelection} from '@/src/utils/resumeUtils';
 import {_Translator} from 'use-intl/core';
 import {social} from '@/src/data/about/arrayRRSS';
@@ -70,7 +69,7 @@ export const styles = StyleSheet.create({
   summary: {
     fontSize: 9,
     lineHeight: 1.5,
-    marginBottom: 12,
+    marginBottom: 8,
   },
   sectionTitle: {
     fontSize: 12,
@@ -80,89 +79,7 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#aab0b8',
   },
-  company: {
-    marginBottom: 14,
-  },
-  companyHeading: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginBottom: 3,
-  },
-  companyName: {
-    fontSize: 11,
-    fontFamily: 'Helvetica-Bold',
-    flexGrow: 1,
-  },
-  location: {
-    fontSize: 8,
-    color: '#646b75',
-    textAlign: 'right',
-  },
-  dates: {
-    fontSize: 8,
-    color: '#646b75',
-    marginBottom: 6,
-  },
-  job: {
-    marginBottom: 6,
-    paddingLeft: 8,
-  },
-  jobTitle: {
-    fontSize: 10,
-    fontFamily: 'Helvetica-Bold',
-    marginBottom: 1,
-  },
-  description: {
-    lineHeight: 1,
-    marginBottom: 2,
-  },
-  bullet: {
-    marginLeft: 10,
-    marginBottom: 0,
-    lineHeight: 1,
-  },
-  technologies: {
-    fontSize: 8,
-    color: '#59616d',
-    marginTop: 2,
-    lineHeight: 1.2,
-  },
-  educationItem: {
-    marginBottom: 6,
-  },
-  itemHeading: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-  },
-  itemTitle: {
-    fontSize: 10,
-    fontFamily: 'Helvetica-Bold',
-  },
-  itemSubtitle: {
-    fontSize: 8,
-    color: '#59616d',
-    marginTop: 1,
-  },
-  itemDescription: {
-    fontSize: 9,
-    lineHeight: 1.2,
-    marginTop: 2,
-  },
 });
-
-export function formatYear(
-  timestamp: number,
-  locale: Locale,
-  OnGoing: string,
-): string {
-  if (timestamp === OnGoingValue) return OnGoing;
-
-  return new Date(timestamp).toLocaleDateString(locale, {
-    year: 'numeric',
-  });
-}
 
 export function ResumePdf({
   t,

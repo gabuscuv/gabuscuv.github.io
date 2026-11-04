@@ -1,6 +1,7 @@
 import {ResumeType} from '@/src/data/resume/types';
 import {View, Text} from '@react-pdf/renderer';
-import {styles, formatYear} from '../ResumePdf';
+import {styles} from '../../commonStyle';
+import {getFormatYear} from '@/src/utils/dates';
 
 export function TalksSection({items}: {items: ResumeType['Talks']}) {
   return (
@@ -16,7 +17,7 @@ export function TalksSection({items}: {items: ResumeType['Talks']}) {
           <Text style={styles.itemTitle}>{item.Title}</Text>
 
           <Text style={styles.itemSubtitle}>
-            {item.location} · {formatYear(item.date, 'en', 'Present')}
+            {item.location} · {getFormatYear(item.date, 'en', 'Present')}
           </Text>
         </View>
       ))}

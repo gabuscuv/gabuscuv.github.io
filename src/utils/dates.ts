@@ -1,7 +1,21 @@
+import {Locale} from './resumeUtils';
+
 export const OnGoingValue = 0;
 
 export function getYearLapse(startDate: number, endDate: number): string {
   return ((endDate - startDate) / 1000 / 31536000).toFixed(2);
+}
+
+export function getFormatYear(
+  timestamp: number,
+  locale: Locale,
+  OnGoing: string,
+): string {
+  if (timestamp === OnGoingValue) return OnGoing;
+
+  return new Date(timestamp).toLocaleDateString(locale, {
+    year: 'numeric',
+  });
 }
 
 export function getYearsMonth(locale: string, date: number): string {
