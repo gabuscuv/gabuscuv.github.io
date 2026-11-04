@@ -1,6 +1,7 @@
 import {ResumeType} from '@/src/data/resume/types';
 import {View, Text} from '@react-pdf/renderer';
-import {styles, formatYear} from '../ResumePdf';
+import {styles} from '../../commonStyle';
+import {getFormatYear} from '@/src/utils/dates';
 
 export function CertificateSection({
   items,
@@ -24,7 +25,7 @@ export function CertificateSection({
           </Text>
 
           <Text style={styles.itemSubtitle}>
-            {formatYear(item.date, 'en', 'Present')}
+            {getFormatYear(item.date, 'en', 'Present')}
           </Text>
         </View>
       ))}

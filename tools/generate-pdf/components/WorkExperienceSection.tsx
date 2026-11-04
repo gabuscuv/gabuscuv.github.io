@@ -1,9 +1,8 @@
 import {Link, StyleSheet, Text, View} from '@react-pdf/renderer';
 import type {_Translator} from 'use-intl/core';
-
 import {JobTypeEnum, type JobsType} from '@/src/data/resume/types';
 import {techStack} from '@/src/data/techStack';
-import {getYearsMonthRange, OnGoingValue} from '@/src/utils/dates';
+import {getYearsMonthRange} from '@/src/utils/dates';
 import {
   type ExperienceSelection,
   getWorkEntriesHeader,
@@ -33,7 +32,7 @@ const styles = StyleSheet.create({
     textDecoration: 'none',
   },
   company: {
-    marginBottom: 14,
+    marginBottom: 10,
   },
   companyHeading: {
     flexDirection: 'row',
@@ -57,7 +56,7 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   job: {
-    marginBottom: 6,
+    marginBottom: 4,
     paddingLeft: 8,
   },
   jobTitle: {
@@ -95,18 +94,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export function formatYear(
-  timestamp: number,
-  locale: Locale,
-  ongoing: string,
-): string {
-  if (timestamp === OnGoingValue) return ongoing;
-
-  return new Date(timestamp).toLocaleDateString(locale, {
-    year: 'numeric',
-  });
-}
-
 export function WorkExperienceSection({
   t,
   locale,
@@ -133,7 +120,6 @@ export function WorkExperienceSection({
         <View
           key={`${company.Title}-${company.StartDate}`}
           style={styles.company}
-          wrap={false}
         >
           <View style={styles.companyHeading}>
             {company.Url ? (
@@ -148,8 +134,12 @@ export function WorkExperienceSection({
           </View>
 
           <Text style={styles.dates}>
-            {formatYear(company.StartDate, locale, ongoing)} –{' '}
-            {formatYear(company.EndDate, locale, ongoing)}
+            {getYearsMonthRange(
+              locale,
+              company.StartDate,
+              company.EndDate,
+              ongoing,
+            )}
           </Text>
 
           {company.Jobs.map(job => (
