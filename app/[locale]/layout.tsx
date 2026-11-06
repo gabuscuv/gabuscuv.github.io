@@ -54,13 +54,13 @@ export default async function RootLayout({
           />
           <Layout>{children}</Layout>
         </NextIntlClientProvider>
-        {'/* Cloudflare Web Analytics */'}
+        {/* Cloudflare Web Analytics */}
         <Script
           defer
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon='{"token": "ded3d9c0297f4901b40edb9a35c9e80f"}'
-        ></Script>
-        {'/* End Cloudflare Web Analytics */'}
+        />
+        {/* End Cloudflare Web Analytics */}
       </body>
     </html>
   );
